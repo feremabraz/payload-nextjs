@@ -1,12 +1,8 @@
-# Payload Blank Starter
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/payloadcms/payload/tree/main/templates/with-vercel-postgres&project-name=payload-project&env=PAYLOAD_SECRET&build-command=pnpm%20run%20ci&stores=%5B%7B%22type%22:%22postgres%22%7D,%7B%22type%22:%22blob%22%7D%5D)
+# Payload Next.js
 
 This template comes configured with the bare minimum to get started on anything you need.
 
 ## Quick start
-
-Click the 'Deploy' button above to spin up this template directly into Vercel hosting. It will first prompt you save this template into your own Github repo so that you own the code and can make any changes you want to it.
 
 Set up the following services and secrets and then once the app has been built and deployed you will be able to visit your site at the generated URL.
 From this point on you can access your admin panel at `/admin` of your app URL, create an admin user and then click the 'Seed the database' button in the dashboard to add content into your app.
