@@ -7,7 +7,7 @@
   "scripts": {
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
     "ci": "cross-env PAYLOAD_IGNORE_MIGRATION_DATA_LOSS=true payload migrate && pnpm build",
-    "vercel-build": "cross-env PAYLOAD_SKIP_MIGRATIONS=true NODE_OPTIONS=--no-deprecation next build",
+    "vercel-build": "cross-env NODE_ENV=production PAYLOAD_SKIP_MIGRATIONS=true NODE_OPTIONS='--no-deprecation --max-old-space-size=3072' next build",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
     "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
     "format": "prettier --write .",
