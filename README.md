@@ -1,35 +1,6 @@
-# Payload Next.js
+# Payload and Next.js
 
-This template comes configured with the bare minimum to get started on anything you need.
-
-## Quick start
-
-Set up the following services and secrets and then once the app has been built and deployed you will be able to visit your site at the generated URL.
-From this point on you can access your admin panel at `/admin` of your app URL, create an admin user and then click the 'Seed the database' button in the dashboard to add content into your app.
-
-### Services
-
-This project uses the following services integrated into Vercel which you will need to click "Add" and "Connect" for:
-
-Neon Database - Postgres-based cloud database used to host your data
-
-Vercel Blob Storage - object storage used to host your files such as images and videos
-
-The connection variables will automatically be setup for you on Vercel when these services are connected.
-
-#### Secrets
-
-You will be prompted to add the following secret values to your project. These should be long unguessable strong passwords, you can also use a password manager to generate one for these.
-
-PAYLOAD_SECRET - used by Payload to sign secrets like JWT tokens
-
-## Quick Start - local setup
-
-To spin up this template locally, follow these steps:
-
-### Clone
-
-After you click the `Deploy` button above, you'll want to have standalone copy of this repo on your machine. If you've already cloned this repo, skip to [Development](#development).
+Forked from the official template to handle the Cloudflare sockets issue, see: https://github.com/vercel/next.js/discussions/50177 and for not running unmanned migrations. It also differs in using Tailwind and Shadcn instead of CSS/SAAS.
 
 ### Development
 
@@ -42,16 +13,6 @@ After you click the `Deploy` button above, you'll want to have standalone copy o
 4. open `http://localhost:3000` to open the app in your browser
 
 That's it! Changes made in `./src` will be reflected in your app. Follow the on-screen instructions to login and create your first admin user. Then check out [Production](#production) once you're ready to build and serve your app, and [Deployment](#deployment) when you're ready to go live.
-
-#### Docker (Optional)
-
-If you prefer to use Docker for local development instead of a local Postgres instance, the provided docker-compose.yml file can be used.
-
-To do so, follow these steps:
-
-- Modify the `POSTGRES_URL` in your `.env` file to `postgres://postgres@localhost:54320/<dbname>`
-- Modify the `docker-compose.yml` file's `POSTGRES_DB` to match the above `<dbname>`
-- Run `docker-compose up` to start the database, optionally pass `-d` to run in the background.
 
 ## How it works
 
