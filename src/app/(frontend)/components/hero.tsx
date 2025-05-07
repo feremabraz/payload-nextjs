@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ChevronDown } from 'lucide-react'
 
-export default function Hero() {
+export default async function Hero() {
   return (
     <section
       className="relative h-screen bg-cover bg-center"
@@ -19,10 +19,10 @@ export default function Hero() {
 
         <div className="absolute bottom-24 flex flex-col items-center">
           <Link
-            href="#quote"
+            href="/admin/login"
             className="px-8 py-3 hover:bg-white hover:text-black transition-colors mb-8"
           >
-            GET A QUOTE
+            PAYLOAD ADMIN
           </Link>
 
           <div className="animate-bounce">
