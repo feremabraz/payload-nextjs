@@ -29,7 +29,7 @@ export default function Introduction() {
                 especially users, but also collaborators, builders and designers.
               </p>
               <p className="text-[18px] font-normal leading-[140%] tracking-[-0.02em]">
-                Our core values include continuity with the environment, respect for Portugal's
+                Our core values include continuity with the environment, respect for Portugal&apos;s
                 cultural heritage, innovation, the use of sustainable materials and constructive
                 methods, as well as precision in our work system. These foundations are complemented
                 by transparent communication, a strong focus on eco-friendly building practices, and

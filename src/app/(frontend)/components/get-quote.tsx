@@ -37,7 +37,7 @@ export default function GetQuote() {
             Planning a new project or renovation? Request your budget here! Our team is ready to
             provide you with a personalized quote tailored to your needs. We ensure a transparent
             and efficient process, helping you make informed decisions every step of the way. Simply
-            share your project details, and we'll take care of the rest—because building with
+            share your project details, and we&apos;ll take care of the rest—because building with
             clarity starts with the right estimate.
           </p>
         </div>
