@@ -1,42 +1,43 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { Menu, X, Facebook, Instagram, Linkedin } from 'lucide-react'
+import { Facebook, Instagram, Linkedin, Menu, X } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function MobileMenuFallback() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   // Close menu when clicking outside
   useEffect(() => {
-    if (!isOpen) return
+    if (!isOpen) return;
 
     const handleClickOutside = (e: MouseEvent) => {
-      const target = e.target as HTMLElement
-      if (!target.closest('[data-menu-content]') && !target.closest('[data-menu-trigger]')) {
-        setIsOpen(false)
+      const target = e.target as HTMLElement;
+      if (!target.closest("[data-menu-content]") && !target.closest("[data-menu-trigger]")) {
+        setIsOpen(false);
       }
-    }
+    };
 
-    document.addEventListener('click', handleClickOutside)
-    return () => document.removeEventListener('click', handleClickOutside)
-  }, [isOpen])
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [isOpen]);
 
   // Prevent scrolling when menu is open
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden'
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = ''
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = ''
-    }
-  }, [isOpen])
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   return (
     <>
       <button
+        type="button"
         className="text-white focus:outline-none"
         onClick={() => setIsOpen(true)}
         aria-label="Open menu"
@@ -56,6 +57,7 @@ export default function MobileMenuFallback() {
                 <div className="flex justify-between items-center mb-8">
                   <p className="text-sm">Menu</p>
                   <button
+                    type="button"
                     onClick={() => setIsOpen(false)}
                     className="focus:outline-none"
                     aria-label="Close menu"
@@ -129,5 +131,5 @@ export default function MobileMenuFallback() {
         </div>
       )}
     </>
-  )
+  );
 }

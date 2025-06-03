@@ -1,0 +1,23 @@
+# Development override for docker-compose.yml
+# Use: docker compose -f docker-compose.yml -f docker-compose.dev.yml up
+
+services:
+  app-dev:
+    profiles: []  # Remove profile requirement for easier development
+    environment:
+      - NODE_ENV=development
+      - POSTGRES_URL=postgresql://postgres@postgres:5432/payload_db
+      - CHOKIDAR_USEPOLLING=true  # Better file watching in Docker
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+      - /app/.next
+      - /app/.payload
+    command: sh -c "corepack enable && pnpm install && pnpm dev"
+
+  postgres:
+    environment:
+      POSTGRES_DB: payload_db
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5432:5432"

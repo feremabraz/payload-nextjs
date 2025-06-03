@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import TestimonialCard from './testimonial-card'
+import Link from "next/link";
+import TestimonialCard from "./testimonial-card";
 
 export default function Testimonials() {
   return (
@@ -92,5 +92,5 @@ export default function Testimonials() {
         </div>
       </div>
     </section>
-  )
+  );
 }

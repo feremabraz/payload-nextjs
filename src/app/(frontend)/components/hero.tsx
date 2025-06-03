@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown } from "lucide-react";
+import Link from "next/link";
 
 export default async function Hero() {
   return (
@@ -10,7 +10,7 @@ export default async function Hero() {
           "url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2071&auto=format&fit=crop')",
       }}
     >
-      <div className="absolute inset-0 bg-black/30"></div>
+      <div className="absolute inset-0 bg-black/30" />
 
       <div className="relative h-full flex flex-col justify-center items-center text-white">
         <div className="container mx-auto px-4 flex flex-col items-center">
@@ -63,5 +63,5 @@ export default async function Hero() {
         </div>
       </nav>
     </section>
-  )
+  );
 }

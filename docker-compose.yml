@@ -1,47 +1,88 @@
-version: '3'
-
 services:
-  payload:
-    image: node:20-alpine
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
     ports:
-      - '3000:3000'
-    volumes:
-      - .:/home/node/app
-      - node_modules:/home/node/app/node_modules
-    working_dir: /home/node/app/
-    command: sh -c "corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm install && pnpm dev"
-    depends_on:
-      - postgres
-      # - mongo
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - POSTGRES_URL=postgresql://postgres@postgres:5432/payload_db
     env_file:
       - .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
-  # Ensure your DATABASE_URI uses 'postgresql' as the hostname ie. postgresql://127.0.0.1:5432/your-database-name
-  postgres:
-    restart: always
-    image: postgres:latest
-    volumes:
-      - pgdata:/var/lib/postgresql/data
+  # Development service (alternative to production app)
+  app-dev:
+    image: node:22.12.0-alpine
     ports:
-      - '5432:5432'
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+      - /app/.next
+    working_dir: /app
+    command: sh -c "corepack enable && pnpm install && pnpm dev"
+    environment:
+      - NODE_ENV=development
+      - POSTGRES_URL=postgresql://postgres@postgres:5432/payload_db
+    env_file:
+      - .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    profiles:
+      - dev
+
+  # PostgreSQL database with optimized configuration
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_DB: your-database-name # THIS MUST MATCH YOUR DB NAME IN .env
+      POSTGRES_DB: payload_db
       POSTGRES_HOST_AUTH_METHOD: trust
-
-  # Uncomment the following to use mongodb
-  # mongo:
-  #   image: mongo:latest
-  #   ports:
-  #     - '27017:27017'
-  #   command:
-  #     - --storageEngine=wiredTiger
-  #   volumes:
-  #     - data:/data/db
-  #   logging:
-  #     driver: none
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --lc-collate=en_US.UTF-8 --lc-ctype=en_US.UTF-8"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d payload_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    command: >
+      postgres 
+      -c shared_preload_libraries=pg_stat_statements
+      -c max_connections=200
+      -c shared_buffers=256MB
+      -c effective_cache_size=1GB
+      -c maintenance_work_mem=64MB
+      -c checkpoint_completion_target=0.9
+      -c wal_buffers=16MB
+      -c default_statistics_target=100
 
 volumes:
-  pgdata:
-  # data:
+  postgres_data:
+    driver: local
   node_modules:
+    driver: local
+
+networks:
+  default:
+    name: payload-network
+    driver: bridge

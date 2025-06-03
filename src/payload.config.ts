@@ -1,15 +1,15 @@
-import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
-import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
-import path from 'path'
-import { buildConfig } from 'payload'
-import { fileURLToPath } from 'url'
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { vercelPostgresAdapter } from "@payloadcms/db-vercel-postgres";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
+import { buildConfig } from "payload";
 
-import { Users } from './collections/Users'
-import { Media } from './collections/Media'
+import { Media } from "./collections/Media";
+import { Users } from "./collections/Users";
 
-const filename = fileURLToPath(import.meta.url)
-const dirname = path.dirname(filename)
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
 
 export default buildConfig({
   admin: {
@@ -20,13 +20,13 @@ export default buildConfig({
   },
   collections: [Users, Media],
   editor: lexicalEditor(),
-  secret: process.env.PAYLOAD_SECRET || '',
+  secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
-    outputFile: path.resolve(dirname, 'payload-types.ts'),
+    outputFile: path.resolve(dirname, "payload-types.ts"),
   },
   db: vercelPostgresAdapter({
     pool: {
-      connectionString: process.env.POSTGRES_URL || '',
+      connectionString: process.env.POSTGRES_URL || "",
     },
   }),
   plugins: [
@@ -34,7 +34,7 @@ export default buildConfig({
       collections: {
         media: true,
       },
-      token: process.env.BLOB_READ_WRITE_TOKEN || '',
+      token: process.env.BLOB_READ_WRITE_TOKEN || "",
     }),
   ],
-})
+});

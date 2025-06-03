@@ -1,79 +1,267 @@
-# Payload and Next.js
+# Payload CMS + Next.js Architecture Portfolio
 
-Forked from the official template to handle the Cloudflare sockets issue, see: https://github.com/vercel/next.js/discussions/50177 and for not running unmanned migrations. It also differs in using Tailwind and Shadcn instead of CSS/SAAS.
+A modern full-stack web application built with Payload CMS and Next.js 15.
+
+## ✨ Features
+
+### Frontend
+- **Next.js 15** with App Router and React 19
+- **Tailwind CSS v4** for styling with shadcn/ui components
+- **Responsive Design** optimized for all devices
+- **Type-Safe** with TypeScript throughout
+
+### Backend & CMS
+- **Payload CMS** - Modern headless CMS
+- **PostgreSQL** database with Vercel Postgres adapter
+- **Vercel Blob Storage** for media uploads
+- **GraphQL & REST APIs** auto-generated
+- **Admin Panel** at `/admin` for content management
+- **Database Migrations** with automatic schema management
+
+### Developer Experience
+- **Biome.js** for linting and formatting
+- **TypeScript** with strict configuration
+- **Docker** support for containerized development and deployment
+- **pnpm** for efficient package management
+
+## 🔄 Differences from Payload CMS Template
+
+This project was built using the official Payload CMS Next.js template as a reference but includes a multitude of enhancements and modifications:
+
+### Enhanced Developer Experience and Error Fixing
+- **Biome.js Integration**: Replaced ESLint/Prettier with Biome for faster linting and formatting
+- **Advanced Scripts**: Added comprehensive pnpm scripts for code quality (`check`, `check:fix`, `format:check`)
+- **Advanced Git Hooks**: Uses Husky hooks with commit and pushes conventions programmed in Bash
+- **Type Safety**: Very strict TypeScript configuration with enhanced type checking
+- **Errors from the original are fixed**: Circa of 30 lint errors were fixed, including a bug with Cloudflare sockets preventing deployment
+- **Turbopack**: Enabled stable Turbopack for faster builds
+
+### Database & Storage Improvements
+- **Vercel Postgres**: Integrated with Vercel's managed PostgreSQL service
+- **Vercel Blob Storage**: Configured for scalable media uploads
+- **Database Migrations**: Enhanced migration workflow with additional scripts
+
+### Docker Development Environment
+- **Multi-stage Docker Setup**: Separate development and production configurations
+- **Docker Compose Profiles**: Organized services with development and production profiles
+- **Optimized PostgreSQL**: Custom PostgreSQL configuration for performance
+
+### Frontend Enhancements
+- **Tailwind CSS v4**: Latest version with modern configuration
+- **shadcn/ui Components**: Pre-configured component library integration
+- **Theme Provider**: Custom theme management system
+- **Responsive Design**: Enhanced mobile-first approach
+
+### Project Structure Modifications
+- **Organized Collections**: Structured collections directory with Users and Media
+- **Shared Components**: Dedicated shared UI components directory
+- **Frontend/Payload Separation**: Clear separation between public site and admin interface
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js LTS
+- pnpm
+- PostgreSQL database
+
+### Development Setup
+
+1. **Clone and setup environment**
+   ```fish
+   git clone <your-repo-url>
+   cd payload-nextjs
+   cp .env.example .env
+   ```
+
+2. **Configure environment variables**
+   Edit `.env` with your database and storage credentials:
+   ```env
+   POSTGRES_URL=postgresql://user:password@localhost:5432/payload_db
+   PAYLOAD_SECRET=your-secret-key-here
+   BLOB_READ_WRITE_TOKEN=your-vercel-blob-token
+   ```
+
+3. **Install dependencies and start development**
+   ```fish
+   pnpm install
+   pnpm dev
+   ```
+
+4. **Access the application**
+   - Frontend: http://localhost:3000
+   - Admin Panel: http://localhost:3000/admin
+   - GraphQL Playground: http://localhost:3000/api/graphql-playground
+
+## 🐳 Docker Development
+
+For a consistent development environment across teams:
+
+### Development with Docker
+```fish
+# Start development environment
+docker compose --profile dev up
+
+# Or start in background
+docker compose --profile dev up -d
+
+# View logs
+docker compose logs -f app-dev
+```
+
+### Production with Docker
+```fish
+# Build and start production environment
+docker compose up --build
+
+# Or start in background
+docker compose up -d
+```
+
+### Docker Services
+- **app**: Production Next.js application
+- **app-dev**: Development environment with hot reload
+- **postgres**: PostgreSQL 16 with optimized configuration
+
+## 📁 Project Structure
+
+```
+src/
+├── app/
+│   ├── (frontend)/          # Public website pages
+│   │   ├── components/      # React components
+│   │   ├── layout.tsx       # Frontend layout
+│   │   └── page.tsx         # Homepage
+│   ├── (payload)/          # CMS admin interface
+│   │   └── admin/          # Auto-generated admin pages
+│   └── shared/             # Shared components and utilities
+│       └── components/ui/  # shadcn/ui components
+├── collections/            # Payload CMS collections
+│   ├── Users.ts           # User authentication
+│   └── Media.ts           # File uploads
+├── migrations/            # Database migrations
+└── payload.config.ts      # Payload CMS configuration
+```
+
+## 🗄️ Database Management
+
+### Migrations
+This project uses PostgreSQL with automatic migrations:
+
+```fish
+# Create a new migration
+pnpm payload migrate:create
+
+# Run pending migrations
+pnpm payload migrate
+
+# Reset database (development only)
+pnpm payload migrate:reset
+```
+
+### Database Schema
+- **users**: Authentication and user management
+- **media**: File uploads with metadata
+- **payload_***: CMS system tables
+
+## 🎨 Customization
+
+### Frontend Styling
+- Modify `tailwind.config.js` for design tokens
+- Edit components in `src/app/(frontend)/components/`
+- Customize themes in `src/app/shared/components/theme-provider.tsx`
+
+### CMS Configuration
+- Add collections in `src/collections/`
+- Configure fields and relationships in collection files
+- Customize admin UI in `src/payload.config.ts`
+
+### Content Management
+1. Create your first admin user at `/admin`
+2. Upload media files through the admin panel
+3. Manage content via the CMS interface
+4. Content is automatically available via API endpoints
+
+## 🔧 Available Scripts
 
 ### Development
-
-1. First [clone the repo](#clone) if you have not done so already
-2. `cd my-project && cp .env.example .env` to copy the example environment variables. You'll need to add the `POSTGRES_URL` and `BLOB_READ_WRITE_TOKEN` from your Vercel project to your `.env` if you want to use Vercel Blob and the Neon database that was created for you.
-
-   > _NOTE: If the connection string value includes `localhost` or `127.0.0.1`, the code will automatically use a normal postgres adapter instead of Vercel._. You can override this functionality by setting `forceUseVercelPostgres: true` if desired.
-
-3. `pnpm install && pnpm dev` to install dependencies and start the dev server
-4. open `http://localhost:3000` to open the app in your browser
-
-That's it! Changes made in `./src` will be reflected in your app. Follow the on-screen instructions to login and create your first admin user. Then check out [Production](#production) once you're ready to build and serve your app, and [Deployment](#deployment) when you're ready to go live.
-
-## How it works
-
-The Payload config is tailored specifically to the needs of most websites. It is pre-configured in the following ways:
-
-### Collections
-
-See the [Collections](https://payloadcms.com/docs/configuration/collections) docs for details on how to extend this functionality.
-
-- #### Users (Authentication)
-
-  Users are auth-enabled collections that have access to the admin panel.
-
-  For additional help, see the official [Auth Example](https://github.com/payloadcms/payload/tree/main/examples/auth) or the [Authentication](https://payloadcms.com/docs/authentication/overview#authentication-overview) docs.
-
-- #### Media
-
-  This is the uploads enabled collection. It features pre-configured sizes, focal point and manual resizing to help you manage your pictures.
-
-## Working with Postgres
-
-Postgres and other SQL-based databases follow a strict schema for managing your data. In comparison to our MongoDB adapter, this means that there's a few extra steps to working with Postgres.
-
-Note that often times when making big schema changes you can run the risk of losing data if you're not manually migrating it.
-
-### Local development
-
-Ideally we recommend running a local copy of your database so that schema updates are as fast as possible. By default the Postgres adapter has `push: true` for development environments. This will let you add, modify and remove fields and collections without needing to run any data migrations.
-
-If your database is pointed to production you will want to set `push: false` otherwise you will risk losing data or having your migrations out of sync.
-
-#### Migrations
-
-[Migrations](https://payloadcms.com/docs/database/migrations) are essentially SQL code versions that keeps track of your schema. When deploy with Postgres you will need to make sure you create and then run your migrations.
-
-Locally create a migration
-
-```bash
-pnpm payload migrate:create
+```fish
+pnpm dev          # Start development server
+pnpm devsafe      # Clean start (removes .next)
 ```
 
-This creates the migration files you will need to push alongside with your new configuration.
-
-On the server after building and before running `pnpm start` you will want to run your migrations
-
-```bash
-pnpm payload migrate
+### Building & Production
+```fish
+pnpm build        # Build for production
+pnpm start        # Start production server
+pnpm ci           # Build with migrations
 ```
 
-This command will check for any migrations that have not yet been run and try to run them and it will keep a record of migrations that have been run in the database.
+### Code Quality
+```fish
+pnpm lint          # Lint code with Biome
+pnpm lint:fix      # Fix linting issues
+pnpm format        # Format code
+pnpm format:check  # Check formatting
+pnpm check         # Run all checks
+pnpm check:fix     # Fix all issues
+pnpm typecheck     # TypeScript checking
+```
 
-### Docker
+### Payload CMS
+```fish
+pnpm payload migrate:create      # Create migration
+pnpm payload migrate             # Run migrations
+pnpm payload generate:types      # Generate TypeScript types
+pnpm payload generate:importmap  # Generate import map
+```
 
-Alternatively, you can use [Docker](https://www.docker.com) to spin up this template locally. To do so, follow these steps:
+## 📝 API Documentation
 
-1. Follow [steps 1 and 2 from above](#development), the docker-compose file will automatically use the `.env` file in your project root
-1. Next run `docker-compose up`
-1. Follow [steps 4 and 5 from above](#development) to login and create your first admin user
+### REST API
+- **Collections**: `/api/<collection-name>`
+- **Authentication**: `/api/users/login`, `/api/users/logout`
+- **Media**: `/api/media`
 
-That's it! The Docker instance will help you get up and running quickly while also standardizing the development environment across your teams.
+### GraphQL
+- **Endpoint**: `/api/graphql`
+- **Playground**: `/api/graphql-playground`
 
-## Questions
+All APIs are automatically generated by Payload CMS based on your collections.
 
-If you have any issues or questions, reach out to us on [Discord](https://discord.com/invite/payload) or start a [GitHub discussion](https://github.com/payloadcms/payload/discussions).
+## 🚀 Deployment
+
+### Vercel (Recommended)
+1. Connect your repository to Vercel
+2. Set environment variables in the Vercel dashboard
+3. Deploy automatically on push to main branch
+
+### Self-Hosted with Docker
+```fish
+# Build production image
+docker build -t payload-nextjs .
+
+# Run with environment variables
+docker run -p 3000:3000 --env-file .env payload-nextjs
+```
+
+### Environment Variables for Production
+```env
+NODE_ENV=production
+POSTGRES_URL=your-production-db-url
+PAYLOAD_SECRET=your-production-secret
+BLOB_READ_WRITE_TOKEN=your-blob-token
+NEXT_PUBLIC_SITE_URL=https://yourdomain.com
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature-name`
+3. Make your changes and ensure code quality:
+   ```fish
+   pnpm check:fix
+   pnpm typecheck
+   ```
+4. Commit your changes: `git commit -m 'Add feature'`
+5. Push to the branch: `git push origin feature-name`
+6. Submit a pull request

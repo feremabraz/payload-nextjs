@@ -1,31 +1,32 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import Link from 'next/link'
-import { Menu, X, Facebook, Instagram, Linkedin } from 'lucide-react'
-import { Sheet, SheetContent, SheetTrigger } from '@/app/shared/components/ui/sheet'
+import { Sheet, SheetContent, SheetTrigger } from "@/app/shared/components/ui/sheet";
+import { Facebook, Instagram, Linkedin, Menu, X } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function MobileMenu() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleLinkClick = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   // Explicit handler for menu button click
   const handleMenuClick = () => {
-    setIsOpen(true)
-  }
+    setIsOpen(true);
+  };
 
   // Explicit handler for close button click
   const handleCloseClick = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         <button
+          type="button"
           className="text-white focus:outline-none"
           onClick={handleMenuClick}
           aria-label="Open menu"
@@ -44,6 +45,7 @@ export default function MobileMenu() {
             <div className="flex justify-between items-center mb-8">
               <p className="text-sm">Menu</p>
               <button
+                type="button"
                 onClick={handleCloseClick}
                 className="focus:outline-none"
                 aria-label="Close menu"
@@ -91,5 +93,5 @@ export default function MobileMenu() {
         </div>
       </SheetContent>
     </Sheet>
-  )
+  );
 }

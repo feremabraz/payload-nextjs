@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import Image from 'next/image'
-import MobileMenu from './mobile-menu'
+import Image from "next/image";
+import Link from "next/link";
+import MobileMenu from "./mobile-menu";
 
 export default function Header() {
   return (
@@ -34,5 +34,5 @@ export default function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }

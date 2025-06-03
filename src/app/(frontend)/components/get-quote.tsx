@@ -1,31 +1,31 @@
-'use client'
+"use client";
 
-import type React from 'react'
+import type React from "react";
 
-import { useState } from 'react'
-import { Input } from '@/app/shared/components/ui/input'
-import { Textarea } from '@/app/shared/components/ui/textarea'
-import { Button } from '@/app/shared/components/ui/button'
+import { Button } from "@/app/shared/components/ui/button";
+import { Input } from "@/app/shared/components/ui/input";
+import { Textarea } from "@/app/shared/components/ui/textarea";
+import { useState } from "react";
 
 export default function GetQuote() {
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    subject: '',
-    message: '',
-  })
+    name: "",
+    phone: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log('Form submitted:', formData)
+    e.preventDefault();
+    console.log("Form submitted:", formData);
     // Here you would typically send the data to your backend
-  }
+  };
 
   return (
     <section id="quote" className="py-20 bg-white">
@@ -134,5 +134,5 @@ export default function GetQuote() {
         </form>
       </div>
     </section>
-  )
+  );
 }
