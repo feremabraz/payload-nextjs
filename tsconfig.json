@@ -20,7 +20,15 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@payload-config": ["./src/payload.config.ts"]
+      "@payload-config": ["./src/payload.config.ts"],
+      "@components/*": ["./src/app/(frontend)/components/*"],
+      "@shared-components/*": ["./src/app/shared/components/*"],
+      "@utils/*": ["./src/app/shared/utils/*"],
+      "@ui/*": ["./src/app/shared/components/ui/*"],
+      "@lib/*": ["./src/app/shared/lib/*"],
+      "@hooks/*": ["./src/app/shared/hooks/*"],
+      "@store/*": ["./src/app/shared/store/*"],
+      "@shared-types/*": ["./src/app/shared/types/*"]
     },
     "target": "ES2022"
   },

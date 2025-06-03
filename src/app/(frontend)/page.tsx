@@ -2,13 +2,13 @@ import { headers as getHeaders } from "next/headers.js";
 import { getPayload } from "payload";
 import React from "react";
 
-import AboutUs from "./components/about-us";
-import Blog from "./components/blog";
-import GetQuote from "./components/get-quote";
-import Hero from "./components/hero";
-import Introduction from "./components/introduction";
-import Projects from "./components/projects";
-import Testimonials from "./components/testimonials";
+import Hero from "@components/hero";
+import ProjectsSection from "@components/projects-section";
+import TestimonialsSection from "@components/testimonial-section";
+import WhoAreWe from "@components/who-are-we";
+import BudgetRequest from "./components/buget-request";
+
+import { projects } from "@lib/project-data";
 
 import config from "@/payload.config";
 
@@ -21,12 +21,10 @@ export default async function HomePage() {
   return (
     <>
       <Hero />
-      <Introduction />
-      <Projects />
-      <AboutUs />
-      <Testimonials />
-      <Blog />
-      <GetQuote />
+      <WhoAreWe />
+      <ProjectsSection projects={projects} />
+      <TestimonialsSection />
+      <BudgetRequest />
     </>
   );
 }

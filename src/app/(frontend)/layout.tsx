@@ -3,9 +3,6 @@ import { Titillium_Web } from "next/font/google";
 import type React from "react";
 import "../global.css";
 
-import Footer from "./components/footer";
-import Header from "./components/header";
-
 const titilliumWeb = Titillium_Web({
   subsets: ["latin"],
   weight: ["200", "300", "400", "600", "700", "900"],
@@ -25,9 +22,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${titilliumWeb.className} font-titillium`}>
-        <Header />
         <main>{children}</main>
-        <Footer />
       </body>
     </html>
   );
