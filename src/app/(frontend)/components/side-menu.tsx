@@ -1,6 +1,7 @@
+import { FacebookIcon, InstagramIcon, LinkedInIcon } from "@ui/brands";
 import { Button } from "@ui/button";
 import { SheetClose } from "@ui/sheet";
-import { Facebook, Instagram, Linkedin, X } from "lucide-react";
+import { X } from "lucide-react";
 import Link from "next/link";
 
 const menuItems = [
@@ -13,9 +14,9 @@ const menuItems = [
 ];
 
 const socialLinks = [
-  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+  { icon: FacebookIcon, href: "https://facebook.com", label: "Facebook" },
+  { icon: InstagramIcon, href: "https://instagram.com", label: "Instagram" },
+  { icon: LinkedInIcon, href: "https://linkedin.com", label: "LinkedIn" },
 ];
 
 export function SideMenu() {

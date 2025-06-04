@@ -2,13 +2,15 @@ import { headers as getHeaders } from "next/headers.js";
 import { getPayload } from "payload";
 import React from "react";
 
-import BudgetRequestSection from "@/app/(frontend)/components/buget-request-section";
-import HeroSection from "@/app/(frontend)/components/hero-section";
-import WhoAreWeSection from "@/app/(frontend)/components/who-are-we-section";
 import BlogNewsSection from "@components/blog-news-section";
+import BudgetRequestSection from "@components/buget-request-section";
+import FooterSection from "@components/footer-section";
+import HeroSection from "@components/hero-section";
+import NewsletterSection from "@components/newsletter-section";
 import ProjectsSection from "@components/projects-section";
 import StudioSection from "@components/studio-section";
 import TestimonialsSection from "@components/testimonial-section";
+import WhoAreWeSection from "@components/who-are-we-section";
 
 import config from "@/payload.config";
 
@@ -27,6 +29,8 @@ export default async function HomePage() {
       <BudgetRequestSection />
       <StudioSection />
       <BlogNewsSection />
+      <NewsletterSection />
+      <FooterSection />
     </>
   );
 }
