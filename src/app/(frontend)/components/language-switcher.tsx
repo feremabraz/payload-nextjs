@@ -22,14 +22,16 @@ export function LanguageSwitcher() {
             variant="ghost"
             size="sm"
             className={cn(
-              "p-1 text-sm font-medium hover:bg-white/10 hover:text-white",
+              "p-1 text-xs sm:text-sm font-medium hover:bg-white/10 hover:text-white",
               language === lang.id ? "text-white" : "text-white/70",
             )}
             onClick={() => setLanguage(lang.id)}
           >
             {lang.label}
           </Button>
-          {index < languages.length - 1 && <span className="text-white/70">|</span>}
+          {index < languages.length - 1 && (
+            <span className="text-white/70 text-xs sm:text-sm">|</span>
+          )}
         </div>
       ))}
     </div>

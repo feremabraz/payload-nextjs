@@ -22,7 +22,7 @@ function HeroImage() {
 
 function HeroText() {
   return (
-    <div className="relative w-[550px] h-[162px] aspect-[275/81]">
+    <div className="relative w-full max-w-[550px] h-[80px] sm:h-[120px] md:h-[162px] aspect-[275/81]">
       <Image
         src="/hero-text-image.png"
         alt="Bruno Câmara Arquitectos"
@@ -38,12 +38,12 @@ export default function HeroSection() {
   const [isMenuOpen, setIsMenuOpen] = useAtom(isMenuOpenAtom);
   return (
     <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-      <section className="relative self-stretch w-full h-[772px] bg-cover bg-center bg-no-repeat">
+      <section className="relative self-stretch w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[772px] bg-cover bg-center bg-no-repeat">
         <HeroImage />
         <div className="absolute inset-0 z-0 bg-black/20" />
-        <div className="relative z-10 flex flex-col w-full h-full px-[49px] py-[31px]">
+        <div className="relative z-10 flex flex-col w-full h-full px-[20px] sm:px-[30px] md:px-[49px] py-[20px] sm:py-[31px]">
           <NavigationBar />
-          <div className="flex flex-col items-center justify-start flex-grow w-full pt-[454px]">
+          <div className="flex flex-col items-center justify-start flex-grow w-full pt-[250px] sm:pt-[350px] md:pt-[400px] lg:pt-[454px]">
             <HeroText />
           </div>
         </div>

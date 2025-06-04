@@ -29,28 +29,28 @@ export function SectionContainer({
 }: SectionContainerProps) {
   const paddingYClasses = {
     none: "py-0",
-    sm: "py-[50px]",
-    md: "py-[75px]",
-    lg: "py-[100px]",
-    xl: "py-[125px]",
+    sm: "py-[30px] md:py-[50px]",
+    md: "py-[50px] md:py-[75px]",
+    lg: "py-[60px] md:py-[100px]",
+    xl: "py-[80px] md:py-[125px]",
     custom: "", // allows for override
   };
 
   const paddingXClasses = {
     none: "px-0",
-    sm: "px-[24px]",
-    md: "px-[36px]",
-    lg: "px-[48px]",
-    xl: "px-[64px]",
+    sm: "px-[16px] md:px-[24px]",
+    md: "px-[20px] md:px-[36px]",
+    lg: "px-[24px] md:px-[48px]",
+    xl: "px-[32px] md:px-[64px]",
     custom: "",
   };
 
   const gapClasses = {
     none: "gap-0",
-    sm: "gap-[24px]",
-    md: "gap-[36px]",
-    lg: "gap-[48px]",
-    xl: "gap-[64px]",
+    sm: "gap-[16px] md:gap-[24px]",
+    md: "gap-[24px] md:gap-[36px]",
+    lg: "gap-[32px] md:gap-[48px]",
+    xl: "gap-[40px] md:gap-[64px]",
     custom: "",
   };
 
@@ -91,13 +91,13 @@ export function SectionContainer({
 
 export function SectionHeader({ title, linkHref, linkText }: SectionHeaderProps) {
   return (
-    <header className="flex flex-col items-center gap-[12px]">
-      <h1 className="text-[#000000] text-center font-medium text-[100px] leading-[1.2] tracking-[-4px]">
+    <header className="flex flex-col items-center gap-[12px] px-4 sm:px-0">
+      <h1 className="text-[#000000] text-center font-medium text-[40px] sm:text-[60px] md:text-[80px] lg:text-[100px] leading-[1.2] tracking-[-2px] md:tracking-[-4px]">
         {title}
       </h1>
       <Link
         href={linkHref}
-        className="text-[#121212] text-center font-normal text-[18px] leading-[1.4] tracking-[-0.36px] uppercase hover:text-neutral-sub-title transition-colors"
+        className="text-[#121212] text-center font-normal text-[14px] sm:text-[16px] md:text-[18px] leading-[1.4] tracking-[-0.28px] md:tracking-[-0.36px] uppercase hover:text-neutral-sub-title transition-colors"
       >
         {linkText}
       </Link>

@@ -9,10 +9,10 @@ export function MenuToggle() {
     <SheetTrigger asChild>
       <Button
         variant="ghost"
-        className="w-10 h-10 aspect-square text-white hover:bg-white/10 hover:text-white p-0"
+        className="w-8 h-8 sm:w-10 sm:h-10 aspect-square text-white hover:bg-white/10 hover:text-white p-0"
         aria-label={"Open menu"}
       >
-        <Menu className="w-full h-full" />
+        <Menu className="w-5 h-5 sm:w-full sm:h-full" />
       </Button>
     </SheetTrigger>
   );

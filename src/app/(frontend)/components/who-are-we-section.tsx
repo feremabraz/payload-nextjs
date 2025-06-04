@@ -15,12 +15,12 @@ export default function WhoAreWeSection() {
     <SectionContainer paddingY="xl" gap="xl" maxWidth="xl">
       <section className="w-full">
         <nav>
-          <ul className="flex items-center justify-center gap-3">
+          <ul className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
             {navItems.map((item) => (
               <li key={item.name}>
                 <Link
                   href={item.href}
-                  className="text-md font-medium tracking-wider uppercase text-neutral-600 hover:text-[#000000] transition-colors"
+                  className="text-xs sm:text-sm md:text-md font-medium tracking-wider uppercase text-neutral-600 hover:text-[#000000] transition-colors px-1 py-1"
                 >
                   {item.name}
                 </Link>
@@ -29,14 +29,14 @@ export default function WhoAreWeSection() {
           </ul>
         </nav>
       </section>
-      <section className="flex flex-col items-center gap-12 w-full">
-        <h1 className="w-full text-center font-medium text-[#000000] text-[32px] leading-[1.2] tracking-[-1.28px] text-balance">
+      <section className="flex flex-col items-center gap-8 md:gap-12 w-full">
+        <h1 className="w-full text-center font-medium text-[#000000] text-[20px] sm:text-[24px] md:text-[28px] lg:text-[32px] leading-[1.2] tracking-[-0.8px] sm:tracking-[-1.28px] text-balance px-4">
           Innovative and Enduring Architecture That Respects Culture, Enhances Spaces, and Elevates
           Everyday Life
         </h1>
-        <div className="flex items-start gap-12 w-full">
-          <div className="w-[437px] flex-shrink-0">
-            <p className="text-[#000000] font-normal text-[18px] leading-[1.4] tracking-[-0.36px]">
+        <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 w-full">
+          <div className="w-full lg:w-[437px] lg:flex-shrink-0">
+            <p className="text-[#000000] font-normal text-[14px] sm:text-[16px] md:text-[18px] leading-[1.4] tracking-[-0.28px] md:tracking-[-0.36px]">
               Bruno Câmara Architects is a contemporary architecture firm committed to creating
               spaces that are as functional and sustainable as they are beautiful and inspiring. Our
               work is guided by the belief that architecture should serve people while respecting
@@ -45,8 +45,8 @@ export default function WhoAreWeSection() {
               and timeless aesthetic value.
             </p>
           </div>
-          <div className="flex flex-1 flex-col items-start gap-3">
-            <p className="text-[#000000] font-normal text-[18px] leading-[1.4] tracking-[-0.36px]">
+          <div className="flex flex-1 flex-col items-start gap-3 w-full">
+            <p className="text-[#000000] font-normal text-[14px] sm:text-[16px] md:text-[18px] leading-[1.4] tracking-[-0.28px] md:tracking-[-0.36px]">
               With a constant drive for excellence, we carefully manage each phase of the
               architectural process—from design to implementation—ensuring that every project meets
               the highest standards in quality, innovation, and technical performance. Our goal is

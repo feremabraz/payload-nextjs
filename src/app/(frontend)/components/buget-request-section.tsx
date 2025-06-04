@@ -6,23 +6,23 @@ import { Textarea } from "@ui/textarea";
 
 export default function BudgetRequestSection() {
   const inputStyles =
-    "border-0 border-b border-[#a4acb9] rounded-none focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-[#000000] placeholder:text-[#a4acb9] bg-transparent w-full py-3 px-1 text-base";
-  const labelStyles = "text-sm text-[#000000] mb-1 block font-medium";
+    "border-0 border-b border-[#a4acb9] rounded-none focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-[#000000] placeholder:text-[#a4acb9] bg-transparent w-full py-3 px-1 text-sm md:text-base";
+  const labelStyles = "text-xs md:text-sm text-[#000000] mb-1 block font-medium";
 
   return (
     <SectionContainer>
-      <div className="w-full max-w-3xl">
-        <header className="mb-10 text-center">
-          <h1 className="text-[#000000] text-center font-medium text-[100px] leading-[1.2] tracking-[-4px] mb-6">
+      <div className="w-full max-w-3xl px-4 sm:px-0">
+        <header className="mb-8 md:mb-10 text-center">
+          <h1 className="text-[#000000] text-center font-medium text-[40px] sm:text-[60px] md:text-[80px] lg:text-[100px] leading-[1.2] tracking-[-2px] md:tracking-[-4px] mb-4 md:mb-6">
             BUDGET REQUEST
           </h1>
-          <p className="text-base md:text-lg text-[#000000] max-w-md mx-auto">
+          <p className="text-sm md:text-base lg:text-lg text-[#000000] max-w-md mx-auto px-4">
             Tell us about your project and receive a personalized quote tailored to your goals. No
             commitment — just a clear plan and expert insight to get started.
           </p>
         </header>
         <main>
-          <form className="space-y-8">
+          <form className="space-y-6 md:space-y-8">
             <div>
               <Label htmlFor="name" className={labelStyles}>
                 Name* (Required)
@@ -70,13 +70,13 @@ export default function BudgetRequestSection() {
                 id="message"
                 name="message"
                 placeholder="Input your Message Here"
-                className={`${inputStyles} min-h-[100px]`}
+                className={`${inputStyles} min-h-[80px] md:min-h-[100px]`}
                 rows={4}
               />
             </div>
             <Button
               type="submit"
-              className="w-full rounded-xs bg-[#121212] text-[#ffffff] hover:bg-[#121212]/90 py-6 text-base font-semibold"
+              className="w-full rounded-xs bg-[#121212] text-[#ffffff] hover:bg-[#121212]/90 py-4 md:py-6 text-sm md:text-base font-semibold"
             >
               Submit
             </Button>
