@@ -7,8 +7,7 @@ import ProjectsSection from "@components/projects-section";
 import TestimonialsSection from "@components/testimonial-section";
 import WhoAreWe from "@components/who-are-we";
 import BudgetRequest from "./components/buget-request";
-
-import { projects } from "@lib/project-data";
+import StudioSection from "./components/studio-section";
 
 import config from "@/payload.config";
 
@@ -22,9 +21,10 @@ export default async function HomePage() {
     <>
       <Hero />
       <WhoAreWe />
-      <ProjectsSection projects={projects} />
+      <ProjectsSection />
       <TestimonialsSection />
       <BudgetRequest />
+      <StudioSection />
     </>
   );
 }

@@ -1,12 +1,7 @@
 import { ProjectGallery } from "@components/project-gallery";
-import type { ProjectItem } from "@shared-types/projects";
 import Link from "next/link";
 
-interface ProjectsSectionProps {
-  projects: ProjectItem[];
-}
-
-export default function ProjectsSection({ projects }: ProjectsSectionProps) {
+export default function ProjectsSection() {
   return (
     <div className="bg-[#ffffff] text-[#000000] flex flex-col items-center p-8 gap-10 w-full">
       <header className="flex flex-col items-center gap-3 text-center">
@@ -20,7 +15,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
           GO TO PROJECTS
         </Link>
       </header>
-      <ProjectGallery projects={projects} />
+      <ProjectGallery />
     </div>
   );
 }

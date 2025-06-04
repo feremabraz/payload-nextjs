@@ -13,7 +13,6 @@ export const metadata: Metadata = {
   title: "CVZ Construções",
   description:
     "Portuguese construction company specializing in residential, cultural, corporate and public projects",
-  generator: "v0.dev",
 };
 
 export default async function RootLayout(props: { children: React.ReactNode }) {

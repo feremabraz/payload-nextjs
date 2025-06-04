@@ -27,7 +27,7 @@ function HeroText() {
         src="/hero-text-image.png"
         alt="Bruno Câmara Arquitectos"
         fill
-        objectFit="contain"
+        style={{ objectFit: "contain" }}
         priority
       />
     </div>
