@@ -34,7 +34,7 @@ function HeroText() {
   );
 }
 
-export default function Hero() {
+export default function HeroSection() {
   const [isMenuOpen, setIsMenuOpen] = useAtom(isMenuOpenAtom);
   return (
     <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>

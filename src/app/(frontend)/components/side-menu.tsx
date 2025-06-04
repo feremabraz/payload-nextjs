@@ -9,7 +9,6 @@ const menuItems = [
   { label: "STUDIO", href: "/studio" },
   { label: "BLOG AND NEWS", href: "/blog" },
   { label: "OPEN JOBS", href: "/jobs" },
-  { label: "STORE", href: "/store" },
   { label: "BUDGET REQUEST", href: "/budget-request" },
 ];
 

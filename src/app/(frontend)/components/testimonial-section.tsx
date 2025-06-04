@@ -1,7 +1,7 @@
+import { SectionContainer, SectionHeader } from "@components/section";
 import { TestimonialCard } from "@components/testimonial-card";
 import { testimonials } from "@lib/testimonial-data";
 import type { Testimonial } from "@shared-types/testimonials";
-import Link from "next/link";
 
 function getTestimonialColumns(testimonials: Testimonial[]) {
   if (testimonials.length === 0) return [];
@@ -24,19 +24,9 @@ export default function TestimonialsSection() {
   const columns = getTestimonialColumns(testimonials);
 
   return (
-    <section className="bg-[#ffffff] flex flex-col items-center max-w-[1440px] py-[100px] px-[48px] gap-[48px] mx-auto">
-      <div className="flex flex-col items-center gap-[12px]">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#121212] text-center">
-          TESTIMONIALS
-        </h2>
-        <Link
-          href="#"
-          className="text-[#121212] text-center text-[18px] font-normal leading-[140%] tracking-[-0.36px] uppercase hover:underline"
-        >
-          Go to Testimonials
-        </Link>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[12px] self-stretch">
+    <SectionContainer>
+      <SectionHeader title="TESTIMONIALS" linkHref="#" linkText="GO TO TESTIMONIALS" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[12px] w-full">
         {columns.map((columnTestimonials) => {
           const columnKey = columnTestimonials.map((t) => t.id).join("-");
           return (
@@ -48,6 +38,6 @@ export default function TestimonialsSection() {
           );
         })}
       </div>
-    </section>
+    </SectionContainer>
   );
 }
