@@ -6,7 +6,11 @@ import { currentLanguageAtom } from "@store/atoms";
 import { Button } from "@ui/button";
 import { useAtom } from "jotai";
 
-export function LanguageSwitcher() {
+interface LanguageSwitcherProps {
+  background?: "light" | "dark";
+}
+
+export function LanguageSwitcher({ background = "dark" }: LanguageSwitcherProps) {
   const [language, setLanguage] = useAtom(currentLanguageAtom);
 
   const languages: { id: Language; label: string }[] = [
@@ -14,23 +18,48 @@ export function LanguageSwitcher() {
     { id: "pt", label: "PT" },
   ];
 
+  const backgroundClasses = {
+    light: {
+      container: "text-black",
+      activeButton: "text-black",
+      inactiveButton: "text-black/70",
+      hoverBg: "hover:bg-black/10",
+      hoverText: "hover:text-black",
+      separator: "text-black/70",
+    },
+    dark: {
+      container: "text-white",
+      activeButton: "text-white",
+      inactiveButton: "text-white/70",
+      hoverBg: "hover:bg-white/10",
+      hoverText: "hover:text-white",
+      separator: "text-white/70",
+    },
+  };
+
+  const currentBackground = backgroundClasses[background];
+
   return (
-    <div className="flex items-center text-white">
+    <div className={cn("flex items-center", currentBackground.container)}>
       {languages.map((lang, index) => (
         <div key={lang.id}>
           <Button
             variant="ghost"
-            size="sm"
+            size="default"
             className={cn(
-              "p-1 text-xs sm:text-sm font-medium hover:bg-white/10 hover:text-white",
-              language === lang.id ? "text-white" : "text-white/70",
+              "px-3 py-2 text-lg sm:text-base font-medium",
+              currentBackground.hoverBg,
+              currentBackground.hoverText,
+              language === lang.id
+                ? currentBackground.activeButton
+                : currentBackground.inactiveButton,
             )}
             onClick={() => setLanguage(lang.id)}
           >
             {lang.label}
           </Button>
           {index < languages.length - 1 && (
-            <span className="text-white/70 text-xs sm:text-sm">|</span>
+            <span className={cn("text-lg sm:text-base mx-1", currentBackground.separator)}>|</span>
           )}
         </div>
       ))}

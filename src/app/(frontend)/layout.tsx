@@ -10,7 +10,7 @@ const titilliumWeb = Titillium_Web({
 });
 
 export const metadata: Metadata = {
-  title: "CVZ Construções",
+  title: "Bruno Câmara Arquitetos",
   description:
     "Portuguese construction company specializing in residential, cultural, corporate and public projects",
 };

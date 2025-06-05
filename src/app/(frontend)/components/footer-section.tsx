@@ -1,6 +1,6 @@
+import { FooterLogo } from "@components/footer-logo";
 import { SectionContainer } from "@components/section";
 import { FacebookIcon, InstagramIcon, LinkedInIcon } from "@ui/brands";
-import Image from "next/image";
 import Link from "next/link";
 import type React from "react";
 
@@ -17,15 +17,7 @@ export default function FooterSection() {
     <SectionContainer className="bg-[#0d0d12] text-[#ffffff]">
       <div className="flex flex-col lg:flex-row justify-between gap-8 sm:gap-10 md:gap-12 lg:gap-16 w-full">
         <div className="space-y-6 sm:space-y-8 lg:w-3/4">
-          <Link href="/" aria-label="Bruno Câmara Arquitectos Home">
-            <Image
-              src="/hero-text-image.png"
-              alt="Bruno Câmara Arquitectos Logo"
-              width={350}
-              height={90}
-              className="h-auto w-auto max-w-[250px] sm:max-w-[300px] md:max-w-[350px]"
-            />
-          </Link>
+          <FooterLogo />
 
           <div className="space-y-1 text-xs sm:text-sm mt-6 sm:mt-8">
             <p className="font-semibold text-sm sm:text-base mb-2">Contact Info:</p>
