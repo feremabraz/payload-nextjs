@@ -26,11 +26,11 @@ export function NavigationBarWithLogo({ background = "dark" }: NavigationBarProp
     <nav className={commonNavClasses}>
       <Link href="/" aria-label="Bruno Câmara Arquitectos Home">
         <Image
-          src="/logo.webp"
+          src="/logo.svg"
           alt="Bruno Câmara Arquitectos Logo"
           width={216}
           height={216}
-          className="aspect-square"
+          className={`aspect-square ${background === "dark" ? "brightness-0 invert" : ""}`}
         />
       </Link>
       <div className="flex items-center gap-4">

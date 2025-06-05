@@ -1,0 +1,61 @@
+"use client";
+
+import { NavigationBarWithLogo } from "@components/navigation-bar";
+import { SideMenu } from "@components/side-menu";
+import { projects } from "@lib/project-data";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import type { ProjectItem } from "@shared-types/projects";
+import { isMenuOpenAtom } from "@store/atoms";
+import { Sheet, SheetContent, SheetTitle } from "@ui/sheet";
+import { useAtom } from "jotai";
+import { ArrowDown } from "lucide-react";
+import Image from "next/image";
+
+interface ProjectCustomNavigationProps {
+  id: number;
+}
+
+function HeroImage({ project }: { project: ProjectItem }) {
+  return (
+    <Image src={project.imageUrl} alt={project.altText} fill className="object-cover" priority />
+  );
+}
+
+export default function ProjectCustomNavigation({ id }: ProjectCustomNavigationProps) {
+  const [isMenuOpen, setIsMenuOpen] = useAtom(isMenuOpenAtom);
+  const project = projects.find((p) => p.id === id);
+
+  if (!project) {
+    return null;
+  }
+
+  const mainLocation = project.location.split(",")[0].toUpperCase();
+
+  return (
+    <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+      <section className="relative self-stretch w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[772px] bg-cover bg-center bg-no-repeat">
+        <HeroImage project={project} />
+        <div className="absolute inset-0 z-0 bg-black/20" />
+        <div className="relative z-10 flex flex-col w-full h-full px-[20px] sm:px-[30px] md:px-[49px] py-[20px] sm:py-[31px]">
+          <NavigationBarWithLogo background="dark" />
+          <div className="flex flex-col items-center justify-center flex-grow w-full text-center text-white">
+            <p className="text-lg sm:text-xl md:text-2xl font-light mb-2">
+              {project.category.replace("-", " ").toUpperCase()} IN
+            </p>
+            <h1 className="sm:text-5xl md:text-6xl lg:text-8xl font-semibold mb-4">
+              {mainLocation}
+            </h1>
+            <p className="text-base sm:text-lg md:text-xl font-light mb-8">{project.location}</p>
+            <ArrowDown className="w-6 h-6 sm:w-8 sm:h-8 text-white animate-pulse" />
+          </div>
+        </div>
+      </section>
+      <SheetContent side="right" className="w-full max-w-md p-0 border-none bg-transparent">
+        <VisuallyHidden>
+          <SheetTitle>Navigation Menu</SheetTitle>
+        </VisuallyHidden>
+        <SideMenu />
+      </SheetContent>
+    </Sheet>
+  );
+}
