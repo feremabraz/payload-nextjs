@@ -72,7 +72,7 @@ export default function FooterSection() {
         </div>
       </div>
 
-      <hr className="border-t w-full my-6 sm:my-8 footer-divider" />
+      <hr className="border-t w-full my-6 sm:my-8 border-brand-accent" />
 
       <div className="flex flex-col md:flex-row justify-between items-start self-stretch text-xs sm:text-sm font-semibold gap-3 sm:gap-4 w-full">
         <p className="order-2 md:order-1">

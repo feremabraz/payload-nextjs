@@ -20,7 +20,7 @@ export default function WhoAreWeSection() {
               <li key={item.name}>
                 <Link
                   href={item.href}
-                  className="text-xs sm:text-sm md:text-md font-medium tracking-wider uppercase text-neutral-600 transition-colors px-1 py-1 who-nav-link"
+                  className="text-xs sm:text-sm md:text-md font-medium tracking-wider uppercase text-neutral-600 transition-colors px-1 py-1 hover:text-brand-black"
                 >
                   {item.name}
                 </Link>
@@ -30,13 +30,13 @@ export default function WhoAreWeSection() {
         </nav>
       </section>
       <section className="flex flex-col items-center gap-8 md:gap-12 w-full">
-        <h1 className="w-full text-center font-medium text-4xl text-balance px-4 who-heading">
+        <h1 className="w-full text-center font-medium text-4xl text-balance px-4 text-brand-black">
           Innovative and Enduring Architecture That Respects Culture, Enhances Spaces, and Elevates
           Everyday Life
         </h1>
         <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 w-full">
           <div className="w-full lg:w-[var(--max-width-lg)] lg:flex-shrink-0">
-            <p className="font-normal text-lg who-text">
+            <p className="font-normal text-lg text-brand-black">
               Bruno Câmara Architects is a contemporary architecture firm committed to creating
               spaces that are as functional and sustainable as they are beautiful and inspiring. Our
               work is guided by the belief that architecture should serve people while respecting
@@ -46,7 +46,7 @@ export default function WhoAreWeSection() {
             </p>
           </div>
           <div className="flex flex-1 flex-col items-start gap-3 w-full">
-            <p className="font-normal text-lg who-text">
+            <p className="font-normal text-lg text-brand-black">
               With a constant drive for excellence, we carefully manage each phase of the
               architectural process—from design to implementation—ensuring that every project meets
               the highest standards in quality, innovation, and technical performance. Our goal is

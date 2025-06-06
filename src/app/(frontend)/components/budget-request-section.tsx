@@ -30,7 +30,7 @@ export default function BudgetRequestSection() {
         <main>
           <form className="space-y-6 md:space-y-8">
             <div>
-              <Label htmlFor="name" className={`${labelStyles} budget-label`}>
+              <Label htmlFor="name" className={`${labelStyles} text-brand-black`}>
                 Name* (Required)
               </Label>
               <Input
@@ -39,11 +39,11 @@ export default function BudgetRequestSection() {
                 type="text"
                 placeholder="Input your Name"
                 required
-                className={`${inputStyles} budget-input`}
+                className={`${inputStyles} input-standard`}
               />
             </div>
             <div>
-              <Label htmlFor="phone" className={`${labelStyles} budget-label`}>
+              <Label htmlFor="phone" className={`${labelStyles} text-brand-black`}>
                 Phone* (Required)
               </Label>
               <Input
@@ -52,11 +52,11 @@ export default function BudgetRequestSection() {
                 type="tel"
                 placeholder="Input your Phone Number"
                 required
-                className={`${inputStyles} budget-input`}
+                className={`${inputStyles} input-standard`}
               />
             </div>
             <div>
-              <Label htmlFor="email" className={`${labelStyles} budget-label`}>
+              <Label htmlFor="email" className={`${labelStyles} text-brand-black`}>
                 Email* (Required)
               </Label>
               <Input
@@ -65,24 +65,24 @@ export default function BudgetRequestSection() {
                 type="email"
                 placeholder="Input your Email"
                 required
-                className={`${inputStyles} budget-input`}
+                className={`${inputStyles} input-standard`}
               />
             </div>
             <div>
-              <Label htmlFor="message" className={`${labelStyles} budget-label`}>
+              <Label htmlFor="message" className={`${labelStyles} text-brand-black`}>
                 Message
               </Label>
               <Textarea
                 id="message"
                 name="message"
                 placeholder="Input your Message Here"
-                className={`${inputStyles} budget-input min-h-[var(--height-xs)] md:min-h-[var(--height-md)]`}
+                className={`${inputStyles} input-standard min-h-[var(--height-xs)] md:min-h-[var(--height-md)]`}
                 rows={4}
               />
             </div>
             <Button
               type="submit"
-              className="w-full rounded-xs py-4 md:py-6 text-sm md:text-base font-semibold budget-button"
+              className="w-full rounded-xs py-4 md:py-6 text-sm md:text-base font-semibold btn-primary"
             >
               Submit
             </Button>

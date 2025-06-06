@@ -15,10 +15,10 @@ export function StudioCard({ imageSrc, imageAlt, title, description }: StudioCar
         />
       </div>
       <div className="flex flex-col items-start gap-2 sm:gap-[var(--gap-xs)] self-stretch px-1">
-        <h2 className="text-left font-medium text-base sm:text-lg leading-[1.4] tracking-[var(--tracking-tight-md)] sm:tracking-[var(--tracking-tight-xl)] self-stretch studio-card-title">
+        <h2 className="text-left font-medium text-base sm:text-lg leading-[1.4] tracking-[var(--tracking-tight-md)] sm:tracking-[var(--tracking-tight-xl)] self-stretch text-brand-black">
           {title}
         </h2>
-        <p className="font-normal text-xs sm:text-sm leading-[1.4] tracking-[var(--tracking-tight-xs)] sm:tracking-[var(--tracking-tight-sm)] studio-card-description">
+        <p className="font-normal text-xs sm:text-sm leading-[1.4] tracking-[var(--tracking-tight-xs)] sm:tracking-[var(--tracking-tight-sm)] text-brand-accent">
           {description}
         </p>
       </div>

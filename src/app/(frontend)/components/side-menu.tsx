@@ -25,7 +25,11 @@ export function SideMenu() {
       <div className="flex items-center justify-between mb-6 sm:mb-8">
         <span className="text-xs sm:text-sm text-neutral-400">Menu</span>
         <SheetClose asChild>
-          <Button variant="ghost" size="icon" className="hover:bg-white/10 side-menu-close">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="hover:bg-white/10 text-brand-white hover:text-brand-white"
+          >
             <X className="w-5 h-5 sm:w-6 sm:h-6" />
             <span className="sr-only">Close menu</span>
           </Button>
@@ -39,7 +43,7 @@ export function SideMenu() {
               <SheetClose asChild>
                 <Link
                   href={item.href}
-                  className="block py-2 text-xl sm:text-2xl font-medium uppercase transition-colors side-menu-link"
+                  className="block py-2 text-xl sm:text-2xl font-medium uppercase transition-colors text-brand-white text-neutral-300-hover"
                 >
                   {item.label}
                 </Link>
@@ -57,7 +61,7 @@ export function SideMenu() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-400 transition-colors side-menu-social"
+                className="text-neutral-400 transition-colors hover:text-brand-white"
                 aria-label={social.label}
               >
                 <social.icon className="w-5 h-5 sm:w-6 sm:h-6" />

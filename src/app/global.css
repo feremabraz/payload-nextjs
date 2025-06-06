@@ -118,7 +118,7 @@
   /* Colors - Exact values from components */
   --brand-black: #000000;
   --brand-dark: #121212;
-  --brand-accent: #666D80;
+  --brand-accent: #666d80;
   --brand-background: #0d0d12;
   --brand-white: #ffffff;
   --brand-muted: #a4acb9;
@@ -254,53 +254,100 @@
   }
 }
 
-/* Component-specific styles using design tokens */
-.budget-label {
+/* Common Utility Classes - Design Token System */
+
+/* Text Color Utilities */
+.text-brand-black {
   color: var(--brand-black);
 }
 
-.budget-input {
+.text-brand-dark {
+  color: var(--brand-dark);
+}
+
+.text-brand-accent {
+  color: var(--brand-accent);
+}
+
+.text-brand-white {
+  color: var(--brand-white);
+}
+
+.text-brand-muted {
+  color: var(--brand-muted);
+}
+
+.text-gray-500 {
+  color: #6b7280; /* gray-500 equivalent */
+}
+
+.text-neutral-300-hover:hover {
+  color: #d1d5db; /* neutral-300 equivalent */
+}
+
+/* Background Color Utilities */
+.bg-brand-dark {
+  background-color: var(--brand-dark);
+}
+
+.bg-brand-background {
+  background-color: var(--brand-background);
+}
+
+.bg-brand-light {
+  background-color: var(--brand-light);
+}
+
+.bg-brand-white {
+  background-color: var(--brand-white);
+}
+
+/* Border Color Utilities */
+.border-brand-muted {
+  border-color: var(--brand-muted);
+}
+
+.border-brand-accent {
+  border-color: var(--brand-accent);
+}
+
+.border-brand-black {
+  border-color: var(--brand-black);
+}
+
+.border-brand-light {
+  border-color: var(--brand-light);
+}
+
+/* Common Input Pattern */
+.input-standard {
   border-color: var(--brand-muted);
   color: var(--brand-black);
 }
 
-.budget-input::placeholder {
+.input-standard::placeholder {
   color: var(--brand-muted);
 }
 
-.budget-input:focus {
+.input-standard:focus {
   border-color: var(--brand-black);
 }
 
-.budget-button {
+/* Common Button Pattern */
+.btn-primary {
   background-color: var(--brand-dark);
   color: var(--brand-white);
 }
 
-.budget-button:hover {
+.btn-primary:hover {
   background-color: var(--brand-dark);
   opacity: 0.9;
 }
 
+/* Component-specific styles that need unique combinations */
 .footer-section {
   background-color: var(--brand-background);
   color: var(--brand-white);
-}
-
-.footer-divider {
-  border-color: var(--brand-accent);
-}
-
-.who-nav-link:hover {
-  color: var(--brand-black);
-}
-
-.who-heading {
-  color: var(--brand-black);
-}
-
-.who-text {
-  color: var(--brand-black);
 }
 
 .side-menu {
@@ -308,86 +355,12 @@
   color: var(--brand-white);
 }
 
-.side-menu-close {
-  color: var(--brand-white);
-}
-
-.side-menu-close:hover {
-  color: var(--brand-white);
-}
-
-.side-menu-link {
-  color: var(--brand-white);
-}
-
-.side-menu-link:hover {
-  color: #d1d5db; /* neutral-300 equivalent */
-}
-
-.side-menu-social:hover {
-  color: var(--brand-white);
-}
-
-.testimonial-card {
-  background-color: var(--brand-light);
-}
-
-.testimonial-quote {
-  color: var(--brand-dark);
-}
-
-.testimonial-caption {
-  color: var(--brand-accent);
-}
-
-.testimonial-author {
-  color: var(--brand-dark);
-}
-
-.testimonial-role {
-  color: var(--brand-accent);
-}
-
-.blog-card {
-  background-color: var(--brand-white);
-}
-
-.blog-title {
-  color: var(--brand-black);
-}
-
-.blog-date {
-  color: var(--brand-black);
-}
-
-.project-field-label {
-  color: #6b7280; /* gray-500 equivalent */
-}
-
-.project-field-title {
-  color: var(--brand-black);
-}
-
-.project-field-value {
-  color: var(--brand-black);
-}
-
-.newsletter-button {
-  background-color: var(--brand-dark);
-  color: var(--brand-white);
-}
-
-.newsletter-button:hover {
-  background-color: var(--brand-dark);
-  opacity: 0.9;
-}
-
 .footer-logo-border {
   border: 0.5px solid var(--brand-light);
 }
 
 .project-filter-item::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -395,53 +368,4 @@
   height: 2px;
   background-color: var(--brand-black);
   transition: all 0.2s;
-}
-
-.projects-title {
-  color: var(--brand-black);
-}
-
-.projects-main-title {
-  color: var(--brand-black);
-}
-
-.section-heading {
-  color: var(--brand-black);
-}
-
-.section-link {
-  color: var(--brand-dark);
-}
-
-.studio-card-title {
-  color: var(--brand-black);
-}
-
-.studio-card-description {
-  color: var(--brand-accent);
-}
-
-.newsletter-label {
-  color: var(--brand-black);
-}
-
-.newsletter-input {
-  border-color: var(--brand-muted);
-  color: var(--brand-black);
-}
-
-.newsletter-input::placeholder {
-  color: var(--brand-muted);
-}
-
-.newsletter-input:focus {
-  border-color: var(--brand-black);
-}
-
-.newsletter-heading {
-  color: var(--brand-black);
-}
-
-.newsletter-text {
-  color: var(--brand-black);
 }
