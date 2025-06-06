@@ -8,17 +8,17 @@ export default function BudgetRequestSection() {
   return (
     <SectionContainer>
       <div className="w-full max-w-3xl px-4 sm:px-0">
-        <header className="mb-8 md:mb-10 text-center">
-          <h1 className="text-center font-medium uppercase text-8xl mb-4 md:mb-6 text-brand-black">
+        <header className="mb-section text-center">
+          <h1 className="text-center font-medium uppercase text-8xl mb-title text-brand-black">
             BUDGET REQUEST
           </h1>
-          <p className="text-sm md:text-base lg:text-lg max-w-md mx-auto px-4 text-brand-black">
+          <p className="text-body max-w-md mx-auto px-4 text-brand-black">
             Tell us about your project and receive a personalized quote tailored to your goals. No
             commitment — just a clear plan and expert insight to get started.
           </p>
         </header>
         <main>
-          <form className="space-y-6 md:space-y-8">
+          <form className="space-y-form">
             <div>
               <Label htmlFor="name" className="label-form text-brand-black">
                 Name* (Required)
@@ -72,7 +72,7 @@ export default function BudgetRequestSection() {
             </div>
             <Button
               type="submit"
-              className="w-full rounded-xs py-4 md:py-6 text-sm md:text-base font-semibold btn-primary"
+              className="w-full rounded-xs py-button text-button font-semibold btn-primary"
             >
               Submit
             </Button>

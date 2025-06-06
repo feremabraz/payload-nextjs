@@ -21,9 +21,9 @@ const socialLinks = [
 
 export function SideMenu() {
   return (
-    <div className="flex flex-col h-full p-4 sm:p-6 md:p-8 side-menu">
+    <div className="flex flex-col h-full p-card side-menu">
       <div className="flex items-center justify-between mb-6 sm:mb-8">
-        <span className="text-xs sm:text-sm text-neutral-400">Menu</span>
+        <span className="text-menu text-neutral-400">Menu</span>
         <SheetClose asChild>
           <Button
             variant="ghost"
@@ -43,7 +43,7 @@ export function SideMenu() {
               <SheetClose asChild>
                 <Link
                   href={item.href}
-                  className="block py-2 text-xl sm:text-2xl font-medium uppercase text-brand-white hover:text-neutral-300 transition-colors-smooth"
+                  className="block py-2 text-nav-link font-medium uppercase text-brand-white hover:text-neutral-300 transition-colors-smooth"
                 >
                   {item.label}
                 </Link>

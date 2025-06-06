@@ -16,7 +16,7 @@ export default function ProjectsStandalone() {
 
   return (
     <SectionContainer maxWidth="container" paddingY="xl" className="bg-white">
-      <div className="mb-8 md:mb-10 text-center">
+      <div className="mb-section text-center">
         <h2 className="text-3xl text-brand-black">BRUNO CÂMERA ARQUITETOS</h2>
         <h1 className="font-semibold text-8xl text-brand-black">PROJECTS</h1>
       </div>

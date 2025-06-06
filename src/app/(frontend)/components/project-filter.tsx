@@ -24,19 +24,14 @@ export function ProjectFilter({
   className,
 }: ProjectFilterProps) {
   return (
-    <div
-      className={cn(
-        "flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-8 mb-8 md:mb-10",
-        className,
-      )}
-    >
+    <div className={cn("flex flex-wrap justify-center gap-filter mb-section", className)}>
       {filterCategories.map((category) => (
         <button
           type="button"
           key={category.key}
           onClick={() => onCategoryChange(category.key)}
           className={cn(
-            "text-sm md:text-base font-medium tracking-wide transition-smooth hover:text-gray-600",
+            "text-button font-medium tracking-wide transition-smooth hover:text-gray-600",
             "relative project-filter-item",
             selectedCategory === category.key
               ? "text-black after:w-full"

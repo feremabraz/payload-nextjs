@@ -22,10 +22,10 @@ export function BlogNewsPostCard({
         />
       </div>
       <div className="flex flex-col items-start gap-2 self-stretch px-2 sm:px-3 pb-2 sm:pb-3">
-        <h3 className="text-left font-medium text-xs sm:text-sm leading-[1.4] tracking-[var(--tracking-tight-sm)] sm:tracking-[var(--tracking-tight-md)] self-stretch text-brand-black">
+        <h3 className="text-left font-medium text-card-description leading-[1.4] tracking-[var(--tracking-tight-sm)] sm:tracking-[var(--tracking-tight-md)] self-stretch text-brand-black">
           {title}
         </h3>
-        <p className="text-neutral-sub-title font-normal text-xs sm:text-sm leading-[1.4] tracking-[var(--tracking-tight-sm)] sm:tracking-[var(--tracking-tight-md)] self-stretch text-left">
+        <p className="text-neutral-sub-title font-normal text-card-description leading-[1.4] tracking-[var(--tracking-tight-sm)] sm:tracking-[var(--tracking-tight-md)] self-stretch text-left">
           {description}
         </p>
         <p className="text-left font-normal text-xs leading-[1.4] tracking-[var(--tracking-tight-xs)] sm:tracking-[var(--tracking-tight-sm)] self-stretch mt-auto pt-1 text-brand-black">

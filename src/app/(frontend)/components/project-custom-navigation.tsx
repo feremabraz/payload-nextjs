@@ -39,13 +39,11 @@ export default function ProjectCustomNavigation({ id }: ProjectCustomNavigationP
         <div className="relative z-10 flex flex-col w-full h-full px-[var(--spacing-sm)] sm:px-[var(--spacing-md)] md:px-[var(--spacing-xl)] py-[var(--spacing-sm)] sm:py-[var(--spacing-lg)]">
           <NavigationBarWithLogo background="dark" />
           <div className="flex flex-col items-center justify-center flex-grow w-full text-center text-white">
-            <p className="text-lg sm:text-xl md:text-2xl font-light mb-2">
+            <p className="text-hero-subtitle font-light mb-2">
               {project.category.replace("-", " ").toUpperCase()} IN
             </p>
-            <h1 className="sm:text-5xl md:text-6xl lg:text-8xl font-semibold mb-4">
-              {mainLocation}
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl font-light mb-8">{project.location}</p>
+            <h1 className="text-hero-title font-semibold mb-4">{mainLocation}</h1>
+            <p className="text-hero-description font-light mb-8">{project.location}</p>
             <ArrowDown className="w-6 h-6 sm:w-8 sm:h-8 text-white animate-pulse" />
           </div>
         </div>
