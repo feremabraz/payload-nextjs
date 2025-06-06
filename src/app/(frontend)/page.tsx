@@ -3,7 +3,7 @@ import { getPayload } from "payload";
 import React from "react";
 
 import BlogNewsSection from "@components/blog-news-section";
-import BudgetRequestSection from "@components/buget-request-section";
+import BudgetRequestSection from "@components/budget-request-section";
 import FooterSection from "@components/footer-section";
 import HeroSection from "@components/hero-section";
 import NewsletterSection from "@components/newsletter-section";

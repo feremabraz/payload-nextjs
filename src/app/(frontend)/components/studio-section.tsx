@@ -1,6 +1,6 @@
-import { studioData } from "@/app/shared/lib/studio-data";
 import { SectionContainer, SectionHeader } from "@components/section";
 import { StudioCard } from "@components/studio-card";
+import { studioData } from "@lib/studio-data";
 
 export default function StudioSection() {
   return (
