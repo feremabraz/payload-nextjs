@@ -20,7 +20,7 @@ export default function WhoAreWeSection() {
               <li key={item.name}>
                 <Link
                   href={item.href}
-                  className="text-xs sm:text-sm md:text-md font-medium tracking-wider uppercase text-neutral-600 transition-colors px-1 py-1 hover:text-brand-black"
+                  className="text-xs sm:text-sm md:text-md font-medium tracking-wider uppercase text-neutral-600 px-1 py-1 hover:text-brand-black transition-colors-smooth"
                 >
                   {item.name}
                 </Link>

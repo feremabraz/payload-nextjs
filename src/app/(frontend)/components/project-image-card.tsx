@@ -31,7 +31,7 @@ export function ProjectImageCard({ project, size = "md", className }: ProjectIma
         alt={project.altText}
         fill
         quality={100}
-        className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+        className="object-cover hover-scale"
         sizes={responsiveSizes[size]}
       />
       {project.overlayText && (

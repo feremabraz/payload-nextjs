@@ -28,7 +28,7 @@ export function SideMenu() {
           <Button
             variant="ghost"
             size="icon"
-            className="hover:bg-white/10 text-brand-white hover:text-brand-white"
+            className="hover:bg-white/10 text-brand-white hover:text-brand-white transition-colors-smooth"
           >
             <X className="w-5 h-5 sm:w-6 sm:h-6" />
             <span className="sr-only">Close menu</span>
@@ -43,7 +43,7 @@ export function SideMenu() {
               <SheetClose asChild>
                 <Link
                   href={item.href}
-                  className="block py-2 text-xl sm:text-2xl font-medium uppercase transition-colors text-brand-white text-neutral-300-hover"
+                  className="block py-2 text-xl sm:text-2xl font-medium uppercase text-brand-white hover:text-neutral-300 transition-colors-smooth"
                 >
                   {item.label}
                 </Link>
@@ -61,7 +61,7 @@ export function SideMenu() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-400 transition-colors hover:text-brand-white"
+                className="text-neutral-400 hover:text-brand-white transition-colors-smooth"
                 aria-label={social.label}
               >
                 <social.icon className="w-5 h-5 sm:w-6 sm:h-6" />

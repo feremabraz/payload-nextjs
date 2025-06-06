@@ -6,7 +6,7 @@ import type React from "react";
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <li>
-    <Link href={href} className="hover:text-gray-300 transition-colors duration-200">
+    <Link href={href} className="hover:text-gray-300 transition-colors-smooth">
       {children}
     </Link>
   </li>
@@ -31,21 +31,21 @@ export default function FooterSection() {
             <Link
               href="#"
               aria-label="Facebook"
-              className="hover:text-gray-300 transition-colors duration-200"
+              className="hover:text-gray-300 transition-colors-smooth"
             >
               <FacebookIcon size={18} className="sm:w-5 sm:h-5" />
             </Link>
             <Link
               href="#"
               aria-label="Instagram"
-              className="hover:text-gray-300 transition-colors duration-200"
+              className="hover:text-gray-300 transition-colors-smooth"
             >
               <InstagramIcon size={18} className="sm:w-5 sm:h-5" />
             </Link>
             <Link
               href="#"
               aria-label="LinkedIn"
-              className="hover:text-gray-300 transition-colors duration-200"
+              className="hover:text-gray-300 transition-colors-smooth"
             >
               <LinkedInIcon size={18} className="sm:w-5 sm:h-5" />
             </Link>
@@ -79,16 +79,10 @@ export default function FooterSection() {
           &copy; 2025 BRUNO CÂMARA ARQUITETOS. All rights reserved.
         </p>
         <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 md:space-x-6 order-1 md:order-2">
-          <Link
-            href="/privacy-policy"
-            className="hover:text-gray-400 transition-colors duration-200"
-          >
+          <Link href="/privacy-policy" className="hover:text-gray-400 transition-colors-smooth">
             Privacy Policy
           </Link>
-          <Link
-            href="/terms-of-service"
-            className="hover:text-gray-400 transition-colors duration-200"
-          >
+          <Link href="/terms-of-service" className="hover:text-gray-400 transition-colors-smooth">
             Terms of Service
           </Link>
         </div>

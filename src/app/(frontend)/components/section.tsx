@@ -95,7 +95,7 @@ export function SectionHeader({ title, linkHref, linkText }: SectionHeaderProps)
       <h1 className="text-center text-8xl font-medium uppercase text-brand-black">{title}</h1>
       <Link
         href={linkHref}
-        className="text-center text-xl font-normal uppercase hover:text-neutral-sub-title transition-colors text-brand-dark"
+        className="text-center text-xl font-normal uppercase hover:text-neutral-sub-title transition-colors-smooth text-brand-dark"
       >
         {linkText}
       </Link>

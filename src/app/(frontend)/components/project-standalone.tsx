@@ -14,7 +14,7 @@ interface ProjectFieldProps {
 function ProjectField({ label, value, isTitle = false }: ProjectFieldProps) {
   return (
     <div className="flex flex-col items-start gap-2 flex-1">
-      <span className="text-sm font-medium text-gray-500">{label}</span>
+      <span className="text-sm font-medium text-brand-muted">{label}</span>
       {isTitle ? (
         <h1 className="text-4xl font-semibold w-[var(--max-width-sm)] text-brand-black">{value}</h1>
       ) : (

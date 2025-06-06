@@ -144,7 +144,7 @@
   --tracking-tight-xl: -0.36px;
   --tracking-tight-2xl: -0.72px;
   --tracking-tight-3xl: -0.8px;
-  --tracking-tight-4xl: -0.80px;
+  --tracking-tight-4xl: -0.80px; /* Same as 3xl, could be aliased */
   --tracking-tight-5xl: -0.96px;
   --tracking-tight-6xl: -1.28px;
   --tracking-tight-7xl: -2px;
@@ -172,6 +172,15 @@
   --spacing-15xl: 150px;
   --spacing-hero-1: 31px;
 
+  /* Gap aliases (using spacing values for consistency) */
+  --gap-xs: var(--spacing-xs); /* 8px */
+  --gap-sm: var(--spacing-sm); /* 12px */
+  --gap-md: var(--spacing-md); /* 16px */
+  --gap-lg: var(--spacing-xl); /* 24px */
+  --gap-xl: var(--spacing-4xl); /* 36px */
+  --gap-2xl: var(--spacing-6xl); /* 48px */
+  --gap-3xl: var(--spacing-10xl); /* 64px */
+
   /* Heights - Exact pixel values */
   --height-xs: 80px;
   --height-sm: 120px;
@@ -194,15 +203,6 @@
   --max-width-6xl: 1341px;
   --max-width-7xl: 1440px;
   --max-width-8xl: 1536px;
-
-  /* Gaps - Exact pixel values */
-  --gap-xs: 8px;
-  --gap-sm: 12px;
-  --gap-md: 16px;
-  --gap-lg: 24px;
-  --gap-xl: 36px;
-  --gap-2xl: 48px;
-  --gap-3xl: 64px;
 
   /* Padding Top Values - Hero specific */
   --pt-hero-sm: 250px;
@@ -255,104 +255,101 @@
 
 /* Common Utility Classes - Design Token System */
 
+/* Brand Color Utilities - Consolidated */
 .text-brand-black {
   color: var(--brand-black);
 }
-
 .text-brand-dark {
   color: var(--brand-dark);
 }
-
 .text-brand-accent {
   color: var(--brand-accent);
 }
-
 .text-brand-white {
   color: var(--brand-white);
 }
-
 .text-brand-muted {
   color: var(--brand-muted);
 }
 
-.text-gray-500 {
-  color: #6b7280; /* gray-500 equivalent */
-}
-
-.text-neutral-300-hover:hover {
-  color: #d1d5db; /* neutral-300 equivalent */
-}
-
-/* Background Color Utilities */
 .bg-brand-dark {
   background-color: var(--brand-dark);
 }
-
 .bg-brand-background {
   background-color: var(--brand-background);
 }
-
 .bg-brand-light {
   background-color: var(--brand-light);
 }
-
 .bg-brand-white {
   background-color: var(--brand-white);
 }
 
-/* Border Color Utilities */
 .border-brand-muted {
   border-color: var(--brand-muted);
 }
-
 .border-brand-accent {
   border-color: var(--brand-accent);
 }
-
 .border-brand-black {
   border-color: var(--brand-black);
 }
-
 .border-brand-light {
   border-color: var(--brand-light);
 }
 
-/* Common Input Pattern */
+/* Common Transition Patterns */
+.transition-smooth {
+  transition: all 0.2s ease-in-out;
+}
+.transition-colors-smooth {
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+/* Common Hover Effects */
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Focus Ring Pattern */
+.focus-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--brand-black), 0.1);
+}
+
+/* Common Component Patterns */
 .input-standard {
   border-color: var(--brand-muted);
   color: var(--brand-black);
 }
-
 .input-standard::placeholder {
   color: var(--brand-muted);
 }
-
 .input-standard:focus {
   border-color: var(--brand-black);
 }
 
-/* Common Button Pattern */
 .btn-primary {
   background-color: var(--brand-dark);
   color: var(--brand-white);
 }
-
 .btn-primary:hover {
   background-color: var(--brand-dark);
   opacity: 0.9;
 }
 
-/* Component-specific styles that need unique combinations */
+/* Component-Specific Styles */
 .footer-section {
   background-color: var(--brand-background);
   color: var(--brand-white);
 }
-
 .side-menu {
   background-color: var(--brand-dark);
   color: var(--brand-white);
 }
-
 .footer-logo-border {
   border: 0.5px solid var(--brand-light);
 }
