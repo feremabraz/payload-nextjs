@@ -332,6 +332,37 @@
   border-color: var(--brand-black);
 }
 
+.input-underlined {
+  border: 0;
+  border-bottom: 1px solid;
+  border-radius: 0;
+  background-color: transparent;
+  width: 100%;
+  padding: 0.75rem 0.25rem;
+  font-size: 0.875rem;
+}
+.input-underlined:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+@media (min-width: 768px) {
+  .input-underlined {
+    font-size: 1rem;
+  }
+}
+
+.label-form {
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+  display: block;
+  font-weight: 500;
+}
+@media (min-width: 768px) {
+  .label-form {
+    font-size: 0.875rem;
+  }
+}
+
 .btn-primary {
   background-color: var(--brand-dark);
   color: var(--brand-white);

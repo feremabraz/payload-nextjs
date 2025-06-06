@@ -4,10 +4,6 @@ import { Input } from "@ui/input";
 import { Label } from "@ui/label";
 
 export default function NewsletterSection() {
-  const inputStyles =
-    "border-0 border-b rounded-none focus-visible:ring-0 focus-visible:ring-offset-0 bg-transparent w-full py-3 px-1 text-sm md:text-base input-standard";
-  const labelStyles = "text-xs md:text-sm mb-1 block font-medium text-brand-black";
-
   return (
     <SectionContainer>
       <div className="w-full max-w-3xl px-4 sm:px-0">
@@ -23,7 +19,7 @@ export default function NewsletterSection() {
         <main>
           <form className="space-y-6 md:space-y-8">
             <div>
-              <Label htmlFor="email" className={labelStyles}>
+              <Label htmlFor="email" className="label-form text-brand-black">
                 Email* (Required)
               </Label>
               <Input
@@ -32,7 +28,7 @@ export default function NewsletterSection() {
                 type="email"
                 placeholder="Input your Email"
                 required
-                className={inputStyles}
+                className="input-underlined input-standard"
               />
             </div>
             <Button

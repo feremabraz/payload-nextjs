@@ -5,10 +5,6 @@ import { Label } from "@ui/label";
 import { Textarea } from "@ui/textarea";
 
 export default function BudgetRequestSection() {
-  const inputStyles =
-    "border-0 border-b rounded-none focus-visible:ring-0 focus-visible:ring-offset-0 bg-transparent w-full py-3 px-1 text-sm md:text-base";
-  const labelStyles = "text-xs md:text-sm mb-1 block font-medium";
-
   return (
     <SectionContainer>
       <div className="w-full max-w-3xl px-4 sm:px-0">
@@ -24,7 +20,7 @@ export default function BudgetRequestSection() {
         <main>
           <form className="space-y-6 md:space-y-8">
             <div>
-              <Label htmlFor="name" className={`${labelStyles} text-brand-black`}>
+              <Label htmlFor="name" className="label-form text-brand-black">
                 Name* (Required)
               </Label>
               <Input
@@ -33,11 +29,11 @@ export default function BudgetRequestSection() {
                 type="text"
                 placeholder="Input your Name"
                 required
-                className={`${inputStyles} input-standard`}
+                className="input-underlined input-standard"
               />
             </div>
             <div>
-              <Label htmlFor="phone" className={`${labelStyles} text-brand-black`}>
+              <Label htmlFor="phone" className="label-form text-brand-black">
                 Phone* (Required)
               </Label>
               <Input
@@ -46,11 +42,11 @@ export default function BudgetRequestSection() {
                 type="tel"
                 placeholder="Input your Phone Number"
                 required
-                className={`${inputStyles} input-standard`}
+                className="input-underlined input-standard"
               />
             </div>
             <div>
-              <Label htmlFor="email" className={`${labelStyles} text-brand-black`}>
+              <Label htmlFor="email" className="label-form text-brand-black">
                 Email* (Required)
               </Label>
               <Input
@@ -59,18 +55,18 @@ export default function BudgetRequestSection() {
                 type="email"
                 placeholder="Input your Email"
                 required
-                className={`${inputStyles} input-standard`}
+                className="input-underlined input-standard"
               />
             </div>
             <div>
-              <Label htmlFor="message" className={`${labelStyles} text-brand-black`}>
+              <Label htmlFor="message" className="label-form text-brand-black">
                 Message
               </Label>
               <Textarea
                 id="message"
                 name="message"
                 placeholder="Input your Message Here"
-                className={`${inputStyles} input-standard min-h-[var(--height-xs)] md:min-h-[var(--height-md)]`}
+                className="input-underlined input-standard min-h-[var(--height-xs)] md:min-h-[var(--height-md)]"
                 rows={4}
               />
             </div>
