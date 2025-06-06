@@ -20,7 +20,7 @@ export default function WhoAreWeSection() {
               <li key={item.name}>
                 <Link
                   href={item.href}
-                  className="text-xs sm:text-sm md:text-md font-medium tracking-wider uppercase text-neutral-600 hover:text-[#000000] transition-colors px-1 py-1"
+                  className="text-xs sm:text-sm md:text-md font-medium tracking-wider uppercase text-neutral-600 transition-colors px-1 py-1 who-nav-link"
                 >
                   {item.name}
                 </Link>
@@ -30,13 +30,13 @@ export default function WhoAreWeSection() {
         </nav>
       </section>
       <section className="flex flex-col items-center gap-8 md:gap-12 w-full">
-        <h1 className="w-full text-center font-medium text-[#000000] text-[20px] sm:text-[24px] md:text-[28px] lg:text-[32px] leading-[1.2] tracking-[-0.8px] sm:tracking-[-1.28px] text-balance px-4">
+        <h1 className="w-full text-center font-medium text-4xl text-balance px-4 who-heading">
           Innovative and Enduring Architecture That Respects Culture, Enhances Spaces, and Elevates
           Everyday Life
         </h1>
         <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 w-full">
-          <div className="w-full lg:w-[437px] lg:flex-shrink-0">
-            <p className="text-[#000000] font-normal text-[14px] sm:text-[16px] md:text-[18px] leading-[1.4] tracking-[-0.28px] md:tracking-[-0.36px]">
+          <div className="w-full lg:w-[var(--max-width-lg)] lg:flex-shrink-0">
+            <p className="font-normal text-lg who-text">
               Bruno Câmara Architects is a contemporary architecture firm committed to creating
               spaces that are as functional and sustainable as they are beautiful and inspiring. Our
               work is guided by the belief that architecture should serve people while respecting
@@ -46,7 +46,7 @@ export default function WhoAreWeSection() {
             </p>
           </div>
           <div className="flex flex-1 flex-col items-start gap-3 w-full">
-            <p className="text-[#000000] font-normal text-[14px] sm:text-[16px] md:text-[18px] leading-[1.4] tracking-[-0.28px] md:tracking-[-0.36px]">
+            <p className="font-normal text-lg who-text">
               With a constant drive for excellence, we carefully manage each phase of the
               architectural process—from design to implementation—ensuring that every project meets
               the highest standards in quality, innovation, and technical performance. Our goal is

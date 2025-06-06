@@ -17,8 +17,8 @@ export default function ProjectsStandalone() {
   return (
     <SectionContainer maxWidth="container" paddingY="xl" className="bg-white">
       <div className="mb-8 md:mb-10 text-center">
-        <h2 className="text-[#000000] text-3xl">BRUNO CÂMERA ARQUITETOS</h2>
-        <h1 className="text-[#000000] font-semibold text-8xl">PROJECTS</h1>
+        <h2 className="text-3xl projects-title">BRUNO CÂMERA ARQUITETOS</h2>
+        <h1 className="font-semibold text-8xl projects-main-title">PROJECTS</h1>
       </div>
       <ProjectFilter selectedCategory={selectedCategory} onCategoryChange={setSelectedCategory} />
       <ProjectGallery columns={2} projects={selectedProjects} />

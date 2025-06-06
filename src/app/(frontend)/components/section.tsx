@@ -29,50 +29,50 @@ export function SectionContainer({
 }: SectionContainerProps) {
   const paddingYClasses = {
     none: "py-0",
-    sm: "py-[30px] md:py-[50px]",
-    md: "py-[50px] md:py-[75px]",
-    lg: "py-[60px] md:py-[100px]",
-    xl: "py-[80px] md:py-[125px]",
+    sm: "py-[var(--spacing-2xl)] md:py-[var(--spacing-8xl)]",
+    md: "py-[var(--spacing-8xl)] md:py-[var(--spacing-11xl)]",
+    lg: "py-[var(--spacing-9xl)] md:py-[var(--spacing-13xl)]",
+    xl: "py-[var(--spacing-12xl)] md:py-[var(--spacing-14xl)]",
     custom: "", // allows for override
   };
 
   const paddingXClasses = {
     none: "px-0",
-    sm: "px-[16px] md:px-[24px]",
-    md: "px-[20px] md:px-[36px]",
-    lg: "px-[24px] md:px-[48px]",
-    xl: "px-[32px] md:px-[64px]",
+    sm: "px-[var(--spacing-md)] md:px-[var(--spacing-xl)]",
+    md: "px-[var(--spacing-lg)] md:px-[var(--spacing-4xl)]",
+    lg: "px-[var(--spacing-xl)] md:px-[var(--spacing-6xl)]",
+    xl: "px-[var(--spacing-3xl)] md:px-[var(--spacing-10xl)]",
     custom: "",
   };
 
   const gapClasses = {
     none: "gap-0",
-    sm: "gap-[16px] md:gap-[24px]",
-    md: "gap-[24px] md:gap-[36px]",
-    lg: "gap-[32px] md:gap-[48px]",
-    xl: "gap-[40px] md:gap-[64px]",
+    sm: "gap-[var(--spacing-md)] md:gap-[var(--spacing-xl)]",
+    md: "gap-[var(--spacing-xl)] md:gap-[var(--spacing-4xl)]",
+    lg: "gap-[var(--spacing-3xl)] md:gap-[var(--spacing-6xl)]",
+    xl: "gap-[var(--spacing-5xl)] md:gap-[var(--spacing-10xl)]",
     custom: "",
   };
 
   const maxWidthClasses = {
-    sm: "max-w-[640px]",
-    md: "max-w-[768px]",
-    lg: "max-w-[1024px]",
-    xl: "max-w-[1280px]",
-    "2xl": "max-w-[1536px]",
+    sm: "max-w-[var(--max-width-2xl)]",
+    md: "max-w-[var(--max-width-3xl)]",
+    lg: "max-w-[var(--max-width-4xl)]",
+    xl: "max-w-[var(--max-width-5xl)]",
+    "2xl": "max-w-[var(--max-width-8xl)]",
     full: "max-w-full",
-    container: "max-w-[1440px]",
+    container: "max-w-[var(--max-width-7xl)]",
   };
 
   return (
     <section
       className={cn(
-        "bg-white flex flex-col items-center selection:bg-[#121212] selection:text-[#ffffff]",
+        "bg-white flex flex-col items-center selection:bg-[var(--brand-dark)] selection:text-[var(--brand-white)]",
         paddingYClasses[paddingY],
         paddingXClasses[paddingX],
         variant === "full-height" && "min-h-screen",
-        variant === "compact" && "py-[50px]",
-        variant === "loose" && "py-[150px]",
+        variant === "compact" && "py-[var(--spacing-8xl)]",
+        variant === "loose" && "py-[var(--spacing-15xl)]",
         className,
       )}
     >
@@ -91,13 +91,11 @@ export function SectionContainer({
 
 export function SectionHeader({ title, linkHref, linkText }: SectionHeaderProps) {
   return (
-    <header className="flex flex-col items-center gap-[12px] px-4 sm:px-0">
-      <h1 className="text-[#000000] text-center font-medium text-[40px] sm:text-[60px] md:text-[80px] lg:text-[100px] leading-[1.2] tracking-[-2px] md:tracking-[-4px]">
-        {title}
-      </h1>
+    <header className="flex flex-col items-center gap-[var(--gap-sm)] px-4 sm:px-0">
+      <h1 className="text-center text-8xl font-medium uppercase section-heading">{title}</h1>
       <Link
         href={linkHref}
-        className="text-[#121212] text-center font-normal text-[14px] sm:text-[16px] md:text-[18px] leading-[1.4] tracking-[-0.28px] md:tracking-[-0.36px] uppercase hover:text-neutral-sub-title transition-colors"
+        className="text-center text-xl font-normal uppercase hover:text-neutral-sub-title transition-colors section-link"
       >
         {linkText}
       </Link>

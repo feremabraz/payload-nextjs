@@ -37,7 +37,7 @@ export function ProjectFilter({
           onClick={() => onCategoryChange(category.key)}
           className={cn(
             "text-sm md:text-base font-medium tracking-wide transition-all duration-200 hover:text-gray-600",
-            "relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-200",
+            "relative project-filter-item",
             selectedCategory === category.key
               ? "text-black after:w-full"
               : "text-gray-400 hover:after:w-full hover:after:bg-gray-600",

@@ -14,7 +14,7 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
 
 export default function FooterSection() {
   return (
-    <SectionContainer className="bg-[#0d0d12] text-[#ffffff]">
+    <SectionContainer className="footer-section">
       <div className="flex flex-col lg:flex-row justify-between gap-8 sm:gap-10 md:gap-12 lg:gap-16 w-full">
         <div className="space-y-6 sm:space-y-8 lg:w-3/4">
           <FooterLogo />
@@ -72,7 +72,7 @@ export default function FooterSection() {
         </div>
       </div>
 
-      <hr className="border-t border-[#666d80] w-full my-6 sm:my-8" />
+      <hr className="border-t w-full my-6 sm:my-8 footer-divider" />
 
       <div className="flex flex-col md:flex-row justify-between items-start self-stretch text-xs sm:text-sm font-semibold gap-3 sm:gap-4 w-full">
         <p className="order-2 md:order-1">

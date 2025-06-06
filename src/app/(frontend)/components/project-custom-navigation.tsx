@@ -33,10 +33,10 @@ export default function ProjectCustomNavigation({ id }: ProjectCustomNavigationP
 
   return (
     <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-      <section className="relative self-stretch w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[772px] bg-cover bg-center bg-no-repeat">
+      <section className="relative self-stretch w-full h-[var(--height-hero-sm)] sm:h-[var(--height-hero-md)] md:h-[var(--height-hero-lg)] lg:h-[var(--height-hero-xl)] bg-cover bg-center bg-no-repeat">
         <HeroImage project={project} />
         <div className="absolute inset-0 z-0 bg-black/20" />
-        <div className="relative z-10 flex flex-col w-full h-full px-[20px] sm:px-[30px] md:px-[49px] py-[20px] sm:py-[31px]">
+        <div className="relative z-10 flex flex-col w-full h-full px-[var(--spacing-sm)] sm:px-[var(--spacing-md)] md:px-[var(--spacing-xl)] py-[var(--spacing-sm)] sm:py-[var(--spacing-lg)]">
           <NavigationBarWithLogo background="dark" />
           <div className="flex flex-col items-center justify-center flex-grow w-full text-center text-white">
             <p className="text-lg sm:text-xl md:text-2xl font-light mb-2">

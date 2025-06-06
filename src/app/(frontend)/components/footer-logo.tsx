@@ -16,7 +16,7 @@ export function FooterLogo() {
           alt="Bruno Câmara Arquitectos Logo"
           width={350}
           height={90}
-          className="h-auto w-auto max-w-[250px] sm:max-w-[300px] md:max-w-[350px]"
+          className="h-auto w-auto max-w-[var(--max-width-xs)] sm:max-w-[var(--max-width-sm)] md:max-w-[var(--max-width-md)]"
         />
       ) : (
         <Image
@@ -24,7 +24,7 @@ export function FooterLogo() {
           alt="Bruno Câmara Arquitectos Logo"
           width={128}
           height={128}
-          className="h-auto w-auto  aspect-square border-[0.5px] border-[#F2F2F2]"
+          className="h-auto w-auto aspect-square footer-logo-border"
         />
       )}
     </Link>

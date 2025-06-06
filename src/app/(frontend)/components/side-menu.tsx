@@ -21,15 +21,11 @@ const socialLinks = [
 
 export function SideMenu() {
   return (
-    <div className="flex flex-col h-full bg-[#121212] text-white p-4 sm:p-6 md:p-8">
+    <div className="flex flex-col h-full p-4 sm:p-6 md:p-8 side-menu">
       <div className="flex items-center justify-between mb-6 sm:mb-8">
         <span className="text-xs sm:text-sm text-neutral-400">Menu</span>
         <SheetClose asChild>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="text-white hover:bg-white/10 hover:text-white"
-          >
+          <Button variant="ghost" size="icon" className="hover:bg-white/10 side-menu-close">
             <X className="w-5 h-5 sm:w-6 sm:h-6" />
             <span className="sr-only">Close menu</span>
           </Button>
@@ -43,7 +39,7 @@ export function SideMenu() {
               <SheetClose asChild>
                 <Link
                   href={item.href}
-                  className="block py-2 text-xl sm:text-2xl font-medium uppercase transition-colors hover:text-neutral-300"
+                  className="block py-2 text-xl sm:text-2xl font-medium uppercase transition-colors side-menu-link"
                 >
                   {item.label}
                 </Link>
@@ -61,7 +57,7 @@ export function SideMenu() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-400 hover:text-white transition-colors"
+                className="text-neutral-400 transition-colors side-menu-social"
                 aria-label={social.label}
               >
                 <social.icon className="w-5 h-5 sm:w-6 sm:h-6" />

@@ -113,6 +113,138 @@
   --sidebar-ring: hsl(217.2 91.2% 59.8%);
 }
 
+/* Design Tokens - Custom Values */
+:root {
+  /* Colors - Exact values from components */
+  --brand-black: #000000;
+  --brand-dark: #121212;
+  --brand-accent: #666D80;
+  --brand-background: #0d0d12;
+  --brand-white: #ffffff;
+  --brand-muted: #a4acb9;
+  --brand-light: #f6f8fa;
+
+  /* Typography Sizes - Exact pixel values */
+  --text-xs-responsive: 14px;
+  --text-sm-responsive: 16px;
+  --text-md-responsive: 18px;
+  --text-lg-responsive: 20px;
+  --text-xl-responsive: 24px;
+  --text-2xl-responsive: 28px;
+  --text-3xl-responsive: 32px;
+  --text-4xl-responsive: 40px;
+  --text-5xl-responsive: 60px;
+  --text-6xl-responsive: 80px;
+  --text-7xl-responsive: 100px;
+
+  /* Letter Spacing - Exact tracking values */
+  --tracking-tight-xs: -0.20px;
+  --tracking-tight-sm: -0.24px;
+  --tracking-tight-md: -0.28px;
+  --tracking-tight-lg: -0.32px;
+  --tracking-tight-xl: -0.36px;
+  --tracking-tight-2xl: -0.72px;
+  --tracking-tight-3xl: -0.8px;
+  --tracking-tight-4xl: -0.80px;
+  --tracking-tight-5xl: -0.96px;
+  --tracking-tight-6xl: -1.28px;
+  --tracking-tight-7xl: -2px;
+  --tracking-tight-8xl: -4px;
+
+  /* Spacing - Exact pixel values */
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 20px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 30px;
+  --spacing-3xl: 32px;
+  --spacing-4xl: 36px;
+  --spacing-5xl: 40px;
+  --spacing-6xl: 48px;
+  --spacing-7xl: 49px;
+  --spacing-8xl: 50px;
+  --spacing-9xl: 60px;
+  --spacing-10xl: 64px;
+  --spacing-11xl: 75px;
+  --spacing-12xl: 80px;
+  --spacing-13xl: 100px;
+  --spacing-14xl: 125px;
+  --spacing-15xl: 150px;
+  --spacing-hero-1: 31px;
+
+  /* Heights - Exact pixel values */
+  --height-xs: 80px;
+  --height-sm: 120px;
+  --height-md: 162px;
+  --height-lg: 500px;
+  --height-xl: 600px;
+  --height-2xl: 700px;
+  --height-hero: 772px;
+
+  /* Max Widths - Exact pixel values */
+  --max-width-xs: 250px;
+  --max-width-sm: 300px;
+  --max-width-md: 350px;
+  --max-width-lg: 437px;
+  --max-width-xl: 550px;
+  --max-width-2xl: 640px;
+  --max-width-3xl: 768px;
+  --max-width-4xl: 1024px;
+  --max-width-5xl: 1280px;
+  --max-width-6xl: 1341px;
+  --max-width-7xl: 1440px;
+  --max-width-8xl: 1536px;
+
+  /* Gaps - Exact pixel values */
+  --gap-xs: 8px;
+  --gap-sm: 12px;
+  --gap-md: 16px;
+  --gap-lg: 24px;
+  --gap-xl: 36px;
+  --gap-2xl: 48px;
+  --gap-3xl: 64px;
+
+  /* Padding Top Values - Hero specific */
+  --pt-hero-sm: 250px;
+  --pt-hero-md: 350px;
+  --pt-hero-lg: 400px;
+  --pt-hero-xl: 454px;
+
+  /* Responsive Width - Project specific */
+  --width-project-field: 360px;
+}
+
+/* Responsive breakpoint overrides */
+@media (min-width: 640px) {
+  :root {
+    --text-xs-responsive: 16px;
+    --text-sm-responsive: 18px;
+    --text-lg-responsive: 24px;
+    --text-xl-responsive: 28px;
+    --text-2xl-responsive: 32px;
+    --text-4xl-responsive: 60px;
+    --text-5xl-responsive: 80px;
+    --text-6xl-responsive: 100px;
+    --tracking-tight-xl: -1.28px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --text-xs-responsive: 18px;
+    --text-4xl-responsive: 80px;
+    --text-6xl-responsive: 100px;
+    --tracking-tight-3xl: -4px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --text-4xl-responsive: 100px;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -120,4 +252,196 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Component-specific styles using design tokens */
+.budget-label {
+  color: var(--brand-black);
+}
+
+.budget-input {
+  border-color: var(--brand-muted);
+  color: var(--brand-black);
+}
+
+.budget-input::placeholder {
+  color: var(--brand-muted);
+}
+
+.budget-input:focus {
+  border-color: var(--brand-black);
+}
+
+.budget-button {
+  background-color: var(--brand-dark);
+  color: var(--brand-white);
+}
+
+.budget-button:hover {
+  background-color: var(--brand-dark);
+  opacity: 0.9;
+}
+
+.footer-section {
+  background-color: var(--brand-background);
+  color: var(--brand-white);
+}
+
+.footer-divider {
+  border-color: var(--brand-accent);
+}
+
+.who-nav-link:hover {
+  color: var(--brand-black);
+}
+
+.who-heading {
+  color: var(--brand-black);
+}
+
+.who-text {
+  color: var(--brand-black);
+}
+
+.side-menu {
+  background-color: var(--brand-dark);
+  color: var(--brand-white);
+}
+
+.side-menu-close {
+  color: var(--brand-white);
+}
+
+.side-menu-close:hover {
+  color: var(--brand-white);
+}
+
+.side-menu-link {
+  color: var(--brand-white);
+}
+
+.side-menu-link:hover {
+  color: #d1d5db; /* neutral-300 equivalent */
+}
+
+.side-menu-social:hover {
+  color: var(--brand-white);
+}
+
+.testimonial-card {
+  background-color: var(--brand-light);
+}
+
+.testimonial-quote {
+  color: var(--brand-dark);
+}
+
+.testimonial-caption {
+  color: var(--brand-accent);
+}
+
+.testimonial-author {
+  color: var(--brand-dark);
+}
+
+.testimonial-role {
+  color: var(--brand-accent);
+}
+
+.blog-card {
+  background-color: var(--brand-white);
+}
+
+.blog-title {
+  color: var(--brand-black);
+}
+
+.blog-date {
+  color: var(--brand-black);
+}
+
+.project-field-label {
+  color: #6b7280; /* gray-500 equivalent */
+}
+
+.project-field-title {
+  color: var(--brand-black);
+}
+
+.project-field-value {
+  color: var(--brand-black);
+}
+
+.newsletter-button {
+  background-color: var(--brand-dark);
+  color: var(--brand-white);
+}
+
+.newsletter-button:hover {
+  background-color: var(--brand-dark);
+  opacity: 0.9;
+}
+
+.footer-logo-border {
+  border: 0.5px solid var(--brand-light);
+}
+
+.project-filter-item::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--brand-black);
+  transition: all 0.2s;
+}
+
+.projects-title {
+  color: var(--brand-black);
+}
+
+.projects-main-title {
+  color: var(--brand-black);
+}
+
+.section-heading {
+  color: var(--brand-black);
+}
+
+.section-link {
+  color: var(--brand-dark);
+}
+
+.studio-card-title {
+  color: var(--brand-black);
+}
+
+.studio-card-description {
+  color: var(--brand-accent);
+}
+
+.newsletter-label {
+  color: var(--brand-black);
+}
+
+.newsletter-input {
+  border-color: var(--brand-muted);
+  color: var(--brand-black);
+}
+
+.newsletter-input::placeholder {
+  color: var(--brand-muted);
+}
+
+.newsletter-input:focus {
+  border-color: var(--brand-black);
+}
+
+.newsletter-heading {
+  color: var(--brand-black);
+}
+
+.newsletter-text {
+  color: var(--brand-black);
 }

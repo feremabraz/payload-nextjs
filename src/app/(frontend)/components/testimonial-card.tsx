@@ -6,15 +6,15 @@ interface TestimonialCardProps {
 
 export function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
-    <figure className="bg-[#f6f8fa] p-4 sm:p-6 md:p-8 h-full flex flex-col">
+    <figure className="p-4 sm:p-6 md:p-8 h-full flex flex-col testimonial-card">
       <blockquote className="flex-grow self-stretch">
-        <p className="text-[#121212] text-lg sm:text-xl md:text-[24px] font-medium leading-[120%] tracking-[-0.72px] sm:tracking-[-0.80px] md:tracking-[-0.96px]">
+        <p className="text-lg sm:text-xl md:text-[var(--text-xl-responsive)] font-medium leading-[120%] tracking-[var(--tracking-tight-2xl)] sm:tracking-[var(--tracking-tight-4xl)] md:tracking-[var(--tracking-tight-5xl)] testimonial-quote">
           {testimonial.quote}
         </p>
       </blockquote>
-      <figcaption className="mt-4 sm:mt-6 text-[#666D80] text-sm sm:text-[16px] font-medium leading-[140%] tracking-[-0.28px] sm:tracking-[-0.32px]">
-        <span className="font-semibold text-[#121212]">{testimonial.author}</span>
-        {testimonial.role && <span className="text-[#666D80]">, {testimonial.role}</span>}
+      <figcaption className="mt-4 sm:mt-6 text-sm sm:text-[var(--text-sm-responsive)] font-medium leading-[140%] tracking-[var(--tracking-tight-md)] sm:tracking-[var(--tracking-tight-lg)] testimonial-caption">
+        <span className="font-semibold testimonial-author">{testimonial.author}</span>
+        {testimonial.role && <span className="testimonial-role">, {testimonial.role}</span>}
       </figcaption>
     </figure>
   );
