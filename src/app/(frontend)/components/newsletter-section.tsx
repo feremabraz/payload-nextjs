@@ -19,12 +19,7 @@ export default function NewsletterSection() {
         <main>
           <form className="space-y-6 md:space-y-8">
             <div>
-              <Label
-                htmlFor="email"
-                className="block text-xs md:text-sm font-medium mb-1 text-foreground"
-              >
-                Email* (Required)
-              </Label>
+              <Label htmlFor="email">Email* (Required)</Label>
               <Input id="email" name="email" type="email" placeholder="Input your Email" required />
             </div>
             <Button type="submit" className="w-full">

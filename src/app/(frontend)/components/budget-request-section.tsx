@@ -20,21 +20,11 @@ export default function BudgetRequestSection() {
         <main>
           <form className="space-y-6 md:space-y-8">
             <div>
-              <Label
-                htmlFor="name"
-                className="block text-xs md:text-sm font-medium mb-1 text-foreground"
-              >
-                Name* (Required)
-              </Label>
+              <Label htmlFor="name">Name* (Required)</Label>
               <Input id="name" name="name" type="text" placeholder="Input your Name" required />
             </div>
             <div>
-              <Label
-                htmlFor="phone"
-                className="block text-xs md:text-sm font-medium mb-1 text-foreground"
-              >
-                Phone* (Required)
-              </Label>
+              <Label htmlFor="phone">Phone* (Required)</Label>
               <Input
                 id="phone"
                 name="phone"
@@ -44,21 +34,11 @@ export default function BudgetRequestSection() {
               />
             </div>
             <div>
-              <Label
-                htmlFor="email"
-                className="block text-xs md:text-sm font-medium mb-1 text-foreground"
-              >
-                Email* (Required)
-              </Label>
+              <Label htmlFor="email">Email* (Required)</Label>
               <Input id="email" name="email" type="email" placeholder="Input your Email" required />
             </div>
             <div>
-              <Label
-                htmlFor="message"
-                className="block text-xs md:text-sm font-medium mb-1 text-foreground"
-              >
-                Message
-              </Label>
+              <Label htmlFor="message">Message</Label>
               <Textarea
                 id="message"
                 name="message"
