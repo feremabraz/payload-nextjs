@@ -41,7 +41,7 @@ export default function HeroSection() {
       <section className="relative self-stretch w-full h-lg sm:h-xl md:h-2xl lg:h-hero bg-cover bg-center bg-no-repeat">
         <HeroImage />
         <div className="absolute inset-0 z-0 bg-black/20" />
-        <div className="relative z-10 flex flex-col w-full h-full px-5 sm:px-30 md:px-[49px] py-5 sm:py-hero-1">
+        <div className="relative z-10 flex flex-col w-full h-full px-5 sm:px-30 md:px-[49px] py-5 sm:py-hero">
           <NavigationBar />
           <div className="flex flex-col items-center justify-start flex-grow w-full pt-[250px] sm:pt-[350px] md:pt-[400px] lg:pt-[454px]">
             <HeroText />

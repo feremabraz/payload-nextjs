@@ -54,8 +54,7 @@ export default {
         },
       },
       spacing: {
-        // Custom spacing values from design tokens
-        "hero-1": "31px",
+        hero: "1.9375rem", // 32px
         18: "4.5rem", // 72px
         30: "7.5rem", // 120px
         31: "7.75rem", // 124px
@@ -69,34 +68,32 @@ export default {
         162: "40.5rem", // 648px
         250: "62.5rem", // 1000px
         360: "90rem", // 1440px
-        437: "109.25rem", // 1748px (max-width-lg)
-        454: "113.5rem", // 1816px (pt-hero-xl)
-        772: "193rem", // 3088px (height-hero)
+        437: "109.25rem", // 1748px
+        454: "113.5rem", // 1816px
+        772: "193rem", // 3088px
       },
       maxWidth: {
-        // Custom max-width values
-        xs: "250px",
-        sm: "300px",
-        md: "350px",
-        lg: "437px",
-        xl: "550px",
-        "2xl": "640px",
-        "3xl": "768px",
-        "4xl": "1024px",
-        "5xl": "1280px",
-        "6xl": "1341px",
-        "7xl": "1440px",
-        "8xl": "1536px",
+        xs: "15.625rem", // 250px
+        sm: "18.75rem", // 300px
+        md: "21.875rem", // 350px
+        lg: "27.3125rem", // 437px
+        xl: "34.375rem", // 550px
+        "2xl": "40rem", // 640px
+        "3xl": "48rem", // 768px
+        "4xl": "64rem", // 1024px
+        "5xl": "80rem", // 1280px
+        "6xl": "83.8125rem", // 1341px
+        "7xl": "90rem", // 1440px
+        "8xl": "96rem", // 1536px
       },
       height: {
-        // Custom height values
-        xs: "80px",
-        sm: "120px",
-        md: "162px",
-        lg: "500px",
-        xl: "600px",
-        "2xl": "700px",
-        hero: "772px",
+        xs: "5rem", // 80px
+        sm: "7.5rem", // 120px
+        md: "10.125rem", // 162px
+        lg: "31.25rem", // 500px
+        xl: "37.5rem", // 600px
+        "2xl": "43.75rem", // 700px
+        hero: "48.25rem", // 772px
       },
       borderRadius: {
         lg: "var(--radius-lg)",
