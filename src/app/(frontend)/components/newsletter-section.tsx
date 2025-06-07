@@ -1,33 +1,27 @@
-import { SectionContainer } from "@components/section";
+import { FormContainer } from "@shared-components/form-container";
+import { FormField } from "@shared-components/form-field";
+import { SectionContainer } from "@shared-components/section-container";
 import { Button } from "@ui/button";
-import { Input } from "@ui/input";
-import { Label } from "@ui/label";
 
 export default function NewsletterSection() {
   return (
     <SectionContainer>
-      <div className="w-full max-w-3xl px-4 sm:px-0">
-        <header className="mb-8 md:mb-10 text-center">
-          <h1 className="text-center font-medium text-8xl mb-4 md:mb-6 text-foreground">
-            STAY UPDATED
-          </h1>
-          <p className="text-sm md:text-base lg:text-lg max-w-md mx-auto px-4 text-foreground">
-            Subscribe to our newsletter to receive inspiration and news about our latest and future
-            projects.
-          </p>
-        </header>
-        <main>
-          <form className="space-y-6 md:space-y-8">
-            <div>
-              <Label htmlFor="email">Email* (Required)</Label>
-              <Input id="email" name="email" type="email" placeholder="Input your Email" required />
-            </div>
-            <Button type="submit" className="w-full">
-              Submit
-            </Button>
-          </form>
-        </main>
-      </div>
+      <FormContainer
+        title="STAY UPDATED"
+        description="Subscribe to our newsletter to receive inspiration and news about our latest and future projects."
+      >
+        <FormField
+          label="Email"
+          id="email"
+          name="email"
+          type="email"
+          placeholder="Input your Email"
+          required
+        />
+        <Button type="submit" className="w-full">
+          Submit
+        </Button>
+      </FormContainer>
     </SectionContainer>
   );
 }

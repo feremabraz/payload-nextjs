@@ -1,23 +1,27 @@
 import { BlogNewsPostCard } from "@components/blog-news-card";
-import { SectionContainer, SectionHeader } from "@components/section";
 import { blognewsPostsData } from "@lib/blog-news-data";
+import { ContentGrid } from "@shared-components/content-grid";
+import type { BlogNewsPost } from "@shared-types/blog-and-news";
 
 export default function BlogNewsSection() {
   return (
-    <SectionContainer>
-      <SectionHeader title="BLOG & NEWS" linkHref="/blog" linkText="GO TO BLOG" />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-3 w-full">
-        {blognewsPostsData.map((post) => (
-          <BlogNewsPostCard
-            key={post.id}
-            imagePath={post.imagePath}
-            altText={post.altText}
-            title={post.title}
-            description={post.description}
-            date={post.date}
-          />
-        ))}
-      </div>
-    </SectionContainer>
+    <ContentGrid<BlogNewsPost>
+      title="BLOG & NEWS"
+      linkHref="/blog"
+      linkText="GO TO BLOG"
+      items={blognewsPostsData}
+      renderItem={(post) => (
+        <BlogNewsPostCard
+          key={post.id}
+          imagePath={post.imagePath}
+          altText={post.altText}
+          title={post.title}
+          description={post.description}
+          date={post.date}
+        />
+      )}
+      columns={{ default: 1, sm: 2, md: 3, lg: 4 }}
+      gap="md"
+    />
   );
 }

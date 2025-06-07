@@ -1,6 +1,6 @@
 import { ProjectGallery } from "@components/project-gallery";
-import { SectionContainer, SectionHeader } from "@components/section";
 import { projects } from "@lib/project-data";
+import { SectionContainer, SectionHeader } from "@shared-components/section-container";
 
 export default function ProjectsSection() {
   return (
