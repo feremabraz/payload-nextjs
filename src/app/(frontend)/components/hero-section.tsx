@@ -22,14 +22,8 @@ function HeroImage() {
 
 function HeroText() {
   return (
-    <div className="relative w-full max-w-xl h-xs sm:h-sm md:h-md aspect-[275/81]">
-      <Image
-        src="/hero-text-image.png"
-        alt="Bruno Câmara Arquitectos"
-        fill
-        style={{ objectFit: "contain" }}
-        priority
-      />
+    <div className="relative w-full max-w-xl h-xs sm:h-sm md:h-md aspect-[275/81] mb-10">
+      <Image src="/hero-text-image.png" alt="Bruno Câmara Arquitectos" fill priority />
     </div>
   );
 }

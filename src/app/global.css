@@ -44,7 +44,7 @@
 
 :root {
   --radius: 0.5rem;
-  --background: hsl(210 20% 98%);
+  --background: hsl(0, 0%, 100%);
   --foreground: hsl(0 0% 7%);
   --card: hsl(210 20% 98%);
   --card-foreground: hsl(0 0% 7%);
@@ -52,7 +52,7 @@
   --popover-foreground: hsl(0 0% 7%);
   --primary: hsl(0 0% 7%);
   --primary-foreground: hsl(210 20% 98%);
-  --secondary: hsl(210 20% 98%);
+  --secondary: hsl(0, 0%, 100%);
   --secondary-foreground: hsl(0 0% 7%);
   --muted: hsl(214 14% 69%);
   --muted-foreground: hsl(0 0% 40%);
@@ -80,12 +80,12 @@
 
 .dark {
   --background: hsl(0 0% 7%);
-  --foreground: hsl(210 20% 98%);
+  --foreground: hsl(0, 0%, 100%);
   --card: hsl(0 0% 7%);
   --card-foreground: hsl(210 20% 98%);
   --popover: hsl(0 0% 7%);
   --popover-foreground: hsl(210 20% 98%);
-  --primary: hsl(210 20% 98%);
+  --primary: hsl(0, 0%, 100%);
   --primary-foreground: hsl(0 0% 0%);
   --secondary: hsl(0 0% 15%);
   --secondary-foreground: hsl(210 20% 98%);

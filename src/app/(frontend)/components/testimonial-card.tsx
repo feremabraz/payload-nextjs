@@ -6,7 +6,7 @@ interface TestimonialCardProps {
 
 export function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
-    <figure className="p-4 sm:p-6 md:p-8 h-full flex flex-col bg-secondary">
+    <figure className="p-4 sm:p-6 md:p-8 h-full flex flex-col bg-card">
       <blockquote className="flex-grow self-stretch">
         <p className="text-lg sm:text-xl md:text-xl font-medium leading-[120%] text-foreground">
           {testimonial.quote}

@@ -34,10 +34,7 @@ export default function NewsletterSection() {
                 className="border-0 border-b border-muted bg-transparent rounded-none w-full px-1 py-3 text-sm md:text-base text-foreground placeholder:text-muted focus:border-ring focus-visible:outline-none focus-visible:ring-0"
               />
             </div>
-            <Button
-              type="submit"
-              className="w-full rounded-sm py-4 md:py-6 text-sm md:text-base font-semibold bg-background text-secondary hover:bg-background hover:opacity-90"
-            >
+            <Button type="submit" className="w-full">
               Submit
             </Button>
           </form>

@@ -82,10 +82,7 @@ export default function BudgetRequestSection() {
                 rows={4}
               />
             </div>
-            <Button
-              type="submit"
-              className="w-full rounded-sm py-4 md:py-6 text-sm md:text-base font-semibold bg-background text-secondary hover:bg-background hover:opacity-90"
-            >
+            <Button type="submit" className="w-full">
               Submit
             </Button>
           </form>
