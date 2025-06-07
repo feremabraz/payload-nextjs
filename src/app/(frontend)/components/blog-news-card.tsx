@@ -11,7 +11,7 @@ export function BlogNewsPostCard({
   date,
 }: BlogNewsPostCardProps) {
   return (
-    <div className="flex flex-col items-start gap-2 sm:gap-3 flex-1 basis-0 p-0 bg-brand-white">
+    <div className="flex flex-col items-start gap-2 sm:gap-3 flex-1 basis-0 p-0 bg-secondary">
       <div className="relative w-full aspect-[3/2] flex justify-center items-center self-stretch">
         <Image
           src={imagePath}
@@ -22,13 +22,13 @@ export function BlogNewsPostCard({
         />
       </div>
       <div className="flex flex-col items-start gap-2 self-stretch px-2 sm:px-3 pb-2 sm:pb-3">
-        <h3 className="text-left font-medium text-card-description leading-[1.4] tracking-[var(--tracking-tight-sm)] sm:tracking-[var(--tracking-tight-md)] self-stretch text-brand-black">
+        <h3 className="text-left font-medium text-xs sm:text-sm leading-[1.4] self-stretch text-foreground">
           {title}
         </h3>
-        <p className="text-neutral-sub-title font-normal text-card-description leading-[1.4] tracking-[var(--tracking-tight-sm)] sm:tracking-[var(--tracking-tight-md)] self-stretch text-left">
+        <p className="text-neutral-sub-title font-normal text-xs sm:text-sm leading-[1.4] self-stretch text-left">
           {description}
         </p>
-        <p className="text-left font-normal text-xs leading-[1.4] tracking-[var(--tracking-tight-xs)] sm:tracking-[var(--tracking-tight-sm)] self-stretch mt-auto pt-1 text-brand-black">
+        <p className="text-left font-normal text-xs leading-[1.4] self-stretch mt-auto pt-1 text-foreground">
           {date}
         </p>
       </div>

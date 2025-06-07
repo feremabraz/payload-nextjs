@@ -43,11 +43,12 @@ export function LanguageSwitcher({ background = "dark" }: LanguageSwitcherProps)
     <div className={cn("flex items-center", currentBackground.container)}>
       {languages.map((lang, index) => (
         <div key={lang.id}>
+          {" "}
           <Button
             variant="ghost"
             size="default"
             className={cn(
-              "px-3 py-2 text-language-switcher font-medium",
+              "px-3 py-2 text-lg sm:text-base font-medium",
               currentBackground.hoverBg,
               currentBackground.hoverText,
               language === lang.id
@@ -59,9 +60,7 @@ export function LanguageSwitcher({ background = "dark" }: LanguageSwitcherProps)
             {lang.label}
           </Button>
           {index < languages.length - 1 && (
-            <span className={cn("text-language-switcher mx-1", currentBackground.separator)}>
-              |
-            </span>
+            <span className={cn("text-lg sm:text-base mx-1", currentBackground.separator)}>|</span>
           )}
         </div>
       ))}

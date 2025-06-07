@@ -6,7 +6,7 @@ import type React from "react";
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <li>
-    <Link href={href} className="hover:text-gray-300 transition-colors-smooth">
+    <Link href={href} className="hover:text-gray-300 transition-colors duration-200 ease-in-out">
       {children}
     </Link>
   </li>
@@ -14,13 +14,13 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
 
 export default function FooterSection() {
   return (
-    <SectionContainer className="footer-section">
+    <SectionContainer className="bg-primary text-secondary">
       <div className="flex flex-col lg:flex-row justify-between gap-8 sm:gap-10 md:gap-12 lg:gap-16 w-full">
         <div className="space-y-6 sm:space-y-8 lg:w-3/4">
           <FooterLogo />
 
-          <div className="space-y-1 text-contact mt-6 sm:mt-8">
-            <p className="font-semibold text-contact-header mb-2">Contact Info:</p>
+          <div className="space-y-1 text-xs sm:text-sm mt-6 sm:mt-8">
+            <p className="font-semibold text-sm sm:text-base mb-2">Contact Info:</p>
             <p>info@cvz-construcoes.pt</p>
             <p>Av. da República 49</p>
             <p>1050-188 Lisboa</p>
@@ -31,28 +31,28 @@ export default function FooterSection() {
             <Link
               href="#"
               aria-label="Facebook"
-              className="hover:text-gray-300 transition-colors-smooth"
+              className="hover:text-gray-300 transition-colors duration-200 ease-in-out"
             >
               <FacebookIcon size={18} className="sm:w-5 sm:h-5" />
             </Link>
             <Link
               href="#"
               aria-label="Instagram"
-              className="hover:text-gray-300 transition-colors-smooth"
+              className="hover:text-gray-300 transition-colors duration-200 ease-in-out"
             >
               <InstagramIcon size={18} className="sm:w-5 sm:h-5" />
             </Link>
             <Link
               href="#"
               aria-label="LinkedIn"
-              className="hover:text-gray-300 transition-colors-smooth"
+              className="hover:text-gray-300 transition-colors duration-200 ease-in-out"
             >
               <LinkedInIcon size={18} className="sm:w-5 sm:h-5" />
             </Link>
           </div>
         </div>
 
-        <div className="flex-responsive items-start gap-6 sm:gap-8 md:gap-10 lg:gap-10 grow shrink-0 basis-0 pt-2 font-semibold">
+        <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-8 md:gap-10 lg:gap-10 grow shrink-0 basis-0 pt-2 font-semibold">
           <nav className="w-full sm:w-auto">
             <ul className="flex flex-col items-start gap-2 sm:gap-3 grow shrink-0 basis-0 text-sm">
               <NavLink href="/home">Home</NavLink>
@@ -72,17 +72,23 @@ export default function FooterSection() {
         </div>
       </div>
 
-      <hr className="border-t w-full my-6 sm:my-8 border-brand-accent" />
+      <hr className="border-t w-full my-6 sm:my-8 border-accent" />
 
-      <div className="flex flex-col md:flex-row justify-between items-start self-stretch text-footer font-semibold gap-3 sm:gap-4 w-full">
+      <div className="flex flex-col md:flex-row justify-between items-start self-stretch text-xs sm:text-sm font-semibold gap-3 sm:gap-4 w-full">
         <p className="order-2 md:order-1">
           &copy; 2025 BRUNO CÂMARA ARQUITETOS. All rights reserved.
         </p>
-        <div className="flex-responsive-spaced order-1 md:order-2">
-          <Link href="/privacy-policy" className="hover:text-gray-400 transition-colors-smooth">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-0 order-1 md:order-2 [&>*+*]:sm:ml-4 md:[&>*+*]:sm:ml-6">
+          <Link
+            href="/privacy-policy"
+            className="hover:text-gray-400 transition-colors duration-200 ease-in-out"
+          >
             Privacy Policy
           </Link>
-          <Link href="/terms-of-service" className="hover:text-gray-400 transition-colors-smooth">
+          <Link
+            href="/terms-of-service"
+            className="hover:text-gray-400 transition-colors duration-200 ease-in-out"
+          >
             Terms of Service
           </Link>
         </div>

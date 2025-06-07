@@ -22,10 +22,10 @@ export function ProjectGallery({
   };
 
   const columnClasses = {
-    2: "grid-gallery-2",
-    3: "grid-gallery-3",
-    4: "grid-gallery-4",
-    6: "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6",
+    2: "grid grid-cols-1 md:grid-cols-2",
+    3: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
+    4: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
+    6: "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6",
   };
 
   const cardSizeMap = {
@@ -38,9 +38,7 @@ export function ProjectGallery({
   const cardSize = cardSizeMap[columns];
 
   return (
-    <div
-      className={cn("grid w-full items-start", columnClasses[columns], gapClasses[gap], className)}
-    >
+    <div className={cn("w-full items-start", columnClasses[columns], gapClasses[gap], className)}>
       {projects.map((project: ProjectItem, index: number) => (
         <ProjectImageCard key={project.id || index} project={project} size={cardSize} />
       ))}

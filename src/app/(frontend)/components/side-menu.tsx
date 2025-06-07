@@ -21,14 +21,14 @@ const socialLinks = [
 
 export function SideMenu() {
   return (
-    <div className="flex flex-col h-full p-card side-menu">
+    <div className="flex flex-col h-full p-4 sm:p-6 md:p-8 bg-sidebar-background text-sidebar-foreground">
       <div className="flex items-center justify-between mb-6 sm:mb-8">
-        <span className="text-menu text-neutral-400">Menu</span>
+        <span className="text-xs sm:text-sm text-neutral-400">Menu</span>
         <SheetClose asChild>
           <Button
             variant="ghost"
             size="icon"
-            className="hover:bg-white/10 text-brand-white hover:text-brand-white transition-colors-smooth"
+            className="hover:bg-white/10 text-secondary hover:text-secondary transition-colors duration-200 ease-in-out"
           >
             <X className="w-5 h-5 sm:w-6 sm:h-6" />
             <span className="sr-only">Close menu</span>
@@ -43,7 +43,7 @@ export function SideMenu() {
               <SheetClose asChild>
                 <Link
                   href={item.href}
-                  className="block py-2 text-nav-link font-medium uppercase text-brand-white hover:text-neutral-300 transition-colors-smooth"
+                  className="block py-2 text-xl sm:text-2xl font-medium uppercase text-secondary hover:text-neutral-300 transition-colors duration-200 ease-in-out"
                 >
                   {item.label}
                 </Link>
@@ -61,7 +61,7 @@ export function SideMenu() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-400 hover:text-brand-white transition-colors-smooth"
+                className="text-neutral-400 hover:text-secondary transition-colors duration-200 ease-in-out"
                 aria-label={social.label}
               >
                 <social.icon className="w-5 h-5 sm:w-6 sm:h-6" />

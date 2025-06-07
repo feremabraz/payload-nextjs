@@ -33,17 +33,19 @@ export default function ProjectCustomNavigation({ id }: ProjectCustomNavigationP
 
   return (
     <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-      <section className="relative self-stretch w-full h-[var(--height-hero-sm)] sm:h-[var(--height-hero-md)] md:h-[var(--height-hero-lg)] lg:h-[var(--height-hero-xl)] bg-cover bg-center bg-no-repeat">
+      <section className="relative self-stretch w-full h-[250px] sm:h-[350px] md:h-[500px] lg:h-[600px] bg-cover bg-center bg-no-repeat">
         <HeroImage project={project} />
         <div className="absolute inset-0 z-0 bg-black/20" />
-        <div className="relative z-10 flex flex-col w-full h-full px-[var(--spacing-sm)] sm:px-[var(--spacing-md)] md:px-[var(--spacing-xl)] py-[var(--spacing-sm)] sm:py-[var(--spacing-lg)]">
+        <div className="relative z-10 flex flex-col w-full h-full px-3 sm:px-4 md:px-6 py-3 sm:py-5">
           <NavigationBarWithLogo background="dark" />
           <div className="flex flex-col items-center justify-center flex-grow w-full text-center text-white">
-            <p className="text-hero-subtitle font-light mb-2">
+            <p className="text-lg sm:text-xl md:text-2xl font-light mb-2">
               {project.category.replace("-", " ").toUpperCase()} IN
             </p>
-            <h1 className="text-hero-title font-semibold mb-4">{mainLocation}</h1>
-            <p className="text-hero-description font-light mb-8">{project.location}</p>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-semibold mb-4">
+              {mainLocation}
+            </h1>
+            <p className="text-base sm:text-lg md:text-xl font-light mb-8">{project.location}</p>
             <ArrowDown className="w-6 h-6 sm:w-8 sm:h-8 text-white animate-pulse" />
           </div>
         </div>

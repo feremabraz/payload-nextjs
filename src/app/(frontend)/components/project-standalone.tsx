@@ -14,11 +14,11 @@ interface ProjectFieldProps {
 function ProjectField({ label, value, isTitle = false }: ProjectFieldProps) {
   return (
     <div className="flex flex-col items-start gap-2 flex-1">
-      <span className="text-sm font-medium text-brand-muted">{label}</span>
+      <span className="text-sm font-medium text-muted">{label}</span>
       {isTitle ? (
-        <h1 className="text-4xl font-semibold w-[var(--max-width-sm)] text-brand-black">{value}</h1>
+        <h1 className="text-4xl font-semibold w-[300px] text-foreground">{value}</h1>
       ) : (
-        <p className="text-4xl font-semibold w-[var(--max-width-sm)] text-brand-black">{value}</p>
+        <p className="text-4xl font-semibold w-[300px] text-foreground">{value}</p>
       )}
     </div>
   );
@@ -45,8 +45,8 @@ export default function ProjectStandalone({ id }: ProjectStandaloneProps) {
 
   return (
     <SectionContainer maxWidth="container" paddingY="lg">
-      <div className="flex flex-col gap-[var(--gap-3xl)]">
-        <div className="flex items-start gap-[var(--gap-3xl)]">
+      <div className="flex flex-col gap-16">
+        <div className="flex items-start gap-16">
           {firstRowFields.map((field) => (
             <ProjectField
               key={field.label}
@@ -56,7 +56,7 @@ export default function ProjectStandalone({ id }: ProjectStandaloneProps) {
             />
           ))}
         </div>
-        <div className="flex items-start gap-[var(--gap-3xl)]">
+        <div className="flex items-start gap-16">
           {secondRowFields.map((field) => (
             <ProjectField key={field.label} label={field.label} value={field.value} />
           ))}

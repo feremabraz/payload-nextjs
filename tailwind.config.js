@@ -53,6 +53,51 @@ export default {
           foreground: "var(--color-card-foreground)",
         },
       },
+      spacing: {
+        // Custom spacing values from design tokens
+        "hero-1": "31px",
+        18: "4.5rem", // 72px
+        30: "7.5rem", // 120px
+        31: "7.75rem", // 124px
+        32.5: "8.125rem", // 130px
+        37: "9.25rem", // 148px
+        75: "18.75rem", // 300px
+        80: "20rem", // 320px
+        100: "25rem", // 400px
+        125: "31.25rem", // 500px
+        150: "37.5rem", // 600px
+        162: "40.5rem", // 648px
+        250: "62.5rem", // 1000px
+        360: "90rem", // 1440px
+        437: "109.25rem", // 1748px (max-width-lg)
+        454: "113.5rem", // 1816px (pt-hero-xl)
+        772: "193rem", // 3088px (height-hero)
+      },
+      maxWidth: {
+        // Custom max-width values
+        xs: "250px",
+        sm: "300px",
+        md: "350px",
+        lg: "437px",
+        xl: "550px",
+        "2xl": "640px",
+        "3xl": "768px",
+        "4xl": "1024px",
+        "5xl": "1280px",
+        "6xl": "1341px",
+        "7xl": "1440px",
+        "8xl": "1536px",
+      },
+      height: {
+        // Custom height values
+        xs: "80px",
+        sm: "120px",
+        md: "162px",
+        lg: "500px",
+        xl: "600px",
+        "2xl": "700px",
+        hero: "772px",
+      },
       borderRadius: {
         lg: "var(--radius-lg)",
         md: "var(--radius-md)",
