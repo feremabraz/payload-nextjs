@@ -25,14 +25,7 @@ export default function NewsletterSection() {
               >
                 Email* (Required)
               </Label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="Input your Email"
-                required
-                className="border-0 border-b border-muted bg-transparent rounded-none w-full px-1 py-3 text-sm md:text-base text-foreground placeholder:text-muted focus:border-ring focus-visible:outline-none focus-visible:ring-0"
-              />
+              <Input id="email" name="email" type="email" placeholder="Input your Email" required />
             </div>
             <Button type="submit" className="w-full">
               Submit

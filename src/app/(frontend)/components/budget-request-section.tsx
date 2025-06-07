@@ -26,14 +26,7 @@ export default function BudgetRequestSection() {
               >
                 Name* (Required)
               </Label>
-              <Input
-                id="name"
-                name="name"
-                type="text"
-                placeholder="Input your Name"
-                required
-                className="border-0 border-b border-muted bg-transparent rounded-none w-full px-1 py-3 text-sm md:text-base text-foreground placeholder:text-muted focus:border-ring focus-visible:outline-none focus-visible:ring-0"
-              />
+              <Input id="name" name="name" type="text" placeholder="Input your Name" required />
             </div>
             <div>
               <Label
@@ -48,7 +41,6 @@ export default function BudgetRequestSection() {
                 type="tel"
                 placeholder="Input your Phone Number"
                 required
-                className="border-0 border-b border-muted bg-transparent rounded-none w-full px-1 py-3 text-sm md:text-base text-foreground placeholder:text-muted focus:border-ring focus-visible:outline-none focus-visible:ring-0"
               />
             </div>
             <div>
@@ -58,14 +50,7 @@ export default function BudgetRequestSection() {
               >
                 Email* (Required)
               </Label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="Input your Email"
-                required
-                className="border-0 border-b border-muted bg-transparent rounded-none w-full px-1 py-3 text-sm md:text-base text-foreground placeholder:text-muted focus:border-ring focus-visible:outline-none focus-visible:ring-0"
-              />
+              <Input id="email" name="email" type="email" placeholder="Input your Email" required />
             </div>
             <div>
               <Label
@@ -78,7 +63,6 @@ export default function BudgetRequestSection() {
                 id="message"
                 name="message"
                 placeholder="Input your Message Here"
-                className="border-0 border-b border-muted bg-transparent rounded-none w-full px-1 py-3 text-sm md:text-base text-foreground placeholder:text-muted focus:border-ring focus-visible:outline-none focus-visible:ring-0 min-h-20 md:min-h-40"
                 rows={4}
               />
             </div>
