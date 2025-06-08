@@ -1,6 +1,6 @@
-import { FacebookIcon, InstagramIcon, LinkedInIcon } from "@ui/brands";
-import { Button } from "@ui/button";
-import { SheetClose } from "@ui/sheet";
+import { FacebookIcon, InstagramIcon, LinkedInIcon } from "@shared-ui/brands";
+import { Button } from "@shared-ui/button";
+import { SheetClose } from "@shared-ui/sheet";
 import { X } from "lucide-react";
 import Link from "next/link";
 

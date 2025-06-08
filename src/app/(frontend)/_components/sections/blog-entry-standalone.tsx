@@ -1,5 +1,5 @@
-import { SectionContainer } from "@layout/section-container";
 import { blognewsPostsData } from "@shared-data/blog-news-data";
+import { SectionContainer } from "@shared-layout/section-container";
 import Image from "next/image";
 
 interface BlogEntryStandaloneProps {

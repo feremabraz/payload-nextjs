@@ -1,11 +1,11 @@
 "use client";
 
-import { SectionContainer, SectionHeader } from "@layout/section-container";
 import { NavigationBarWithLogo } from "@navigation/navigation-bar";
 import { SideMenu } from "@navigation/side-menu";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { isMenuOpenAtom } from "@store/atoms";
-import { Sheet, SheetContent, SheetTitle } from "@ui/sheet";
+import { SectionContainer, SectionHeader } from "@shared-layout/section-container";
+import { isMenuOpenAtom } from "@shared-store/atoms";
+import { Sheet, SheetContent, SheetTitle } from "@shared-ui/sheet";
 import { useAtom } from "jotai";
 
 interface NavigationSectionProps {

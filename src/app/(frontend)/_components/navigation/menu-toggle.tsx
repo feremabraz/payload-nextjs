@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@lib/utils";
-import { Button } from "@ui/button";
-import { SheetTrigger } from "@ui/sheet";
+import { Button } from "@shared-ui/button";
+import { SheetTrigger } from "@shared-ui/sheet";
+import { cn } from "@shared-utilities/utils";
 import { Menu } from "lucide-react";
 
 interface MenuToggleProps {

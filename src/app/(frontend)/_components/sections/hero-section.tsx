@@ -3,8 +3,8 @@
 import { NavigationBar } from "@navigation/navigation-bar";
 import { SideMenu } from "@navigation/side-menu";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { isMenuOpenAtom } from "@store/atoms";
-import { Sheet, SheetContent, SheetTitle } from "@ui/sheet";
+import { isMenuOpenAtom } from "@shared-store/atoms";
+import { Sheet, SheetContent, SheetTitle } from "@shared-ui/sheet";
 import { useAtom } from "jotai";
 import Image from "next/image";
 

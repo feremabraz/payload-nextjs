@@ -1,7 +1,7 @@
-import { FormContainer } from "@layout/form-container";
-import { FormField } from "@layout/form-field";
-import { SectionContainer } from "@layout/section-container";
-import { Button } from "@ui/button";
+import { FormContainer } from "@shared-layout/form-container";
+import { FormField } from "@shared-layout/form-field";
+import { SectionContainer } from "@shared-layout/section-container";
+import { Button } from "@shared-ui/button";
 
 export default function BudgetRequestSection() {
   return (

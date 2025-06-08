@@ -1,4 +1,4 @@
-import { cn } from "@lib/utils";
+import { cn } from "@shared-utilities/utils";
 import type { FormHTMLAttributes, ReactNode } from "react";
 
 interface FormContainerProps extends Omit<FormHTMLAttributes<HTMLFormElement>, "className"> {

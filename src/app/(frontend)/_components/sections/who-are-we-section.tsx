@@ -1,4 +1,4 @@
-import { SectionContainer } from "@layout/section-container";
+import { SectionContainer } from "@shared-layout/section-container";
 import Link from "next/link";
 
 const navItems = [

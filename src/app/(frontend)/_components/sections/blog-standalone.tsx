@@ -1,8 +1,8 @@
 "use client";
 
 import { BlogGallery } from "@blog/blog-gallery";
-import { SectionContainer } from "@layout/section-container";
 import { blognewsPostsData } from "@shared-data/blog-news-data";
+import { SectionContainer } from "@shared-layout/section-container";
 
 export default function BlogStandalone() {
   return (

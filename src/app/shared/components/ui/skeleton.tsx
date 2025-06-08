@@ -1,4 +1,4 @@
-import { cn } from "@lib/utils";
+import { cn } from "@shared-utilities/utils";
 import type { ComponentProps } from "react";
 
 function Skeleton({ className, ...props }: ComponentProps<"div">) {

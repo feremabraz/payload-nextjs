@@ -1,6 +1,6 @@
-import { cn } from "@lib/utils";
 import { ProjectImageCard } from "@project/project-image-card";
 import type { ProjectItem } from "@shared-types/projects";
+import { cn } from "@shared-utilities/utils";
 
 interface ProjectGalleryProps {
   columns?: 2 | 3 | 4 | 6;

@@ -1,7 +1,7 @@
-import { cn } from "@lib/utils";
-import { Input } from "@ui/input";
-import { Label } from "@ui/label";
-import { Textarea } from "@ui/textarea";
+import { Input } from "@shared-ui/input";
+import { Label } from "@shared-ui/label";
+import { Textarea } from "@shared-ui/textarea";
+import { cn } from "@shared-utilities/utils";
 import type { ComponentProps } from "react";
 
 interface BaseFormFieldProps {

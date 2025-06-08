@@ -1,5 +1,5 @@
-import { cn } from "@lib/utils";
 import type { BlogNewsPost } from "@shared-types/blog-and-news";
+import { cn } from "@shared-utilities/utils";
 import Image from "next/image";
 
 interface BlogImageCardProps {

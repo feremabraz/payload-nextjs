@@ -1,5 +1,5 @@
-import { cn } from "@lib/utils";
 import type { ProjectItem } from "@shared-types/projects";
+import { cn } from "@shared-utilities/utils";
 import Image from "next/image";
 
 interface ProjectImageCardProps {

@@ -1,9 +1,9 @@
 "use client";
 
-import { cn } from "@lib/utils";
+import { currentLanguageAtom } from "@shared-store/atoms";
 import type { Language } from "@shared-types/language";
-import { currentLanguageAtom } from "@store/atoms";
-import { Button } from "@ui/button";
+import { Button } from "@shared-ui/button";
+import { cn } from "@shared-utilities/utils";
 import { useAtom } from "jotai";
 
 interface LanguageSwitcherProps {

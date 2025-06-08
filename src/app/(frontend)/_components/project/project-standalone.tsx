@@ -1,5 +1,5 @@
-import { SectionContainer } from "@layout/section-container";
 import { projects } from "@shared-data/project-data";
+import { SectionContainer } from "@shared-layout/section-container";
 
 interface ProjectStandaloneProps {
   id: number;

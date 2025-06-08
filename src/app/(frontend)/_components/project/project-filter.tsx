@@ -1,7 +1,7 @@
 "use client";
 
-import { cn } from "@lib/utils";
 import type { ProjectCategory } from "@shared-types/projects";
+import { cn } from "@shared-utilities/utils";
 
 interface ProjectFilterProps {
   selectedCategory: ProjectCategory | "all";

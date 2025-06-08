@@ -1,6 +1,6 @@
 import { BlogImageCard } from "@blog/blog-image-card";
-import { cn } from "@lib/utils";
 import type { BlogNewsPost } from "@shared-types/blog-and-news";
+import { cn } from "@shared-utilities/utils";
 
 interface BlogGalleryProps {
   columns?: 2 | 3 | 4 | 6;
