@@ -13,12 +13,7 @@ export const projects: ProjectItem[] = [
     projectType: "Remodeling and Expansion",
     client: "Private Residence",
     projectSize: "285 m²",
-    images: [
-      "/project-1/01.webp",
-      "/project-1/02.webp",
-      "/project-1/03.webp",
-      "/project-1/04.webp",
-    ],
+    images: ["/project/01.webp", "/project/02.webp", "/project/03.webp", "/project/04.webp"],
   },
   {
     id: 2,
@@ -31,7 +26,7 @@ export const projects: ProjectItem[] = [
     projectType: "Interior Design",
     client: "Private Residence",
     projectSize: "45 m²",
-    images: [],
+    images: ["/project/01.webp", "/project/02.webp", "/project/03.webp", "/project/04.webp"],
   },
   {
     id: 3,
@@ -44,7 +39,7 @@ export const projects: ProjectItem[] = [
     projectType: "Commercial Building",
     client: "Tech Corporation",
     projectSize: "1,250 m²",
-    images: [],
+    images: ["/project/01.webp", "/project/02.webp", "/project/03.webp", "/project/04.webp"],
   },
   {
     id: 4,
@@ -57,7 +52,7 @@ export const projects: ProjectItem[] = [
     projectType: "Kitchen Renovation",
     client: "Private Residence",
     projectSize: "28 m²",
-    images: [],
+    images: ["/project/01.webp", "/project/02.webp", "/project/03.webp", "/project/04.webp"],
   },
   {
     id: 5,
@@ -70,7 +65,7 @@ export const projects: ProjectItem[] = [
     projectType: "Public Library Design",
     client: "City Council",
     projectSize: "680 m²",
-    images: [],
+    images: ["/project/01.webp", "/project/02.webp", "/project/03.webp", "/project/04.webp"],
   },
   {
     id: 6,
@@ -83,7 +78,7 @@ export const projects: ProjectItem[] = [
     projectType: "Gallery Design",
     client: "Contemporary Art Foundation",
     projectSize: "320 m²",
-    images: [],
+    images: ["/project/01.webp", "/project/02.webp", "/project/03.webp", "/project/04.webp"],
   },
   {
     id: 7,
@@ -96,7 +91,7 @@ export const projects: ProjectItem[] = [
     projectType: "Commercial Interior",
     client: "Design Studio",
     projectSize: "85 m²",
-    images: [],
+    images: ["/project/01.webp", "/project/02.webp", "/project/03.webp", "/project/04.webp"],
   },
   {
     id: 8,
@@ -109,7 +104,7 @@ export const projects: ProjectItem[] = [
     projectType: "Kitchen Remodel",
     client: "Private Residence",
     projectSize: "52 m²",
-    images: [],
+    images: ["/project/01.webp", "/project/02.webp", "/project/03.webp", "/project/04.webp"],
   },
   {
     id: 9,
@@ -122,7 +117,7 @@ export const projects: ProjectItem[] = [
     projectType: "Full Interior Renovation",
     client: "Private Residence",
     projectSize: "95 m²",
-    images: [],
+    images: ["/project/01.webp", "/project/02.webp", "/project/03.webp", "/project/04.webp"],
   },
   {
     id: 10,
@@ -135,7 +130,7 @@ export const projects: ProjectItem[] = [
     projectType: "New Construction",
     client: "Private Client",
     projectSize: "420 m²",
-    images: [],
+    images: ["/project/01.webp", "/project/02.webp", "/project/03.webp", "/project/04.webp"],
   },
   {
     id: 11,
@@ -148,7 +143,7 @@ export const projects: ProjectItem[] = [
     projectType: "Bedroom Renovation",
     client: "Private Residence",
     projectSize: "25 m²",
-    images: [],
+    images: ["/project/01.webp", "/project/02.webp", "/project/03.webp", "/project/04.webp"],
   },
   {
     id: 12,
@@ -161,6 +156,6 @@ export const projects: ProjectItem[] = [
     projectType: "Architectural Design",
     client: "Private Residence",
     projectSize: "350 m²",
-    images: [],
+    images: ["/project/01.webp", "/project/02.webp", "/project/03.webp", "/project/04.webp"],
   },
 ];

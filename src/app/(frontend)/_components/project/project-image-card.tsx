@@ -1,6 +1,7 @@
 import type { ProjectItem } from "@shared-types/projects";
 import { cn } from "@shared-utilities/utils";
 import Image from "next/image";
+import Link from "next/link";
 
 interface ProjectImageCardProps {
   project: ProjectItem;
@@ -25,7 +26,10 @@ export function ProjectImageCard({ project, size = "md", className }: ProjectIma
   };
 
   return (
-    <div className={cn("relative group overflow-hidden", sizeClasses[size], className)}>
+    <Link
+      href={`/projects/${project.id}`}
+      className={cn("relative group overflow-hidden block", sizeClasses[size], className)}
+    >
       <Image
         src={project.imageUrl || "/placeholder.svg"}
         alt={project.altText}
@@ -34,13 +38,11 @@ export function ProjectImageCard({ project, size = "md", className }: ProjectIma
         className="object-cover hover:scale-105 transition-transform duration-200 ease-in-out"
         sizes={responsiveSizes[size]}
       />
-      {project.overlayText && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-white text-sm sm:text-lg md:text-xl font-semibold text-center bg-black bg-opacity-30 px-2 sm:px-3 py-1 rounded">
-            {project.overlayText}
-          </span>
-        </div>
-      )}
-    </div>
+      <div className="absolute inset-0 flex items-center bg-primary opacity-0 group-hover:opacity-40 justify-center transition-opacity duration-200 ease-in-out">
+        <span className="text-secondary dark:text-primary text-sm sm:text-lg md:text-xl font-semibold text-center px-2 sm:px-3 py-1 rounded">
+          {project.title}
+        </span>
+      </div>
+    </Link>
   );
 }
