@@ -2,12 +2,11 @@ import { SectionContainer } from "@shared-layout/section-container";
 import Link from "next/link";
 
 const navItems = [
-  { name: "PROJECTS", href: "#" },
-  { name: "STUDIO", href: "#" },
-  { name: "TESTIMONIALS", href: "#" },
-  { name: "BLOG AND NEWS", href: "#" },
-  { name: "STORE", href: "#" },
-  { name: "BUDGET REQUEST", href: "#" },
+  { name: "PROJECTS", href: "#projects" },
+  { name: "STUDIO", href: "#studio" },
+  { name: "TESTIMONIALS", href: "#testimonials" },
+  { name: "BLOG AND NEWS", href: "#blog-news" },
+  { name: "BUDGET REQUEST", href: "#budget-request" },
 ];
 
 export default function WhoAreWeSection() {

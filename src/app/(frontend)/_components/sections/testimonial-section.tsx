@@ -24,20 +24,22 @@ export default function TestimonialsSection() {
   const columns = getTestimonialColumns(testimonials);
 
   return (
-    <SectionContainer>
-      <SectionHeader title="TESTIMONIALS" linkHref="#" linkText="GO TO TESTIMONIALS" />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-2 w-full">
-        {columns.map((columnTestimonials) => {
-          const columnKey = columnTestimonials.map((t) => t.id).join("-");
-          return (
-            <div key={columnKey} className="flex flex-col gap-3 sm:gap-2">
-              {columnTestimonials.map((testimonial) => (
-                <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-              ))}
-            </div>
-          );
-        })}
-      </div>
-    </SectionContainer>
+    <div id="testimonials">
+      <SectionContainer>
+        <SectionHeader title="TESTIMONIALS" linkHref="#" linkText="GO TO TESTIMONIALS" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-2 w-full">
+          {columns.map((columnTestimonials) => {
+            const columnKey = columnTestimonials.map((t) => t.id).join("-");
+            return (
+              <div key={columnKey} className="flex flex-col gap-3 sm:gap-2">
+                {columnTestimonials.map((testimonial) => (
+                  <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+                ))}
+              </div>
+            );
+          })}
+        </div>
+      </SectionContainer>
+    </div>
   );
 }

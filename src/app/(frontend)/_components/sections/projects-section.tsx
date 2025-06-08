@@ -4,9 +4,11 @@ import { SectionContainer, SectionHeader } from "@shared-layout/section-containe
 
 export default function ProjectsSection() {
   return (
-    <SectionContainer>
-      <SectionHeader title="PROJECTS" linkHref="/projects" linkText="GO TO PROJECTS" />
-      <ProjectGallery columns={4} projects={projects} />
-    </SectionContainer>
+    <div id="projects">
+      <SectionContainer>
+        <SectionHeader title="PROJECTS" linkHref="/projects" linkText="GO TO PROJECTS" />
+        <ProjectGallery columns={4} projects={projects} />
+      </SectionContainer>
+    </div>
   );
 }
