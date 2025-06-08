@@ -26,23 +26,24 @@ interface TextareaFormFieldProps extends BaseFormFieldProps {
   textareaProps?: Omit<ComponentProps<typeof Textarea>, "id" | "name" | "required">;
 }
 
-type FormFieldProps = InputFormFieldProps | TextareaFormFieldProps;
+interface FileFormFieldProps extends BaseFormFieldProps {
+  type: "file";
+  accept?: string;
+  multiple?: boolean;
+  fileInputProps?: Omit<
+    ComponentProps<"input">,
+    "id" | "name" | "type" | "required" | "accept" | "multiple"
+  >;
+}
 
-export function FormField({
-  label,
-  id,
-  name,
-  type,
-  required = false,
-  placeholder,
-  className,
-  containerClassName,
-  ...props
-}: FormFieldProps) {
+type FormFieldProps = InputFormFieldProps | TextareaFormFieldProps | FileFormFieldProps;
+
+export function FormField(props: FormFieldProps) {
+  const { label, id, name, type, required = false, className, containerClassName } = props;
   const displayLabel = required ? `${label}* (Required)` : label;
 
   if (type === "textarea") {
-    const { rows = 4, textareaProps } = props as TextareaFormFieldProps;
+    const { placeholder, rows = 4, textareaProps } = props as TextareaFormFieldProps;
     return (
       <div className={containerClassName}>
         <Label htmlFor={id}>{displayLabel}</Label>
@@ -59,7 +60,29 @@ export function FormField({
     );
   }
 
-  const { inputProps } = props as InputFormFieldProps;
+  if (type === "file") {
+    const { accept, multiple = false, fileInputProps } = props as FileFormFieldProps;
+    return (
+      <div className={containerClassName}>
+        <Label htmlFor={id}>{displayLabel}</Label>
+        <input
+          type="file"
+          id={id}
+          name={name}
+          accept={accept}
+          multiple={multiple}
+          required={required}
+          className={cn(
+            "file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-primary file:text-primary-foreground hover:file:bg-primary/90 file:cursor-pointer cursor-pointer",
+            className,
+          )}
+          {...fileInputProps}
+        />
+      </div>
+    );
+  }
+
+  const { placeholder, inputProps } = props as InputFormFieldProps;
   return (
     <div className={containerClassName}>
       <Label htmlFor={id}>{displayLabel}</Label>

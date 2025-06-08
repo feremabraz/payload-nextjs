@@ -2,11 +2,19 @@ import { cn } from "@shared-utilities/utils";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-interface SectionHeaderProps {
-  title: string;
-  linkHref: string;
-  linkText: string;
-}
+type LinkProps =
+  | {
+      linkHref: string;
+      linkText: string;
+    }
+  | {
+      linkHref?: never;
+      linkText?: never;
+    };
+
+type SectionHeaderProps = {
+  title?: string;
+} & LinkProps;
 
 interface SectionContainerProps {
   children: ReactNode;
@@ -93,12 +101,14 @@ export function SectionHeader({ title, linkHref, linkText }: SectionHeaderProps)
   return (
     <header className="flex flex-col items-center gap-3 px-4 sm:px-0">
       <h1 className="text-center text-8xl font-medium uppercase text-foreground">{title}</h1>
-      <Link
-        href={linkHref}
-        className="text-center text-xl font-normal uppercase hover:text-neutral-sub-title transition-colors duration-200 ease-in-out text-foreground"
-      >
-        {linkText}
-      </Link>
+      {linkHref && linkText && (
+        <Link
+          href={linkHref}
+          className="text-center text-xl font-normal uppercase hover:text-neutral-sub-title transition-colors duration-200 ease-in-out text-foreground"
+        >
+          {linkText}
+        </Link>
+      )}
     </header>
   );
 }
