@@ -8,7 +8,7 @@ export default function NewsletterSection() {
     <SectionContainer>
       <FormContainer
         title="STAY UPDATED"
-        description="Subscribe to our newsletter to receive inspiration and news about our latest and future projects."
+        description="Subscribe to receive inspiration and news about our latest and future projects."
       >
         <FormField
           label="Email"

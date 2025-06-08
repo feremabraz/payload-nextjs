@@ -48,7 +48,7 @@ export function FormContainer({
             </h1>
           }
           {description && (
-            <p className="text-sm md:text-base lg:text-lg max-w-md mx-auto px-4 text-foreground">
+            <p className="text-sm md:text-base lg:text-lg max-w-prose mx-auto px-4 text-foreground">
               {description}
             </p>
           )}
