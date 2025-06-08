@@ -1,0 +1,48 @@
+import { SectionContainer } from "@shared-layout/section-container";
+
+export default function ValuesMissionSection() {
+  return (
+    <SectionContainer paddingY="lg" gap="xl" maxWidth="xl">
+      <section className="flex flex-col items-center gap-8 md:gap-12 w-full">
+        <h2 className="w-full text-center font-medium text-4xl md:text-6xl text-balance px-4 text-foreground">
+          VALUES AND MISSION
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 w-full max-w-6xl">
+          <div className="flex flex-col gap-4">
+            <h3 className="text-xl font-semibold text-foreground">Quality</h3>
+            <p className="font-normal text-lg text-foreground">
+              We are dedicated to delivering exceptional construction quality by prioritizing our
+              clients' satisfaction at every stage. From the foundation to the final finishes, we
+              apply the correct material methodologies and best practices to ensure that every
+              detail meets the highest standards. Our commitment to quality is reflected in the
+              durability, aesthetics, and performance of each project we complete.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <h3 className="text-xl font-semibold text-foreground">Rigor</h3>
+            <p className="font-normal text-lg text-foreground">
+              Our multidisciplinary team operates with precision and discipline, ensuring that every
+              project adheres strictly to its defined work plan. Through careful planning,
+              coordination, and execution, we guarantee that deadlines are met without compromising
+              on the integrity of the work. This rigorous approach allows us to consistently deliver
+              reliable results while maintaining efficiency and accountability.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <h3 className="text-xl font-semibold text-foreground">Responsibility</h3>
+            <p className="font-normal text-lg text-foreground">
+              We recognize our role in shaping a more sustainable future through conscious
+              construction practices. By integrating the latest eco-friendly solutions and
+              technologies, we actively seek to reduce the environmental impact of our work.
+              Sustainability is not just a feature— it's a responsibility we embrace in every
+              decision we make, from design to material selection and execution.
+            </p>
+          </div>
+        </div>
+      </section>
+    </SectionContainer>
+  );
+}

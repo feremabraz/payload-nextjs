@@ -26,6 +26,7 @@
       "@navigation/*": ["./src/app/(frontend)/_components/navigation/*"],
       "@project/*": ["./src/app/(frontend)/_components/project/*"],
       "@blog/*": ["./src/app/(frontend)/_components/blog/*"],
+      "@studio/*": ["./src/app/(frontend)/_components/studio/*"],
       "@cards/*": ["./src/app/(frontend)/_components/cards/*"],
       "@branding/*": ["./src/app/(frontend)/_components/branding/*"],
       "@shared-layout/*": ["./src/app/shared/components/layout/*"],
