@@ -25,7 +25,7 @@ export function BlogImageCard({ post, size = "md", className }: BlogImageCardPro
   };
 
   return (
-    <div className={cn("relative group overflow-hidden", sizeClasses[size], className)}>
+    <div className={cn("relative group overflow-hidden rounded-sm", sizeClasses[size], className)}>
       <Image
         src={post.imagePath || "/placeholder.svg"}
         alt={post.altText}

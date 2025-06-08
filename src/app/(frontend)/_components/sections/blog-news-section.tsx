@@ -14,6 +14,7 @@ export default function BlogNewsSection() {
         renderItem={(post) => (
           <BlogNewsPostCard
             key={post.id}
+            id={post.id}
             imagePath={post.imagePath}
             altText={post.altText}
             title={post.title}

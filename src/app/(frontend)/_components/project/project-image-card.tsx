@@ -28,7 +28,11 @@ export function ProjectImageCard({ project, size = "md", className }: ProjectIma
   return (
     <Link
       href={`/projects/${project.id}`}
-      className={cn("relative group overflow-hidden block", sizeClasses[size], className)}
+      className={cn(
+        "relative group overflow-hidden rounded-sm block",
+        sizeClasses[size],
+        className,
+      )}
     >
       <Image
         src={project.imageUrl || "/placeholder.svg"}
