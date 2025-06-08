@@ -75,7 +75,7 @@ export function SectionContainer({
   return (
     <section
       className={cn(
-        "bg-secondary flex flex-col items-center selection:bg-background selection:text-secondary",
+        "bg-secondary flex flex-col items-center selection:bg-primary selection:text-secondary",
         paddingYClasses[paddingY],
         paddingXClasses[paddingX],
         variant === "full-height" && "min-h-screen",
