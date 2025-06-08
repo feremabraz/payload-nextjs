@@ -1,10 +1,10 @@
 import { headers as getHeaders } from "next/headers.js";
 import { getPayload } from "payload";
 
-import FooterSection from "@components/footer-section";
-import ProjectCustomNavigation from "@components/project-custom-navigation";
-import ProjectImagesSection from "@components/project-images-section";
-import ProjectStandalone from "@components/project-standalone";
+import ProjectCustomNavigation from "@navigation/project-custom-navigation";
+import ProjectStandalone from "@project/project-standalone";
+import FooterSection from "@sections/footer-section";
+import ProjectImagesSection from "@sections/project-images-section";
 
 import config from "@/payload.config";
 

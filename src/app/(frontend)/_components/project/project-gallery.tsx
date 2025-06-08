@@ -1,5 +1,5 @@
-import { ProjectImageCard } from "@components/project-image-card";
 import { cn } from "@lib/utils";
+import { ProjectImageCard } from "@project/project-image-card";
 import type { ProjectItem } from "@shared-types/projects";
 
 interface ProjectGalleryProps {

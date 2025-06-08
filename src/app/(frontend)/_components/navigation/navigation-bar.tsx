@@ -1,5 +1,5 @@
-import { LanguageSwitcher } from "@components/language-switcher";
-import { MenuToggle } from "@components/menu-toggle";
+import { LanguageSwitcher } from "@navigation/language-switcher";
+import { MenuToggle } from "@navigation/menu-toggle";
 import Image from "next/image";
 import Link from "next/link";
 

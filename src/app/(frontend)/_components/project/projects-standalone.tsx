@@ -1,9 +1,9 @@
 "use client";
 
-import { ProjectFilter } from "@components/project-filter";
-import { ProjectGallery } from "@components/project-gallery";
+import { SectionContainer, SectionHeader } from "@layout/section-container";
 import { projects } from "@lib/project-data";
-import { SectionContainer, SectionHeader } from "@shared-components/section-container";
+import { ProjectFilter } from "@project/project-filter";
+import { ProjectGallery } from "@project/project-gallery";
 import type { ProjectCategory } from "@shared-types/projects";
 import { useState } from "react";
 

@@ -1,6 +1,6 @@
-import { StudioCard } from "@components/studio-card";
+import { StudioCard } from "@cards/studio-card";
+import { ContentGrid } from "@layout/content-grid";
 import { studioData } from "@lib/studio-data";
-import { ContentGrid } from "@shared-components/content-grid";
 import type { StudioCardProps } from "@shared-types/studio";
 
 export default function StudioSection() {

@@ -1,6 +1,6 @@
-import { TestimonialCard } from "@components/testimonial-card";
+import { TestimonialCard } from "@cards/testimonial-card";
+import { SectionContainer, SectionHeader } from "@layout/section-container";
 import { testimonials } from "@lib/testimonial-data";
-import { SectionContainer, SectionHeader } from "@shared-components/section-container";
 import type { Testimonial } from "@shared-types/testimonials";
 
 function getTestimonialColumns(testimonials: Testimonial[]) {

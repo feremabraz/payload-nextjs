@@ -1,6 +1,6 @@
-import { FormContainer } from "@shared-components/form-container";
-import { FormField } from "@shared-components/form-field";
-import { SectionContainer } from "@shared-components/section-container";
+import { FormContainer } from "@layout/form-container";
+import { FormField } from "@layout/form-field";
+import { SectionContainer } from "@layout/section-container";
 import { Button } from "@ui/button";
 
 export default function NewsletterSection() {

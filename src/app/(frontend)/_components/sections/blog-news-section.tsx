@@ -1,6 +1,6 @@
-import { BlogNewsPostCard } from "@components/blog-news-card";
+import { BlogNewsPostCard } from "@cards/blog-news-card";
+import { ContentGrid } from "@layout/content-grid";
 import { blognewsPostsData } from "@lib/blog-news-data";
-import { ContentGrid } from "@shared-components/content-grid";
 import type { BlogNewsPost } from "@shared-types/blog-and-news";
 
 export default function BlogNewsSection() {

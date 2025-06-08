@@ -1,7 +1,7 @@
 "use client";
 
-import { NavigationBar } from "@components/navigation-bar";
-import { SideMenu } from "@components/side-menu";
+import { NavigationBar } from "@navigation/navigation-bar";
+import { SideMenu } from "@navigation/side-menu";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { isMenuOpenAtom } from "@store/atoms";
 import { Sheet, SheetContent, SheetTitle } from "@ui/sheet";

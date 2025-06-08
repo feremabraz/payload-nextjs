@@ -1,9 +1,9 @@
 import { headers as getHeaders } from "next/headers.js";
 import { getPayload } from "payload";
 
-import FooterSection from "@components/footer-section";
-import NavigationSection from "@components/navigation-section";
-import ProjectsStandalone from "@components/projects-standalone";
+import NavigationSection from "@navigation/navigation-section";
+import ProjectsStandalone from "@project/projects-standalone";
+import FooterSection from "@sections/footer-section";
 
 import config from "@/payload.config";
 

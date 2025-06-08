@@ -1,5 +1,5 @@
-import { FooterLogo } from "@components/footer-logo";
-import { SectionContainer } from "@shared-components/section-container";
+import { FooterLogo } from "@branding/footer-logo";
+import { SectionContainer } from "@layout/section-container";
 import { FacebookIcon, InstagramIcon, LinkedInIcon } from "@ui/brands";
 import Link from "next/link";
 import type React from "react";

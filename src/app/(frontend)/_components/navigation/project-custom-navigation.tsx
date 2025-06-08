@@ -1,8 +1,8 @@
 "use client";
 
-import { NavigationBarWithLogo } from "@components/navigation-bar";
-import { SideMenu } from "@components/side-menu";
 import { projects } from "@lib/project-data";
+import { NavigationBarWithLogo } from "@navigation/navigation-bar";
+import { SideMenu } from "@navigation/side-menu";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import type { ProjectItem } from "@shared-types/projects";
 import { isMenuOpenAtom } from "@store/atoms";
