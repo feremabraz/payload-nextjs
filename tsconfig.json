@@ -25,14 +25,15 @@
       "@sections/*": ["./src/app/(frontend)/_components/sections/*"],
       "@navigation/*": ["./src/app/(frontend)/_components/navigation/*"],
       "@project/*": ["./src/app/(frontend)/_components/project/*"],
+      "@blog/*": ["./src/app/(frontend)/_components/blog/*"],
       "@cards/*": ["./src/app/(frontend)/_components/cards/*"],
       "@branding/*": ["./src/app/(frontend)/_components/branding/*"],
-      "@shared-components/*": ["./src/app/shared/components/*"],
       "@layout/*": ["./src/app/shared/components/layout/*"],
       "@ui/*": ["./src/app/shared/components/ui/*"],
       "@lib/*": ["./src/app/shared/lib/*"],
       "@hooks/*": ["./src/app/shared/hooks/*"],
       "@store/*": ["./src/app/shared/store/*"],
+      "@shared-data/*": ["./src/app/shared/data/*"],
       "@shared-types/*": ["./src/app/shared/types/*"]
     },
     "target": "ES2022"

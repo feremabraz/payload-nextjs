@@ -1,9 +1,9 @@
 "use client";
 
-import { projects } from "@lib/project-data";
 import { NavigationBarWithLogo } from "@navigation/navigation-bar";
 import { SideMenu } from "@navigation/side-menu";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { projects } from "@shared-data/project-data";
 import type { ProjectItem } from "@shared-types/projects";
 import { isMenuOpenAtom } from "@store/atoms";
 import { Sheet, SheetContent, SheetTitle } from "@ui/sheet";
