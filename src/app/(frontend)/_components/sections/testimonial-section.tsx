@@ -26,7 +26,11 @@ export default function TestimonialsSection() {
   return (
     <div id="testimonials">
       <SectionContainer>
-        <SectionHeader title="TESTIMONIALS" linkHref="#" linkText="GO TO TESTIMONIALS" />
+        <SectionHeader
+          title="TESTIMONIALS"
+          linkHref="/testimonials"
+          linkText="GO TO TESTIMONIALS"
+        />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-2 w-full">
           {columns.map((columnTestimonials) => {
             const columnKey = columnTestimonials.map((t) => t.id).join("-");
