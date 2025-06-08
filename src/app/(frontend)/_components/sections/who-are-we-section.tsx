@@ -28,14 +28,15 @@ export default function WhoAreWeSection() {
           </ul>
         </nav>
       </section>
-      <section className="flex flex-col items-center gap-8 md:gap-12 w-full">
-        <h1 className="w-full text-center font-medium text-4xl text-balance px-4 text-foreground">
+      <section className="flex flex-col items-start gap-8 w-full">
+        <h1 className="w-full text-start font-semibold text-2xl text-foreground">
           Innovative and Enduring Architecture That Respects Culture, Enhances Spaces, and Elevates
+          <br />
           Everyday Life
         </h1>
-        <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 w-full">
-          <div className="w-full lg:w-125 lg:flex-shrink-0">
-            <p className="font-normal text-lg text-foreground">
+        <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16 w-full">
+          <div className="w-full lg:w-[400px] lg:flex-shrink-0">
+            <p className="font-normal text-base leading-relaxed text-foreground">
               Bruno Câmara Architects is a contemporary architecture firm committed to creating
               spaces that are as functional and sustainable as they are beautiful and inspiring. Our
               work is guided by the belief that architecture should serve people while respecting
@@ -44,8 +45,8 @@ export default function WhoAreWeSection() {
               and timeless aesthetic value.
             </p>
           </div>
-          <div className="flex flex-1 flex-col items-start gap-3 w-full">
-            <p className="font-normal text-lg text-foreground">
+          <div className="flex flex-col items-start gap-3 w-full lg:flex-1">
+            <p className="font-normal text-base leading-relaxed text-foreground">
               With a constant drive for excellence, we carefully manage each phase of the
               architectural process—from design to implementation—ensuring that every project meets
               the highest standards in quality, innovation, and technical performance. Our goal is
