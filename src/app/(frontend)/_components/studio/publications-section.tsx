@@ -1,5 +1,5 @@
 import { publications } from "@shared-data/publications-data";
-import { SectionContainer } from "@shared-layout/section-container";
+import { SectionContainer } from "@shared/section-container";
 
 export default function PublicationsSection() {
   return (

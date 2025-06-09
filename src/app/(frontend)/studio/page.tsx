@@ -1,9 +1,16 @@
 import { headers as getHeaders } from "next/headers.js";
 import { getPayload } from "payload";
 
+import { SectionContainer } from "@shared/section-container";
+
 import NavigationSection from "@navigation/navigation-section";
-import FooterSection from "@sections/footer-section";
-import StudioStandalone from "@sections/studio-standalone";
+import FooterSection from "@shared/footer-section";
+import TestimonialsSection from "@shared/testimonial-section";
+import AwardsSection from "@studio/awards-section";
+import GuaranteesSection from "@studio/guarantees-section";
+import PublicationsSection from "@studio/publications-section";
+import TeamSection from "@studio/team-section";
+import ValuesMissionSection from "@studio/values-mission-section";
 
 import config from "@/payload.config";
 
@@ -16,7 +23,26 @@ export default async function StudioPage() {
   return (
     <>
       <NavigationSection />
-      <StudioStandalone />
+      <SectionContainer maxWidth="container" paddingY="xl">
+        <div className="text-center">
+          <h2 className="text-3xl text-foreground">BRUNO CÂMERA ARQUITETOS</h2>
+          <h1 className="font-semibold text-8xl text-foreground">STUDIO</h1>
+        </div>
+        <div id="values">
+          <ValuesMissionSection />
+        </div>
+        <div id="profile">
+          <GuaranteesSection />
+        </div>
+        <div id="team">
+          <TeamSection />
+        </div>
+        <div id="studio">
+          <AwardsSection />
+        </div>
+        <PublicationsSection />
+        <TestimonialsSection />
+      </SectionContainer>
       <FooterSection />
     </>
   );

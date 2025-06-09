@@ -1,5 +1,5 @@
 import { teamMembers } from "@shared-data/team-data";
-import { SectionContainer } from "@shared-layout/section-container";
+import { SectionContainer } from "@shared/section-container";
 import { TeamGallery } from "@studio/team-gallery";
 import Image from "next/image";
 

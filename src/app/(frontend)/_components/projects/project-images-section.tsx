@@ -1,5 +1,5 @@
 import { projects } from "@shared-data/project-data";
-import { SectionContainer } from "@shared-layout/section-container";
+import { SectionContainer } from "@shared/section-container";
 import Image from "next/image";
 
 interface ProjectImagesSectionProps {

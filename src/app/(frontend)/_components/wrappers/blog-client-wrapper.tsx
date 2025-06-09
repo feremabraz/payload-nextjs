@@ -3,11 +3,11 @@
 import { BlogFilter } from "@blog/blog-filter";
 import { BlogGallery } from "@blog/blog-gallery";
 import { blognewsPostsData } from "@shared-data/blog-news-data";
-import { SectionContainer } from "@shared-layout/section-container";
 import type { BlogCategory } from "@shared-types/blog-and-news";
+import { SectionContainer } from "@shared/section-container";
 import { useState } from "react";
 
-export default function BlogStandalone() {
+export default function BlogClientWrapper() {
   const [selectedCategory, setSelectedCategory] = useState<BlogCategory | "all">("all");
 
   const selectedPosts = blognewsPostsData.filter(

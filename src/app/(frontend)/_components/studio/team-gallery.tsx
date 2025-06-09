@@ -1,5 +1,5 @@
-import { TeamMemberImageCard } from "@cards/team-member-image-card";
 import { cn } from "@shared-utilities/utils";
+import { TeamMemberImageCard } from "@studio/team-member-image-card";
 
 interface TeamMember {
   id: string;

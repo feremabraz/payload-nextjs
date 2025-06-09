@@ -1,5 +1,5 @@
-import { AwardsImageCard } from "@cards/awards-image-card";
 import { cn } from "@shared-utilities/utils";
+import { AwardsImageCard } from "@studio/awards-image-card";
 
 interface Award {
   id: string;

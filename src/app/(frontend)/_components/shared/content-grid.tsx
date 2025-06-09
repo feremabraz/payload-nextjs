@@ -1,5 +1,5 @@
 import { ResponsiveGrid } from "@shared-layout/responsive-grid";
-import { SectionContainer, SectionHeader } from "@shared-layout/section-container";
+import { SectionContainer, SectionHeader } from "@shared/section-container";
 import type { ReactNode } from "react";
 
 interface ContentGridProps<T> {

@@ -1,4 +1,4 @@
-import { SectionContainer } from "@shared-layout/section-container";
+import { SectionContainer } from "@shared/section-container";
 
 export default function GuaranteesSection() {
   return (

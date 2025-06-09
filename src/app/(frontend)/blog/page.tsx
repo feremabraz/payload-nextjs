@@ -1,9 +1,9 @@
-import { headers as getHeaders } from "next/headers.js";
+import { headers as getHeaders } from "next/headers";
 import { getPayload } from "payload";
 
 import NavigationSection from "@navigation/navigation-section";
-import BlogStandalone from "@sections/blog-standalone";
-import FooterSection from "@sections/footer-section";
+import FooterSection from "@shared/footer-section";
+import BlogClientWrapper from "@wrappers/blog-client-wrapper";
 
 import config from "@/payload.config";
 
@@ -16,7 +16,7 @@ export default async function BlogPage() {
   return (
     <>
       <NavigationSection />
-      <BlogStandalone />
+      <BlogClientWrapper />
       <FooterSection />
     </>
   );

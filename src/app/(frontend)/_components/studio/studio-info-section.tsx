@@ -1,6 +1,6 @@
-import { StudioCard } from "@cards/studio-card";
 import { studioData } from "@shared-data/studio-data";
-import { SectionContainer } from "@shared-layout/section-container";
+import { SectionContainer } from "@shared/section-container";
+import { StudioCard } from "@studio/studio-card";
 
 export default function StudioInfoSection() {
   return (

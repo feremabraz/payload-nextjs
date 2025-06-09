@@ -1,5 +1,5 @@
 import { awards } from "@shared-data/awards-data";
-import { SectionContainer } from "@shared-layout/section-container";
+import { SectionContainer } from "@shared/section-container";
 import { AwardsGallery } from "@studio/awards-gallery";
 
 export default function AwardsSection() {

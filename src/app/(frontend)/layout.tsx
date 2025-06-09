@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Titillium_Web } from "next/font/google";
 import type React from "react";
 import "../global.css";
-import { ThemeProvider } from "@/app/(frontend)/_components/branding/theme-provider";
+import { ThemeProvider } from "@shared/theme-provider";
 
 const titilliumWeb = Titillium_Web({
   subsets: ["latin"],

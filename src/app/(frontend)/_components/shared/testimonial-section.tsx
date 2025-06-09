@@ -1,7 +1,7 @@
-import { TestimonialCard } from "@cards/testimonial-card";
 import { testimonials } from "@shared-data/testimonial-data";
-import { SectionContainer, SectionHeader } from "@shared-layout/section-container";
 import type { Testimonial } from "@shared-types/testimonials";
+import { SectionContainer, SectionHeader } from "@shared/section-container";
+import { TestimonialCard } from "@shared/testimonial-card";
 
 function getTestimonialColumns(testimonials: Testimonial[]) {
   if (testimonials.length === 0) return [];

@@ -1,9 +1,11 @@
 import { headers as getHeaders } from "next/headers.js";
 import { getPayload } from "payload";
 
+import BudgetRequestWithImageSection from "@budget/budget-request-with-image-section";
 import NavigationSection from "@navigation/navigation-section";
-import BudgetStandalone from "@sections/budget-standalone";
-import FooterSection from "@sections/footer-section";
+import FooterSection from "@shared/footer-section";
+import { SectionContainer } from "@shared/section-container";
+import TestimonialsSection from "@shared/testimonial-section";
 
 import config from "@/payload.config";
 
@@ -16,7 +18,10 @@ export default async function BudgetPage() {
   return (
     <>
       <NavigationSection />
-      <BudgetStandalone />
+      <SectionContainer maxWidth="container" paddingY="xl">
+        <BudgetRequestWithImageSection />
+        <TestimonialsSection />
+      </SectionContainer>
       <FooterSection />
     </>
   );

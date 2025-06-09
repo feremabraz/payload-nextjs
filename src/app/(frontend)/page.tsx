@@ -2,15 +2,15 @@ import { headers as getHeaders } from "next/headers.js";
 import { getPayload } from "payload";
 import React from "react";
 
-import BlogNewsSection from "@sections/blog-news-section";
-import BudgetRequestSection from "@sections/budget-request-section";
-import FooterSection from "@sections/footer-section";
-import HeroSection from "@sections/hero-section";
-import NewsletterSection from "@sections/newsletter-section";
-import ProjectsSection from "@sections/projects-section";
-import StudioSection from "@sections/studio-section";
-import TestimonialsSection from "@sections/testimonial-section";
-import WhoAreWeSection from "@sections/who-are-we-section";
+import BlogNewsSection from "@blog/blog-news-section";
+import BudgetRequestSection from "@budget/budget-request-section";
+import HeroSection from "@landing/hero-section";
+import NewsletterSection from "@landing/newsletter-section";
+import WhoAreWeSection from "@landing/who-are-we-section";
+import ProjectsSection from "@projects/projects-section";
+import FooterSection from "@shared/footer-section";
+import TestimonialsSection from "@shared/testimonial-section";
+import StudioSection from "@studio/studio-section";
 
 import config from "@/payload.config";
 

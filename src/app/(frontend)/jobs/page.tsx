@@ -1,9 +1,10 @@
 import { headers as getHeaders } from "next/headers.js";
 import { getPayload } from "payload";
 
+import JobsSection from "@jobs/jobs-section";
 import NavigationSection from "@navigation/navigation-section";
-import FooterSection from "@sections/footer-section";
-import JobsStandalone from "@sections/jobs-standalone";
+import FooterSection from "@shared/footer-section";
+import { SectionContainer, SectionHeader } from "@shared/section-container";
 
 import config from "@/payload.config";
 
@@ -16,7 +17,10 @@ export default async function JobsPage() {
   return (
     <>
       <NavigationSection />
-      <JobsStandalone />
+      <SectionContainer maxWidth="container" paddingY="xl">
+        <SectionHeader title="OPEN JOBS" />
+        <JobsSection />
+      </SectionContainer>
       <FooterSection />
     </>
   );

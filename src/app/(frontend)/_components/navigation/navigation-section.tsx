@@ -3,9 +3,9 @@
 import { NavigationBarWithLogo } from "@navigation/navigation-bar";
 import { SideMenu } from "@navigation/side-menu";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { SectionContainer, SectionHeader } from "@shared-layout/section-container";
 import { isMenuOpenAtom } from "@shared-store/atoms";
 import { Sheet, SheetContent, SheetTitle } from "@shared-ui/sheet";
+import { SectionContainer } from "@shared/section-container";
 import { useAtom } from "jotai";
 
 interface NavigationSectionProps {

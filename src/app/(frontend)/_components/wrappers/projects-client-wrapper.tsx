@@ -1,13 +1,13 @@
 "use client";
 
-import { ProjectFilter } from "@project/project-filter";
-import { ProjectGallery } from "@project/project-gallery";
+import { ProjectFilter } from "@projects/project-filter";
+import { ProjectGallery } from "@projects/project-gallery";
 import { projects } from "@shared-data/project-data";
-import { SectionContainer, SectionHeader } from "@shared-layout/section-container";
 import type { ProjectCategory } from "@shared-types/projects";
+import { SectionContainer } from "@shared/section-container";
 import { useState } from "react";
 
-export default function ProjectsStandalone() {
+export default function ProjectsClientWrapper() {
   const [selectedCategory, setSelectedCategory] = useState<ProjectCategory | "all">("all");
 
   const selectedProjects = projects.filter(

@@ -1,4 +1,4 @@
-import { ProjectImageCard } from "@project/project-image-card";
+import { ProjectImageCard } from "@projects/project-image-card";
 import type { ProjectItem } from "@shared-types/projects";
 import { cn } from "@shared-utilities/utils";
 
