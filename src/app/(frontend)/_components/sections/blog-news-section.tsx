@@ -11,17 +11,7 @@ export default function BlogNewsSection() {
         linkHref="/blog"
         linkText="GO TO BLOG"
         items={blognewsPostsData}
-        renderItem={(post) => (
-          <BlogNewsPostCard
-            key={post.id}
-            id={post.id}
-            imagePath={post.imagePath}
-            altText={post.altText}
-            title={post.title}
-            description={post.description}
-            date={post.date}
-          />
-        )}
+        renderItem={(post) => <BlogNewsPostCard key={post.id} {...post} />}
         columns={{ default: 1, sm: 2, md: 3, lg: 4 }}
         gap="md"
       />

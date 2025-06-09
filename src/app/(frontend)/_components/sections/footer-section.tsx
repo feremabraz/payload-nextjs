@@ -56,17 +56,15 @@ export default function FooterSection() {
           <nav className="w-full sm:w-auto">
             <ul className="flex flex-col items-start gap-2 sm:gap-3 grow shrink-0 basis-0 text-sm">
               <NavLink href="/home">Home</NavLink>
-              <NavLink href="/project">Project</NavLink>
+              <NavLink href="/projects">Projects</NavLink>
               <NavLink href="/studio">Studio</NavLink>
-              <NavLink href="/testimonials">Testimonials</NavLink>
               <NavLink href="/blog">Blog & News</NavLink>
             </ul>
           </nav>
           <nav className="w-full sm:w-auto">
             <ul className="flex flex-col items-start gap-2 sm:gap-3 grow shrink-0 basis-0 text-sm">
-              <NavLink href="/store">Store</NavLink>
-              <NavLink href="/open-jobs">Open jobs</NavLink>
-              <NavLink href="/budget-request">Budget request</NavLink>
+              <NavLink href="/jobs">Open jobs</NavLink>
+              <NavLink href="/budget">Budget request</NavLink>
             </ul>
           </nav>
         </div>

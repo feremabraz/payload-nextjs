@@ -1,3 +1,5 @@
+export type BlogCategory = "publications" | "awards" | "conferences" | "exhibitions" | "news";
+
 export type BlogNewsPost = {
   id: string;
   imagePath: string;
@@ -5,4 +7,5 @@ export type BlogNewsPost = {
   title: string;
   description: string;
   date: string;
+  category: BlogCategory;
 };

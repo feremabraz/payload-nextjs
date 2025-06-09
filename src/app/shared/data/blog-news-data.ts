@@ -9,6 +9,7 @@ export const blognewsPostsData: BlogNewsPost[] = [
     description:
       "Discover Villa 18, a stunning new architectural project in Lisbon, featuring a unique curved design and a luxurious poolside experience. This project redefines modern living.",
     date: "12 March 2025",
+    category: "news",
   },
   {
     id: "2",
@@ -19,6 +20,7 @@ export const blognewsPostsData: BlogNewsPost[] = [
     description:
       "Exploring current trends in urban regeneration and the challenges of repurposing older architectural structures for contemporary use. A look at sustainable development.",
     date: "12 March 2025",
+    category: "publications",
   },
   {
     id: "3",
@@ -28,6 +30,7 @@ export const blognewsPostsData: BlogNewsPost[] = [
     description:
       "The latest insights into high-rise construction and the evolving skylines of major cities. Examining new technologies and architectural ambitions in urban development.",
     date: "12 March 2025",
+    category: "conferences",
   },
   {
     id: "4",
@@ -37,5 +40,6 @@ export const blognewsPostsData: BlogNewsPost[] = [
     description:
       "A deep dive into innovative roofing solutions and the use of natural light in modern architecture. Trends in sustainable materials and structural design.",
     date: "12 March 2025",
+    category: "awards",
   },
 ];
