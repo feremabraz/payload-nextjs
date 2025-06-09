@@ -10,7 +10,7 @@ const menuItems = [
   { label: "STUDIO", href: "/studio" },
   { label: "BLOG AND NEWS", href: "/blog" },
   { label: "OPEN JOBS", href: "/jobs" },
-  { label: "BUDGET REQUEST", href: "/budget-request" },
+  { label: "BUDGET REQUEST", href: "/budget" },
 ];
 
 const socialLinks = [
