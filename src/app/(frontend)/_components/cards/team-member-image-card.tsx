@@ -39,11 +39,10 @@ export function TeamMemberImageCard({ member, size = "md", className }: TeamMemb
           alt={member.altText}
           fill
           quality={100}
-          className="object-cover hover:scale-105 transition-transform duration-200 ease-in-out"
+          className="object-cover rounded-sm overflow-hidden"
           sizes={responsiveSizes[size]}
         />
       </div>
-
       <div className="flex flex-col gap-2">
         <h3 className="text-xl font-semibold text-foreground">{member.name}</h3>
         <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">

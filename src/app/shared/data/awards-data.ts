@@ -17,7 +17,7 @@ export const awards: Award[] = [
     project: "The White Forest",
     location: "Lisbon, Portugal",
     year: "2024",
-    imagePath: "/projects/modern-house-lisbon-pool.webp",
+    imagePath: "/studio/award_1.webp",
     altText: "The White Forest - ArchDaily Building of the Year 2020",
   },
   {
@@ -27,7 +27,7 @@ export const awards: Award[] = [
     project: "The White Forest",
     location: "Lisbon, Portugal",
     year: "2019",
-    imagePath: "/projects/minimalist-white-house-curved-pool.webp",
+    imagePath: "/studio/award_2.webp",
     altText: "The White Forest featured in ArchDaily's Lisbon City Guide",
   },
 ];

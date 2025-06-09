@@ -1,4 +1,5 @@
 import { SectionContainer } from "@shared-layout/section-container";
+import Image from "next/image";
 
 export default function ValuesMissionSection() {
   return (
@@ -7,11 +8,10 @@ export default function ValuesMissionSection() {
         <h2 className="w-full text-center font-medium text-4xl md:text-6xl text-balance px-4 text-foreground">
           VALUES AND MISSION
         </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 w-full max-w-6xl">
-          <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-8 w-full max-w-4xl">
+          <div className="flex flex-col gap-3">
             <h3 className="text-xl font-semibold text-foreground">Quality</h3>
-            <p className="font-normal text-lg text-foreground">
+            <p className="font-normal text-base text-foreground text-justify">
               We are dedicated to delivering exceptional construction quality by prioritizing our
               clients' satisfaction at every stage. From the foundation to the final finishes, we
               apply the correct material methodologies and best practices to ensure that every
@@ -19,10 +19,9 @@ export default function ValuesMissionSection() {
               durability, aesthetics, and performance of each project we complete.
             </p>
           </div>
-
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3">
             <h3 className="text-xl font-semibold text-foreground">Rigor</h3>
-            <p className="font-normal text-lg text-foreground">
+            <p className="font-normal text-base text-foreground text-justify">
               Our multidisciplinary team operates with precision and discipline, ensuring that every
               project adheres strictly to its defined work plan. Through careful planning,
               coordination, and execution, we guarantee that deadlines are met without compromising
@@ -30,10 +29,9 @@ export default function ValuesMissionSection() {
               reliable results while maintaining efficiency and accountability.
             </p>
           </div>
-
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3">
             <h3 className="text-xl font-semibold text-foreground">Responsibility</h3>
-            <p className="font-normal text-lg text-foreground">
+            <p className="font-normal text-base text-foreground text-justify">
               We recognize our role in shaping a more sustainable future through conscious
               construction practices. By integrating the latest eco-friendly solutions and
               technologies, we actively seek to reduce the environmental impact of our work.
@@ -41,6 +39,14 @@ export default function ValuesMissionSection() {
               decision we make, from design to material selection and execution.
             </p>
           </div>
+        </div>
+        <div className="relative w-full h-64 md:h-96 max-w-4xl mt-8">
+          <Image
+            src="/studio/map-base.webp"
+            alt="World map illustration highlighting global presence"
+            fill
+            className="object-contain opacity-80"
+          />
         </div>
       </section>
     </SectionContainer>
