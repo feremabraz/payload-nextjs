@@ -15,7 +15,7 @@ export default async function BlogPage() {
 
   return (
     <>
-      <NavigationSection background={"light"} />
+      <NavigationSection />
       <BlogStandalone />
       <FooterSection />
     </>

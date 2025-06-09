@@ -36,11 +36,11 @@ export function ProjectFilter({
           key={category.key}
           onClick={() => onCategoryChange(category.key)}
           className={cn(
-            "text-sm md:text-base font-medium tracking-wide transition-all duration-200 ease-in-out hover:text-gray-600",
+            "text-sm md:text-base font-medium tracking-wide transition-all duration-200 ease-in-out hover:text-muted-foreground",
             "relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-background after:transition-all after:duration-200",
             selectedCategory === category.key
-              ? "text-black after:w-full"
-              : "text-gray-400 hover:after:w-full hover:after:bg-gray-600",
+              ? "text-foreground after:w-full"
+              : "text-muted-foreground hover:after:w-full hover:after:bg-muted-foreground",
           )}
         >
           {category.label}

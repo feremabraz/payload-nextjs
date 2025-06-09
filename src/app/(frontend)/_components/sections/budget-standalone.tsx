@@ -4,7 +4,7 @@ import { SectionContainer } from "@shared-layout/section-container";
 
 export default function BudgetStandalone() {
   return (
-    <SectionContainer maxWidth="container" paddingY="xl" className="bg-white">
+    <SectionContainer maxWidth="container" paddingY="xl">
       <BudgetRequestWithImageSection />
       <TestimonialsSection />
     </SectionContainer>

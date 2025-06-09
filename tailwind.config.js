@@ -1,5 +1,6 @@
 /** @type {import('@tailwindcss/postcss').Config} */
 export default {
+  darkMode: "class",
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/(frontend)/**/*.{js,ts,jsx,tsx,mdx}",

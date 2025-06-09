@@ -32,7 +32,7 @@ export function TeamMemberImageCard({ member, size = "md", className }: TeamMemb
   };
 
   return (
-    <div className={cn("flex flex-col gap-4", className)}>
+    <div className={cn("flex flex-col gap-4 mb-8", className)}>
       <div className={cn("relative group overflow-hidden", sizeClasses[size])}>
         <Image
           src={member.imagePath}
@@ -48,7 +48,7 @@ export function TeamMemberImageCard({ member, size = "md", className }: TeamMemb
         <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
           {member.role}
         </p>
-        <p className="text-sm text-foreground leading-relaxed">{member.bio}</p>
+        <p className="text-sm text-foreground pr-4">{member.bio}</p>
         {member.interests && (
           <div className="mt-2">
             <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">

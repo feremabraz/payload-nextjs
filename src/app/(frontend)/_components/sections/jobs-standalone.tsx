@@ -3,7 +3,7 @@ import { SectionContainer, SectionHeader } from "@shared-layout/section-containe
 
 export default function JobsStandalone() {
   return (
-    <SectionContainer maxWidth="container" paddingY="xl" className="bg-white">
+    <SectionContainer maxWidth="container" paddingY="xl">
       <SectionHeader title="OPEN JOBS" />
       <JobsSection />
     </SectionContainer>

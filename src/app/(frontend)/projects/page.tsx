@@ -15,7 +15,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <NavigationSection background={"light"} />
+      <NavigationSection />
       <ProjectsStandalone />
       <FooterSection />
     </>

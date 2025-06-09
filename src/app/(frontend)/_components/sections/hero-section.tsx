@@ -36,13 +36,17 @@ export default function HeroSection() {
         <HeroImage />
         <div className="absolute inset-0 z-0 bg-black/20" />
         <div className="relative z-10 flex flex-col w-full h-full px-5 sm:px-30 md:px-[49px] py-5 sm:py-hero">
-          <NavigationBar />
+          <NavigationBar background="dark" />
           <div className="flex flex-col items-center justify-start flex-grow w-full pt-[250px] sm:pt-[350px] md:pt-[400px] lg:pt-[454px]">
             <HeroText />
           </div>
         </div>
       </section>
-      <SheetContent side="right" className="w-full max-w-md p-0 border-none bg-transparent">
+      <SheetContent
+        side="right"
+        className="w-full max-w-md p-0 border-none bg-transparent"
+        hideDefaultCloseButton
+      >
         <VisuallyHidden>
           <SheetTitle>Navigation Menu</SheetTitle>
         </VisuallyHidden>

@@ -9,21 +9,18 @@ interface MenuToggleProps {
   background?: "light" | "dark";
 }
 
-export function MenuToggle({ background = "dark" }: MenuToggleProps) {
-  const backgroundClasses = {
-    light: {
-      text: "text-black",
-      hoverBg: "hover:bg-black/10",
-      hoverText: "hover:text-black",
-    },
-    dark: {
-      text: "text-white",
-      hoverBg: "hover:bg-white/10",
-      hoverText: "hover:text-white",
-    },
+export function MenuToggle({ background }: MenuToggleProps) {
+  // Use background override for specific contexts (like hero), otherwise use theme-aware styles
+  const getStyles = () => {
+    if (background === "dark") {
+      return "text-white hover:bg-white/10 hover:text-white";
+    }
+    if (background === "light") {
+      return "text-black hover:bg-black/10 hover:text-black";
+    }
+    // Default: use theme-aware styles with proper contrast
+    return "text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white";
   };
-
-  const currentBackground = backgroundClasses[background];
 
   return (
     <SheetTrigger asChild>
@@ -31,9 +28,8 @@ export function MenuToggle({ background = "dark" }: MenuToggleProps) {
         variant="ghost"
         className={cn(
           "size-10 sm:size-10 aspect-square p-0",
-          currentBackground.text,
-          currentBackground.hoverBg,
-          currentBackground.hoverText,
+          getStyles(),
+          "transition-colors duration-200 ease-in-out",
         )}
         aria-label={"Open menu"}
       >

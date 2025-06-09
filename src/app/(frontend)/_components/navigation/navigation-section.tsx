@@ -12,14 +12,18 @@ interface NavigationSectionProps {
   background?: "light" | "dark";
 }
 
-export default function NavigationSection({ background = "dark" }: NavigationSectionProps) {
+export default function NavigationSection({ background }: NavigationSectionProps) {
   const [isMenuOpen, setIsMenuOpen] = useAtom(isMenuOpenAtom);
   return (
     <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
       <SectionContainer maxWidth="container" paddingY="sm">
         <NavigationBarWithLogo background={background} />
       </SectionContainer>
-      <SheetContent side="right" className="w-full max-w-md p-0 border-none bg-transparent">
+      <SheetContent
+        side="right"
+        className="w-full max-w-md p-0 border-none bg-transparent"
+        hideDefaultCloseButton
+      >
         <VisuallyHidden>
           <SheetTitle>Navigation Menu</SheetTitle>
         </VisuallyHidden>

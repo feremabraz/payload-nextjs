@@ -15,7 +15,7 @@ export default async function JobsPage() {
 
   return (
     <>
-      <NavigationSection background={"light"} />
+      <NavigationSection />
       <JobsStandalone />
       <FooterSection />
     </>

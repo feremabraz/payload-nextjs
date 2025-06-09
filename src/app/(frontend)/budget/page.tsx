@@ -15,7 +15,7 @@ export default async function BudgetPage() {
 
   return (
     <>
-      <NavigationSection background={"light"} />
+      <NavigationSection />
       <BudgetStandalone />
       <FooterSection />
     </>

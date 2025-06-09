@@ -15,7 +15,7 @@ export default function BlogEntryRelated({ id }: BlogEntryRelatedProps) {
   }
 
   return (
-    <SectionContainer maxWidth="container" paddingY="xl" className="bg-white">
+    <SectionContainer maxWidth="container" paddingY="xl">
       <div className="mb-8 md:mb-12">
         <h2 className="font-semibold text-4xl md:text-6xl text-foreground text-left">
           RELATED POSTS

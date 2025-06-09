@@ -15,7 +15,7 @@ export default async function StudioPage() {
 
   return (
     <>
-      <NavigationSection background={"light"} />
+      <NavigationSection />
       <StudioStandalone />
       <FooterSection />
     </>

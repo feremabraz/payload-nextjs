@@ -43,7 +43,7 @@ export function ProjectImageCard({ project, size = "md", className }: ProjectIma
         sizes={responsiveSizes[size]}
       />
       <div className="absolute inset-0 flex items-center bg-primary opacity-0 group-hover:opacity-40 justify-center transition-opacity duration-200 ease-in-out">
-        <span className="text-secondary dark:text-primary text-sm sm:text-lg md:text-xl font-semibold text-center px-2 sm:px-3 py-1 rounded">
+        <span className="text-secondary dark:text-secondary text-sm sm:text-lg md:text-xl font-semibold text-center px-2 sm:px-3 py-1 rounded">
           {project.title}
         </span>
       </div>

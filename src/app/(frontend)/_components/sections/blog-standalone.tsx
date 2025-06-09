@@ -15,7 +15,7 @@ export default function BlogStandalone() {
   );
 
   return (
-    <SectionContainer maxWidth="container" paddingY="xl" className="bg-white">
+    <SectionContainer maxWidth="container" paddingY="xl">
       <div className="mb-8 md:mb-10 text-center">
         <h2 className="text-3xl text-foreground">BRUNO CÂMERA ARQUITETOS</h2>
         <h1 className="font-semibold text-8xl text-foreground">BLOG</h1>
