@@ -1,5 +1,5 @@
-import { FormContainer } from "@shared-layout/form-container";
-import { FormField } from "@shared-layout/form-field";
+import { SimpleFormContainer } from "@shared-layout/form-container";
+import { TextAreaField, TextField } from "@shared-layout/form-fields";
 import { Button } from "@shared-ui/button";
 import { SectionContainer } from "@shared/section-container";
 
@@ -7,11 +7,11 @@ export default function BudgetRequestSection() {
   return (
     <div id="budget-request">
       <SectionContainer>
-        <FormContainer
+        <SimpleFormContainer
           title="BUDGET REQUEST"
           description="Tell us about your project and receive a personalized quote tailored to your goals. No commitment — just a clear plan and expert insight to get started."
         >
-          <FormField
+          <TextField
             label="Name"
             id="name"
             name="name"
@@ -19,7 +19,7 @@ export default function BudgetRequestSection() {
             placeholder="Input your Name"
             required
           />
-          <FormField
+          <TextField
             label="Phone"
             id="phone"
             name="phone"
@@ -27,7 +27,7 @@ export default function BudgetRequestSection() {
             placeholder="Input your Phone Number"
             required
           />
-          <FormField
+          <TextField
             label="Email"
             id="email"
             name="email"
@@ -35,18 +35,17 @@ export default function BudgetRequestSection() {
             placeholder="Input your Email"
             required
           />
-          <FormField
+          <TextAreaField
             label="Message"
             id="message"
             name="message"
-            type="textarea"
             placeholder="Input your Message Here"
             rows={4}
           />
           <Button type="submit" className="w-full">
             Submit
           </Button>
-        </FormContainer>
+        </SimpleFormContainer>
       </SectionContainer>
     </div>
   );

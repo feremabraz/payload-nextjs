@@ -15,7 +15,7 @@ export default function BlogClientWrapper() {
   );
 
   return (
-    <SectionContainer maxWidth="container" paddingY="xl">
+    <SectionContainer width="container" variant="loose">
       <div className="mb-8 md:mb-10 text-center">
         <h2 className="text-3xl text-foreground">BRUNO CÂMERA ARQUITETOS</h2>
         <h1 className="font-semibold text-8xl text-foreground">BLOG</h1>

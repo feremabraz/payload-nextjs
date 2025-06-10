@@ -2,93 +2,53 @@ import { cn } from "@shared-utilities/utils";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-type LinkProps =
-  | {
-      linkHref: string;
-      linkText: string;
-    }
-  | {
-      linkHref?: never;
-      linkText?: never;
-    };
-
-type SectionHeaderProps = {
-  title?: string;
-} & LinkProps;
+type SectionVariant = "default" | "compact" | "loose" | "full-height";
+type SectionWidth = "container" | "wide" | "full";
 
 interface SectionContainerProps {
   children: ReactNode;
+  variant?: SectionVariant;
+  width?: SectionWidth;
   className?: string;
-  variant?: "default" | "full-height" | "compact" | "loose";
-  paddingY?: "none" | "sm" | "md" | "lg" | "xl" | "custom";
-  paddingX?: "none" | "sm" | "md" | "lg" | "xl" | "custom";
-  gap?: "none" | "sm" | "md" | "lg" | "xl" | "custom";
-  maxWidth?: "sm" | "md" | "lg" | "xl" | "2xl" | "full" | "container";
 }
+
+interface SectionHeaderProps {
+  title: string;
+  linkHref?: string;
+  linkText?: string;
+}
+
+const VARIANT_CLASSES: Record<SectionVariant, string> = {
+  default: "py-15 md:py-25",
+  compact: "py-12",
+  loose: "py-37",
+  "full-height": "min-h-screen py-15 md:py-25",
+};
+
+const WIDTH_CLASSES: Record<SectionWidth, string> = {
+  container: "max-w-7xl",
+  wide: "max-w-8xl",
+  full: "max-w-full",
+};
 
 export function SectionContainer({
   children,
-  className,
   variant = "default",
-  paddingY = "lg",
-  paddingX = "lg",
-  gap = "lg",
-  maxWidth = "2xl",
+  width = "wide",
+  className,
 }: SectionContainerProps) {
-  const paddingYClasses = {
-    none: "py-0",
-    sm: "py-30 md:py-12",
-    md: "py-12 md:py-18",
-    lg: "py-15 md:py-25",
-    xl: "py-20 md:py-31",
-    custom: "", // allows for override
-  };
-
-  const paddingXClasses = {
-    none: "px-0",
-    sm: "px-4 md:px-6",
-    md: "px-5 md:px-9",
-    lg: "px-6 md:px-12",
-    xl: "px-8 md:px-16",
-    custom: "",
-  };
-
-  const gapClasses = {
-    none: "gap-0",
-    sm: "gap-4 md:gap-6",
-    md: "gap-6 md:gap-9",
-    lg: "gap-8 md:gap-12",
-    xl: "gap-10 md:gap-16",
-    custom: "",
-  };
-
-  const maxWidthClasses = {
-    sm: "max-w-2xl",
-    md: "max-w-3xl",
-    lg: "max-w-4xl",
-    xl: "max-w-5xl",
-    "2xl": "max-w-8xl",
-    full: "max-w-full",
-    container: "max-w-7xl",
-  };
-
   return (
     <section
       className={cn(
-        "bg-secondary flex flex-col items-center selection:bg-primary selection:text-secondary",
-        paddingYClasses[paddingY],
-        paddingXClasses[paddingX],
-        variant === "full-height" && "min-h-screen",
-        variant === "compact" && "py-12",
-        variant === "loose" && "py-37",
+        "bg-secondary flex flex-col items-center selection:bg-primary selection:text-secondary px-6 md:px-12",
+        VARIANT_CLASSES[variant],
         className,
       )}
     >
       <div
         className={cn(
-          "w-full mx-auto flex flex-col items-center",
-          maxWidthClasses[maxWidth],
-          gapClasses[gap],
+          "w-full mx-auto flex flex-col items-center gap-8 md:gap-12",
+          WIDTH_CLASSES[width],
         )}
       >
         {children}

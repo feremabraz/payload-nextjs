@@ -11,7 +11,7 @@ const navItems = [
 
 export default function WhoAreWeSection() {
   return (
-    <SectionContainer paddingY="xl" gap="xl" maxWidth="xl">
+    <SectionContainer variant="loose" width="container">
       <section className="w-full">
         <nav>
           <ul className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap">

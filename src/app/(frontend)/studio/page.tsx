@@ -23,7 +23,7 @@ export default async function StudioPage() {
   return (
     <>
       <NavigationSection />
-      <SectionContainer maxWidth="container" paddingY="xl">
+      <SectionContainer width="container" variant="loose">
         <div className="text-center">
           <h2 className="text-3xl text-foreground">BRUNO CÂMERA ARQUITETOS</h2>
           <h1 className="font-semibold text-8xl text-foreground">STUDIO</h1>

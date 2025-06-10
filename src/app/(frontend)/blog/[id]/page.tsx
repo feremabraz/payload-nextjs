@@ -39,21 +39,17 @@ export default async function BlogEntryPage({ params }: PageProps) {
   return (
     <>
       <ProjectCustomNavigation id={Number.parseInt(blogId, 10)} />
-      <SectionContainer maxWidth="container" paddingY="lg">
+      <SectionContainer width="container" variant="default">
         <div className="flex flex-col gap-8">
-          {/* Header with date */}
           <div className="text-center">
             <p className="text-sm text-muted-foreground">{post.date}</p>
           </div>
-          {/* Main content based on the image layout */}
           <div className="flex flex-col gap-12">
-            {/* Title */}
             <div className="text-center">
               <h1 className="text-2xl md:text-4xl font-bold text-foreground max-w-4xl mx-auto">
                 {post.title}
               </h1>
             </div>
-            {/* Featured image */}
             <div className="relative w-full h-[50vh] md:h-[60vh] rounded-lg overflow-hidden">
               <Image
                 src={post.imagePath}
@@ -64,11 +60,9 @@ export default async function BlogEntryPage({ params }: PageProps) {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
               />
             </div>
-            {/* Content description */}
             <div className="max-w-4xl mx-auto">
               <p className="text-lg leading-relaxed text-foreground">{post.description}</p>
             </div>
-            {/* Content sections */}
             <div className="max-w-4xl mx-auto space-y-6">
               <p className="text-base leading-relaxed text-foreground">
                 Perched on a scenic plot overlooking the tranquil Vale do Silêncio, The House in
@@ -101,7 +95,7 @@ export default async function BlogEntryPage({ params }: PageProps) {
           </div>
         </div>
       </SectionContainer>
-      <SectionContainer maxWidth="container" paddingY="xl">
+      <SectionContainer width="container" variant="loose">
         <div className="mb-8 md:mb-12">
           <h2 className="font-semibold text-4xl md:text-6xl text-foreground text-left">
             RELATED POSTS

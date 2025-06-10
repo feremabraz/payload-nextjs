@@ -62,7 +62,7 @@ export default async function ProjectPage({ params }: PageProps) {
   return (
     <>
       <ProjectCustomNavigation id={projectId} />
-      <SectionContainer maxWidth="container" paddingY="lg">
+      <SectionContainer width="container" variant="default">
         <div className="flex flex-col gap-16">
           <div className="flex items-start gap-16">
             {firstRowFields.map((field) => (

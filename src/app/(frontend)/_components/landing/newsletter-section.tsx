@@ -1,16 +1,17 @@
-import { FormContainer } from "@shared-layout/form-container";
-import { FormField } from "@shared-layout/form-field";
+import { SimpleFormContainer } from "@shared-layout/form-container";
+import { TextField } from "@shared-layout/form-fields";
 import { Button } from "@shared-ui/button";
 import { SectionContainer } from "@shared/section-container";
 
 export default function NewsletterSection() {
   return (
     <SectionContainer>
-      <FormContainer
+      <SimpleFormContainer
         title="STAY UPDATED"
         description="Subscribe to receive inspiration and news about our latest and future projects."
+        width="narrow"
       >
-        <FormField
+        <TextField
           label="Email"
           id="email"
           name="email"
@@ -21,7 +22,7 @@ export default function NewsletterSection() {
         <Button type="submit" className="w-full">
           Submit
         </Button>
-      </FormContainer>
+      </SimpleFormContainer>
     </SectionContainer>
   );
 }

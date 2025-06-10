@@ -1,16 +1,16 @@
-import { FormContainer } from "@shared-layout/form-container";
-import { FormField } from "@shared-layout/form-field";
+import { SimpleFormContainer } from "@shared-layout/form-container";
+import { TextAreaField, TextField } from "@shared-layout/form-fields";
 import { Button } from "@shared-ui/button";
 import Image from "next/image";
 
 export default function BudgetRequestWithImageSection() {
   return (
     <>
-      <FormContainer
+      <SimpleFormContainer
         title="BUDGET REQUEST"
         description="Tell us about your project and receive a personalized quote tailored to your goals. No commitment — just a clear plan and expert insight to get started."
       >
-        <FormField
+        <TextField
           label="Name"
           id="name"
           name="name"
@@ -18,7 +18,7 @@ export default function BudgetRequestWithImageSection() {
           placeholder="Input your Name"
           required
         />
-        <FormField
+        <TextField
           label="Phone"
           id="phone"
           name="phone"
@@ -26,7 +26,7 @@ export default function BudgetRequestWithImageSection() {
           placeholder="Input your Phone Number"
           required
         />
-        <FormField
+        <TextField
           label="Email"
           id="email"
           name="email"
@@ -34,18 +34,17 @@ export default function BudgetRequestWithImageSection() {
           placeholder="Input your Email"
           required
         />
-        <FormField
+        <TextAreaField
           label="Message"
           id="message"
           name="message"
-          type="textarea"
           placeholder="Input your Message Here"
           rows={4}
         />
         <Button type="submit" className="w-full">
           Submit
         </Button>
-      </FormContainer>
+      </SimpleFormContainer>
       <div className="w-full max-w-2xl mx-auto mt-8">
         <div className="relative w-full h-[40vh] md:h-[50vh] rounded-lg overflow-hidden">
           <Image

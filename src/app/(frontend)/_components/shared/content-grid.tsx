@@ -1,22 +1,18 @@
-import { ResponsiveGrid } from "@shared-layout/responsive-grid";
+import { Gallery, type GalleryColumns, type GalleryGap } from "@shared-layout/gallery";
 import { SectionContainer, SectionHeader } from "@shared/section-container";
 import type { ReactNode } from "react";
 
 interface ContentGridProps<T> {
   title: string;
-  linkHref: string;
-  linkText: string;
+  linkHref?: string;
+  linkText?: string;
   items: T[];
   renderItem: (item: T, index: number) => ReactNode;
-  columns?: {
-    default?: number;
-    sm?: number;
-    md?: number;
-    lg?: number;
-    xl?: number;
-  };
-  gap?: "sm" | "md" | "lg";
+  columns?: GalleryColumns;
+  gap?: GalleryGap;
   className?: string;
+  variant?: "default" | "compact" | "loose" | "full-height";
+  width?: "container" | "wide" | "full";
 }
 
 export function ContentGrid<T>({
@@ -25,16 +21,22 @@ export function ContentGrid<T>({
   linkText,
   items,
   renderItem,
-  columns = { default: 1, sm: 2, lg: 4 },
+  columns = 4,
   gap = "md",
   className,
+  variant = "default",
+  width = "wide",
 }: ContentGridProps<T>) {
   return (
-    <SectionContainer>
+    <SectionContainer variant={variant} width={width}>
       <SectionHeader title={title} linkHref={linkHref} linkText={linkText} />
-      <ResponsiveGrid columns={columns} gap={gap} className={className}>
-        {items.map((item: T, index: number) => renderItem(item, index))}
-      </ResponsiveGrid>
+      <Gallery
+        items={items}
+        renderItem={renderItem}
+        columns={columns}
+        gap={gap}
+        className={className}
+      />
     </SectionContainer>
   );
 }

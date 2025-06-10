@@ -16,7 +16,7 @@ export default function NavigationSection({ background }: NavigationSectionProps
   const [isMenuOpen, setIsMenuOpen] = useAtom(isMenuOpenAtom);
   return (
     <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-      <SectionContainer maxWidth="container" paddingY="sm">
+      <SectionContainer width="container" variant="compact">
         <NavigationBarWithLogo background={background} />
       </SectionContainer>
       <SheetContent

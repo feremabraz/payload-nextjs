@@ -18,7 +18,7 @@ export default async function BudgetPage() {
   return (
     <>
       <NavigationSection />
-      <SectionContainer maxWidth="container" paddingY="xl">
+      <SectionContainer width="container" variant="loose">
         <BudgetRequestWithImageSection />
         <TestimonialsSection />
       </SectionContainer>

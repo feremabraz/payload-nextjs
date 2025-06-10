@@ -1,4 +1,5 @@
-import { cn } from "@shared-utilities/utils";
+import type { CardSize } from "@shared-layout/base-image-card";
+import { Gallery, type GalleryColumns, type GalleryGap } from "@shared-layout/gallery";
 import { TeamMemberImageCard } from "@studio/team-member-image-card";
 
 interface TeamMember {
@@ -12,40 +13,31 @@ interface TeamMember {
 }
 
 interface TeamGalleryProps {
-  columns?: 2 | 3 | 4 | 6;
-  gap?: "sm" | "md" | "lg";
+  columns?: GalleryColumns;
+  gap?: GalleryGap;
   members: TeamMember[];
   className?: string;
 }
 
+const CARD_SIZE_MAP: Record<GalleryColumns, CardSize> = {
+  2: "xl",
+  3: "lg",
+  4: "md",
+  6: "sm",
+};
+
 export function TeamGallery({ columns = 3, gap = "md", members, className }: TeamGalleryProps) {
-  const gapClasses = {
-    sm: "gap-1 sm:gap-2",
-    md: "gap-2 sm:gap-3 md:gap-2",
-    lg: "gap-3 sm:gap-4 md:gap-3",
-  };
-
-  const columnClasses = {
-    2: "grid grid-cols-1 md:grid-cols-2",
-    3: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
-    4: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
-    6: "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6",
-  };
-
-  const cardSizeMap = {
-    2: "xl" as const,
-    3: "lg" as const,
-    4: "md" as const,
-    6: "sm" as const,
-  };
-
-  const cardSize = cardSizeMap[columns];
+  const cardSize = CARD_SIZE_MAP[columns];
 
   return (
-    <div className={cn("w-full items-start", columnClasses[columns], gapClasses[gap], className)}>
-      {members.map((member: TeamMember) => (
+    <Gallery
+      items={members}
+      renderItem={(member: TeamMember) => (
         <TeamMemberImageCard key={member.id} member={member} size={cardSize} />
-      ))}
-    </div>
+      )}
+      columns={columns}
+      gap={gap}
+      className={className}
+    />
   );
 }

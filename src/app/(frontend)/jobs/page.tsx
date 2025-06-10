@@ -17,7 +17,7 @@ export default async function JobsPage() {
   return (
     <>
       <NavigationSection />
-      <SectionContainer maxWidth="container" paddingY="xl">
+      <SectionContainer width="container" variant="loose">
         <SectionHeader title="OPEN JOBS" />
         <JobsSection />
       </SectionContainer>

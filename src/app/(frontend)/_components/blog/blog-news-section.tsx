@@ -12,7 +12,7 @@ export default function BlogNewsSection() {
         linkText="GO TO BLOG"
         items={blognewsPostsData}
         renderItem={(post) => <BlogNewsPostCard key={post.id} {...post} />}
-        columns={{ default: 1, sm: 2, md: 3, lg: 4 }}
+        columns={4}
         gap="md"
       />
     </div>

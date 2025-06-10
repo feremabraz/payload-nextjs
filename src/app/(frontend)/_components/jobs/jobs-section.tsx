@@ -1,11 +1,11 @@
-import { FormContainer } from "@shared-layout/form-container";
-import { FormField } from "@shared-layout/form-field";
+import { SimpleFormContainer } from "@shared-layout/form-container";
+import { FileField, TextAreaField, TextField } from "@shared-layout/form-fields";
 import { Button } from "@shared-ui/button";
 
 export default function JobsSection() {
   return (
-    <FormContainer>
-      <FormField
+    <SimpleFormContainer>
+      <TextField
         label="Name"
         id="name"
         name="name"
@@ -13,7 +13,7 @@ export default function JobsSection() {
         placeholder="Input your Name"
         required
       />
-      <FormField
+      <TextField
         label="Phone"
         id="phone"
         name="phone"
@@ -21,7 +21,7 @@ export default function JobsSection() {
         placeholder="Input your Phone Number"
         required
       />
-      <FormField
+      <TextField
         label="Email"
         id="email"
         name="email"
@@ -29,18 +29,17 @@ export default function JobsSection() {
         placeholder="Input your Email"
         required
       />
-      <FormField
+      <TextAreaField
         label="Message"
         id="message"
         name="message"
-        type="textarea"
         placeholder="Input your message Here"
         rows={4}
       />
-      <FormField label="Upload CV" id="cv" name="cv" type="file" accept=".pdf,.doc,.docx" />
+      <FileField label="Upload CV" id="cv" name="cv" accept=".pdf,.doc,.docx" />
       <Button type="submit" className="w-full">
         Submit
       </Button>
-    </FormContainer>
+    </SimpleFormContainer>
   );
 }

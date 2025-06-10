@@ -20,7 +20,7 @@ export default function StudioSection() {
             description={item.description}
           />
         )}
-        columns={{ default: 1, sm: 2, lg: 4 }}
+        columns={4}
         gap="md"
       />
     </div>
