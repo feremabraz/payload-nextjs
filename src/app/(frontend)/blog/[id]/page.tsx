@@ -1,4 +1,5 @@
 import { headers as getHeaders } from "next/headers.js";
+import { notFound } from "next/navigation";
 import { getPayload } from "payload";
 
 import { BlogGallery } from "@blog/blog-gallery";
@@ -27,14 +28,10 @@ export default async function BlogEntryPage({ params }: PageProps) {
   const post = blognewsPostsData.find((p) => p.id === blogId);
 
   if (!post) {
-    return null;
+    notFound();
   }
 
   const relatedPosts = blognewsPostsData.filter((post) => post.id !== blogId).slice(0, 3);
-
-  if (relatedPosts.length === 0) {
-    return null;
-  }
 
   return (
     <>
@@ -95,22 +92,24 @@ export default async function BlogEntryPage({ params }: PageProps) {
           </div>
         </div>
       </SectionContainer>
-      <SectionContainer width="container" variant="loose">
-        <div className="mb-8 md:mb-12">
-          <h2 className="font-semibold text-4xl md:text-6xl text-foreground text-left">
-            RELATED POSTS
-          </h2>
-        </div>
-        <BlogGallery columns={3} posts={relatedPosts} />
-        <div className="mt-8 md:mt-12">
-          <a
-            href="/blog"
-            className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors"
-          >
-            SEE ALL THE BLOG ARTICLES
-          </a>
-        </div>
-      </SectionContainer>
+      {relatedPosts && (
+        <SectionContainer width="container" variant="loose">
+          <div className="mb-8 md:mb-12">
+            <h2 className="font-semibold text-4xl md:text-6xl text-foreground text-left">
+              RELATED POSTS
+            </h2>
+          </div>
+          <BlogGallery columns={3} posts={relatedPosts} />
+          <div className="mt-8 md:mt-12">
+            <a
+              href="/blog"
+              className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors"
+            >
+              SEE ALL THE BLOG ARTICLES
+            </a>
+          </div>
+        </SectionContainer>
+      )}
       <FooterSection />
     </>
   );

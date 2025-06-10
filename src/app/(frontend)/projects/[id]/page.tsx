@@ -1,4 +1,5 @@
 import { headers as getHeaders } from "next/headers.js";
+import { notFound } from "next/navigation";
 import { getPayload } from "payload";
 
 import ProjectCustomNavigation from "@navigation/project-custom-navigation";
@@ -44,7 +45,7 @@ export default async function ProjectPage({ params }: PageProps) {
   const project = projects.find((p) => p.id === projectId);
 
   if (!project) {
-    return null;
+    notFound();
   }
 
   const firstRowFields = [

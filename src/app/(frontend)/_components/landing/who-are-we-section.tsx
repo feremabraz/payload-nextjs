@@ -29,7 +29,7 @@ export default function WhoAreWeSection() {
         </nav>
       </section>
       <section className="flex flex-col items-start gap-8 w-full">
-        <h1 className="w-full text-start font-semibold text-2xl text-foreground">
+        <h1 className="w-full text-start font-semibold text-3xl text-foreground">
           Innovative and Enduring Architecture That Respects Culture, Enhances Spaces, and Elevates
           <br />
           Everyday Life

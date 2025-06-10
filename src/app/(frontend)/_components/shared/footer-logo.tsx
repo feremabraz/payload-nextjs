@@ -24,7 +24,7 @@ export function FooterLogo() {
           alt="Bruno Câmara Arquitectos Logo"
           width={128}
           height={128}
-          className="h-auto w-auto aspect-square border border-secondary border-opacity-50"
+          className="h-auto w-auto aspect-square rounded-sm overflow-hidden"
         />
       )}
     </Link>

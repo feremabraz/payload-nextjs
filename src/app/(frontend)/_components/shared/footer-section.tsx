@@ -30,21 +30,24 @@ export default function FooterSection() {
           </div>
           <div className="flex space-x-3 sm:space-x-4">
             <Link
-              href="#"
+              href="https://www.facebook.com/cvzconstrucoes"
+              target="_blank"
               aria-label="Facebook"
               className="hover:text-muted-foreground transition-colors duration-200 ease-in-out"
             >
               <FacebookIcon size={18} className="sm:w-5 sm:h-5" />
             </Link>
             <Link
-              href="#"
+              href="https://www.instagram.com/cvz_construcoes/"
+              target="_blank"
               aria-label="Instagram"
               className="hover:text-muted-foreground transition-colors duration-200 ease-in-out"
             >
               <InstagramIcon size={18} className="sm:w-5 sm:h-5" />
             </Link>
             <Link
-              href="#"
+              href="https://www.linkedin.com/in/cvz-constru%C3%A7%C3%B5es-bb09b515a/"
+              target="_blank"
               aria-label="LinkedIn"
               className="hover:text-muted-foreground transition-colors duration-200 ease-in-out"
             >
@@ -76,13 +79,13 @@ export default function FooterSection() {
         </p>
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-0 order-1 md:order-2 [&>*+*]:sm:ml-4 md:[&>*+*]:sm:ml-6">
           <Link
-            href="/privacy-policy"
+            href="/legal/privacy"
             className="hover:text-muted-foreground transition-colors duration-200 ease-in-out"
           >
             Privacy Policy
           </Link>
           <Link
-            href="/terms-of-service"
+            href="/legal/tos"
             className="hover:text-muted-foreground transition-colors duration-200 ease-in-out"
           >
             Terms of Service
