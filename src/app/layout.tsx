@@ -21,7 +21,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
       </head>
       <body className={`${titilliumWeb.className} font-titillium`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-          <main>{children}</main>
+          {children}
         </ThemeProvider>
       </body>
     </html>

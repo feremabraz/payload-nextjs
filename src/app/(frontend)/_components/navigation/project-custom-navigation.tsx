@@ -3,31 +3,25 @@
 import { NavigationBarWithLogo } from "@navigation/navigation-bar";
 import { SideMenu } from "@navigation/side-menu";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { projects } from "@shared-data/project-data";
 import { isMenuOpenAtom } from "@shared-store/atoms";
-import type { ProjectItem } from "@shared-types/projects";
+import type { Project } from "@shared-types/projects";
 import { Sheet, SheetContent, SheetTitle } from "@shared-ui/sheet";
 import { useAtom } from "jotai";
 import { ArrowDown } from "lucide-react";
 import Image from "next/image";
 
 interface ProjectCustomNavigationProps {
-  id: number;
+  project: Project;
 }
 
-function HeroImage({ project }: { project: ProjectItem }) {
+function HeroImage({ project }: { project: Project }) {
   return (
     <Image src={project.imageUrl} alt={project.altText} fill className="object-cover" priority />
   );
 }
 
-export default function ProjectCustomNavigation({ id }: ProjectCustomNavigationProps) {
+export default function ProjectCustomNavigation({ project }: ProjectCustomNavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useAtom(isMenuOpenAtom);
-  const project = projects.find((p) => p.id === id);
-
-  if (!project) {
-    return null;
-  }
 
   const mainLocation = project.location.split(",")[0].toUpperCase();
 

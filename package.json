@@ -17,6 +17,7 @@
     "generate:importmap": "payload generate:importmap",
     "generate:types": "payload generate:types",
     "payload": "payload",
+    "seed": "payload run src/scripts/seed.ts",
     "start": "next start",
     "prepare": "husky"
   },

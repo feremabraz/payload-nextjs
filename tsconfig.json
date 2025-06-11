@@ -35,6 +35,7 @@
       // Components that may be shared between frontend & backend
       "@shared-layout/*": ["./src/app/shared/components/layout/*"],
       "@shared-utilities/*": ["./src/app/shared/lib/*"],
+      "@shared-lib/*": ["./src/app/shared/lib/*"],
       "@shared-hooks/*": ["./src/app/shared/hooks/*"],
       "@shared-store/*": ["./src/app/shared/store/*"],
       "@shared-ui/*": ["./src/app/shared/components/ui/*"], // shadcn/ui components

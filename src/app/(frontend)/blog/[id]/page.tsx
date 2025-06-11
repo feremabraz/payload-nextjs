@@ -3,12 +3,14 @@ import { notFound } from "next/navigation";
 import { getPayload } from "payload";
 
 import { BlogGallery } from "@blog/blog-gallery";
-import { blognewsPostsData } from "@shared-data/blog-news-data";
+import { getBlogPostBySlug, getBlogPosts } from "@shared-lib/payload-api";
+import type { BlogNewsPost } from "@shared-types/blog-and-news";
 import { SectionContainer } from "@shared/section-container";
 import Image from "next/image";
 
-import ProjectCustomNavigation from "@navigation/project-custom-navigation";
+import NavigationSection from "@navigation/navigation-section";
 import FooterSection from "@shared/footer-section";
+import { RichTextRenderer } from "@shared/rich-text-renderer";
 
 import config from "@/payload.config";
 
@@ -23,19 +25,20 @@ export default async function BlogEntryPage({ params }: PageProps) {
   const { user: _user } = await payload.auth({ headers });
 
   const resolvedParams = await params;
-  const blogId = resolvedParams.id;
+  const slug = resolvedParams.id;
 
-  const post = blognewsPostsData.find((p) => p.id === blogId);
+  const post = await getBlogPostBySlug(slug);
 
   if (!post) {
     notFound();
   }
 
-  const relatedPosts = blognewsPostsData.filter((post) => post.id !== blogId).slice(0, 3);
+  const relatedPosts = await getBlogPosts(3);
+  const filteredRelatedPosts = relatedPosts.filter((p: BlogNewsPost) => p.slug !== slug);
 
   return (
     <>
-      <ProjectCustomNavigation id={Number.parseInt(blogId, 10)} />
+      <NavigationSection />
       <SectionContainer width="container" variant="default">
         <div className="flex flex-col gap-8">
           <div className="text-center">
@@ -61,45 +64,19 @@ export default async function BlogEntryPage({ params }: PageProps) {
               <p className="text-lg leading-relaxed text-foreground">{post.description}</p>
             </div>
             <div className="max-w-4xl mx-auto space-y-6">
-              <p className="text-base leading-relaxed text-foreground">
-                Perched on a scenic plot overlooking the tranquil Vale do Silêncio, The House in
-                Lisbon stands as a thoughtful reinterpretation of a single-family dwelling. This
-                project embraces the concept of spatial fluidity by emphasizing the seamless
-                connection between interior and exterior environments. Large openings, continuous
-                lines, and strategic alignments help dissolve the boundaries between the built space
-                and the surrounding landscape, creating an experience that feels both open and
-                intimate.
-              </p>
-              <p className="text-base leading-relaxed text-foreground">
-                Perched on a scenic plot overlooking the tranquil Vale do Silêncio, The House in
-                Lisbon stands as a thoughtful reinterpretation of a single-family dwelling. This
-                project embraces the concept of spatial fluidity by emphasizing the seamless
-                connection between interior and exterior environments. Large openings, continuous
-                lines, and strategic alignments help dissolve the boundaries between the built space
-                and the surrounding landscape, creating an experience that feels both open and
-                intimate.
-              </p>
-              <p className="text-base leading-relaxed text-foreground">
-                Perched on a scenic plot overlooking the tranquil Vale do Silêncio, The House in
-                Lisbon stands as a thoughtful reinterpretation of a single-family dwelling. This
-                project embraces the concept of spatial fluidity by emphasizing the seamless
-                connection between interior and exterior environments. Large openings, continuous
-                lines, and strategic alignments help dissolve the boundaries between the built space
-                and the surrounding landscape, creating an experience that feels both open and
-                intimate.
-              </p>
+              <RichTextRenderer content={post.content} />
             </div>
           </div>
         </div>
       </SectionContainer>
-      {relatedPosts && (
+      {filteredRelatedPosts.length > 0 && (
         <SectionContainer width="container" variant="loose">
           <div className="mb-8 md:mb-12">
             <h2 className="font-semibold text-4xl md:text-6xl text-foreground text-left">
               RELATED POSTS
             </h2>
           </div>
-          <BlogGallery columns={3} posts={relatedPosts} />
+          <BlogGallery columns={3} posts={filteredRelatedPosts} />
           <div className="mt-8 md:mt-12">
             <a
               href="/blog"

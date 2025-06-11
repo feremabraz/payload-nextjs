@@ -1,20 +1,21 @@
-import { projects } from "@shared-data/project-data";
 import { SectionContainer } from "@shared/section-container";
 import Image from "next/image";
 
 interface ProjectImagesSectionProps {
-  id: number;
+  images: string[];
+  title?: string;
 }
 
-export default function ProjectImagesSection({ id }: ProjectImagesSectionProps) {
-  const project = projects.find((p) => p.id === id);
-
-  if (!project || !project.images || project.images.length === 0) {
+export default function ProjectImagesSection({
+  images,
+  title = "Project",
+}: ProjectImagesSectionProps) {
+  if (!images || images.length === 0) {
     return null;
   }
 
-  const firstTwoImages = project.images.slice(0, 2);
-  const remainingImages = project.images.slice(2);
+  const firstTwoImages = images.slice(0, 2);
+  const remainingImages = images.slice(2);
 
   return (
     <>
@@ -28,7 +29,7 @@ export default function ProjectImagesSection({ id }: ProjectImagesSectionProps) 
               >
                 <Image
                   src={imageSrc}
-                  alt={`${project.title} - Image ${index + 1}`}
+                  alt={`${title} - Image ${index + 1}`}
                   fill
                   className="object-cover"
                   quality={100}
@@ -45,7 +46,7 @@ export default function ProjectImagesSection({ id }: ProjectImagesSectionProps) 
             <div key={imageSrc} className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh]">
               <Image
                 src={imageSrc}
-                alt={`${project.title} - Image ${index + 3}`}
+                alt={`${title} - Image ${index + 3}`}
                 fill
                 className="object-cover rounded-sm"
                 quality={100}

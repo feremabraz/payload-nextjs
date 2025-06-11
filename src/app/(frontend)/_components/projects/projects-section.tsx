@@ -1,12 +1,14 @@
 import { ProjectImageCard } from "@projects/project-image-card";
-import { projects } from "@shared-data/project-data";
-import type { ProjectItem } from "@shared-types/projects";
+import { getProjects } from "@shared-lib/payload-api";
+import type { Project } from "@shared-types/projects";
 import { ContentGrid } from "@shared/content-grid";
 
-export default function ProjectsSection() {
+export default async function ProjectsSection() {
+  const projects = await getProjects(8);
+
   return (
     <div id="projects">
-      <ContentGrid<ProjectItem>
+      <ContentGrid<Project>
         title="PROJECTS"
         linkHref="/projects"
         linkText="GO TO PROJECTS"

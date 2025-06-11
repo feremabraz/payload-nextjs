@@ -2,6 +2,7 @@ import { headers as getHeaders } from "next/headers";
 import { getPayload } from "payload";
 
 import NavigationSection from "@navigation/navigation-section";
+import { getProjects } from "@shared-lib/payload-api";
 import FooterSection from "@shared/footer-section";
 import ProjectsClientWrapper from "@wrappers/projects-client-wrapper";
 
@@ -13,10 +14,12 @@ export default async function ProjectsPage() {
   const payload = await getPayload({ config: payloadConfig });
   const { user: _user } = await payload.auth({ headers });
 
+  const projects = await getProjects();
+
   return (
     <>
       <NavigationSection />
-      <ProjectsClientWrapper />
+      <ProjectsClientWrapper initialProjects={projects} />
       <FooterSection />
     </>
   );

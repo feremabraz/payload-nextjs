@@ -10,7 +10,7 @@ interface BlogImageCardProps {
 export function BlogImageCard({ post, size = "md" }: BlogImageCardProps) {
   return (
     <div className="flex-1 basis-0 p-0 bg-secondary">
-      <Link href={`/blog/${post.id}`} className="block w-full">
+      <Link href={`/blog/${post.slug || post.id}`} className="block w-full">
         <BaseImageCard
           imageSrc={post.imagePath || "/placeholder.svg"}
           imageAlt={post.altText}

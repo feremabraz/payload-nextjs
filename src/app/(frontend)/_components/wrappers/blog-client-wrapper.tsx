@@ -2,15 +2,18 @@
 
 import { BlogFilter } from "@blog/blog-filter";
 import { BlogGallery } from "@blog/blog-gallery";
-import { blognewsPostsData } from "@shared-data/blog-news-data";
-import type { BlogCategory } from "@shared-types/blog-and-news";
+import type { BlogCategory, BlogNewsPost } from "@shared-types/blog-and-news";
 import { SectionContainer } from "@shared/section-container";
 import { useState } from "react";
 
-export default function BlogClientWrapper() {
+interface BlogClientWrapperProps {
+  initialPosts: BlogNewsPost[];
+}
+
+export default function BlogClientWrapper({ initialPosts }: BlogClientWrapperProps) {
   const [selectedCategory, setSelectedCategory] = useState<BlogCategory | "all">("all");
 
-  const selectedPosts = blognewsPostsData.filter(
+  const selectedPosts = initialPosts.filter(
     (post) => selectedCategory === "all" || post.category === selectedCategory,
   );
 

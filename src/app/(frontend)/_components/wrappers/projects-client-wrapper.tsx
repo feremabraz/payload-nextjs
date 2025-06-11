@@ -2,15 +2,18 @@
 
 import { ProjectFilter } from "@projects/project-filter";
 import { ProjectGallery } from "@projects/project-gallery";
-import { projects } from "@shared-data/project-data";
-import type { ProjectCategory } from "@shared-types/projects";
+import type { Project, ProjectCategory } from "@shared-types/projects";
 import { SectionContainer } from "@shared/section-container";
 import { useState } from "react";
 
-export default function ProjectsClientWrapper() {
+interface ProjectsClientWrapperProps {
+  initialProjects: Project[];
+}
+
+export default function ProjectsClientWrapper({ initialProjects }: ProjectsClientWrapperProps) {
   const [selectedCategory, setSelectedCategory] = useState<ProjectCategory | "all">("all");
 
-  const selectedProjects = projects.filter(
+  const selectedProjects = initialProjects.filter(
     (project) => selectedCategory === "all" || project.category === selectedCategory,
   );
 

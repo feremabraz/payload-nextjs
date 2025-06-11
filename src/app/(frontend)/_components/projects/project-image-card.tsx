@@ -1,17 +1,20 @@
 import { BaseImageCard, type CardSize } from "@shared-layout/base-image-card";
-import type { ProjectItem } from "@shared-types/projects";
+import type { Project, ProjectItem } from "@shared-types/projects";
 import { cn } from "@shared-utilities/utils";
 import Link from "next/link";
 
 interface ProjectImageCardProps {
-  project: ProjectItem;
+  project: ProjectItem | Project;
   size?: CardSize;
   className?: string;
 }
 
 export function ProjectImageCard({ project, size = "md", className }: ProjectImageCardProps) {
+  // Handle both legacy ProjectItem (with numeric id) and new Project (with slug)
+  const href = "slug" in project ? `/projects/${project.slug}` : `/projects/${project.id}`;
+
   return (
-    <Link href={`/projects/${project.id}`} className={cn("block", className)}>
+    <Link href={href} className={cn("block", className)}>
       <BaseImageCard
         imageSrc={project.imageUrl || "/placeholder.svg"}
         imageAlt={project.altText}

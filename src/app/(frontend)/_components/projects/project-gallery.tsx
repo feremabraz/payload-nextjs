@@ -1,12 +1,12 @@
 import { ProjectImageCard } from "@projects/project-image-card";
 import type { CardSize } from "@shared-layout/base-image-card";
 import { Gallery, type GalleryColumns, type GalleryGap } from "@shared-layout/gallery";
-import type { ProjectItem } from "@shared-types/projects";
+import type { Project, ProjectItem } from "@shared-types/projects";
 
 interface ProjectGalleryProps {
   columns?: GalleryColumns;
   gap?: GalleryGap;
-  projects: ProjectItem[];
+  projects: (ProjectItem | Project)[];
   className?: string;
 }
 
@@ -28,7 +28,7 @@ export function ProjectGallery({
   return (
     <Gallery
       items={projects}
-      renderItem={(project: ProjectItem, index: number) => (
+      renderItem={(project: ProjectItem | Project, index: number) => (
         <ProjectImageCard key={project.id || index} project={project} size={cardSize} />
       )}
       columns={columns}

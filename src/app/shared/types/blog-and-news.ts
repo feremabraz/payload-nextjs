@@ -6,6 +6,8 @@ export type BlogNewsPost = {
   altText: string;
   title: string;
   description: string;
+  content?: unknown; // Rich text content
   date: string;
   category: BlogCategory;
+  slug?: string;
 };

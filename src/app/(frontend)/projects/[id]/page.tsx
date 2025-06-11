@@ -4,7 +4,7 @@ import { getPayload } from "payload";
 
 import ProjectCustomNavigation from "@navigation/project-custom-navigation";
 import ProjectImagesSection from "@projects/project-images-section";
-import { projects } from "@shared-data/project-data";
+import { getProjectBySlug } from "@shared-lib/payload-api";
 import FooterSection from "@shared/footer-section";
 import { SectionContainer } from "@shared/section-container";
 
@@ -40,9 +40,9 @@ export default async function ProjectPage({ params }: PageProps) {
   const { user: _user } = await payload.auth({ headers });
 
   const resolvedParams = await params;
-  const projectId = Number.parseInt(resolvedParams.id, 10);
+  const slug = resolvedParams.id;
 
-  const project = projects.find((p) => p.id === projectId);
+  const project = await getProjectBySlug(slug);
 
   if (!project) {
     notFound();
@@ -62,7 +62,7 @@ export default async function ProjectPage({ params }: PageProps) {
 
   return (
     <>
-      <ProjectCustomNavigation id={projectId} />
+      <ProjectCustomNavigation project={project} />
       <SectionContainer width="container" variant="default">
         <div className="flex flex-col gap-16">
           <div className="flex items-start gap-16">
@@ -82,7 +82,7 @@ export default async function ProjectPage({ params }: PageProps) {
           </div>
         </div>
       </SectionContainer>
-      <ProjectImagesSection id={projectId} />
+      <ProjectImagesSection images={project.images} title={project.title} />
       <FooterSection />
     </>
   );

@@ -11,13 +11,28 @@ export interface ProjectItem {
   altText: string;
   overlayText?: string;
   category: ProjectCategory;
-  // Project details for standalone page
   title: string;
   location: string;
   year: string;
   projectType: string;
   client: string;
   projectSize: string;
-  // Gallery images
+  images: string[];
+}
+
+export interface Project {
+  id: string;
+  imageUrl: string;
+  altText: string;
+  title: string;
+  description: string;
+  content?: unknown;
+  location: string;
+  year: string;
+  projectType: string;
+  client: string;
+  projectSize: string;
+  category: ProjectCategory;
+  slug: string;
   images: string[];
 }
