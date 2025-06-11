@@ -78,6 +78,7 @@ export interface Config {
     publications: Publication;
     'company-settings': CompanySetting;
     'values-and-mission': ValuesAndMission;
+    'legal-pages': LegalPage;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -95,6 +96,7 @@ export interface Config {
     publications: PublicationsSelect<false> | PublicationsSelect<true>;
     'company-settings': CompanySettingsSelect<false> | CompanySettingsSelect<true>;
     'values-and-mission': ValuesAndMissionSelect<false> | ValuesAndMissionSelect<true>;
+    'legal-pages': LegalPagesSelect<false> | LegalPagesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -526,6 +528,117 @@ export interface ValuesAndMission {
   createdAt: string;
 }
 /**
+ * Manage legal documents like Terms of Service and Privacy Policy
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "legal-pages".
+ */
+export interface LegalPage {
+  id: number;
+  /**
+   * Title of the legal document (e.g., 'Privacy Policy', 'Terms of Service')
+   */
+  title: string;
+  /**
+   * Type of legal document
+   */
+  pageType: 'privacy' | 'terms' | 'cookies' | 'data-protection' | 'disclaimer' | 'other';
+  /**
+   * URL slug for the page (e.g., 'privacy', 'tos')
+   */
+  slug: string;
+  /**
+   * Date when this document was last updated
+   */
+  lastUpdated: string;
+  introduction: {
+    /**
+     * Optional subtitle or description
+     */
+    subtitle?: string | null;
+    /**
+     * Main introduction text
+     */
+    content: string;
+  };
+  /**
+   * Content sections of the legal document
+   */
+  sections: {
+    /**
+     * Section heading (e.g., '1. Information We Collect')
+     */
+    heading: string;
+    /**
+     * Main content for this section
+     */
+    content: string;
+    /**
+     * Optional subsections within this section
+     */
+    subsections?:
+      | {
+          /**
+           * Subsection heading
+           */
+          subheading: string;
+          /**
+           * Subsection content
+           */
+          content: string;
+          /**
+           * Optional bullet points for this subsection
+           */
+          listItems?:
+            | {
+                item: string;
+                id?: string | null;
+              }[]
+            | null;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Optional bullet points for this section
+     */
+    listItems?:
+      | {
+          item: string;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Display order for this section
+     */
+    order?: number | null;
+    id?: string | null;
+  }[];
+  /**
+   * Contact information section (usually at the bottom)
+   */
+  contactInfo?: {
+    /**
+     * Include contact information section
+     */
+    includeContact?: boolean | null;
+    heading?: string | null;
+    /**
+     * Contact information text
+     */
+    content?: string | null;
+  };
+  /**
+   * Publish this legal page on the website
+   */
+  published?: boolean | null;
+  /**
+   * Display order in legal pages list
+   */
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
@@ -575,6 +688,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'values-and-mission';
         value: number | ValuesAndMission;
+      } | null)
+    | ({
+        relationTo: 'legal-pages';
+        value: number | LegalPage;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -808,6 +925,60 @@ export interface ValuesAndMissionSelect<T extends boolean = true> {
   order?: T;
   published?: T;
   featuredOnHomepage?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "legal-pages_select".
+ */
+export interface LegalPagesSelect<T extends boolean = true> {
+  title?: T;
+  pageType?: T;
+  slug?: T;
+  lastUpdated?: T;
+  introduction?:
+    | T
+    | {
+        subtitle?: T;
+        content?: T;
+      };
+  sections?:
+    | T
+    | {
+        heading?: T;
+        content?: T;
+        subsections?:
+          | T
+          | {
+              subheading?: T;
+              content?: T;
+              listItems?:
+                | T
+                | {
+                    item?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+        listItems?:
+          | T
+          | {
+              item?: T;
+              id?: T;
+            };
+        order?: T;
+        id?: T;
+      };
+  contactInfo?:
+    | T
+    | {
+        includeContact?: T;
+        heading?: T;
+        content?: T;
+      };
+  published?: T;
+  order?: T;
   updatedAt?: T;
   createdAt?: T;
 }

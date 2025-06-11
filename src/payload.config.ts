@@ -8,6 +8,7 @@ import { buildConfig } from "payload";
 import { Awards } from "./collections/Awards";
 import { Blog } from "./collections/Blog";
 import { CompanySettings } from "./collections/CompanySettings";
+import { LegalPages } from "./collections/LegalPages";
 import { Media } from "./collections/Media";
 import { Projects } from "./collections/Projects";
 import { Publications } from "./collections/Publications";
@@ -39,6 +40,7 @@ export default buildConfig({
     Publications,
     CompanySettings,
     ValuesAndMission,
+    LegalPages,
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",

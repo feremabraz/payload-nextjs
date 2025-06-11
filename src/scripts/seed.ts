@@ -599,6 +599,200 @@ const seedData = async () => {
       }
     }
 
+    console.log("⚖️  Creating legal pages...");
+    const legalPages = [
+      {
+        title: "Privacy Policy",
+        pageType: "privacy" as const,
+        slug: "privacy",
+        lastUpdated: "2025-06-10",
+        introduction: {
+          content:
+            "At Bruno Câmara Arquitetos, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you visit our website or interact with our services.",
+        },
+        sections: [
+          {
+            heading: "1. Information We Collect",
+            content: "We collect information in the following ways:",
+            subsections: [
+              {
+                subheading: "Contact Information",
+                content: "When you contact us through our forms or email, we may collect:",
+                listItems: [
+                  { item: "Name and contact details" },
+                  { item: "Email address" },
+                  { item: "Phone number" },
+                  { item: "Project details and requirements" },
+                  { item: "Budget information (when provided voluntarily)" },
+                ],
+              },
+              {
+                subheading: "Technical Information",
+                content: "We may automatically collect certain technical information including:",
+                listItems: [
+                  { item: "IP address and general location" },
+                  { item: "Browser type and version" },
+                  { item: "Device information" },
+                  { item: "Pages visited and time spent on our site" },
+                ],
+              },
+            ],
+            order: 1,
+          },
+          {
+            heading: "2. How We Use Your Information",
+            content: "We use the information we collect to:",
+            listItems: [
+              { item: "Respond to your inquiries and provide requested services" },
+              { item: "Send you project updates and communications" },
+              { item: "Improve our website and services" },
+              { item: "Comply with legal obligations" },
+              { item: "Send newsletters (only with your explicit consent)" },
+            ],
+            order: 2,
+          },
+          {
+            heading: "3. Cookies and Tracking",
+            content:
+              "Our website uses cookies to enhance your browsing experience. Cookies are small text files stored on your device that help us understand how you use our site. You can control cookie settings through your browser preferences.",
+            order: 3,
+          },
+          {
+            heading: "4. Data Security",
+            content:
+              "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure.",
+            order: 4,
+          },
+          {
+            heading: "5. Your Rights",
+            content: "Under applicable data protection laws, you have the right to:",
+            listItems: [
+              { item: "Access your personal information" },
+              { item: "Correct inaccurate data" },
+              { item: "Request deletion of your data" },
+              { item: "Object to processing of your data" },
+              { item: "Request data portability" },
+            ],
+            order: 5,
+          },
+        ],
+        contactInfo: {
+          includeContact: true,
+          heading: "Contact Us",
+          content:
+            "If you have any questions about this Privacy Policy, please contact us at info@cvz-construcoes.pt or Av. da República 49, 1050-188 Lisboa, Portugal.",
+        },
+        published: true,
+        order: 1,
+      },
+      {
+        title: "Terms of Service",
+        pageType: "terms" as const,
+        slug: "tos",
+        lastUpdated: "2025-06-10",
+        introduction: {
+          content:
+            "Welcome to Bruno Câmara Arquitetos. These Terms of Service govern your use of our website and services. By accessing or using our website, you agree to be bound by these terms.",
+        },
+        sections: [
+          {
+            heading: "1. Acceptance of Terms",
+            content:
+              "By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.",
+            order: 1,
+          },
+          {
+            heading: "2. Use License",
+            content:
+              "Permission is granted to temporarily download one copy of the materials on Bruno Câmara Arquitetos' website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:",
+            listItems: [
+              { item: "Modify or copy the materials" },
+              { item: "Use the materials for any commercial purpose or for any public display" },
+              { item: "Attempt to reverse engineer any software contained on the website" },
+              { item: "Remove any copyright or other proprietary notations from the materials" },
+            ],
+            order: 2,
+          },
+          {
+            heading: "3. Content and Intellectual Property",
+            content:
+              "All content on this website, including but not limited to text, graphics, logos, images, and software, is the property of Bruno Câmara Arquitetos and is protected by Portuguese and international copyright laws.",
+            subsections: [
+              {
+                subheading: "Project Images and Portfolios",
+                content:
+                  "The architectural projects, designs, and images displayed on this website are proprietary works of Bruno Câmara Arquitetos. Unauthorized use, reproduction, or distribution is strictly prohibited.",
+              },
+            ],
+            order: 3,
+          },
+          {
+            heading: "4. Website Use and Conduct",
+            content:
+              "You agree to use our website only for lawful purposes and in a way that does not infringe the rights of others. You must not:",
+            listItems: [
+              {
+                item: "Use the website in any way that could damage, disable, or impair the service",
+              },
+              { item: "Attempt to gain unauthorized access to any part of the website" },
+              { item: "Submit false or misleading information through our contact forms" },
+              { item: "Use automated systems to access the website without permission" },
+            ],
+            order: 4,
+          },
+          {
+            heading: "5. Contact Forms and Communications",
+            content:
+              "When you submit information through our contact forms, you warrant that the information provided is accurate and that you have the right to provide such information.",
+            order: 5,
+          },
+          {
+            heading: "6. Disclaimer",
+            content:
+              "The information on this website is provided on an 'as is' basis. To the fullest extent permitted by law, Bruno Câmara Arquitetos excludes all representations, warranties, conditions and terms relating to our website and the use of this website.",
+            order: 6,
+          },
+          {
+            heading: "7. Limitation of Liability",
+            content:
+              "Bruno Câmara Arquitetos shall not be liable for any direct, indirect, incidental, consequential, or special damages arising out of or in connection with your use of this website.",
+            order: 7,
+          },
+          {
+            heading: "8. Changes to Terms",
+            content:
+              "Bruno Câmara Arquitetos reserves the right to revise these terms of service at any time without notice. By using this website, you are agreeing to be bound by the current version of these terms of service.",
+            order: 8,
+          },
+        ],
+        contactInfo: {
+          includeContact: true,
+          heading: "Contact Us",
+          content:
+            "If you have any questions about these Terms of Service, please contact us at info@cvz-construcoes.pt or Av. da República 49, 1050-188 Lisboa, Portugal.",
+        },
+        published: true,
+        order: 2,
+      },
+    ];
+
+    for (const page of legalPages) {
+      const existingPage = await payload.find({
+        collection: "legal-pages",
+        where: { slug: { equals: page.slug } },
+      });
+
+      if (existingPage.docs.length === 0) {
+        await payload.create({
+          collection: "legal-pages",
+          data: page,
+        });
+        console.log(`✅ Created legal page: ${page.title}`);
+      } else {
+        console.log(`⏭️  Legal page already exists: ${page.title}`);
+      }
+    }
+
     console.log("🎉 Seeding completed successfully!");
   } catch (error) {
     console.error("❌ Error seeding data:", error);
