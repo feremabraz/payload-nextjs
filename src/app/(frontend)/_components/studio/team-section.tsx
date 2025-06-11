@@ -1,9 +1,30 @@
-import { teamMembers } from "@shared-data/team-data";
+import { getTeamMembers } from "@actions/team-members";
+import { EmptyState } from "@shared/empty-state";
 import { SectionContainer } from "@shared/section-container";
 import { TeamGallery } from "@studio/team-gallery";
+import { Users } from "lucide-react";
 import Image from "next/image";
 
-export default function TeamSection() {
+export default async function TeamSection() {
+  const teamMembers = await getTeamMembers();
+
+  if (teamMembers.length === 0) {
+    return (
+      <SectionContainer variant="default" width="container">
+        <section className="flex flex-col items-center gap-8 md:gap-12 w-full">
+          <h2 className="w-full text-center font-medium text-4xl md:text-6xl text-balance px-4 text-foreground">
+            OUR TEAM
+          </h2>
+          <EmptyState
+            icon={<Users className="h-12 w-12" />}
+            title="No team members yet"
+            description="We're building our team and will introduce our members soon!"
+          />
+        </section>
+      </SectionContainer>
+    );
+  }
+
   return (
     <SectionContainer variant="default" width="container">
       <section className="flex flex-col items-center gap-8 md:gap-12 w-full">

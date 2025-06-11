@@ -1,26 +1,34 @@
+import type { Media, TeamMember } from "@payload-types";
 import { BaseImageCard, type CardSize } from "@shared-layout/base-image-card";
 import { cn } from "@shared-utilities/utils";
 
 interface TeamMemberImageCardProps {
-  member: {
-    id: string;
-    name: string;
-    role: string;
-    imagePath: string;
-    altText: string;
-    bio: string;
-    interests?: string;
-  };
+  member: TeamMember;
   size?: CardSize;
   className?: string;
 }
 
 export function TeamMemberImageCard({ member, size = "md", className }: TeamMemberImageCardProps) {
+  // Handle the case where profileImage might be a Media object or just an ID
+  const getImageSrc = (profileImage: TeamMember["profileImage"]) => {
+    if (typeof profileImage === "object" && profileImage !== null) {
+      return (profileImage as Media).url || "";
+    }
+    return "/studio/team_1.webp"; // Fallback image
+  };
+
+  const getImageAlt = (profileImage: TeamMember["profileImage"]) => {
+    if (typeof profileImage === "object" && profileImage !== null) {
+      return (profileImage as Media).alt || `${member.name}, ${member.role}`;
+    }
+    return `${member.name}, ${member.role}`;
+  };
+
   return (
     <div className={cn("flex flex-col gap-4 mb-8", className)}>
       <BaseImageCard
-        imageSrc={member.imagePath}
-        imageAlt={member.altText}
+        imageSrc={getImageSrc(member.profileImage)}
+        imageAlt={getImageAlt(member.profileImage)}
         size={size}
         aspectRatio="portrait"
         hover={false}

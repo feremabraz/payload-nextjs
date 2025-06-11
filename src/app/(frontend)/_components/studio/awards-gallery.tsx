@@ -1,17 +1,7 @@
+import type { Award } from "@payload-types";
 import type { CardSize } from "@shared-layout/base-image-card";
 import { Gallery, type GalleryColumns, type GalleryGap } from "@shared-layout/gallery";
 import { AwardsImageCard } from "@studio/awards-image-card";
-
-interface Award {
-  id: string;
-  title: string;
-  description: string;
-  project: string;
-  location: string;
-  year: string;
-  imagePath: string;
-  altText: string;
-}
 
 interface AwardsGalleryProps {
   columns?: GalleryColumns;

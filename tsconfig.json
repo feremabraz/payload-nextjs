@@ -20,7 +20,9 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
+      "@payload-types": ["./src/payload-types.ts"],
       "@payload-config": ["./src/payload.config.ts"],
+      "@actions/*": ["./src/app/(frontend)/_api/*"], // server actions
       // Components meant only for the frontend
       "@components/*": ["./src/app/(frontend)/_components/*"],
       "@blog/*": ["./src/app/(frontend)/_components/blog/*"],

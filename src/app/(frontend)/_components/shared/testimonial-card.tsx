@@ -1,4 +1,4 @@
-import type { Testimonial } from "@shared-types/testimonials";
+import type { Testimonial } from "@payload-types";
 
 interface TestimonialCardProps {
   testimonial: Testimonial;

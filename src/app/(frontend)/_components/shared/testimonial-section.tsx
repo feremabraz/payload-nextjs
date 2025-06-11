@@ -1,7 +1,9 @@
-import { testimonials } from "@shared-data/testimonial-data";
-import type { Testimonial } from "@shared-types/testimonials";
+import { getTestimonials } from "@actions/testimonials";
+import type { Testimonial } from "@payload-types";
+import { EmptyState } from "@shared/empty-state";
 import { SectionContainer, SectionHeader } from "@shared/section-container";
 import { TestimonialCard } from "@shared/testimonial-card";
+import { MessageSquareQuote } from "lucide-react";
 
 function getTestimonialColumns(testimonials: Testimonial[]) {
   if (testimonials.length === 0) return [];
@@ -20,7 +22,28 @@ function getTestimonialColumns(testimonials: Testimonial[]) {
   ];
 }
 
-export default function TestimonialsSection() {
+export default async function TestimonialsSection() {
+  const testimonials = await getTestimonials();
+
+  if (testimonials.length === 0) {
+    return (
+      <div id="testimonials">
+        <SectionContainer>
+          <SectionHeader
+            title="TESTIMONIALS"
+            linkHref="/testimonials"
+            linkText="GO TO TESTIMONIALS"
+          />
+          <EmptyState
+            icon={<MessageSquareQuote className="h-12 w-12" />}
+            title="No testimonials yet"
+            description="We're working on gathering testimonials from our clients. Check back soon!"
+          />
+        </SectionContainer>
+      </div>
+    );
+  }
+
   const columns = getTestimonialColumns(testimonials);
 
   return (

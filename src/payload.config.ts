@@ -5,9 +5,13 @@ import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import { buildConfig } from "payload";
 
+import { Awards } from "./collections/Awards";
 import { Blog } from "./collections/Blog";
 import { Media } from "./collections/Media";
 import { Projects } from "./collections/Projects";
+import { StudioInfo } from "./collections/StudioInfo";
+import { TeamMembers } from "./collections/TeamMembers";
+import { Testimonials } from "./collections/Testimonials";
 import { Users } from "./collections/Users";
 
 const filename = fileURLToPath(import.meta.url);
@@ -20,7 +24,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Blog, Projects],
+  collections: [Users, Media, Blog, Projects, Awards, StudioInfo, TeamMembers, Testimonials],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

@@ -1,16 +1,7 @@
+import type { TeamMember } from "@payload-types";
 import type { CardSize } from "@shared-layout/base-image-card";
 import { Gallery, type GalleryColumns, type GalleryGap } from "@shared-layout/gallery";
 import { TeamMemberImageCard } from "@studio/team-member-image-card";
-
-interface TeamMember {
-  id: string;
-  name: string;
-  role: string;
-  imagePath: string;
-  altText: string;
-  bio: string;
-  interests?: string;
-}
 
 interface TeamGalleryProps {
   columns?: GalleryColumns;

@@ -71,6 +71,10 @@ export interface Config {
     media: Media;
     blog: Blog;
     projects: Project;
+    awards: Award;
+    'studio-info': StudioInfo;
+    'team-members': TeamMember;
+    testimonials: Testimonial;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -81,6 +85,10 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     blog: BlogSelect<false> | BlogSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
+    awards: AwardsSelect<false> | AwardsSelect<true>;
+    'studio-info': StudioInfoSelect<false> | StudioInfoSelect<true>;
+    'team-members': TeamMembersSelect<false> | TeamMembersSelect<true>;
+    testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -227,6 +235,142 @@ export interface Project {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "awards".
+ */
+export interface Award {
+  id: number;
+  /**
+   * Award title or name
+   */
+  title: string;
+  /**
+   * Brief description of the award
+   */
+  description: string;
+  /**
+   * Project that received the award
+   */
+  project: string;
+  /**
+   * Location where the award was given or project is located
+   */
+  location: string;
+  /**
+   * Year the award was received
+   */
+  year: string;
+  /**
+   * Image representing the award or awarded project
+   */
+  awardImage: number | Media;
+  /**
+   * Feature this award prominently
+   */
+  featured?: boolean | null;
+  /**
+   * Display this award on the website
+   */
+  published?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "studio-info".
+ */
+export interface StudioInfo {
+  id: number;
+  /**
+   * Section title (e.g., 'Values', 'Team', 'Studio')
+   */
+  title: string;
+  /**
+   * Detailed description of this studio aspect
+   */
+  description: string;
+  /**
+   * Representative image for this section
+   */
+  image: number | Media;
+  /**
+   * Display order (lower numbers appear first)
+   */
+  order?: number | null;
+  /**
+   * Display this section on the website
+   */
+  published?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "team-members".
+ */
+export interface TeamMember {
+  id: number;
+  /**
+   * Full name of the team member
+   */
+  name: string;
+  /**
+   * Job title or role in the company
+   */
+  role: string;
+  /**
+   * Professional biography
+   */
+  bio: string;
+  /**
+   * Personal interests or hobbies (optional)
+   */
+  interests?: string | null;
+  /**
+   * Professional headshot or profile photo
+   */
+  profileImage: number | Media;
+  /**
+   * Display order (lower numbers appear first)
+   */
+  order?: number | null;
+  /**
+   * Show this team member on the website
+   */
+  published?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials".
+ */
+export interface Testimonial {
+  id: number;
+  /**
+   * The testimonial quote text
+   */
+  quote: string;
+  /**
+   * Name of the person giving the testimonial
+   */
+  author: string;
+  /**
+   * Role or title of the person (e.g., 'owner', 'client')
+   */
+  role: string;
+  /**
+   * Feature this testimonial prominently
+   */
+  featured?: boolean | null;
+  /**
+   * Publish this testimonial on the website
+   */
+  published?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -247,6 +391,22 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'projects';
         value: number | Project;
+      } | null)
+    | ({
+        relationTo: 'awards';
+        value: number | Award;
+      } | null)
+    | ({
+        relationTo: 'studio-info';
+        value: number | StudioInfo;
+      } | null)
+    | ({
+        relationTo: 'team-members';
+        value: number | TeamMember;
+      } | null)
+    | ({
+        relationTo: 'testimonials';
+        value: number | Testimonial;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -361,6 +521,63 @@ export interface ProjectsSelect<T extends boolean = true> {
   client?: T;
   projectSize?: T;
   slug?: T;
+  published?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "awards_select".
+ */
+export interface AwardsSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  project?: T;
+  location?: T;
+  year?: T;
+  awardImage?: T;
+  featured?: T;
+  published?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "studio-info_select".
+ */
+export interface StudioInfoSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  image?: T;
+  order?: T;
+  published?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "team-members_select".
+ */
+export interface TeamMembersSelect<T extends boolean = true> {
+  name?: T;
+  role?: T;
+  bio?: T;
+  interests?: T;
+  profileImage?: T;
+  order?: T;
+  published?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials_select".
+ */
+export interface TestimonialsSelect<T extends boolean = true> {
+  quote?: T;
+  author?: T;
+  role?: T;
+  featured?: T;
   published?: T;
   updatedAt?: T;
   createdAt?: T;
