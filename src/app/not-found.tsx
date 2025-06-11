@@ -1,9 +1,11 @@
+import NavigationSection from "@navigation/navigation-section";
 import FooterSection from "@shared/footer-section";
 import { SectionContainer, SectionHeader } from "@shared/section-container";
 
 export default function NotFound() {
   return (
     <>
+      <NavigationSection />
       <SectionContainer width="container" variant="loose">
         <SectionHeader title="404" />
         <div className="max-w-4xl mx-auto space-b-8 text-center">
@@ -14,7 +16,6 @@ export default function NotFound() {
                 The page you're looking for doesn't exist or has been moved.
               </p>
             </div>
-
             <div className="space-y-4">
               <p className="text-lg text-muted-foreground">This might have happened because:</p>
               <ul className="text-muted-foreground space-y-2 max-w-md mx-auto">
@@ -23,7 +24,6 @@ export default function NotFound() {
                 <li>• You followed an outdated link</li>
               </ul>
             </div>
-
             <div className="pt-8 space-y-4">
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a

@@ -1,45 +1,65 @@
-import { SimpleFormContainer } from "@shared-layout/form-container";
-import { FileField, TextAreaField, TextField } from "@shared-layout/form-fields";
+import { getFeaturedJobs, getJobs } from "@actions/jobs";
 import { Button } from "@shared-ui/button";
+import { EmptyState } from "@shared/empty-state";
+import { Briefcase } from "lucide-react";
+import Link from "next/link";
+import JobCard from "./job-card";
 
-export default function JobsSection() {
+export default async function JobsSection() {
+  const jobs = await getJobs();
+  const featuredJobs = await getFeaturedJobs();
+
+  if (jobs.length === 0) {
+    return (
+      <div className="space-y-8">
+        <EmptyState
+          icon={<Briefcase className="h-12 w-12" />}
+          title="No Open Positions"
+          description="We don't have any open positions at the moment, but we're always looking for talented individuals to join our team."
+          action={
+            <Button asChild variant="outline">
+              <Link href="/budget">Get In Touch</Link>
+            </Button>
+          }
+        />
+      </div>
+    );
+  }
+
   return (
-    <SimpleFormContainer>
-      <TextField
-        label="Name"
-        id="name"
-        name="name"
-        type="text"
-        placeholder="Input your Name"
-        required
-      />
-      <TextField
-        label="Phone"
-        id="phone"
-        name="phone"
-        type="tel"
-        placeholder="Input your Phone Number"
-        required
-      />
-      <TextField
-        label="Email"
-        id="email"
-        name="email"
-        type="email"
-        placeholder="Input your Email"
-        required
-      />
-      <TextAreaField
-        label="Message"
-        id="message"
-        name="message"
-        placeholder="Input your message Here"
-        rows={4}
-      />
-      <FileField label="Upload CV" id="cv" name="cv" accept=".pdf,.doc,.docx" />
-      <Button type="submit" className="w-full">
-        Submit
-      </Button>
-    </SimpleFormContainer>
+    <div className="space-y-8">
+      {/* Featured Jobs */}
+      {featuredJobs.length > 0 && (
+        <div className="space-y-6">
+          <div className="space-y-2">
+            <h2 className="text-2xl font-semibold text-foreground">Featured Positions</h2>
+            <p className="text-muted-foreground">
+              Priority openings where we're actively seeking qualified candidates.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {featuredJobs.map((job) => (
+              <JobCard key={job.id} job={job} />
+            ))}
+          </div>
+        </div>
+      )}
+      {/* All Jobs */}
+      <div className="space-y-6">
+        <div className="space-y-2">
+          <h2 className="text-2xl font-semibold text-foreground">
+            {featuredJobs.length > 0 ? "All Open Positions" : "Open Positions"}
+          </h2>
+          <p className="text-muted-foreground">
+            Explore all current opportunities to join our innovative architecture team.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {jobs.map((job) => (
+            <JobCard key={job.id} job={job} />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }

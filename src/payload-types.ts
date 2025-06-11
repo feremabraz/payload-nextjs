@@ -79,6 +79,7 @@ export interface Config {
     'company-settings': CompanySetting;
     'values-and-mission': ValuesAndMission;
     'legal-pages': LegalPage;
+    jobs: Job;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -97,6 +98,7 @@ export interface Config {
     'company-settings': CompanySettingsSelect<false> | CompanySettingsSelect<true>;
     'values-and-mission': ValuesAndMissionSelect<false> | ValuesAndMissionSelect<true>;
     'legal-pages': LegalPagesSelect<false> | LegalPagesSelect<true>;
+    jobs: JobsSelect<false> | JobsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -639,6 +641,138 @@ export interface LegalPage {
   createdAt: string;
 }
 /**
+ * Manage job listings and career opportunities
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "jobs".
+ */
+export interface Job {
+  id: number;
+  /**
+   * Job title (e.g., 'Senior Architect', 'Project Manager')
+   */
+  title: string;
+  /**
+   * URL slug for the job listing
+   */
+  slug: string;
+  /**
+   * Department or area of expertise
+   */
+  department:
+    | 'architecture'
+    | 'design'
+    | 'engineering'
+    | 'project-management'
+    | 'business-development'
+    | 'administration'
+    | 'other';
+  /**
+   * Job location (e.g., 'Lisbon, Portugal', 'Remote', 'Hybrid')
+   */
+  location: string;
+  /**
+   * Type of employment
+   */
+  employmentType: 'full-time' | 'part-time' | 'contract' | 'internship' | 'freelance';
+  /**
+   * Required experience level
+   */
+  experienceLevel: 'entry' | 'mid' | 'senior' | 'lead' | 'executive';
+  /**
+   * Brief job summary (2-3 sentences)
+   */
+  summary: string;
+  /**
+   * Detailed job description
+   */
+  description: string;
+  /**
+   * Key responsibilities and duties
+   */
+  responsibilities: {
+    responsibility: string;
+    id?: string | null;
+  }[];
+  /**
+   * Required qualifications and skills
+   */
+  requirements: {
+    requirement: string;
+    id?: string | null;
+  }[];
+  /**
+   * Nice-to-have qualifications (optional)
+   */
+  preferredQualifications?:
+    | {
+        qualification: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Job benefits and perks
+   */
+  benefits?:
+    | {
+        benefit: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Salary information (optional)
+   */
+  salaryRange?: {
+    /**
+     * Display salary information publicly
+     */
+    showSalary?: boolean | null;
+    /**
+     * Minimum salary (annual)
+     */
+    minSalary?: number | null;
+    /**
+     * Maximum salary (annual)
+     */
+    maxSalary?: number | null;
+    currency?: ('EUR' | 'USD' | 'GBP') | null;
+    /**
+     * Additional salary information
+     */
+    salaryNote?: string | null;
+  };
+  /**
+   * Custom application instructions (optional)
+   */
+  applicationInstructions?: string | null;
+  /**
+   * Application deadline (optional)
+   */
+  applicationDeadline?: string | null;
+  /**
+   * Contact email for applications (defaults to company email)
+   */
+  contactEmail?: string | null;
+  /**
+   * Feature this job listing prominently
+   */
+  featured?: boolean | null;
+  /**
+   * Mark as urgent hiring
+   */
+  urgent?: boolean | null;
+  /**
+   * Publish this job listing on the website
+   */
+  published?: boolean | null;
+  /**
+   * Display order (higher numbers appear first)
+   */
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
@@ -692,6 +826,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'legal-pages';
         value: number | LegalPage;
+      } | null)
+    | ({
+        relationTo: 'jobs';
+        value: number | Job;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -977,6 +1115,62 @@ export interface LegalPagesSelect<T extends boolean = true> {
         heading?: T;
         content?: T;
       };
+  published?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "jobs_select".
+ */
+export interface JobsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  department?: T;
+  location?: T;
+  employmentType?: T;
+  experienceLevel?: T;
+  summary?: T;
+  description?: T;
+  responsibilities?:
+    | T
+    | {
+        responsibility?: T;
+        id?: T;
+      };
+  requirements?:
+    | T
+    | {
+        requirement?: T;
+        id?: T;
+      };
+  preferredQualifications?:
+    | T
+    | {
+        qualification?: T;
+        id?: T;
+      };
+  benefits?:
+    | T
+    | {
+        benefit?: T;
+        id?: T;
+      };
+  salaryRange?:
+    | T
+    | {
+        showSalary?: T;
+        minSalary?: T;
+        maxSalary?: T;
+        currency?: T;
+        salaryNote?: T;
+      };
+  applicationInstructions?: T;
+  applicationDeadline?: T;
+  contactEmail?: T;
+  featured?: T;
+  urgent?: T;
   published?: T;
   order?: T;
   updatedAt?: T;

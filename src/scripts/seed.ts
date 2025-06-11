@@ -793,10 +793,287 @@ const seedData = async () => {
       }
     }
 
+    console.log("💼 Creating job listings...");
+    const jobs = [
+      {
+        title: "Senior Architect",
+        slug: "senior-architect",
+        department: "architecture" as const,
+        location: "Lisbon, Portugal",
+        employmentType: "full-time" as const,
+        experienceLevel: "senior" as const,
+        summary:
+          "We are seeking a creative and experienced Senior Architect to lead design projects and mentor our growing team. The ideal candidate will have a strong portfolio in contemporary architecture and sustainable design.",
+        description:
+          "As a Senior Architect at Bruno Câmara Arquitetos, you will be responsible for leading architectural design projects from concept to completion. You will work closely with clients, coordinate with engineering teams, and ensure that all projects meet our high standards for innovation, sustainability, and functionality. This role offers the opportunity to work on diverse projects including residential, commercial, and public buildings.",
+        responsibilities: [
+          { responsibility: "Lead architectural design for major projects" },
+          { responsibility: "Develop design concepts and present to clients" },
+          { responsibility: "Coordinate with engineering and construction teams" },
+          { responsibility: "Mentor junior architects and interns" },
+          { responsibility: "Ensure compliance with building codes and regulations" },
+          { responsibility: "Participate in business development activities" },
+        ],
+        requirements: [
+          { requirement: "Master's degree in Architecture" },
+          { requirement: "Licensed architect with 7+ years of experience" },
+          { requirement: "Proficiency in AutoCAD, Revit, and 3D modeling software" },
+          { requirement: "Strong portfolio demonstrating design excellence" },
+          { requirement: "Experience with sustainable design principles" },
+          { requirement: "Excellent communication and presentation skills" },
+          { requirement: "Fluency in Portuguese and English" },
+        ],
+        preferredQualifications: [
+          { qualification: "Experience with LEED or BREEAM certification" },
+          { qualification: "Knowledge of local building codes and regulations" },
+          { qualification: "Project management certification" },
+          { qualification: "Experience in residential and commercial projects" },
+        ],
+        benefits: [
+          { benefit: "Competitive salary commensurate with experience" },
+          { benefit: "Health insurance coverage" },
+          { benefit: "Professional development opportunities" },
+          { benefit: "Flexible working arrangements" },
+          { benefit: "Annual performance bonus" },
+          { benefit: "Conference and training budget" },
+        ],
+        salaryRange: {
+          showSalary: true,
+          minSalary: 45000,
+          maxSalary: 65000,
+          currency: "EUR" as const,
+          salaryNote: "Based on experience and qualifications",
+        },
+        applicationInstructions:
+          "Please submit your CV, portfolio, and a cover letter explaining your interest in sustainable architecture.",
+        contactEmail: "careers@brunocamara-arquitectos.pt",
+        featured: true,
+        urgent: false,
+        published: true,
+        order: 10,
+      },
+      {
+        title: "Project Manager",
+        slug: "project-manager",
+        department: "project-management" as const,
+        location: "Lisbon, Portugal",
+        employmentType: "full-time" as const,
+        experienceLevel: "mid" as const,
+        summary:
+          "Join our team as a Project Manager to oversee architectural projects from inception to completion, ensuring timely delivery and client satisfaction.",
+        description:
+          "We are looking for an organized and detail-oriented Project Manager to coordinate our architectural projects. You will be responsible for project planning, resource allocation, timeline management, and client communication. This role requires someone who can balance multiple projects while maintaining our high standards of quality and service.",
+        responsibilities: [
+          { responsibility: "Manage multiple architectural projects simultaneously" },
+          { responsibility: "Coordinate with architects, engineers, and contractors" },
+          { responsibility: "Develop and maintain project schedules and budgets" },
+          { responsibility: "Serve as primary client liaison" },
+          { responsibility: "Monitor project progress and resolve issues" },
+          { responsibility: "Ensure quality control and compliance standards" },
+        ],
+        requirements: [
+          { requirement: "Bachelor's degree in Architecture, Engineering, or related field" },
+          { requirement: "3-5 years of project management experience" },
+          { requirement: "PMP certification preferred" },
+          { requirement: "Strong organizational and communication skills" },
+          { requirement: "Experience with project management software" },
+          { requirement: "Knowledge of construction processes" },
+        ],
+        preferredQualifications: [
+          { qualification: "Experience in architectural project management" },
+          { qualification: "Familiarity with Portuguese construction regulations" },
+          { qualification: "Bilingual proficiency (Portuguese/English)" },
+        ],
+        benefits: [
+          { benefit: "Competitive salary" },
+          { benefit: "Health and dental insurance" },
+          { benefit: "Professional certification support" },
+          { benefit: "Flexible schedule options" },
+        ],
+        salaryRange: {
+          showSalary: true,
+          minSalary: 35000,
+          maxSalary: 50000,
+          currency: "EUR" as const,
+        },
+        featured: true,
+        urgent: false,
+        published: true,
+        order: 8,
+      },
+      {
+        title: "Junior Architect",
+        slug: "junior-architect",
+        department: "architecture" as const,
+        location: "Lisbon, Portugal",
+        employmentType: "full-time" as const,
+        experienceLevel: "entry" as const,
+        summary:
+          "An exciting opportunity for a recent graduate or early-career architect to join our innovative team and contribute to cutting-edge architectural projects.",
+        description:
+          "We are seeking a motivated Junior Architect to join our team. This is an excellent opportunity for someone starting their career in architecture to gain experience working on diverse projects while learning from experienced professionals. You will assist in design development, technical documentation, and client presentations.",
+        responsibilities: [
+          { responsibility: "Assist in design development and documentation" },
+          { responsibility: "Prepare technical drawings and specifications" },
+          { responsibility: "Support senior architects in project delivery" },
+          { responsibility: "Participate in client meetings and presentations" },
+          { responsibility: "Conduct research on materials and building systems" },
+          { responsibility: "Assist with permit applications and approvals" },
+        ],
+        requirements: [
+          { requirement: "Bachelor's or Master's degree in Architecture" },
+          { requirement: "0-2 years of professional experience" },
+          { requirement: "Proficiency in AutoCAD and SketchUp" },
+          { requirement: "Basic knowledge of Revit or other BIM software" },
+          { requirement: "Strong design sense and attention to detail" },
+          { requirement: "Willingness to learn and grow" },
+        ],
+        preferredQualifications: [
+          { qualification: "Portfolio demonstrating design skills" },
+          { qualification: "Internship experience in architecture firms" },
+          { qualification: "Knowledge of sustainable design principles" },
+        ],
+        benefits: [
+          { benefit: "Mentorship program with senior architects" },
+          { benefit: "Training and professional development" },
+          { benefit: "Health insurance" },
+          { benefit: "Growth opportunities within the firm" },
+        ],
+        salaryRange: {
+          showSalary: true,
+          minSalary: 25000,
+          maxSalary: 35000,
+          currency: "EUR" as const,
+        },
+        featured: false,
+        urgent: false,
+        published: true,
+        order: 5,
+      },
+      {
+        title: "Interior Designer",
+        slug: "interior-designer",
+        department: "design" as const,
+        location: "Lisbon, Portugal",
+        employmentType: "full-time" as const,
+        experienceLevel: "mid" as const,
+        summary:
+          "Seeking a talented Interior Designer to create innovative and functional interior spaces that complement our architectural vision.",
+        description:
+          "We are looking for a creative Interior Designer to work on residential and commercial projects. You will collaborate with our architectural team to create cohesive design solutions that enhance the user experience and reflect our commitment to contemporary, sustainable design.",
+        responsibilities: [
+          { responsibility: "Develop interior design concepts and schemes" },
+          { responsibility: "Select materials, finishes, and furnishings" },
+          { responsibility: "Create detailed interior design drawings and specifications" },
+          { responsibility: "Coordinate with architects and contractors" },
+          { responsibility: "Present design concepts to clients" },
+          { responsibility: "Oversee interior fit-out and installation" },
+        ],
+        requirements: [
+          { requirement: "Bachelor's degree in Interior Design or related field" },
+          { requirement: "3-5 years of interior design experience" },
+          {
+            requirement: "Proficiency in design software (AutoCAD, SketchUp, Adobe Creative Suite)",
+          },
+          { requirement: "Strong understanding of materials and finishes" },
+          { requirement: "Excellent visual presentation skills" },
+          { requirement: "Knowledge of building codes and accessibility requirements" },
+        ],
+        preferredQualifications: [
+          { qualification: "Experience in residential and commercial projects" },
+          { qualification: "Knowledge of sustainable materials and practices" },
+          { qualification: "Portfolio showcasing diverse project types" },
+        ],
+        benefits: [
+          { benefit: "Creative and collaborative work environment" },
+          { benefit: "Competitive compensation package" },
+          { benefit: "Professional development opportunities" },
+          { benefit: "Health insurance coverage" },
+        ],
+        salaryRange: {
+          showSalary: false,
+        },
+        featured: false,
+        urgent: false,
+        published: true,
+        order: 6,
+      },
+      {
+        title: "Architecture Intern",
+        slug: "architecture-intern",
+        department: "architecture" as const,
+        location: "Lisbon, Portugal",
+        employmentType: "internship" as const,
+        experienceLevel: "entry" as const,
+        summary:
+          "Gain valuable hands-on experience in a dynamic architecture firm while contributing to innovative projects and learning from industry professionals.",
+        description:
+          "Our internship program offers architecture students and recent graduates the opportunity to gain practical experience in a professional setting. Interns will work alongside experienced architects on various projects, from initial concept development to construction documentation.",
+        responsibilities: [
+          { responsibility: "Assist with design development and research" },
+          { responsibility: "Prepare architectural drawings and models" },
+          { responsibility: "Support project documentation and presentation materials" },
+          { responsibility: "Participate in team meetings and design reviews" },
+          { responsibility: "Conduct site visits and documentation" },
+          { responsibility: "Assist with administrative tasks as needed" },
+        ],
+        requirements: [
+          { requirement: "Currently enrolled in or recent graduate of Architecture program" },
+          { requirement: "Basic knowledge of architectural design principles" },
+          { requirement: "Familiarity with CAD software" },
+          { requirement: "Strong work ethic and eagerness to learn" },
+          { requirement: "Good communication and teamwork skills" },
+          { requirement: "Portfolio of academic or personal projects" },
+        ],
+        preferredQualifications: [
+          { qualification: "Previous internship or work experience in architecture" },
+          { qualification: "Knowledge of BIM software (Revit, ArchiCAD)" },
+          { qualification: "Interest in sustainable design" },
+        ],
+        benefits: [
+          { benefit: "Mentorship and professional guidance" },
+          { benefit: "Exposure to diverse project types" },
+          { benefit: "Networking opportunities" },
+          { benefit: "Potential for full-time employment after internship" },
+        ],
+        salaryRange: {
+          showSalary: true,
+          minSalary: 800,
+          maxSalary: 1200,
+          currency: "EUR" as const,
+          salaryNote: "Monthly stipend",
+        },
+        applicationDeadline: "2025-08-15",
+        featured: false,
+        urgent: true,
+        published: true,
+        order: 3,
+      },
+    ];
+
+    for (const job of jobs) {
+      const existingJob = await payload.find({
+        collection: "jobs",
+        where: { slug: { equals: job.slug } },
+      });
+
+      if (existingJob.docs.length === 0) {
+        await payload.create({
+          collection: "jobs",
+          data: job,
+        });
+        console.log(`✅ Created job listing: ${job.title}`);
+      } else {
+        console.log(`⏭️  Job listing already exists: ${job.title}`);
+      }
+    }
+
     console.log("🎉 Seeding completed successfully!");
   } catch (error) {
     console.error("❌ Error seeding data:", error);
     process.exit(1);
+  } finally {
+    process.exit(0);
   }
 };
 
