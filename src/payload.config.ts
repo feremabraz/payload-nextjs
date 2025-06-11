@@ -9,6 +9,7 @@ import { Awards } from "./collections/Awards";
 import { Blog } from "./collections/Blog";
 import { Media } from "./collections/Media";
 import { Projects } from "./collections/Projects";
+import { Publications } from "./collections/Publications";
 import { StudioInfo } from "./collections/StudioInfo";
 import { TeamMembers } from "./collections/TeamMembers";
 import { Testimonials } from "./collections/Testimonials";
@@ -24,7 +25,17 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Blog, Projects, Awards, StudioInfo, TeamMembers, Testimonials],
+  collections: [
+    Users,
+    Media,
+    Blog,
+    Projects,
+    Awards,
+    StudioInfo,
+    TeamMembers,
+    Testimonials,
+    Publications,
+  ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

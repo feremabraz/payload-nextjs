@@ -374,6 +374,93 @@ const seedData = async () => {
       }
     }
 
+    console.log("📚 Creating publications...");
+    const publications = [
+      {
+        title: "HOUSE IN LISBON",
+        publication: "ARCH DAILY PUBLICATION",
+        date: "February, 2020",
+        published: true,
+      },
+      {
+        title: "Diário Imobiliário",
+        publication: "HOUSE IN LISBON",
+        date: "May, 2020",
+        published: true,
+      },
+      {
+        title: "Espaço de Arquitetura",
+        publication: "HOUSE IN LISBON",
+        date: "January, 2020",
+        published: true,
+      },
+      {
+        title: "TIMEOUT",
+        publication: "Monsorrato a new space: the White Forest",
+        date: "July, 2019",
+        published: true,
+      },
+      {
+        title: "Público P3",
+        publication: "A White Forest is born in Monsorrato",
+        date: "August, 2019",
+        published: true,
+      },
+      {
+        title: "DESIGNBOOM",
+        publication: "Bruno Câmara Architects adds 3460 wooden posts to White Forest",
+        date: "July, 2019",
+        published: true,
+      },
+      {
+        title: "ARCH DAILY PUBLICATION",
+        publication: "White Forest in Monsorrato / Bruno Câmara Architectos",
+        date: "August, 2019",
+        published: true,
+      },
+      {
+        title: "LISBOA SECRETA",
+        publication: "The White Forest: Monsorrato's new glass",
+        date: "August, 2019",
+        published: true,
+      },
+      {
+        title: "SOCIAL DESIGN MAGAZINE",
+        publication: "Floresta Branca em Monsorrato, Lisboa, Portugal",
+        date: "August, 2019",
+        published: true,
+      },
+      {
+        title: "Attitude Interior Design Magazine",
+        publication: "White Forest in Monsorrato",
+        date: "August, 2019",
+        published: true,
+      },
+      {
+        title: "Espaço de Arquitetura",
+        publication: "White Forest in Monsorrato",
+        date: "August, 2019",
+        published: true,
+      },
+    ];
+
+    for (const publication of publications) {
+      const existingPublication = await payload.find({
+        collection: "publications",
+        where: { title: { equals: publication.title } },
+      });
+
+      if (existingPublication.docs.length === 0) {
+        await payload.create({
+          collection: "publications",
+          data: publication,
+        });
+        console.log(`✅ Created publication: ${publication.title}`);
+      } else {
+        console.log(`⏭️  Publication already exists: ${publication.title}`);
+      }
+    }
+
     console.log("🎉 Seeding completed successfully!");
   } catch (error) {
     console.error("❌ Error seeding data:", error);

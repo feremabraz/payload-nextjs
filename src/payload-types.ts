@@ -75,6 +75,7 @@ export interface Config {
     'studio-info': StudioInfo;
     'team-members': TeamMember;
     testimonials: Testimonial;
+    publications: Publication;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -89,6 +90,7 @@ export interface Config {
     'studio-info': StudioInfoSelect<false> | StudioInfoSelect<true>;
     'team-members': TeamMembersSelect<false> | TeamMembersSelect<true>;
     testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
+    publications: PublicationsSelect<false> | PublicationsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -371,6 +373,39 @@ export interface Testimonial {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "publications".
+ */
+export interface Publication {
+  id: number;
+  /**
+   * The publication source or project name (e.g., 'ARCH DAILY PUBLICATION', 'HOUSE IN LISBON')
+   */
+  title: string;
+  /**
+   * The article title or publication name (e.g., 'White Forest in Monsorrato / Bruno Câmara Architectos')
+   */
+  publication: string;
+  /**
+   * Publication date (e.g., 'February, 2020')
+   */
+  date: string;
+  /**
+   * Optional description or summary of the publication
+   */
+  description?: string | null;
+  /**
+   * Display order (lower numbers appear first)
+   */
+  order?: number | null;
+  /**
+   * Publish this publication on the website
+   */
+  published?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -407,6 +442,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'testimonials';
         value: number | Testimonial;
+      } | null)
+    | ({
+        relationTo: 'publications';
+        value: number | Publication;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -578,6 +617,20 @@ export interface TestimonialsSelect<T extends boolean = true> {
   author?: T;
   role?: T;
   featured?: T;
+  published?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "publications_select".
+ */
+export interface PublicationsSelect<T extends boolean = true> {
+  title?: T;
+  publication?: T;
+  date?: T;
+  description?: T;
+  order?: T;
   published?: T;
   updatedAt?: T;
   createdAt?: T;
