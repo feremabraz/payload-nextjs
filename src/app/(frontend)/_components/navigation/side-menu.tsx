@@ -15,9 +15,13 @@ const menuItems = [
 ];
 
 const socialLinks = [
-  { icon: FacebookIcon, href: "https://facebook.com", label: "Facebook" },
-  { icon: InstagramIcon, href: "https://instagram.com", label: "Instagram" },
-  { icon: LinkedInIcon, href: "https://linkedin.com", label: "LinkedIn" },
+  { icon: FacebookIcon, href: "https://www.facebook.com/cvzconstrucoes", label: "Facebook" },
+  { icon: InstagramIcon, href: "https://www.instagram.com/cvz_construcoes/", label: "Instagram" },
+  {
+    icon: LinkedInIcon,
+    href: "https://www.linkedin.com/in/cvz-constru%C3%A7%C3%B5es-bb09b515a/",
+    label: "LinkedIn",
+  },
 ];
 
 export function SideMenu() {

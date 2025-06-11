@@ -1,3 +1,4 @@
+import { getContactInfo, getLegalInfo, getSocialMediaLinks } from "@actions/company-settings";
 import { FacebookIcon, InstagramIcon, LinkedInIcon } from "@shared-ui/brands";
 import { FooterLogo } from "@shared/footer-logo";
 import { SectionContainer } from "@shared/section-container";
@@ -15,7 +16,29 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
   </li>
 );
 
-export default function FooterSection() {
+export default async function FooterSection() {
+  const [contactInfo, socialMedia, legalInfo] = await Promise.all([
+    getContactInfo(),
+    getSocialMediaLinks(),
+    getLegalInfo(),
+  ]);
+
+  const contact = contactInfo[0]?.settings;
+  const socialLinks = socialMedia[0]?.settings?.socialLinks || [];
+  const legal = legalInfo[0]?.settings;
+
+  const getSocialIcon = (platform: string) => {
+    switch (platform) {
+      case "facebook":
+        return FacebookIcon;
+      case "instagram":
+        return InstagramIcon;
+      case "linkedin":
+        return LinkedInIcon;
+      default:
+        return FacebookIcon;
+    }
+  };
   return (
     <SectionContainer className="bg-primary text-secondary dark:bg-primary-foreground dark:text-secondary-foreground">
       <div className="flex flex-col lg:flex-row justify-between gap-8 sm:gap-10 md:gap-12 lg:gap-16 w-full">
@@ -23,36 +46,28 @@ export default function FooterSection() {
           <FooterLogo />
           <div className="space-y-1 text-xs sm:text-sm mt-6 sm:mt-8">
             <p className="font-semibold text-sm sm:text-base mb-2">Contact Info:</p>
-            <p>info@cvz-construcoes.pt</p>
-            <p>Av. da República 49</p>
-            <p>1050-188 Lisboa</p>
-            <p>Portugal</p>
+            {contact?.email && <p>{contact.email}</p>}
+            {contact?.address?.split("\n").map((line, index) => (
+              <p key={`address-${index}-${line.slice(0, 10)}`}>{line}</p>
+            ))}
           </div>
           <div className="flex space-x-3 sm:space-x-4">
-            <Link
-              href="https://www.facebook.com/cvzconstrucoes"
-              target="_blank"
-              aria-label="Facebook"
-              className="hover:text-muted-foreground transition-colors duration-200 ease-in-out"
-            >
-              <FacebookIcon size={18} className="sm:w-5 sm:h-5" />
-            </Link>
-            <Link
-              href="https://www.instagram.com/cvz_construcoes/"
-              target="_blank"
-              aria-label="Instagram"
-              className="hover:text-muted-foreground transition-colors duration-200 ease-in-out"
-            >
-              <InstagramIcon size={18} className="sm:w-5 sm:h-5" />
-            </Link>
-            <Link
-              href="https://www.linkedin.com/in/cvz-constru%C3%A7%C3%B5es-bb09b515a/"
-              target="_blank"
-              aria-label="LinkedIn"
-              className="hover:text-muted-foreground transition-colors duration-200 ease-in-out"
-            >
-              <LinkedInIcon size={18} className="sm:w-5 sm:h-5" />
-            </Link>
+            {socialLinks
+              .filter((link) => link.isActive)
+              .map((social) => {
+                const IconComponent = getSocialIcon(social.platform);
+                return (
+                  <Link
+                    key={social.platform}
+                    href={social.url}
+                    target="_blank"
+                    aria-label={social.platform}
+                    className="hover:text-muted-foreground transition-colors duration-200 ease-in-out"
+                  >
+                    <IconComponent size={18} className="sm:w-5 sm:h-5" />
+                  </Link>
+                );
+              })}
           </div>
         </div>
         <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-8 md:gap-10 lg:gap-10 grow shrink-0 basis-0 pt-2 font-semibold">
@@ -75,7 +90,8 @@ export default function FooterSection() {
       <hr className="border-t w-full my-6 sm:my-8 border-accent" />
       <div className="flex flex-col md:flex-row justify-between items-start self-stretch text-xs sm:text-sm font-semibold gap-3 sm:gap-4 w-full">
         <p className="order-2 md:order-1">
-          &copy; 2025 BRUNO CÂMARA ARQUITETOS. All rights reserved.
+          &copy; {new Date().getFullYear()}{" "}
+          {legal?.copyright || "BRUNO CÂMARA ARQUITETOS. All rights reserved."}
         </p>
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-0 order-1 md:order-2 [&>*+*]:sm:ml-4 md:[&>*+*]:sm:ml-6">
           <Link

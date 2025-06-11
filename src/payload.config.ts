@@ -7,6 +7,7 @@ import { buildConfig } from "payload";
 
 import { Awards } from "./collections/Awards";
 import { Blog } from "./collections/Blog";
+import { CompanySettings } from "./collections/CompanySettings";
 import { Media } from "./collections/Media";
 import { Projects } from "./collections/Projects";
 import { Publications } from "./collections/Publications";
@@ -14,6 +15,7 @@ import { StudioInfo } from "./collections/StudioInfo";
 import { TeamMembers } from "./collections/TeamMembers";
 import { Testimonials } from "./collections/Testimonials";
 import { Users } from "./collections/Users";
+import { ValuesAndMission } from "./collections/ValuesAndMission";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -35,6 +37,8 @@ export default buildConfig({
     TeamMembers,
     Testimonials,
     Publications,
+    CompanySettings,
+    ValuesAndMission,
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",

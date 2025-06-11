@@ -76,6 +76,8 @@ export interface Config {
     'team-members': TeamMember;
     testimonials: Testimonial;
     publications: Publication;
+    'company-settings': CompanySetting;
+    'values-and-mission': ValuesAndMission;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -91,6 +93,8 @@ export interface Config {
     'team-members': TeamMembersSelect<false> | TeamMembersSelect<true>;
     testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
     publications: PublicationsSelect<false> | PublicationsSelect<true>;
+    'company-settings': CompanySettingsSelect<false> | CompanySettingsSelect<true>;
+    'values-and-mission': ValuesAndMissionSelect<false> | ValuesAndMissionSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -405,6 +409,123 @@ export interface Publication {
   createdAt: string;
 }
 /**
+ * Manage company information, contact details, and site configuration
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "company-settings".
+ */
+export interface CompanySetting {
+  id: number;
+  /**
+   * Setting name for identification (e.g., 'Contact Info', 'Social Media')
+   */
+  name: string;
+  /**
+   * Category to organize settings
+   */
+  category: 'contact' | 'social' | 'company' | 'legal' | 'other';
+  settings?: {
+    /**
+     * Primary contact email address
+     */
+    email?: string | null;
+    /**
+     * Phone number
+     */
+    phone?: string | null;
+    /**
+     * Physical address (multi-line)
+     */
+    address?: string | null;
+    /**
+     * Social media links
+     */
+    socialLinks?:
+      | {
+          platform: 'facebook' | 'instagram' | 'linkedin' | 'twitter' | 'youtube';
+          /**
+           * Full URL to the social media profile
+           */
+          url: string;
+          /**
+           * Show this social link on the website
+           */
+          isActive?: boolean | null;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Official company name
+     */
+    companyName?: string | null;
+    /**
+     * Company description or tagline
+     */
+    companyDescription?: string | null;
+    /**
+     * Copyright text (year will be auto-updated)
+     */
+    copyright?: string | null;
+    /**
+     * Custom setting value
+     */
+    customValue?: string | null;
+  };
+  /**
+   * Enable this setting on the website
+   */
+  isActive?: boolean | null;
+  /**
+   * Display order (lower numbers appear first)
+   */
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Manage company values, mission statements, and core messaging
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "values-and-mission".
+ */
+export interface ValuesAndMission {
+  id: number;
+  /**
+   * Title of the value or mission statement (e.g., 'Quality', 'Rigor')
+   */
+  title: string;
+  /**
+   * Type of content this represents
+   */
+  type: 'value' | 'mission' | 'vision' | 'principle';
+  /**
+   * The main text content describing this value or mission
+   */
+  content: string;
+  /**
+   * Optional short summary or tagline
+   */
+  summary?: string | null;
+  /**
+   * Optional icon identifier or emoji
+   */
+  icon?: string | null;
+  /**
+   * Display order (lower numbers appear first)
+   */
+  order?: number | null;
+  /**
+   * Publish this content on the website
+   */
+  published?: boolean | null;
+  /**
+   * Feature this content on the homepage
+   */
+  featuredOnHomepage?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
@@ -446,6 +567,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'publications';
         value: number | Publication;
+      } | null)
+    | ({
+        relationTo: 'company-settings';
+        value: number | CompanySetting;
+      } | null)
+    | ({
+        relationTo: 'values-and-mission';
+        value: number | ValuesAndMission;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -632,6 +761,53 @@ export interface PublicationsSelect<T extends boolean = true> {
   description?: T;
   order?: T;
   published?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "company-settings_select".
+ */
+export interface CompanySettingsSelect<T extends boolean = true> {
+  name?: T;
+  category?: T;
+  settings?:
+    | T
+    | {
+        email?: T;
+        phone?: T;
+        address?: T;
+        socialLinks?:
+          | T
+          | {
+              platform?: T;
+              url?: T;
+              isActive?: T;
+              id?: T;
+            };
+        companyName?: T;
+        companyDescription?: T;
+        copyright?: T;
+        customValue?: T;
+      };
+  isActive?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "values-and-mission_select".
+ */
+export interface ValuesAndMissionSelect<T extends boolean = true> {
+  title?: T;
+  type?: T;
+  content?: T;
+  summary?: T;
+  icon?: T;
+  order?: T;
+  published?: T;
+  featuredOnHomepage?: T;
   updatedAt?: T;
   createdAt?: T;
 }

@@ -461,6 +461,144 @@ const seedData = async () => {
       }
     }
 
+    console.log("🏢 Creating company settings...");
+    const companySettings = [
+      {
+        name: "Contact Information",
+        category: "contact" as const,
+        settings: {
+          email: "info@cvz-construcoes.pt",
+          phone: "+351 21 234 5678",
+          address: "Av. da República 49\n1050-188 Lisboa\nPortugal",
+        },
+        isActive: true,
+        order: 1,
+      },
+      {
+        name: "Social Media Links",
+        category: "social" as const,
+        settings: {
+          socialLinks: [
+            {
+              platform: "facebook" as const,
+              url: "https://www.facebook.com/cvzconstrucoes",
+              isActive: true,
+            },
+            {
+              platform: "instagram" as const,
+              url: "https://www.instagram.com/cvz_construcoes/",
+              isActive: true,
+            },
+            {
+              platform: "linkedin" as const,
+              url: "https://www.linkedin.com/in/cvz-constru%C3%A7%C3%B5es-bb09b515a/",
+              isActive: true,
+            },
+          ],
+        },
+        isActive: true,
+        order: 2,
+      },
+      {
+        name: "Company Information",
+        category: "company" as const,
+        settings: {
+          companyName: "Bruno Câmara Arquitetos",
+          companyDescription:
+            "Contemporary architecture firm committed to creating spaces that are as functional and sustainable as they are beautiful and inspiring.",
+        },
+        isActive: true,
+        order: 3,
+      },
+      {
+        name: "Legal Information",
+        category: "legal" as const,
+        settings: {
+          copyright: "BRUNO CÂMARA ARQUITETOS. All rights reserved.",
+        },
+        isActive: true,
+        order: 4,
+      },
+    ];
+
+    for (const setting of companySettings) {
+      const existingSetting = await payload.find({
+        collection: "company-settings",
+        where: { name: { equals: setting.name } },
+      });
+
+      if (existingSetting.docs.length === 0) {
+        await payload.create({
+          collection: "company-settings",
+          data: setting,
+        });
+        console.log(`✅ Created company setting: ${setting.name}`);
+      } else {
+        console.log(`⏭️  Company setting already exists: ${setting.name}`);
+      }
+    }
+
+    console.log("💫 Creating values and mission content...");
+    const valuesAndMission = [
+      {
+        title: "Quality",
+        type: "value" as const,
+        content:
+          "We are dedicated to delivering exceptional construction quality by prioritizing our clients' satisfaction at every stage. From the foundation to the final finishes, we apply the correct material methodologies and best practices to ensure that every detail meets the highest standards. Our commitment to quality is reflected in the durability, aesthetics, and performance of each project we complete.",
+        summary: "Exceptional construction quality prioritizing client satisfaction",
+        order: 1,
+        published: true,
+        featuredOnHomepage: true,
+      },
+      {
+        title: "Rigor",
+        type: "value" as const,
+        content:
+          "Our multidisciplinary team operates with precision and discipline, ensuring that every project adheres strictly to its defined work plan. Through careful planning, coordination, and execution, we guarantee that deadlines are met without compromising on the integrity of the work. This rigorous approach allows us to consistently deliver reliable results while maintaining efficiency and accountability.",
+        summary: "Precision and discipline in every project phase",
+        order: 2,
+        published: true,
+        featuredOnHomepage: true,
+      },
+      {
+        title: "Responsibility",
+        type: "value" as const,
+        content:
+          "We recognize our role in shaping a more sustainable future through conscious construction practices. By integrating the latest eco-friendly solutions and technologies, we actively seek to reduce the environmental impact of our work. Sustainability is not just a feature— it's a responsibility we embrace in every decision we make, from design to material selection and execution.",
+        summary: "Sustainable practices for a better future",
+        order: 3,
+        published: true,
+        featuredOnHomepage: true,
+      },
+      {
+        title: "Company Mission",
+        type: "mission" as const,
+        content:
+          "Bruno Câmara Architects is a contemporary architecture firm committed to creating spaces that are as functional and sustainable as they are beautiful and inspiring. Our work is guided by the belief that architecture should serve people while respecting the cultural and environmental context in which it exists.",
+        summary: "Creating functional, sustainable, and inspiring spaces",
+        order: 0,
+        published: true,
+        featuredOnHomepage: false,
+      },
+    ];
+
+    for (const item of valuesAndMission) {
+      const existingItem = await payload.find({
+        collection: "values-and-mission",
+        where: { title: { equals: item.title } },
+      });
+
+      if (existingItem.docs.length === 0) {
+        await payload.create({
+          collection: "values-and-mission",
+          data: item,
+        });
+        console.log(`✅ Created values/mission: ${item.title}`);
+      } else {
+        console.log(`⏭️  Values/mission already exists: ${item.title}`);
+      }
+    }
+
     console.log("🎉 Seeding completed successfully!");
   } catch (error) {
     console.error("❌ Error seeding data:", error);
