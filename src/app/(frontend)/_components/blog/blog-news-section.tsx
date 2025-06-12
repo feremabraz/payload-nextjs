@@ -7,22 +7,28 @@ import { ContentGrid } from "@shared/content-grid";
 import { EmptyState } from "@shared/empty-state";
 import { SectionContainer, SectionHeader } from "@shared/section-container";
 import { PenTool } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
 export default async function BlogNewsSection() {
   const blogPosts = await getBlogPosts(4);
+  const t = await getTranslations();
 
   if (blogPosts.length === 0) {
     return (
       <div id="blog-news">
         <SectionContainer variant="default" width="wide">
-          <SectionHeader title="BLOG & NEWS" linkHref="/blog" linkText="GO TO BLOG" />
+          <SectionHeader
+            title={t("navigation.blogAndNews")}
+            linkHref="/blog"
+            linkText={t("navigation.blog")}
+          />
           <EmptyState
             icon={<PenTool size={64} />}
-            title="No Blog Posts Available"
-            description="We're working on new content. Stay tuned for insights, project updates, and architectural news."
+            title={t("blog.empty.title")}
+            description={t("blog.empty.description")}
             action={
               <Button asChild variant="outline">
-                <Link href="/budget">Get In Touch</Link>
+                <Link href="/budget">{t("common.contactUs")}</Link>
               </Button>
             }
             variant="compact"
@@ -36,9 +42,9 @@ export default async function BlogNewsSection() {
   return (
     <div id="blog-news">
       <ContentGrid<BlogNewsPost>
-        title="BLOG & NEWS"
+        title={t("navigation.blogAndNews")}
         linkHref="/blog"
-        linkText="GO TO BLOG"
+        linkText={t("navigation.blog")}
         items={blogPosts}
         renderItem={(post) => <BlogNewsPostCard key={post.id} {...post} />}
         columns={4}

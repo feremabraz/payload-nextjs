@@ -84,7 +84,19 @@
       "title": "Budget Request"
     },
     "studio": {
-      "title": "Studio"
+      "title": "Studio",
+      "pageTitle": "STUDIO",
+      "companyName": "BRUNO CÂMERA ARQUITETOS",
+      "values": "Values",
+      "team": "Team",
+      "profile": "Profile",
+      "awards": "Awards",
+      "publications": "Publications",
+      "noAwards": "No awards yet",
+      "noAwardsDescription": "We're working on documenting our achievements. Check back soon!",
+      "noPublications": "No publications available",
+      "noPublicationsDescription": "We're working on new publications. Stay tuned for insights and case studies!",
+      "getInTouch": "Get In Touch"
     },
     "blogNews": {
       "title": "Blog & News"
@@ -176,6 +188,7 @@
     "relatedPosts": "Related Posts",
     "latestNews": "Latest News",
     "allArticles": "All Articles",
+    "seeAllArticles": "See All Articles",
     "noArticles": "No articles found",
     "noArticlesDescription": "We're working on new content. Check back soon for the latest news and insights!",
     "searchPlaceholder": "Search articles...",
@@ -189,6 +202,21 @@
       "design": "Design",
       "sustainability": "Sustainability",
       "innovation": "Innovation"
+    },
+    "filter": {
+      "showAll": "Show All",
+      "publications": "Publications",
+      "awards": "Awards",
+      "conferences": "Conferences",
+      "exhibitions": "Exhibitions",
+      "news": "News"
+    },
+    "empty": {
+      "title": "No Blog Posts Available",
+      "description": "We're working on new content. Stay tuned for insights, project updates, and architectural news.",
+      "noPostsFound": "No Posts Found",
+      "noPostsInCategory": "No blog posts found in the \"{category}\" category.",
+      "showAllPosts": "Show All Posts"
     }
   },
   "jobs": {

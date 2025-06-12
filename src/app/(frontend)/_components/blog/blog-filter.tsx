@@ -2,6 +2,7 @@
 
 import type { BlogCategory } from "@shared-types/blog-and-news";
 import { cn } from "@shared-utilities/utils";
+import { useTranslations } from "next-intl";
 
 interface BlogFilterProps {
   selectedCategory: BlogCategory | "all";
@@ -9,16 +10,17 @@ interface BlogFilterProps {
   className?: string;
 }
 
-const filterCategories = [
-  { key: "all" as const, label: "SHOW ALL" },
-  { key: "publications" as const, label: "PUBLICATIONS" },
-  { key: "awards" as const, label: "AWARDS" },
-  { key: "conferences" as const, label: "CONFERENCES" },
-  { key: "exhibitions" as const, label: "EXHIBITIONS" },
-  { key: "news" as const, label: "NEWS" },
-];
-
 export function BlogFilter({ selectedCategory, onCategoryChange, className }: BlogFilterProps) {
+  const t = useTranslations("blog.filter");
+
+  const filterCategories = [
+    { key: "all" as const, label: t("showAll") },
+    { key: "publications" as const, label: t("publications") },
+    { key: "awards" as const, label: t("awards") },
+    { key: "conferences" as const, label: t("conferences") },
+    { key: "exhibitions" as const, label: t("exhibitions") },
+    { key: "news" as const, label: t("news") },
+  ];
   return (
     <div
       className={cn(
