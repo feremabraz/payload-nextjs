@@ -1,6 +1,6 @@
+import { Link } from "@i18n/navigation";
 import type { StudioCardProps } from "@shared-types/studio";
 import Image from "next/image";
-import Link from "next/link";
 
 const sectionMap: Record<string, string> = {
   Values: "values",

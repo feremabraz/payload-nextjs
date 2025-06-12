@@ -1,8 +1,8 @@
 import { getLegalPageBySlug } from "@actions/legal-pages";
+import { Link } from "@i18n/navigation";
 import type { LegalPage } from "@payload-types";
 import { EmptyState } from "@shared/empty-state";
 import { SectionContainer, SectionHeader } from "@shared/section-container";
-import Link from "next/link";
 
 interface DynamicLegalPageProps {
   slug: string;

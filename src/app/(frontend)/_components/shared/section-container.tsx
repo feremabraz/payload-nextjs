@@ -1,5 +1,5 @@
+import { Link } from "@i18n/navigation";
 import { cn } from "@shared-utilities/utils";
-import Link from "next/link";
 import type { ReactNode } from "react";
 
 type SectionVariant = "default" | "compact" | "loose" | "full-height";

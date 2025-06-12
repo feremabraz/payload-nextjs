@@ -1,3 +1,4 @@
+import { Link } from "@i18n/navigation";
 import { ProjectImageCard } from "@projects/project-image-card";
 import { getProjects } from "@shared-lib/payload-api";
 import type { Project } from "@shared-types/projects";
@@ -6,7 +7,6 @@ import { ContentGrid } from "@shared/content-grid";
 import { EmptyState } from "@shared/empty-state";
 import { SectionContainer, SectionHeader } from "@shared/section-container";
 import { Building2 } from "lucide-react";
-import Link from "next/link";
 
 export default async function ProjectsSection() {
   const projects = await getProjects(8);

@@ -57,6 +57,7 @@
     "jobs": "Empregos",
     "budgetRequest": "Pedido de Orçamento",
     "budget": "Orçamento",
+    "testimonials": "Testemunhos",
     "backTo": "Voltar a {page}",
     "backToHome": "Voltar ao Início",
     "backToProjects": "Voltar aos Projetos",
@@ -172,6 +173,7 @@
     "category": "Categoria",
     "tags": "Etiquetas",
     "relatedArticles": "Artigos Relacionados",
+    "relatedPosts": "Posts Relacionados",
     "latestNews": "Últimas Notícias",
     "allArticles": "Todos os Artigos",
     "noArticles": "Nenhum artigo encontrado",
@@ -415,5 +417,22 @@
     "location": "Lisboa, Portugal",
     "specialties": "Especialidades",
     "awards": "Prémios e Reconhecimentos"
+  },
+  "whoAreWe": {
+    "title": "Arquitetura Inovadora e Duradoura que Respeita a Cultura, Valoriza Espaços e Eleva o Quotidiano",
+    "description1": "Bruno Câmara Arquitectos é um atelier de arquitetura contemporânea comprometido em criar espaços que são tão funcionais e sustentáveis quanto belos e inspiradores. O nosso trabalho é orientado pela crença de que a arquitetura deve servir as pessoas respeitando o contexto cultural e ambiental em que existe. Introduzimos novas ideias espaciais e conceitos arrojados, sempre enraizados nos fundamentos da solidez, funcionalidade e valor estético intemporal.",
+    "description2": "Com uma constante busca pela excelência, gerimos cuidadosamente cada fase do processo arquitetónico—desde o design até à implementação—garantindo que cada projeto atende aos mais altos padrões de qualidade, inovação e desempenho técnico. O nosso objetivo não é apenas atender às expectativas dos nossos clientes, mas superá-las, entregando soluções económicas e de vanguarda que contribuem positivamente para o ambiente construído e para as comunidades que servem."
+  },
+  "notFound": {
+    "title": "Página Não Encontrada",
+    "description": "A página que procura não existe ou foi movida.",
+    "reasons": {
+      "title": "Isto pode ter acontecido porque:",
+      "incorrectUrl": "O URL foi digitado incorretamente",
+      "movedPage": "A página foi removida ou realocada",
+      "outdatedLink": "Seguiu um link desatualizado"
+    },
+    "backToHome": "Voltar ao Início",
+    "viewProjects": "Ver Projetos"
   }
 }

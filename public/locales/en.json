@@ -57,6 +57,7 @@
     "jobs": "Jobs",
     "budgetRequest": "Budget Request",
     "budget": "Budget",
+    "testimonials": "Testimonials",
     "backTo": "Back to {page}",
     "backToHome": "Back to Home",
     "backToProjects": "Back to Projects",
@@ -172,6 +173,7 @@
     "category": "Category",
     "tags": "Tags",
     "relatedArticles": "Related Articles",
+    "relatedPosts": "Related Posts",
     "latestNews": "Latest News",
     "allArticles": "All Articles",
     "noArticles": "No articles found",
@@ -415,5 +417,22 @@
     "location": "Lisbon, Portugal",
     "specialties": "Specialties",
     "awards": "Awards & Recognition"
+  },
+  "whoAreWe": {
+    "title": "Innovative and Enduring Architecture That Respects Culture, Enhances Spaces, and Elevates Everyday Life",
+    "description1": "Bruno Câmara Architects is a contemporary architecture firm committed to creating spaces that are as functional and sustainable as they are beautiful and inspiring. Our work is guided by the belief that architecture should serve people while respecting the cultural and environmental context in which it exists. We introduce new spatial ideas and bold concepts, always rooted in the fundamentals of solidity, functionality, and timeless aesthetic value.",
+    "description2": "With a constant drive for excellence, we carefully manage each phase of the architectural process—from design to implementation—ensuring that every project meets the highest standards in quality, innovation, and technical performance. Our goal is not only to meet our clients' expectations but to exceed them, delivering cost-effective and cutting-edge solutions that contribute positively to the built environment and the communities they serve."
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "reasons": {
+      "title": "This might have happened because:",
+      "incorrectUrl": "The URL was typed incorrectly",
+      "movedPage": "The page has been removed or relocated",
+      "outdatedLink": "You followed an outdated link"
+    },
+    "backToHome": "Back to Home",
+    "viewProjects": "View Projects"
   }
 }

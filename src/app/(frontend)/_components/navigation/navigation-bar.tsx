@@ -1,8 +1,8 @@
+import { Link } from "@i18n/navigation";
 import { LanguageSwitcher } from "@navigation/language-switcher";
 import { MenuToggle } from "@navigation/menu-toggle";
 import { useTheme } from "next-themes";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const commonNavClasses = `top-0 left-0 right-0 z-50 

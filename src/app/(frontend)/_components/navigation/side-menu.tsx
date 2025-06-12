@@ -1,31 +1,33 @@
+import { Link } from "@i18n/navigation";
 import { FacebookIcon, InstagramIcon, LinkedInIcon } from "@shared-ui/brands";
 import { Button } from "@shared-ui/button";
 import { SheetClose } from "@shared-ui/sheet";
 import { Moon, Sun, X } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
-import Link from "next/link";
-
-const menuItems = [
-  { label: "HOME", href: "/" },
-  { label: "PROJECTS", href: "/projects" },
-  { label: "STUDIO", href: "/studio" },
-  { label: "BLOG AND NEWS", href: "/blog" },
-  { label: "OPEN JOBS", href: "/jobs" },
-  { label: "BUDGET REQUEST", href: "/budget" },
-];
-
-const socialLinks = [
-  { icon: FacebookIcon, href: "https://www.facebook.com/cvzconstrucoes", label: "Facebook" },
-  { icon: InstagramIcon, href: "https://www.instagram.com/cvz_construcoes/", label: "Instagram" },
-  {
-    icon: LinkedInIcon,
-    href: "https://www.linkedin.com/in/cvz-constru%C3%A7%C3%B5es-bb09b515a/",
-    label: "LinkedIn",
-  },
-];
 
 export function SideMenu() {
   const { theme, setTheme } = useTheme();
+  const t = useTranslations();
+
+  const menuItems = [
+    { label: t("navigation.home"), href: "/" },
+    { label: t("navigation.projects"), href: "/projects" },
+    { label: t("navigation.studio"), href: "/studio" },
+    { label: t("navigation.blogAndNews"), href: "/blog" },
+    { label: t("navigation.openJobs"), href: "/jobs" },
+    { label: t("navigation.budgetRequest"), href: "/budget" },
+  ];
+
+  const socialLinks = [
+    { icon: FacebookIcon, href: "https://www.facebook.com/cvzconstrucoes", label: "Facebook" },
+    { icon: InstagramIcon, href: "https://www.instagram.com/cvz_construcoes/", label: "Instagram" },
+    {
+      icon: LinkedInIcon,
+      href: "https://www.linkedin.com/in/cvz-constru%C3%A7%C3%B5es-bb09b515a/",
+      label: "LinkedIn",
+    },
+  ];
 
   return (
     <div className="flex flex-col h-full p-4 sm:p-6 md:p-8 bg-sidebar-background text-sidebar-foreground">

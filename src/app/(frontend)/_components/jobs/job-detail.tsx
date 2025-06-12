@@ -1,3 +1,4 @@
+import { Link } from "@i18n/navigation";
 import type { Job } from "@payload-types";
 import { SimpleFormContainer } from "@shared-layout/form-container";
 import { FileField, TextAreaField, TextField } from "@shared-layout/form-fields";
@@ -13,7 +14,6 @@ import {
   MapPin,
   Users,
 } from "lucide-react";
-import Link from "next/link";
 
 interface JobDetailProps {
   job: Job;

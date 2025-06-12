@@ -1,8 +1,8 @@
 import { getPublications } from "@actions/publications";
+import { Link } from "@i18n/navigation";
 import type { Publication } from "@payload-types";
 import { EmptyState } from "@shared/empty-state";
 import { SectionContainer } from "@shared/section-container";
-import Link from "next/link";
 
 export default async function PublicationsSection() {
   const publications = await getPublications();

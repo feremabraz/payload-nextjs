@@ -2,12 +2,12 @@
 
 import { BlogFilter } from "@blog/blog-filter";
 import { BlogGallery } from "@blog/blog-gallery";
+import { Link } from "@i18n/navigation";
 import type { BlogCategory, BlogNewsPost } from "@shared-types/blog-and-news";
 import { Button } from "@shared-ui/button";
 import { EmptyState } from "@shared/empty-state";
 import { SectionContainer } from "@shared/section-container";
 import { PenTool } from "lucide-react";
-import Link from "next/link";
 import { useState } from "react";
 
 interface BlogClientWrapperProps {

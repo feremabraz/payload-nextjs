@@ -1,6 +1,6 @@
+import { Link } from "@i18n/navigation";
 import { BaseImageCard, type CardSize } from "@shared-layout/base-image-card";
 import type { BlogNewsPost } from "@shared-types/blog-and-news";
-import Link from "next/link";
 
 interface BlogImageCardProps {
   post: BlogNewsPost;

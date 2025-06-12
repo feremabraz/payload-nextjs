@@ -1,8 +1,8 @@
 import { getFeaturedJobs, getJobs } from "@actions/jobs";
+import { Link } from "@i18n/navigation";
 import { Button } from "@shared-ui/button";
 import { EmptyState } from "@shared/empty-state";
 import { Briefcase } from "lucide-react";
-import Link from "next/link";
 import JobCard from "./job-card";
 
 export default async function JobsSection() {

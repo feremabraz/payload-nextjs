@@ -1,8 +1,8 @@
+import { Link } from "@i18n/navigation";
 import type { Job } from "@payload-types";
 import { Badge } from "@shared-ui/badge";
 import { Button } from "@shared-ui/button";
 import { Briefcase, Calendar, Clock, DollarSign, MapPin, Users } from "lucide-react";
-import Link from "next/link";
 
 interface JobCardProps {
   job: Job;

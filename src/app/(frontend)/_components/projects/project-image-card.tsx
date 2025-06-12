@@ -1,7 +1,7 @@
+import { Link } from "@i18n/navigation";
 import { BaseImageCard, type CardSize } from "@shared-layout/base-image-card";
 import type { Project, ProjectItem } from "@shared-types/projects";
 import { cn } from "@shared-utilities/utils";
-import Link from "next/link";
 
 interface ProjectImageCardProps {
   project: ProjectItem | Project;

@@ -1,5 +1,6 @@
 "use client";
 
+import { Link } from "@i18n/navigation";
 import { ProjectFilter } from "@projects/project-filter";
 import { ProjectGallery } from "@projects/project-gallery";
 import type { Project, ProjectCategory } from "@shared-types/projects";
@@ -7,7 +8,6 @@ import { Button } from "@shared-ui/button";
 import { EmptyState } from "@shared/empty-state";
 import { SectionContainer } from "@shared/section-container";
 import { Building2 } from "lucide-react";
-import Link from "next/link";
 import { useState } from "react";
 
 interface ProjectsClientWrapperProps {

@@ -8,9 +8,11 @@ import type { BlogNewsPost } from "@shared-types/blog-and-news";
 import { SectionContainer } from "@shared/section-container";
 import Image from "next/image";
 
+import { Link } from "@i18n/navigation";
 import NavigationSection from "@navigation/navigation-section";
 import FooterSection from "@shared/footer-section";
 import { RichTextRenderer } from "@shared/rich-text-renderer";
+import { getTranslations } from "next-intl/server";
 
 import config from "@/payload.config";
 
@@ -35,6 +37,8 @@ export default async function BlogEntryPage({ params }: PageProps) {
 
   const relatedPosts = await getBlogPosts(3);
   const filteredRelatedPosts = relatedPosts.filter((p: BlogNewsPost) => p.slug !== slug);
+
+  const t = await getTranslations();
 
   return (
     <>
@@ -73,17 +77,17 @@ export default async function BlogEntryPage({ params }: PageProps) {
         <SectionContainer width="container" variant="loose">
           <div className="mb-8 md:mb-12">
             <h2 className="font-semibold text-4xl md:text-6xl text-foreground text-left">
-              RELATED POSTS
+              {t("blog.relatedPosts")}
             </h2>
           </div>
           <BlogGallery columns={3} posts={filteredRelatedPosts} />
           <div className="mt-8 md:mt-12">
-            <a
+            <Link
               href="/blog"
               className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors"
             >
-              SEE ALL THE BLOG ARTICLES
-            </a>
+              {t("blog.seeAllArticles")}
+            </Link>
           </div>
         </SectionContainer>
       )}
