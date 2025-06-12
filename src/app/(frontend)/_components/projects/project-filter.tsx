@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 import type { ProjectCategory } from "@shared-types/projects";
 import { cn } from "@shared-utilities/utils";
 
@@ -10,12 +12,12 @@ interface ProjectFilterProps {
 }
 
 const filterCategories = [
-  { key: "all" as const, label: "SHOW ALL" },
-  { key: "houses" as const, label: "HOUSES" },
-  { key: "buildings" as const, label: "BUILDINGS" },
-  { key: "corporative" as const, label: "CORPORATIVE" },
-  { key: "interior-design" as const, label: "INTERIOR DESIGN" },
-  { key: "product-design" as const, label: "PRODUCT DESIGN" },
+  { key: "all" as const, labelKey: "projects.categories.all" },
+  { key: "houses" as const, labelKey: "projects.categories.residential" },
+  { key: "buildings" as const, labelKey: "projects.categories.buildings" },
+  { key: "corporative" as const, labelKey: "projects.categories.commercial" },
+  { key: "interior-design" as const, labelKey: "projects.categories.interiors" },
+  { key: "product-design" as const, labelKey: "projects.categories.other" },
 ];
 
 export function ProjectFilter({
@@ -23,6 +25,7 @@ export function ProjectFilter({
   onCategoryChange,
   className,
 }: ProjectFilterProps) {
+  const t = useTranslations();
   return (
     <div
       className={cn(
@@ -43,7 +46,7 @@ export function ProjectFilter({
               : "text-muted-foreground hover:after:w-full hover:after:bg-muted-foreground",
           )}
         >
-          {category.label}
+          {t(category.labelKey)}
         </button>
       ))}
     </div>

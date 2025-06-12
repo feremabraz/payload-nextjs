@@ -1,3 +1,5 @@
+"use client";
+
 import { Link } from "@i18n/navigation";
 import type { Job } from "@payload-types";
 import { SimpleFormContainer } from "@shared-layout/form-container";
@@ -14,12 +16,14 @@ import {
   MapPin,
   Users,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface JobDetailProps {
   job: Job;
 }
 
 export default function JobDetail({ job }: JobDetailProps) {
+  const t = useTranslations();
   const formatSalary = (salary: Job["salaryRange"]) => {
     if (!salary?.showSalary || !salary.minSalary || !salary.maxSalary) return null;
     const currencySymbol = {
@@ -36,36 +40,36 @@ export default function JobDetail({ job }: JobDetailProps) {
     const today = new Date();
     const diffTime = deadlineDate.getTime() - today.getTime();
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    if (diffDays < 0) return "Deadline passed";
-    if (diffDays === 0) return "Application deadline today";
-    if (diffDays === 1) return "1 day left";
-    return `${diffDays} days left`;
+    if (diffDays < 0) return t("jobs.deadlinePassed");
+    if (diffDays === 0) return t("jobs.deadlinePassed");
+    if (diffDays === 1) return t("jobs.dayLeft");
+    return t("jobs.daysLeft", { count: diffDays });
   };
 
   const departmentLabel = {
-    architecture: "Architecture",
-    design: "Design",
-    engineering: "Engineering",
-    "project-management": "Project Management",
-    "business-development": "Business Development",
-    administration: "Administration",
-    other: "Other",
+    architecture: t("jobs.departments.architecture"),
+    design: t("jobs.departments.design"),
+    engineering: t("jobs.departments.engineering"),
+    "project-management": t("jobs.departments.projectManagement"),
+    "business-development": t("jobs.departments.businessDevelopment"),
+    administration: t("jobs.departments.administration"),
+    other: t("jobs.departments.other"),
   }[job.department];
 
   const employmentTypeLabel = {
-    "full-time": "Full-time",
-    "part-time": "Part-time",
-    contract: "Contract",
-    internship: "Internship",
-    freelance: "Freelance",
+    "full-time": t("jobs.employmentTypes.fullTime"),
+    "part-time": t("jobs.employmentTypes.partTime"),
+    contract: t("jobs.employmentTypes.contract"),
+    internship: t("jobs.employmentTypes.internship"),
+    freelance: t("jobs.employmentTypes.freelance"),
   }[job.employmentType];
 
   const experienceLevelLabel = {
-    entry: "Entry Level",
-    mid: "Mid Level",
-    senior: "Senior Level",
-    lead: "Lead/Principal",
-    executive: "Executive",
+    entry: t("jobs.experienceLevels.entry"),
+    mid: t("jobs.experienceLevels.mid"),
+    senior: t("jobs.experienceLevels.senior"),
+    lead: t("jobs.experienceLevels.lead"),
+    executive: t("jobs.experienceLevels.executive"),
   }[job.experienceLevel];
 
   return (
@@ -75,7 +79,7 @@ export default function JobDetail({ job }: JobDetailProps) {
         <Button asChild variant="outline" size="sm">
           <Link href="/jobs" className="flex items-center gap-2">
             <ArrowLeft className="h-4 w-4" />
-            Back to Jobs
+            {t("jobs.backToJobs")}
           </Link>
         </Button>
       </div>
@@ -95,28 +99,28 @@ export default function JobDetail({ job }: JobDetailProps) {
           <div className="flex items-center gap-3">
             <Briefcase className="h-5 w-5 text-muted-foreground" />
             <div>
-              <p className="text-sm text-muted-foreground">Department</p>
+              <p className="text-sm text-muted-foreground">{t("jobs.department")}</p>
               <p className="font-medium">{departmentLabel}</p>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <MapPin className="h-5 w-5 text-muted-foreground" />
             <div>
-              <p className="text-sm text-muted-foreground">Location</p>
+              <p className="text-sm text-muted-foreground">{t("jobs.location")}</p>
               <p className="font-medium">{job.location}</p>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <Clock className="h-5 w-5 text-muted-foreground" />
             <div>
-              <p className="text-sm text-muted-foreground">Employment Type</p>
+              <p className="text-sm text-muted-foreground">{t("jobs.employmentType")}</p>
               <p className="font-medium">{employmentTypeLabel}</p>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <Users className="h-5 w-5 text-muted-foreground" />
             <div>
-              <p className="text-sm text-muted-foreground">Experience Level</p>
+              <p className="text-sm text-muted-foreground">{t("jobs.experienceLevel")}</p>
               <p className="font-medium">{experienceLevelLabel}</p>
             </div>
           </div>
@@ -124,7 +128,7 @@ export default function JobDetail({ job }: JobDetailProps) {
             <div className="flex items-center gap-3 md:col-span-2">
               <DollarSign className="h-5 w-5 text-muted-foreground" />
               <div>
-                <p className="text-sm text-muted-foreground">Salary Range</p>
+                <p className="text-sm text-muted-foreground">{t("jobs.salaryRange")}</p>
                 <p className="font-medium">
                   {formatSalary(job.salaryRange)}
                   {job.salaryRange?.salaryNote && (
@@ -140,10 +144,16 @@ export default function JobDetail({ job }: JobDetailProps) {
             <div className="flex items-center gap-3 md:col-span-2">
               <Calendar className="h-5 w-5 text-muted-foreground" />
               <div>
-                <p className="text-sm text-muted-foreground">Application Deadline</p>
+                <p className="text-sm text-muted-foreground">{t("jobs.applicationDeadline")}</p>
                 <p
                   className={`font-medium ${getDeadlineInfo(job.applicationDeadline)?.includes("passed") ? "text-destructive" : ""}`}
                 >
+                  {new Date(job.applicationDeadline).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}{" "}
+                  ({getDeadlineInfo(job.applicationDeadline)})
                   {new Date(job.applicationDeadline).toLocaleDateString("en-US", {
                     year: "numeric",
                     month: "long",
@@ -162,13 +172,15 @@ export default function JobDetail({ job }: JobDetailProps) {
         <div className="lg:col-span-2 space-y-8">
           {/* Description */}
           <section className="space-y-4">
-            <h2 className="text-2xl font-semibold text-foreground">Job Description</h2>
+            <h2 className="text-2xl font-semibold text-foreground">{t("jobs.jobDescription")}</h2>
             <p className="text-muted-foreground leading-relaxed">{job.description}</p>
           </section>
           {/* Responsibilities */}
           {job.responsibilities && job.responsibilities.length > 0 && (
             <section className="space-y-4">
-              <h2 className="text-2xl font-semibold text-foreground">Key Responsibilities</h2>
+              <h2 className="text-2xl font-semibold text-foreground">
+                {t("jobs.responsibilities")}
+              </h2>
               <ul className="space-y-3">
                 {job.responsibilities.map((item) => (
                   <li key={item.responsibility} className="flex items-start gap-3">
@@ -182,7 +194,7 @@ export default function JobDetail({ job }: JobDetailProps) {
           {/* Requirements */}
           {job.requirements && job.requirements.length > 0 && (
             <section className="space-y-4">
-              <h2 className="text-2xl font-semibold text-foreground">Requirements</h2>
+              <h2 className="text-2xl font-semibold text-foreground">{t("jobs.requirements")}</h2>
               <ul className="space-y-3">
                 {job.requirements.map((item) => (
                   <li key={item.requirement} className="flex items-start gap-3">
@@ -196,11 +208,13 @@ export default function JobDetail({ job }: JobDetailProps) {
           {/* Preferred Qualifications */}
           {job.preferredQualifications && job.preferredQualifications.length > 0 && (
             <section className="space-y-4">
-              <h2 className="text-2xl font-semibold text-foreground">Preferred Qualifications</h2>
+              <h2 className="text-2xl font-semibold text-foreground">
+                {t("jobs.preferredQualifications")}
+              </h2>
               <ul className="space-y-3">
                 {job.preferredQualifications.map((item) => (
-                  <li key={item.qualification} className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-muted-foreground mt-0.5 flex-shrink-0" />
+                  <li key={item.id ?? item.qualification} className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                     <span className="text-muted-foreground">{item.qualification}</span>
                   </li>
                 ))}
@@ -210,7 +224,9 @@ export default function JobDetail({ job }: JobDetailProps) {
           {/* Benefits */}
           {job.benefits && job.benefits.length > 0 && (
             <section className="space-y-4">
-              <h2 className="text-2xl font-semibold text-foreground">Benefits & Perks</h2>
+              <h2 className="text-2xl font-semibold text-foreground">
+                {t("jobs.benefitsAndPerks")}
+              </h2>
               <ul className="space-y-3">
                 {job.benefits.map((item) => (
                   <li key={item.benefit} className="flex items-start gap-3">
@@ -224,7 +240,9 @@ export default function JobDetail({ job }: JobDetailProps) {
           {/* Application Instructions */}
           {job.applicationInstructions && (
             <section className="space-y-4">
-              <h2 className="text-2xl font-semibold text-foreground">Application Instructions</h2>
+              <h2 className="text-2xl font-semibold text-foreground">
+                {t("jobs.applicationInstructions")}
+              </h2>
               <p className="text-muted-foreground leading-relaxed">{job.applicationInstructions}</p>
             </section>
           )}
@@ -233,47 +251,53 @@ export default function JobDetail({ job }: JobDetailProps) {
         <div className="lg:col-span-1">
           <div className="sticky top-8 space-y-6">
             <div className="p-6 bg-muted/20 rounded-sm space-y-4">
-              <h3 className="text-xl font-semibold text-foreground">Apply for this Position</h3>
-              <p className="text-sm text-muted-foreground">
-                Ready to join our team? Submit your application below.
-              </p>
+              <h3 className="text-xl font-semibold text-foreground">
+                {t("jobs.applyForPosition")}
+              </h3>
+              <p className="text-sm text-muted-foreground">{t("jobs.readyToJoin")} </p>
             </div>
             <SimpleFormContainer>
               <TextField
-                label="Full Name"
+                label={t("jobs.fullName")}
                 id="name"
                 name="name"
                 type="text"
-                placeholder="Enter your full name"
+                placeholder={t("jobs.enterFullName")}
                 required
               />
               <TextField
-                label="Email Address"
+                label={t("jobs.emailAddress")}
                 id="email"
                 name="email"
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t("jobs.enterEmail")}
                 required
               />
               <TextField
-                label="Phone Number"
+                label={t("jobs.phoneNumber")}
                 id="phone"
                 name="phone"
                 type="tel"
-                placeholder="Enter your phone number"
+                placeholder={t("jobs.enterPhoneNumber")}
                 required
               />
               <TextAreaField
-                label="Cover Letter"
+                label={t("jobs.coverLetter")}
                 id="message"
                 name="message"
-                placeholder="Tell us why you're interested in this position..."
+                placeholder={t("jobs.coverLetterPlaceholder")}
                 rows={4}
                 required
               />
-              <FileField label="Resume/CV" id="cv" name="cv" accept=".pdf,.doc,.docx" required />
               <FileField
-                label="Portfolio (Optional)"
+                label={t("jobs.resumeCV")}
+                id="cv"
+                name="cv"
+                accept=".pdf,.doc,.docx"
+                required
+              />
+              <FileField
+                label={t("jobs.portfolioOptional")}
                 id="portfolio"
                 name="portfolio"
                 accept=".pdf,.zip"
@@ -281,7 +305,7 @@ export default function JobDetail({ job }: JobDetailProps) {
               <input type="hidden" name="position" value={job.title} />
               <input type="hidden" name="jobId" value={job.id} />
               <Button type="submit" className="w-full">
-                Submit Application
+                {t("jobs.submitApplication")}
               </Button>
             </SimpleFormContainer>
           </div>

@@ -2,48 +2,47 @@ import { SimpleFormContainer } from "@shared-layout/form-container";
 import { TextAreaField, TextField } from "@shared-layout/form-fields";
 import { Button } from "@shared-ui/button";
 import { SectionContainer } from "@shared/section-container";
+import { getTranslations } from "next-intl/server";
 
-export default function BudgetRequestSection() {
+export default async function BudgetRequestSection() {
+  const t = await getTranslations();
   return (
     <div id="budget-request">
       <SectionContainer>
-        <SimpleFormContainer
-          title="BUDGET REQUEST"
-          description="Tell us about your project and receive a personalized quote tailored to your goals. No commitment — just a clear plan and expert insight to get started."
-        >
+        <SimpleFormContainer title={t("budget.title")} description={t("budget.description")}>
           <TextField
-            label="Name"
+            label={t("common.name")}
             id="name"
             name="name"
             type="text"
-            placeholder="Input your Name"
+            placeholder={t("forms.namePlaceholder")}
             required
           />
           <TextField
-            label="Phone"
+            label={t("common.phone")}
             id="phone"
             name="phone"
             type="tel"
-            placeholder="Input your Phone Number"
+            placeholder={t("forms.phonePlaceholder")}
             required
           />
           <TextField
-            label="Email"
+            label={t("common.email")}
             id="email"
             name="email"
             type="email"
-            placeholder="Input your Email"
+            placeholder={t("forms.emailPlaceholder")}
             required
           />
           <TextAreaField
-            label="Message"
+            label={t("common.message")}
             id="message"
             name="message"
-            placeholder="Input your Message Here"
+            placeholder={t("forms.messagePlaceholder")}
             rows={4}
           />
           <Button type="submit" className="w-full">
-            Submit
+            {t("common.submit")}
           </Button>
         </SimpleFormContainer>
       </SectionContainer>

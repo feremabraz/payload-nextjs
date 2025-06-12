@@ -6,13 +6,15 @@ import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { isMenuOpenAtom } from "@shared-store/atoms";
 import { Sheet, SheetContent, SheetTitle } from "@shared-ui/sheet";
 import { useAtom } from "jotai";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 function HeroImage() {
+  const t = useTranslations();
   return (
     <Image
       src="/hero-background-new.webp"
-      alt="Hero background"
+      alt={t("accessibility.imageAlt")}
       fill
       className="object-cover"
       priority
@@ -21,14 +23,16 @@ function HeroImage() {
 }
 
 function HeroText() {
+  const t = useTranslations();
   return (
     <div className="relative w-full max-w-xl h-xs sm:h-sm md:h-md aspect-[275/81] mb-10">
-      <Image src="/hero-text-image.png" alt="Bruno Câmara Arquitectos" fill priority />
+      <Image src="/hero-text-image.png" alt={t("hero.altText")} fill priority />
     </div>
   );
 }
 
 export default function HeroSection() {
+  const t = useTranslations();
   const [isMenuOpen, setIsMenuOpen] = useAtom(isMenuOpenAtom);
   return (
     <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
@@ -48,7 +52,7 @@ export default function HeroSection() {
         hideDefaultCloseButton
       >
         <VisuallyHidden>
-          <SheetTitle>Navigation Menu</SheetTitle>
+          <SheetTitle>{t("navigation.navigationMenu")}</SheetTitle>
         </VisuallyHidden>
         <SideMenu />
       </SheetContent>

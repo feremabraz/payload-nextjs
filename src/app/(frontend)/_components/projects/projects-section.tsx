@@ -7,22 +7,28 @@ import { ContentGrid } from "@shared/content-grid";
 import { EmptyState } from "@shared/empty-state";
 import { SectionContainer, SectionHeader } from "@shared/section-container";
 import { Building2 } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
 export default async function ProjectsSection() {
+  const t = await getTranslations();
   const projects = await getProjects(8);
 
   if (projects.length === 0) {
     return (
       <div id="projects">
         <SectionContainer variant="default" width="wide">
-          <SectionHeader title="PROJECTS" linkHref="/projects" linkText="GO TO PROJECTS" />
+          <SectionHeader
+            title={t("projects.title")}
+            linkHref="/projects"
+            linkText={t("projects.viewProjects")}
+          />
           <EmptyState
             icon={<Building2 size={64} />}
-            title="No Projects Available"
-            description="We're currently updating our project portfolio. Please check back soon for our latest work."
+            title={t("projects.noProjects")}
+            description={t("projects.noProjectsDescription")}
             action={
               <Button asChild variant="outline">
-                <Link href="/budget">Request a Quote</Link>
+                <Link href="/budget">{t("budget.getInTouch") || t("studio.getInTouch")}</Link>
               </Button>
             }
             variant="compact"
@@ -36,9 +42,9 @@ export default async function ProjectsSection() {
   return (
     <div id="projects">
       <ContentGrid<Project>
-        title="PROJECTS"
+        title={t("projects.title")}
         linkHref="/projects"
-        linkText="GO TO PROJECTS"
+        linkText={t("projects.viewProjects")}
         items={projects}
         renderItem={(project) => <ProjectImageCard key={project.id} project={project} size="md" />}
         columns={4}

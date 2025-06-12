@@ -1,55 +1,54 @@
 import { SimpleFormContainer } from "@shared-layout/form-container";
 import { TextAreaField, TextField } from "@shared-layout/form-fields";
 import { Button } from "@shared-ui/button";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-export default function BudgetRequestWithImageSection() {
+export default async function BudgetRequestWithImageSection() {
+  const t = await getTranslations();
   return (
     <>
-      <SimpleFormContainer
-        title="BUDGET REQUEST"
-        description="Tell us about your project and receive a personalized quote tailored to your goals. No commitment — just a clear plan and expert insight to get started."
-      >
+      <SimpleFormContainer title={t("budget.title")} description={t("budget.description")}>
         <TextField
-          label="Name"
+          label={t("common.name")}
           id="name"
           name="name"
           type="text"
-          placeholder="Input your Name"
+          placeholder={t("forms.namePlaceholder")}
           required
         />
         <TextField
-          label="Phone"
+          label={t("common.phone")}
           id="phone"
           name="phone"
           type="tel"
-          placeholder="Input your Phone Number"
+          placeholder={t("forms.phonePlaceholder")}
           required
         />
         <TextField
-          label="Email"
+          label={t("common.email")}
           id="email"
           name="email"
           type="email"
-          placeholder="Input your Email"
+          placeholder={t("forms.emailPlaceholder")}
           required
         />
         <TextAreaField
-          label="Message"
+          label={t("common.message")}
           id="message"
           name="message"
-          placeholder="Input your Message Here"
+          placeholder={t("forms.messagePlaceholder")}
           rows={4}
         />
         <Button type="submit" className="w-full">
-          Submit
+          {t("common.submit")}
         </Button>
       </SimpleFormContainer>
       <div className="w-full max-w-2xl mx-auto mt-8">
         <div className="relative w-full h-[40vh] md:h-[50vh] rounded-lg overflow-hidden">
           <Image
             src="/projects/modern-glass-building-dusk.webp"
-            alt="Modern architectural design showcasing our budget request services"
+            alt={t("accessibility.imageAlt")}
             fill
             quality={100}
             className="object-cover"

@@ -3,12 +3,14 @@ import type { Job } from "@payload-types";
 import { Badge } from "@shared-ui/badge";
 import { Button } from "@shared-ui/button";
 import { Briefcase, Calendar, Clock, DollarSign, MapPin, Users } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface JobCardProps {
   job: Job;
 }
 
 export default function JobCard({ job }: JobCardProps) {
+  const t = useTranslations();
   const formatSalary = (salary: Job["salaryRange"]) => {
     if (!salary?.showSalary || !salary.minSalary || !salary.maxSalary) return null;
     const currencySymbol = {
@@ -25,36 +27,36 @@ export default function JobCard({ job }: JobCardProps) {
     const today = new Date();
     const diffTime = deadlineDate.getTime() - today.getTime();
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    if (diffDays < 0) return "Deadline passed";
-    if (diffDays === 0) return "Application deadline today";
-    if (diffDays === 1) return "1 day left";
-    return `${diffDays} days left`;
+    if (diffDays < 0) return t("jobs.deadlinePassed");
+    if (diffDays === 0) return t("jobs.deadlinePassed");
+    if (diffDays === 1) return t("jobs.dayLeft");
+    return t("jobs.daysLeft", { count: diffDays });
   };
 
   const departmentLabel = {
-    architecture: "Architecture",
-    design: "Design",
-    engineering: "Engineering",
-    "project-management": "Project Management",
-    "business-development": "Business Development",
-    administration: "Administration",
-    other: "Other",
+    architecture: t("jobs.departments.architecture"),
+    design: t("jobs.departments.design"),
+    engineering: t("jobs.departments.engineering"),
+    "project-management": t("jobs.departments.projectManagement"),
+    "business-development": t("jobs.departments.businessDevelopment"),
+    administration: t("jobs.departments.administration"),
+    other: t("jobs.departments.other"),
   }[job.department];
 
   const employmentTypeLabel = {
-    "full-time": "Full-time",
-    "part-time": "Part-time",
-    contract: "Contract",
-    internship: "Internship",
-    freelance: "Freelance",
+    "full-time": t("jobs.employmentTypes.fullTime"),
+    "part-time": t("jobs.employmentTypes.partTime"),
+    contract: t("jobs.employmentTypes.contract"),
+    internship: t("jobs.employmentTypes.internship"),
+    freelance: t("jobs.employmentTypes.freelance"),
   }[job.employmentType];
 
   const experienceLevelLabel = {
-    entry: "Entry Level",
-    mid: "Mid Level",
-    senior: "Senior Level",
-    lead: "Lead/Principal",
-    executive: "Executive",
+    entry: t("jobs.experienceLevels.entry"),
+    mid: t("jobs.experienceLevels.mid"),
+    senior: t("jobs.experienceLevels.senior"),
+    lead: t("jobs.experienceLevels.lead"),
+    executive: t("jobs.experienceLevels.executive"),
   }[job.experienceLevel];
 
   return (
@@ -66,12 +68,12 @@ export default function JobCard({ job }: JobCardProps) {
             <div className="flex items-center gap-2 mb-2">
               {job.featured && (
                 <Badge variant="default" className="text-xs">
-                  Featured
+                  {t("jobs.featured")}
                 </Badge>
               )}
               {job.urgent && (
                 <Badge variant="destructive" className="text-xs">
-                  Urgent
+                  {t("jobs.urgent")}
                 </Badge>
               )}
             </div>
@@ -124,7 +126,7 @@ export default function JobCard({ job }: JobCardProps) {
         {/* Action */}
         <div className="pt-4 border-t border-border">
           <Button asChild className="w-full">
-            <Link href={`/jobs/${job.slug}`}>View Details & Apply</Link>
+            <Link href={`/jobs/${job.slug}`}>{t("jobs.applyNow")}</Link>
           </Button>
         </div>
       </div>

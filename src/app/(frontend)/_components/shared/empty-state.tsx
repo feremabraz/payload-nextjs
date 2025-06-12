@@ -1,5 +1,6 @@
 import { cn } from "@shared-utilities/utils";
 import { SectionContainer } from "@shared/section-container";
+import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
 
 interface EmptyStateProps {
@@ -21,6 +22,7 @@ export function EmptyState({
   variant = "default",
   width = "wide",
 }: EmptyStateProps) {
+  const t = useTranslations();
   return (
     <SectionContainer variant={variant} width={width}>
       <div
@@ -30,9 +32,9 @@ export function EmptyState({
         )}
       >
         {icon && <div className="mb-6 text-muted-foreground opacity-50">{icon}</div>}
-        <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">{title}</h3>
+        <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">{t(title)}</h3>
         {description && (
-          <p className="text-lg text-muted-foreground mb-8 max-w-md">{description}</p>
+          <p className="text-lg text-muted-foreground mb-8 max-w-md">{t(description)}</p>
         )}
         {action && <div className="mt-4">{action}</div>}
       </div>

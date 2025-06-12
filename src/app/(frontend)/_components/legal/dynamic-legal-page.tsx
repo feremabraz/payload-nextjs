@@ -3,6 +3,7 @@ import { Link } from "@i18n/navigation";
 import type { LegalPage } from "@payload-types";
 import { EmptyState } from "@shared/empty-state";
 import { SectionContainer, SectionHeader } from "@shared/section-container";
+import { getTranslations } from "next-intl/server";
 
 interface DynamicLegalPageProps {
   slug: string;
@@ -103,18 +104,19 @@ export default async function DynamicLegalPage({ slug }: DynamicLegalPageProps) 
   const page = await getLegalPageBySlug(slug);
 
   if (!page) {
+    const t = await getTranslations();
     return (
       <SectionContainer width="container" variant="loose">
         <EmptyState
           icon="⚖️"
-          title="Legal Page Not Found"
-          description="The requested legal document could not be found."
+          title={t("notFound.title")}
+          description={t("notFound.description")}
           action={
             <Link
               href="/"
               className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
             >
-              Go Home
+              {t("notFound.backToHome")}
             </Link>
           }
         />
