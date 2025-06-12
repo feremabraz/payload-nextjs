@@ -26,5 +26,6 @@
   },
   "editor.formatOnSaveMode": "file",
   "typescript.tsdk": "node_modules/typescript/lib",
-  "biome.lsp.bin": "node_modules/@biomejs/biome/bin/biome"
+  "biome.lsp.bin": "node_modules/@biomejs/biome/bin/biome",
+  "i18n-ally.localesPaths": ["public/locales", "src/i18n", "src/app/shared/i18n"]
 }

@@ -1,10 +1,13 @@
 "use client";
 
+import { usePathname, useRouter } from "@i18n/navigation";
 import { currentLanguageAtom } from "@shared-store/atoms";
 import type { Language } from "@shared-types/language";
 import { Button } from "@shared-ui/button";
 import { cn } from "@shared-utilities/utils";
 import { useAtom } from "jotai";
+import { useParams } from "next/navigation";
+import { useEffect } from "react";
 
 interface LanguageSwitcherProps {
   background?: "light" | "dark";
@@ -12,6 +15,24 @@ interface LanguageSwitcherProps {
 
 export function LanguageSwitcher({ background }: LanguageSwitcherProps) {
   const [language, setLanguage] = useAtom(currentLanguageAtom);
+  const pathname = usePathname();
+  const router = useRouter();
+  const params = useParams();
+  const currentLocale = params.locale as Language;
+
+  // Sync Jotai atom with current URL locale
+  useEffect(() => {
+    if (currentLocale !== language) {
+      setLanguage(currentLocale);
+    }
+  }, [currentLocale, language, setLanguage]);
+
+  const handleLanguageChange = (newLanguage: Language) => {
+    // Update Jotai atom
+    setLanguage(newLanguage);
+    // Navigate to the same page with new locale using next-intl
+    router.push(pathname, { locale: newLanguage });
+  };
 
   const languages: { id: Language; label: string }[] = [
     { id: "en", label: "EN" },
@@ -67,7 +88,7 @@ export function LanguageSwitcher({ background }: LanguageSwitcherProps) {
               "transition-colors duration-200 ease-in-out",
               language === lang.id ? styles.activeButton : styles.inactiveButton,
             )}
-            onClick={() => setLanguage(lang.id)}
+            onClick={() => handleLanguageChange(lang.id)}
           >
             {lang.label}
           </Button>

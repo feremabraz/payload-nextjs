@@ -13,6 +13,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "allowArbitraryExtensions": true,
     "plugins": [
       {
         "name": "next"
@@ -23,6 +24,8 @@
       "@payload-types": ["./src/payload-types.ts"],
       "@payload-config": ["./src/payload.config.ts"],
       "@actions/*": ["./src/app/(frontend)/_api/*"], // server actions
+      // i18n
+      "@i18n/*": ["./src/i18n/*"],
       // Components meant only for the frontend
       "@components/*": ["./src/app/(frontend)/_components/*"],
       "@blog/*": ["./src/app/(frontend)/_components/blog/*"],
