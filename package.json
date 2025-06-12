@@ -64,6 +64,7 @@
     "embla-carousel-react": "^8.6.0",
     "graphql": "^16.11.0",
     "input-otp": "^1.4.2",
+    "intl-t": "1.0.0-rc.41",
     "jotai": "^2.12.5",
     "jotai-tanstack-query": "^0.9.0",
     "lucide-react": "^0.507.0",
@@ -98,6 +99,8 @@
     "node": "^18.20.2 || >=20.9.0"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["sharp"]
+    "onlyBuiltDependencies": [
+      "sharp"
+    ]
   }
 }

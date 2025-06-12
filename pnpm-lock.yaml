@@ -134,6 +134,9 @@ importers:
       input-otp:
         specifier: ^1.4.2
         version: 1.4.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      intl-t:
+        specifier: 1.0.0-rc.41
+        version: 1.0.0-rc.41(next@15.3.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(react@19.1.0)(typescript@5.7.3)
       jotai:
         specifier: ^2.12.5
         version: 2.12.5(@types/react@19.1.0)(react@19.1.0)
@@ -3041,6 +3044,20 @@ packages:
   internmap@2.0.3:
     resolution: {integrity: sha512-5Hh7Y1wQbvY5ooGgPbDaL5iYLAPzMTUrjMulskHLH6wnv/A+1q5rgEaiuqEjB+oxGXIVZs1FF+R/KPN3ZSQYYg==}
     engines: {node: '>=12'}
+
+  intl-t@1.0.0-rc.41:
+    resolution: {integrity: sha512-rDcw1gS17UimbWhQySv8gJdde5Jdt/BSIlNNu9zSWWASW/wVtz289PvvWvTDwuv7ClTG0VZA0EtSU5YjW/cOvQ==}
+    peerDependencies:
+      next: '>=14'
+      react: '>=18 <20'
+      typescript: ^5
+    peerDependenciesMeta:
+      next:
+        optional: true
+      react:
+        optional: true
+      typescript:
+        optional: true
 
   is-alphabetical@2.0.1:
     resolution: {integrity: sha512-FWyyY60MeTNyeSRpkM2Iry0G9hpr7/9kD40mD/cGQEuilcZYS4okz8SN2Q6rLCJ8gbCt6fN+rC+6tMGS99LaxQ==}
@@ -7492,6 +7509,12 @@ snapshots:
       react-dom: 19.1.0(react@19.1.0)
 
   internmap@2.0.3: {}
+
+  intl-t@1.0.0-rc.41(next@15.3.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(react@19.1.0)(typescript@5.7.3):
+    optionalDependencies:
+      next: 15.3.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4)
+      react: 19.1.0
+      typescript: 5.7.3
 
   is-alphabetical@2.0.1: {}
 
