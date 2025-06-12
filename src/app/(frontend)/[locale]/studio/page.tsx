@@ -11,13 +11,16 @@ import GuaranteesSection from "@studio/guarantees-section";
 import PublicationsSection from "@studio/publications-section";
 import TeamSection from "@studio/team-section";
 import ValuesMissionSection from "@studio/values-mission-section";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import config from "@/payload.config";
 
 export default async function StudioPage(props: { params: Promise<{ locale: string }> }) {
   const params = await props.params;
   const { locale } = params;
+
+  // Enable static rendering
+  setRequestLocale(locale);
 
   const headers = await getHeaders();
   const payloadConfig = await config;

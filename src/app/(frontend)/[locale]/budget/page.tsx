@@ -1,3 +1,4 @@
+import { setRequestLocale } from "next-intl/server";
 import { headers as getHeaders } from "next/headers.js";
 import { getPayload } from "payload";
 
@@ -12,6 +13,9 @@ import config from "@/payload.config";
 export default async function BudgetPage(props: { params: Promise<{ locale: string }> }) {
   const params = await props.params;
   const { locale } = params;
+
+  // Enable static rendering
+  setRequestLocale(locale);
 
   const headers = await getHeaders();
   const payloadConfig = await config;

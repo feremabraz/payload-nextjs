@@ -2,7 +2,7 @@ import { routing } from "@i18n/routing";
 import { ThemeProvider } from "@shared/theme-provider";
 import type { Metadata } from "next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import { Titillium_Web } from "next/font/google";
 import { notFound } from "next/navigation";
 import type React from "react";
@@ -31,6 +31,9 @@ export default async function LocaleLayout({ children, params }: Props) {
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+
+  // Enable static rendering
+  setRequestLocale(locale);
 
   // Load messages for the locale
   const messages = await getMessages({ locale });

@@ -1,3 +1,4 @@
+import { setRequestLocale } from "next-intl/server";
 import { headers as getHeaders } from "next/headers.js";
 import { notFound } from "next/navigation";
 import { getPayload } from "payload";
@@ -34,15 +35,17 @@ function ProjectField({ label, value, isTitle = false }: ProjectFieldProps) {
 }
 
 export default async function ProjectPage({ params }: PageProps) {
+  const { id, locale } = await params;
+
+  // Enable static rendering
+  setRequestLocale(locale);
+
   const headers = await getHeaders();
   const payloadConfig = await config;
   const payload = await getPayload({ config: payloadConfig });
   const { user: _user } = await payload.auth({ headers });
 
-  const resolvedParams = await params;
-  const { id: slug, locale } = resolvedParams;
-
-  const project = await getProjectBySlug(slug);
+  const project = await getProjectBySlug(id);
 
   if (!project) {
     notFound();

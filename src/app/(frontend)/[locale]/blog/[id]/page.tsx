@@ -12,7 +12,7 @@ import { Link } from "@i18n/navigation";
 import NavigationSection from "@navigation/navigation-section";
 import FooterSection from "@shared/footer-section";
 import { RichTextRenderer } from "@shared/rich-text-renderer";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import config from "@/payload.config";
 
@@ -21,21 +21,24 @@ interface PageProps {
 }
 
 export default async function BlogEntryPage({ params }: PageProps) {
+  const { id, locale } = await params;
+
+  // Enable static rendering
+  setRequestLocale(locale);
+
   const headers = await getHeaders();
   const payloadConfig = await config;
   const payload = await getPayload({ config: payloadConfig });
   const { user: _user } = await payload.auth({ headers });
 
-  const resolvedParams = await params;
-  const { id: slug, locale } = resolvedParams;
-  const post = await getBlogPostBySlug(slug);
+  const post = await getBlogPostBySlug(id);
 
   if (!post) {
     notFound();
   }
 
   const relatedPosts = await getBlogPosts(3);
-  const filteredRelatedPosts = relatedPosts.filter((p: BlogNewsPost) => p.slug !== slug);
+  const filteredRelatedPosts = relatedPosts.filter((p: BlogNewsPost) => p.slug !== post.slug);
 
   const t = await getTranslations({ locale });
 
