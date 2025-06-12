@@ -3,26 +3,28 @@ import { Link } from "@i18n/navigation";
 import type { Publication } from "@payload-types";
 import { EmptyState } from "@shared/empty-state";
 import { SectionContainer } from "@shared/section-container";
+import { getTranslations } from "next-intl/server";
 
 export default async function PublicationsSection() {
+  const t = await getTranslations();
   const publications = await getPublications();
   return (
     <SectionContainer variant="default" width="container">
       <section className="flex flex-col items-center gap-8 md:gap-12 w-full">
         <h2 className="w-full text-center font-medium text-4xl md:text-6xl text-balance px-4 text-foreground">
-          PUBLICATIONS
+          {t("studio.publications")}
         </h2>
         {publications.length === 0 ? (
           <EmptyState
             icon="📚"
-            title="No Publications Yet"
-            description="Publications and press features will be displayed here when available."
+            title="studio.noPublications"
+            description="studio.noPublicationsDescription"
             action={
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
               >
-                Contact Us
+                {t("common.contactUs")}
               </Link>
             }
           />

@@ -1,20 +1,23 @@
 import { getStudioInfo } from "@actions/studio-info";
+import NavigationSection from "@navigation/navigation-section";
 import type { Media, StudioInfo } from "@payload-types";
 import { ContentGrid } from "@shared/content-grid";
 import { EmptyState } from "@shared/empty-state";
 import { StudioCard } from "@studio/studio-card";
 import { Building2 } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
 export default async function StudioSection() {
+  const t = await getTranslations();
   const studioData = await getStudioInfo();
 
   if (studioData.length === 0) {
     return (
       <div id="studio">
         <ContentGrid
-          title="STUDIO"
+          title={t("studio.title").toUpperCase()}
           linkHref="/studio"
-          linkText="GO TO STUDIO"
+          linkText={t("studio.goToStudio")}
           items={[]}
           renderItem={() => null}
           columns={4}
@@ -23,8 +26,8 @@ export default async function StudioSection() {
         <div className="px-4">
           <EmptyState
             icon={<Building2 className="h-12 w-12" />}
-            title="No studio information available"
-            description="We're working on updating our studio information. Check back soon!"
+            title="studio.noStudioInfo"
+            description="studio.noStudioInfoDescription"
           />
         </div>
       </div>
@@ -34,9 +37,9 @@ export default async function StudioSection() {
   return (
     <div id="studio">
       <ContentGrid
-        title="STUDIO"
+        title={t("studio.title").toUpperCase()}
         linkHref="/studio"
-        linkText="GO TO STUDIO"
+        linkText={t("studio.goToStudio")}
         items={studioData}
         renderItem={(item: StudioInfo) => {
           // Handle the case where image might be a Media object or just an ID

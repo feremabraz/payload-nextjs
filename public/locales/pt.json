@@ -61,7 +61,10 @@
     "backTo": "Voltar para {page}",
     "backToHome": "Voltar para Início",
     "backToProjects": "Voltar para Projetos",
-    "backToJobs": "Voltar para Vagas"
+    "backToJobs": "Voltar para Vagas",
+    "switchToLanguage": "Mudar para {language}",
+    "english": "Inglês",
+    "portuguese": "Português"
   },
   "hero": {
     "title": "Bruno Câmara Arquitectos",
@@ -94,8 +97,8 @@
       "publications": "Publicações",
       "noAwards": "Ainda sem prêmios",
       "noAwardsDescription": "Estamos documentando nossas conquistas. Volte em breve!",
-      "noPublications": "Sem publicações disponíveis",
-      "noPublicationsDescription": "Estamos trabalhando em novas publicações. Fique atento para novidades e estudos de caso!",
+      "noPublications": "Ainda sem publicações",
+      "noPublicationsDescription": "As publicações e matérias de imprensa serão exibidas aqui quando disponíveis.",
       "getInTouch": "Entre em Contato"
     },
     "blogNews": {
@@ -166,12 +169,18 @@
     "awardLocation": "Localização",
     "awardYear": "Ano",
     "awardDescription": "Descrição",
+    "noStudioInfo": "Nenhuma informação do estúdio disponível",
+    "noStudioInfoDescription": "Estamos trabalhando na atualização das informações do estúdio. Volte em breve!",
+    "goToStudio": "Ir para Estúdio",
     "guarantees": {
       "title": "Nossas Garantias",
-      "quality": "Garantia de Qualidade",
-      "timeline": "Entrega no Prazo",
-      "budget": "Conformidade com o Orçamento",
-      "service": "Atendimento Excepcional"
+      "description": "Garantimos estrita conformidade com os prazos de trabalho, assegurando qualidade de alto nível em cada detalhe. Nosso compromisso com a excelência reflete-se na execução precisa do projeto e acabamentos impecáveis que atendem aos mais altos padrões do setor."
+    },
+    "valuesMission": {
+      "title": "Valores e Missão",
+      "noValuesTitle": "Sem Conteúdo de Valores",
+      "noValuesDescription": "Os valores e missão da empresa serão exibidos aqui quando disponíveis.",
+      "worldMapAlt": "Ilustração do mapa mundial destacando presença global"
     }
   },
   "blog": {
@@ -221,8 +230,12 @@
   },
   "jobs": {
     "title": "Vagas Abertas",
+    "featuredPositions": "Vagas em Destaque",
+    "priorityOpeningsDescription": "Vagas prioritárias onde buscamos ativamente candidatos qualificados.",
+    "allOpenPositions": "Todas as Vagas Abertas",
+    "exploreOpportunities": "Explore todas as oportunidades atuais para se juntar à nossa equipe de arquitetura inovadora.",
     "job": "Vaga",
-    "position": "Cargo",
+    "position": "Posição",
     "department": "Departamento",
     "location": "Localização",
     "employmentType": "Tipo de Contrato",
@@ -335,7 +348,8 @@
     }
   },
   "testimonials": {
-    "title": "O que Nossos Clientes Dizem",
+    "title": "O que nossos clientes dizem",
+    "goToTestimonials": "Ir para Depoimentos",
     "clientName": "Nome do Cliente",
     "projectType": "Tipo de Projeto",
     "rating": "Avaliação",
@@ -478,5 +492,13 @@
     },
     "backToHome": "Voltar para Início",
     "viewProjects": "Ver Projetos"
+  },
+  "legal": {
+    "lastUpdated": "Última atualização",
+    "contactUs": "Contate-nos"
+  },
+  "richText": {
+    "formatNotRecognized": "Formato de texto rico não reconhecido. Conteúdo bruto:",
+    "fallbackText": "Conteúdo não pôde ser exibido"
   }
 }

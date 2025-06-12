@@ -1,6 +1,7 @@
 import { Link } from "@i18n/navigation";
 import { LanguageSwitcher } from "@navigation/language-switcher";
 import { MenuToggle } from "@navigation/menu-toggle";
+import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -26,6 +27,7 @@ export function NavigationBar({ background }: NavigationBarProps) {
 export function NavigationBarWithLogo({ background }: NavigationBarProps) {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const t = useTranslations();
 
   // Prevent hydration mismatch by only using theme after component is mounted
   useEffect(() => {
@@ -50,10 +52,10 @@ export function NavigationBarWithLogo({ background }: NavigationBarProps) {
 
   return (
     <nav className={commonNavClasses}>
-      <Link href="/" aria-label="Bruno Câmara Arquitectos Home">
+      <Link href="/" aria-label={`${t("company.name")} ${t("navigation.home")}`}>
         <Image
           src={getLogoSrc()}
-          alt="Bruno Câmara Arquitectos Logo"
+          alt={t("company.name")}
           width={216}
           height={216}
           className="aspect-square"

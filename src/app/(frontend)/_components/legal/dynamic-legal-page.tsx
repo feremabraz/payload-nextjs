@@ -9,14 +9,14 @@ interface DynamicLegalPageProps {
   slug: string;
 }
 
-function LegalPageContent({ page }: { page: LegalPage }) {
+function LegalPageContent({ page, t }: { page: LegalPage; t: (key: string) => string }) {
   return (
     <div className="max-w-4xl mx-auto space-y-8 text-foreground">
       {/* Introduction */}
       <div className="space-y-4">
         {page.lastUpdated && (
           <p className="text-muted-foreground">
-            Last updated:{" "}
+            {t("legal.lastUpdated")}:{" "}
             {new Date(page.lastUpdated).toLocaleDateString("en-US", {
               year: "numeric",
               month: "long",
@@ -89,7 +89,7 @@ function LegalPageContent({ page }: { page: LegalPage }) {
       {page.contactInfo?.includeContact && (
         <section className="space-y-4 pt-6 border-t border-muted">
           <h2 className="text-2xl font-semibold text-foreground">
-            {page.contactInfo.heading || "Contact Us"}
+            {page.contactInfo.heading || t("legal.contactUs")}
           </h2>
           {page.contactInfo.content && (
             <p className="leading-relaxed text-muted-foreground">{page.contactInfo.content}</p>
@@ -101,10 +101,10 @@ function LegalPageContent({ page }: { page: LegalPage }) {
 }
 
 export default async function DynamicLegalPage({ slug }: DynamicLegalPageProps) {
+  const t = await getTranslations();
   const page = await getLegalPageBySlug(slug);
 
   if (!page) {
-    const t = await getTranslations();
     return (
       <SectionContainer width="container" variant="loose">
         <EmptyState
@@ -127,7 +127,7 @@ export default async function DynamicLegalPage({ slug }: DynamicLegalPageProps) 
   return (
     <SectionContainer width="container" variant="loose">
       <SectionHeader title={page.title} />
-      <LegalPageContent page={page} />
+      <LegalPageContent page={page} t={t} />
     </SectionContainer>
   );
 }

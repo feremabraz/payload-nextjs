@@ -2,6 +2,7 @@ import { Input } from "@shared-ui/input";
 import { Label } from "@shared-ui/label";
 import { Textarea } from "@shared-ui/textarea";
 import { cn } from "@shared-utilities/utils";
+import { useTranslations } from "next-intl";
 import type { ComponentProps, ReactNode } from "react";
 
 interface BaseFieldProps {
@@ -38,8 +39,13 @@ function FieldLabel({
   children,
   required,
 }: { htmlFor: string; children: ReactNode; required?: boolean }) {
-  const displayLabel = required ? `${children}* (Required)` : children;
-  return <Label htmlFor={htmlFor}>{displayLabel}</Label>;
+  const t = useTranslations();
+  return (
+    <Label htmlFor={htmlFor}>
+      {children}
+      {required && <> * ({t("common.required")})</>}
+    </Label>
+  );
 }
 
 export function TextField({

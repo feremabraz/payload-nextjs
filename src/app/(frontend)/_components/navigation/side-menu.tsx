@@ -32,7 +32,7 @@ export function SideMenu() {
   return (
     <div className="flex flex-col h-full p-4 sm:p-6 md:p-8 bg-sidebar-background text-sidebar-foreground">
       <div className="flex items-center justify-between mb-6 sm:mb-8">
-        <span className="text-xs sm:text-sm text-neutral-400">Menu</span>
+        <span className="text-xs sm:text-sm text-neutral-400">{t("navigation.menu")}</span>
         <SheetClose asChild>
           <Button
             variant="ghost"
@@ -40,7 +40,7 @@ export function SideMenu() {
             className="dark:text-secondary-foreground dark:hover:text-secondary-foreground/80 transition-colors duration-200 ease-in-out"
           >
             <X className="w-5 h-5 sm:w-6 sm:h-6" />
-            <span className="sr-only">Close menu</span>
+            <span className="sr-only">{t("navigation.closeMenu")}</span>
           </Button>
         </SheetClose>
       </div>
@@ -82,7 +82,7 @@ export function SideMenu() {
             size="icon"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="dark:text-secondary-foreground dark:hover:text-secondary-foreground/80 transition-colors duration-200 ease-in-out"
-            aria-label="Toggle theme"
+            aria-label={t("navigation.toggleTheme")}
           >
             {theme === "dark" ? (
               <Sun className="w-5 h-5 sm:w-6 sm:h-6" />

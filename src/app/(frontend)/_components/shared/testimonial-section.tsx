@@ -4,6 +4,7 @@ import { EmptyState } from "@shared/empty-state";
 import { SectionContainer, SectionHeader } from "@shared/section-container";
 import { TestimonialCard } from "@shared/testimonial-card";
 import { MessageSquareQuote } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
 function getTestimonialColumns(testimonials: Testimonial[]) {
   if (testimonials.length === 0) return [];
@@ -23,6 +24,7 @@ function getTestimonialColumns(testimonials: Testimonial[]) {
 }
 
 export default async function TestimonialsSection() {
+  const t = await getTranslations();
   const testimonials = await getTestimonials();
 
   if (testimonials.length === 0) {
@@ -30,14 +32,14 @@ export default async function TestimonialsSection() {
       <div id="testimonials">
         <SectionContainer>
           <SectionHeader
-            title="TESTIMONIALS"
+            title={t("testimonials.title")}
             linkHref="/testimonials"
-            linkText="GO TO TESTIMONIALS"
+            linkText={t("testimonials.goToTestimonials")}
           />
           <EmptyState
             icon={<MessageSquareQuote className="h-12 w-12" />}
-            title="No testimonials yet"
-            description="We're working on gathering testimonials from our clients. Check back soon!"
+            title="testimonials.noTestimonials"
+            description="testimonials.noTestimonialsDescription"
           />
         </SectionContainer>
       </div>
@@ -50,9 +52,9 @@ export default async function TestimonialsSection() {
     <div id="testimonials">
       <SectionContainer>
         <SectionHeader
-          title="TESTIMONIALS"
+          title={t("testimonials.title")}
           linkHref="/testimonials"
-          linkText="GO TO TESTIMONIALS"
+          linkText={t("testimonials.goToTestimonials")}
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-2 w-full">
           {columns.map((columnTestimonials) => {

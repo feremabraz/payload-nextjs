@@ -3,9 +3,11 @@ import { EmptyState } from "@shared/empty-state";
 import { SectionContainer } from "@shared/section-container";
 import { TeamGallery } from "@studio/team-gallery";
 import { Users } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
 export default async function TeamSection() {
+  const t = await getTranslations();
   const teamMembers = await getTeamMembers();
 
   if (teamMembers.length === 0) {
@@ -13,12 +15,12 @@ export default async function TeamSection() {
       <SectionContainer variant="default" width="container">
         <section className="flex flex-col items-center gap-8 md:gap-12 w-full">
           <h2 className="w-full text-center font-medium text-4xl md:text-6xl text-balance px-4 text-foreground">
-            OUR TEAM
+            {t("studio.team")}
           </h2>
           <EmptyState
             icon={<Users className="h-12 w-12" />}
-            title="No team members yet"
-            description="We're building our team and will introduce our members soon!"
+            title="studio.noTeamMembers"
+            description="studio.noTeamMembersDescription"
           />
         </section>
       </SectionContainer>
@@ -29,14 +31,10 @@ export default async function TeamSection() {
     <SectionContainer variant="default" width="container">
       <section className="flex flex-col items-center gap-8 md:gap-12 w-full">
         <h2 className="w-full text-center font-medium text-4xl md:text-6xl text-balance px-4 text-foreground">
-          OUR TEAM
+          {t("studio.team")}
         </h2>
         <div className="w-full max-w-4xl mx-auto text-center mb-8">
-          <p className="font-normal text-lg text-foreground">
-            We guarantee strict compliance with work deadlines while ensuring top-tier quality in
-            every detail. Our commitment to excellence is reflected in precise project execution and
-            flawless finishes that meet the highest industry standards.
-          </p>
+          <p className="font-normal text-lg text-foreground">{t("studio.teamDescription")}</p>
         </div>
         <div className="relative w-full h-72 max-w-7xl">
           <Image

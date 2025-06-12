@@ -8,6 +8,7 @@ import type { Project } from "@shared-types/projects";
 import { Sheet, SheetContent, SheetTitle } from "@shared-ui/sheet";
 import { useAtom } from "jotai";
 import { ArrowDown } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 interface ProjectCustomNavigationProps {
@@ -22,6 +23,7 @@ function HeroImage({ project }: { project: Project }) {
 
 export default function ProjectCustomNavigation({ project }: ProjectCustomNavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useAtom(isMenuOpenAtom);
+  const t = useTranslations();
 
   const mainLocation = project.location.split(",")[0].toUpperCase();
 
@@ -34,7 +36,9 @@ export default function ProjectCustomNavigation({ project }: ProjectCustomNaviga
           <NavigationBarWithLogo background="dark" />
           <div className="flex flex-col items-center justify-center flex-grow w-full text-center text-white">
             <p className="text-lg sm:text-xl md:text-2xl font-light mb-2">
-              {project.category.replace("-", " ").toUpperCase()} IN
+              {t("projects.projectIn", {
+                category: project.category.replace("-", " ").toUpperCase(),
+              })}
             </p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-semibold mb-4">
               {mainLocation}
@@ -50,7 +54,7 @@ export default function ProjectCustomNavigation({ project }: ProjectCustomNaviga
         hideDefaultCloseButton
       >
         <VisuallyHidden>
-          <SheetTitle>Navigation Menu</SheetTitle>
+          <SheetTitle>{t("navigation.navigationMenu")}</SheetTitle>
         </VisuallyHidden>
         <SideMenu />
       </SheetContent>

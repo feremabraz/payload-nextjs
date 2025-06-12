@@ -1,22 +1,24 @@
 import { getCompanyValues } from "@actions/values-and-mission";
 import { EmptyState } from "@shared/empty-state";
 import { SectionContainer } from "@shared/section-container";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
 export default async function ValuesMissionSection() {
+  const t = await getTranslations();
   const values = await getCompanyValues();
   return (
     <SectionContainer variant="default" width="container">
       <section className="flex flex-col items-center gap-8 md:gap-12 w-full">
         <h2 className="w-full text-center font-medium text-4xl md:text-6xl text-balance px-4 text-foreground">
-          VALUES AND MISSION
+          {t("studio.valuesMission.title")}
         </h2>
         <div className="flex flex-col gap-8 w-full max-w-4xl">
           {values.length === 0 ? (
             <EmptyState
               icon="💫"
-              title="No Values Content"
-              description="Company values and mission content will be displayed here when available."
+              title={t("studio.valuesMission.noValuesTitle")}
+              description={t("studio.valuesMission.noValuesDescription")}
             />
           ) : (
             values.map((value) => (
@@ -32,7 +34,7 @@ export default async function ValuesMissionSection() {
         <div className="relative w-full h-64 md:h-96 max-w-4xl mt-8">
           <Image
             src="/studio/map-base.webp"
-            alt="World map illustration highlighting global presence"
+            alt={t("studio.valuesMission.worldMapAlt")}
             fill
             className="object-contain opacity-80"
           />

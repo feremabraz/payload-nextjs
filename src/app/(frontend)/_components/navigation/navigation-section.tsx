@@ -7,12 +7,14 @@ import { isMenuOpenAtom } from "@shared-store/atoms";
 import { Sheet, SheetContent, SheetTitle } from "@shared-ui/sheet";
 import { SectionContainer } from "@shared/section-container";
 import { useAtom } from "jotai";
+import { useTranslations } from "next-intl";
 
 interface NavigationSectionProps {
   background?: "light" | "dark";
 }
 
 export default function NavigationSection({ background }: NavigationSectionProps) {
+  const t = useTranslations();
   const [isMenuOpen, setIsMenuOpen] = useAtom(isMenuOpenAtom);
   return (
     <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
@@ -25,7 +27,7 @@ export default function NavigationSection({ background }: NavigationSectionProps
         hideDefaultCloseButton
       >
         <VisuallyHidden>
-          <SheetTitle>Navigation Menu</SheetTitle>
+          <SheetTitle>{t("navigation.navigationMenu")}</SheetTitle>
         </VisuallyHidden>
         <SideMenu />
       </SheetContent>

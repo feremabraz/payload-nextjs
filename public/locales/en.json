@@ -61,7 +61,10 @@
     "backTo": "Back to {page}",
     "backToHome": "Back to Home",
     "backToProjects": "Back to Projects",
-    "backToJobs": "Back to Jobs"
+    "backToJobs": "Back to Jobs",
+    "switchToLanguage": "Switch to {language}",
+    "english": "English",
+    "portuguese": "Portuguese"
   },
   "hero": {
     "title": "Bruno Câmara Arquitectos",
@@ -95,7 +98,7 @@
       "noAwards": "No awards yet",
       "noAwardsDescription": "We're working on documenting our achievements. Check back soon!",
       "noPublications": "No publications available",
-      "noPublicationsDescription": "We're working on new publications. Stay tuned for insights and case studies!",
+      "noPublicationsDescription": "Publications and press features will be displayed here when available.",
       "getInTouch": "Get In Touch"
     },
     "blogNews": {
@@ -166,12 +169,18 @@
     "awardLocation": "Location",
     "awardYear": "Year",
     "awardDescription": "Description",
+    "noStudioInfo": "No studio information available",
+    "noStudioInfoDescription": "We're working on updating our studio information. Check back soon!",
+    "goToStudio": "Go to Studio",
     "guarantees": {
       "title": "Our Guarantees",
-      "quality": "Quality Assurance",
-      "timeline": "On-Time Delivery",
-      "budget": "Budget Compliance",
-      "service": "Exceptional Service"
+      "description": "We guarantee strict compliance with work deadlines while ensuring top-tier quality in every detail. Our commitment to excellence is reflected in precise project execution and flawless finishes that meet the highest industry standards."
+    },
+    "valuesMission": {
+      "title": "Values and Mission",
+      "noValuesTitle": "No Values Content",
+      "noValuesDescription": "Company values and mission content will be displayed here when available.",
+      "worldMapAlt": "World map illustration highlighting global presence"
     }
   },
   "blog": {
@@ -221,6 +230,10 @@
   },
   "jobs": {
     "title": "Open Jobs",
+    "featuredPositions": "Featured Positions",
+    "priorityOpeningsDescription": "Priority openings where we're actively seeking qualified candidates.",
+    "allOpenPositions": "All Open Positions",
+    "exploreOpportunities": "Explore all current opportunities to join our innovative architecture team.",
     "job": "Job",
     "position": "Position",
     "department": "Department",
@@ -336,6 +349,7 @@
   },
   "testimonials": {
     "title": "What Our Clients Say",
+    "goToTestimonials": "Go to Testimonials",
     "clientName": "Client Name",
     "projectType": "Project Type",
     "rating": "Rating",
@@ -478,5 +492,13 @@
     },
     "backToHome": "Back to Home",
     "viewProjects": "View Projects"
+  },
+  "legal": {
+    "lastUpdated": "Last updated",
+    "contactUs": "Contact Us"
+  },
+  "richText": {
+    "formatNotRecognized": "Rich text content format not recognized. Raw content:",
+    "fallbackText": "Content could not be displayed"
   }
 }

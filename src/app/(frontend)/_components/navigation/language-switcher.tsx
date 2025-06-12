@@ -6,6 +6,7 @@ import type { Language } from "@shared-types/language";
 import { Button } from "@shared-ui/button";
 import { cn } from "@shared-utilities/utils";
 import { useAtom } from "jotai";
+import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import { useEffect } from "react";
 
@@ -14,6 +15,7 @@ interface LanguageSwitcherProps {
 }
 
 export function LanguageSwitcher({ background }: LanguageSwitcherProps) {
+  const t = useTranslations();
   const [language, setLanguage] = useAtom(currentLanguageAtom);
   const pathname = usePathname();
   const router = useRouter();
@@ -89,6 +91,9 @@ export function LanguageSwitcher({ background }: LanguageSwitcherProps) {
               language === lang.id ? styles.activeButton : styles.inactiveButton,
             )}
             onClick={() => handleLanguageChange(lang.id)}
+            aria-label={t("navigation.switchToLanguage", {
+              language: t(`navigation.${lang.id === "en" ? "english" : "portuguese"}`),
+            })}
           >
             {lang.label}
           </Button>
