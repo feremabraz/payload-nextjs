@@ -5,8 +5,12 @@ import { EmptyState } from "@shared/empty-state";
 import { SectionContainer } from "@shared/section-container";
 import { getTranslations } from "next-intl/server";
 
-export default async function PublicationsSection() {
-  const t = await getTranslations();
+interface PublicationsSectionProps {
+  locale: string;
+}
+
+export default async function PublicationsSection({ locale }: PublicationsSectionProps) {
+  const t = await getTranslations({ locale });
   const publications = await getPublications();
   return (
     <SectionContainer variant="default" width="container">

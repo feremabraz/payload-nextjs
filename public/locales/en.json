@@ -110,8 +110,14 @@
       "emailPlaceholder": "Input your Email"
     }
   },
+  "newsletter": {
+    "title": "Stay Updated",
+    "description": "Subscribe to receive inspiration and news about our latest and future projects.",
+    "emailPlaceholder": "Input your Email"
+  },
   "projects": {
     "title": "Projects",
+    "viewProjects": "View Projects",
     "category": "Category",
     "location": "Location",
     "year": "Year",
@@ -140,6 +146,10 @@
   },
   "studio": {
     "title": "Studio",
+    "pageTitle": "STUDIO",
+    "companyName": "BRUNO CÂMARA ARQUITECTOS",
+    "publications": "Publications",
+    "teamDescription": "Meet our team of talented professionals dedicated to creating exceptional architectural experiences.",
     "about": "About",
     "team": "Team",
     "awards": "Awards",

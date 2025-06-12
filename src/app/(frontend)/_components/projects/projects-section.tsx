@@ -9,8 +9,12 @@ import { SectionContainer, SectionHeader } from "@shared/section-container";
 import { Building2 } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-export default async function ProjectsSection() {
-  const t = await getTranslations();
+interface ProjectsSectionProps {
+  locale: string;
+}
+
+export default async function ProjectsSection({ locale }: ProjectsSectionProps) {
+  const t = await getTranslations({ locale });
   const projects = await getProjects(8);
 
   if (projects.length === 0) {

@@ -110,8 +110,14 @@
       "emailPlaceholder": "Digite seu E-mail"
     }
   },
+  "newsletter": {
+    "title": "Fique Atualizado",
+    "description": "Assine para receber inspiração e novidades sobre nossos projetos atuais e futuros.",
+    "emailPlaceholder": "Digite seu E-mail"
+  },
   "projects": {
     "title": "Projetos",
+    "viewProjects": "Ver Projetos",
     "category": "Categoria",
     "location": "Localização",
     "year": "Ano",
@@ -140,6 +146,10 @@
   },
   "studio": {
     "title": "Estúdio",
+    "pageTitle": "ESTÚDIO",
+    "companyName": "BRUNO CÂMARA ARQUITECTOS",
+    "publications": "Publicações",
+    "teamDescription": "Conheça nossa equipe de profissionais talentosos dedicados a criar experiências arquitetônicas excepcionais.",
     "about": "Sobre",
     "team": "Equipe",
     "awards": "Prêmios",

@@ -11,7 +11,7 @@ import { SectionContainer } from "@shared/section-container";
 import config from "@/payload.config";
 
 interface PageProps {
-  params: Promise<{ id: string }>;
+  params: Promise<{ id: string; locale: string }>;
 }
 
 interface ProjectFieldProps {
@@ -40,7 +40,7 @@ export default async function ProjectPage({ params }: PageProps) {
   const { user: _user } = await payload.auth({ headers });
 
   const resolvedParams = await params;
-  const slug = resolvedParams.id;
+  const { id: slug, locale } = resolvedParams;
 
   const project = await getProjectBySlug(slug);
 
@@ -83,7 +83,7 @@ export default async function ProjectPage({ params }: PageProps) {
         </div>
       </SectionContainer>
       <ProjectImagesSection images={project.images} title={project.title} />
-      <FooterSection />
+      <FooterSection locale={locale} />
     </>
   );
 }

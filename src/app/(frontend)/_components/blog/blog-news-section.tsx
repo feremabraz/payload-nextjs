@@ -9,9 +9,13 @@ import { SectionContainer, SectionHeader } from "@shared/section-container";
 import { PenTool } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-export default async function BlogNewsSection() {
+interface BlogNewsSectionProps {
+  locale: string;
+}
+
+export default async function BlogNewsSection({ locale }: BlogNewsSectionProps) {
   const blogPosts = await getBlogPosts(4);
-  const t = await getTranslations();
+  const t = await getTranslations({ locale });
 
   if (blogPosts.length === 0) {
     return (

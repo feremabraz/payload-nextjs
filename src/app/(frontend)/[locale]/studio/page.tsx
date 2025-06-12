@@ -15,12 +15,15 @@ import { getTranslations } from "next-intl/server";
 
 import config from "@/payload.config";
 
-export default async function StudioPage() {
+export default async function StudioPage(props: { params: Promise<{ locale: string }> }) {
+  const params = await props.params;
+  const { locale } = params;
+
   const headers = await getHeaders();
   const payloadConfig = await config;
   const payload = await getPayload({ config: payloadConfig });
   const { user: _user } = await payload.auth({ headers });
-  const t = await getTranslations();
+  const t = await getTranslations({ locale });
 
   return (
     <>
@@ -31,21 +34,21 @@ export default async function StudioPage() {
           <h1 className="font-semibold text-8xl text-foreground">{t("studio.pageTitle")}</h1>
         </div>
         <div id="values">
-          <ValuesMissionSection />
+          <ValuesMissionSection locale={locale} />
         </div>
         <div id="profile">
-          <GuaranteesSection />
+          <GuaranteesSection locale={locale} />
         </div>
         <div id="team">
-          <TeamSection />
+          <TeamSection locale={locale} />
         </div>
         <div id="studio">
-          <AwardsSection />
+          <AwardsSection locale={locale} />
         </div>
-        <PublicationsSection />
-        <TestimonialsSection />
+        <PublicationsSection locale={locale} />
+        <TestimonialsSection locale={locale} />
       </SectionContainer>
-      <FooterSection />
+      <FooterSection locale={locale} />
     </>
   );
 }

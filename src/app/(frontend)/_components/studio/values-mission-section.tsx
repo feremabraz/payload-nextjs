@@ -4,8 +4,12 @@ import { SectionContainer } from "@shared/section-container";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-export default async function ValuesMissionSection() {
-  const t = await getTranslations();
+interface ValuesMissionSectionProps {
+  locale: string;
+}
+
+export default async function ValuesMissionSection({ locale }: ValuesMissionSectionProps) {
+  const t = await getTranslations({ locale });
   const values = await getCompanyValues();
   return (
     <SectionContainer variant="default" width="container">

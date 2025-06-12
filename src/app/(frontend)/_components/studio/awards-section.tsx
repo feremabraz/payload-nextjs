@@ -5,8 +5,12 @@ import { AwardsGallery } from "@studio/awards-gallery";
 import { Trophy } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-export default async function AwardsSection() {
-  const t = await getTranslations();
+interface AwardsSectionProps {
+  locale: string;
+}
+
+export default async function AwardsSection({ locale }: AwardsSectionProps) {
+  const t = await getTranslations({ locale });
   const awards = await getAwards();
 
   if (awards.length === 0) {

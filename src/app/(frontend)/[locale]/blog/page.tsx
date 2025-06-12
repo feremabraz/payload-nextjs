@@ -8,7 +8,10 @@ import BlogClientWrapper from "@wrappers/blog-client-wrapper";
 
 import config from "@/payload.config";
 
-export default async function BlogPage() {
+export default async function BlogPage(props: { params: Promise<{ locale: string }> }) {
+  const params = await props.params;
+  const { locale } = params;
+
   const headers = await getHeaders();
   const payloadConfig = await config;
   const payload = await getPayload({ config: payloadConfig });
@@ -21,7 +24,7 @@ export default async function BlogPage() {
     <>
       <NavigationSection />
       <BlogClientWrapper initialPosts={blogPosts} />
-      <FooterSection />
+      <FooterSection locale={locale} />
     </>
   );
 }

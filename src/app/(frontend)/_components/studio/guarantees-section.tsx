@@ -1,8 +1,12 @@
 import { SectionContainer } from "@shared/section-container";
 import { getTranslations } from "next-intl/server";
 
-export default async function GuaranteesSection() {
-  const t = await getTranslations();
+interface GuaranteesSectionProps {
+  locale: string;
+}
+
+export default async function GuaranteesSection({ locale }: GuaranteesSectionProps) {
+  const t = await getTranslations({ locale });
   return (
     <SectionContainer variant="default" width="container">
       <section className="flex flex-col items-center gap-8 md:gap-12 w-full">

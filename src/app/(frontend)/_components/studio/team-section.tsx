@@ -6,8 +6,12 @@ import { Users } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-export default async function TeamSection() {
-  const t = await getTranslations();
+interface TeamSectionProps {
+  locale: string;
+}
+
+export default async function TeamSection({ locale }: TeamSectionProps) {
+  const t = await getTranslations({ locale });
   const teamMembers = await getTeamMembers();
 
   if (teamMembers.length === 0) {

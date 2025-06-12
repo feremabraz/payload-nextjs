@@ -6,8 +6,12 @@ import { Briefcase } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import JobCard from "./job-card";
 
-export default async function JobsSection() {
-  const t = await getTranslations();
+interface JobsSectionProps {
+  locale: string;
+}
+
+export default async function JobsSection({ locale }: JobsSectionProps) {
+  const t = await getTranslations({ locale });
   const jobs = await getJobs();
   const featuredJobs = await getFeaturedJobs();
 

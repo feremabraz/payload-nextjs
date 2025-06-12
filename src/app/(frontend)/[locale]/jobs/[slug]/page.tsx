@@ -8,11 +8,12 @@ import { notFound } from "next/navigation";
 interface JobPageProps {
   params: Promise<{
     slug: string;
+    locale: string;
   }>;
 }
 
 export default async function JobPage({ params }: JobPageProps) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const job = await getJobBySlug(slug);
 
   if (!job) {
@@ -26,7 +27,7 @@ export default async function JobPage({ params }: JobPageProps) {
         <SectionHeader title={job.title} />
         <JobDetail job={job} />
       </SectionContainer>
-      <FooterSection />
+      <FooterSection locale={locale} />
     </>
   );
 }

@@ -7,8 +7,12 @@ import { StudioCard } from "@studio/studio-card";
 import { Building2 } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-export default async function StudioSection() {
-  const t = await getTranslations();
+interface StudioSectionProps {
+  locale: string;
+}
+
+export default async function StudioSection({ locale }: StudioSectionProps) {
+  const t = await getTranslations({ locale });
   const studioData = await getStudioInfo();
 
   if (studioData.length === 0) {

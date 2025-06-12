@@ -8,7 +8,10 @@ import ProjectsClientWrapper from "@wrappers/projects-client-wrapper";
 
 import config from "@/payload.config";
 
-export default async function ProjectsPage() {
+export default async function ProjectsPage(props: { params: Promise<{ locale: string }> }) {
+  const params = await props.params;
+  const { locale } = params;
+
   const headers = await getHeaders();
   const payloadConfig = await config;
   const payload = await getPayload({ config: payloadConfig });
@@ -20,7 +23,7 @@ export default async function ProjectsPage() {
     <>
       <NavigationSection />
       <ProjectsClientWrapper initialProjects={projects} />
-      <FooterSection />
+      <FooterSection locale={locale} />
     </>
   );
 }

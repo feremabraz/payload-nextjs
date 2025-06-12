@@ -9,7 +9,10 @@ import TestimonialsSection from "@shared/testimonial-section";
 
 import config from "@/payload.config";
 
-export default async function BudgetPage() {
+export default async function BudgetPage(props: { params: Promise<{ locale: string }> }) {
+  const params = await props.params;
+  const { locale } = params;
+
   const headers = await getHeaders();
   const payloadConfig = await config;
   const payload = await getPayload({ config: payloadConfig });
@@ -19,10 +22,10 @@ export default async function BudgetPage() {
     <>
       <NavigationSection />
       <SectionContainer width="container" variant="loose">
-        <BudgetRequestWithImageSection />
-        <TestimonialsSection />
+        <BudgetRequestWithImageSection locale={locale} />
+        <TestimonialsSection locale={locale} />
       </SectionContainer>
-      <FooterSection />
+      <FooterSection locale={locale} />
     </>
   );
 }

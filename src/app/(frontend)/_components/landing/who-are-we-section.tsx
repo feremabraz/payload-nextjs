@@ -2,8 +2,12 @@ import { Link } from "@i18n/navigation";
 import { SectionContainer } from "@shared/section-container";
 import { getTranslations } from "next-intl/server";
 
-export default async function WhoAreWeSection() {
-  const t = await getTranslations();
+interface WhoAreWeSectionProps {
+  locale: string;
+}
+
+export default async function WhoAreWeSection({ locale }: WhoAreWeSectionProps) {
+  const t = await getTranslations({ locale });
 
   const navItems = [
     { name: t("navigation.projects"), href: "/projects" },

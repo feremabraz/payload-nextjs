@@ -11,10 +11,14 @@ import ProjectsSection from "@projects/projects-section";
 import FooterSection from "@shared/footer-section";
 import TestimonialsSection from "@shared/testimonial-section";
 import StudioSection from "@studio/studio-section";
+// import LocaleDebug from "../_components/debug/locale-debug";
 
 import config from "@/payload.config";
 
-export default async function HomePage() {
+export default async function HomePage(props: { params: Promise<{ locale: string }> }) {
+  const params = await props.params;
+  const { locale } = params;
+
   const headers = await getHeaders();
   const payloadConfig = await config;
   const payload = await getPayload({ config: payloadConfig });
@@ -22,15 +26,16 @@ export default async function HomePage() {
 
   return (
     <>
+      {/* <LocaleDebug pageLocale={locale} /> */}
       <HeroSection />
-      <WhoAreWeSection />
-      <ProjectsSection />
-      <TestimonialsSection />
-      <BudgetRequestSection />
-      <StudioSection />
-      <BlogNewsSection />
-      <NewsletterSection />
-      <FooterSection />
+      <WhoAreWeSection locale={locale} />
+      <ProjectsSection locale={locale} />
+      <TestimonialsSection locale={locale} />
+      <BudgetRequestSection locale={locale} />
+      <StudioSection locale={locale} />
+      <BlogNewsSection locale={locale} />
+      <NewsletterSection locale={locale} />
+      <FooterSection locale={locale} />
     </>
   );
 }

@@ -23,8 +23,12 @@ function getTestimonialColumns(testimonials: Testimonial[]) {
   ];
 }
 
-export default async function TestimonialsSection() {
-  const t = await getTranslations();
+interface TestimonialsSectionProps {
+  locale: string;
+}
+
+export default async function TestimonialsSection({ locale }: TestimonialsSectionProps) {
+  const t = await getTranslations({ locale });
   const testimonials = await getTestimonials();
 
   if (testimonials.length === 0) {

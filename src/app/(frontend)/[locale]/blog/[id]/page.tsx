@@ -17,7 +17,7 @@ import { getTranslations } from "next-intl/server";
 import config from "@/payload.config";
 
 interface PageProps {
-  params: Promise<{ id: string }>;
+  params: Promise<{ id: string; locale: string }>;
 }
 
 export default async function BlogEntryPage({ params }: PageProps) {
@@ -27,8 +27,7 @@ export default async function BlogEntryPage({ params }: PageProps) {
   const { user: _user } = await payload.auth({ headers });
 
   const resolvedParams = await params;
-  const slug = resolvedParams.id;
-
+  const { id: slug, locale } = resolvedParams;
   const post = await getBlogPostBySlug(slug);
 
   if (!post) {
@@ -38,7 +37,7 @@ export default async function BlogEntryPage({ params }: PageProps) {
   const relatedPosts = await getBlogPosts(3);
   const filteredRelatedPosts = relatedPosts.filter((p: BlogNewsPost) => p.slug !== slug);
 
-  const t = await getTranslations();
+  const t = await getTranslations({ locale });
 
   return (
     <>
@@ -91,7 +90,7 @@ export default async function BlogEntryPage({ params }: PageProps) {
           </div>
         </SectionContainer>
       )}
-      <FooterSection />
+      <FooterSection locale={locale} />
     </>
   );
 }

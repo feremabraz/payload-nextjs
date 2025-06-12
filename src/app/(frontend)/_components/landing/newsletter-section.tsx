@@ -4,8 +4,12 @@ import { Button } from "@shared-ui/button";
 import { SectionContainer } from "@shared/section-container";
 import { getTranslations } from "next-intl/server";
 
-export default async function NewsletterSection() {
-  const t = await getTranslations();
+interface NewsletterSectionProps {
+  locale: string;
+}
+
+export default async function NewsletterSection({ locale }: NewsletterSectionProps) {
+  const t = await getTranslations({ locale });
   return (
     <SectionContainer>
       <SimpleFormContainer

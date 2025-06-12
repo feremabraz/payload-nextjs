@@ -17,8 +17,12 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
   </li>
 );
 
-export default async function FooterSection() {
-  const t = await getTranslations();
+interface FooterSectionProps {
+  locale?: string;
+}
+
+export default async function FooterSection({ locale }: FooterSectionProps) {
+  const t = locale ? await getTranslations({ locale }) : await getTranslations();
 
   // Fetch data on server side
   const [contactInfo, socialMedia, legalInfo] = await Promise.all([

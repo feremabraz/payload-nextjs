@@ -33,7 +33,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   }
 
   // Load messages for the locale
-  const messages = await getMessages();
+  const messages = await getMessages({ locale });
 
   return (
     <html lang={locale} suppressHydrationWarning>

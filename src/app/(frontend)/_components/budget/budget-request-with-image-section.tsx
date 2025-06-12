@@ -4,8 +4,14 @@ import { Button } from "@shared-ui/button";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-export default async function BudgetRequestWithImageSection() {
-  const t = await getTranslations();
+interface BudgetRequestWithImageSectionProps {
+  locale: string;
+}
+
+export default async function BudgetRequestWithImageSection({
+  locale,
+}: BudgetRequestWithImageSectionProps) {
+  const t = await getTranslations({ locale });
   return (
     <>
       <SimpleFormContainer title={t("budget.title")} description={t("budget.description")}>

@@ -8,7 +8,10 @@ import { SectionContainer, SectionHeader } from "@shared/section-container";
 
 import config from "@/payload.config";
 
-export default async function JobsPage() {
+export default async function JobsPage(props: { params: Promise<{ locale: string }> }) {
+  const params = await props.params;
+  const { locale } = params;
+
   const headers = await getHeaders();
   const payloadConfig = await config;
   const payload = await getPayload({ config: payloadConfig });
@@ -19,9 +22,9 @@ export default async function JobsPage() {
       <NavigationSection />
       <SectionContainer width="container" variant="loose">
         <SectionHeader title="OPEN JOBS" />
-        <JobsSection />
+        <JobsSection locale={locale} />
       </SectionContainer>
-      <FooterSection />
+      <FooterSection locale={locale} />
     </>
   );
 }
