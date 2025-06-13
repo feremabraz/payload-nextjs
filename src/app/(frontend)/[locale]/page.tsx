@@ -35,7 +35,7 @@ export default async function HomePage(props: { params: Promise<{ locale: string
       <WhoAreWeSection locale={locale} />
       <ProjectsSection locale={locale} />
       <TestimonialsSection locale={locale} />
-      <BudgetRequestSection locale={locale} />
+      <BudgetRequestSection />
       <StudioSection locale={locale} />
       <BlogNewsSection locale={locale} />
       <NewsletterSection locale={locale} />
