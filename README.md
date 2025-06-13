@@ -1,6 +1,6 @@
-# Payload CMS + Next.js Architecture Portfolio
+# Bruno Câmara Arquitetos
 
-A modern full-stack web application built with Payload CMS and Next.js 15.
+A modern full-stack blog and portfolio built with Payload CMS and Next.js 15.
 
 ## ✨ Features
 
