@@ -185,6 +185,9 @@ importers:
       zod:
         specifier: ^3.25.49
         version: 3.25.49
+      zod-validation-error:
+        specifier: ^3.5.0
+        version: 3.5.0(zod@3.25.49)
     devDependencies:
       '@biomejs/biome':
         specifier: ^1.9.4
@@ -4213,6 +4216,12 @@ packages:
   yjs@13.6.26:
     resolution: {integrity: sha512-wiARO3wixu7mtoRP5f7LqpUtsURP9SmNgXUt3RlnZg4qDuF7dUjthwIvwxIDmK55dPw4Wl4QdW5A3ag0atwu7g==}
     engines: {node: '>=16.0.0', npm: '>=8.0.0'}
+
+  zod-validation-error@3.5.0:
+    resolution: {integrity: sha512-IWK6O51sRkq0YsnYD2oLDuK2BNsIjYUlR0+1YSd4JyBzm6/892IWroUnLc7oW4FU+b0f6948BHi6H8MDcqpOGw==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      zod: ^3.25.0
 
   zod@3.25.49:
     resolution: {integrity: sha512-JMMPMy9ZBk3XFEdbM3iL1brx4NUSejd6xr3ELrrGEfGb355gjhiAWtG3K5o+AViV/3ZfkIrCzXsZn6SbLwTR8Q==}
@@ -8824,6 +8833,10 @@ snapshots:
   yjs@13.6.26:
     dependencies:
       lib0: 0.2.108
+
+  zod-validation-error@3.5.0(zod@3.25.49):
+    dependencies:
+      zod: 3.25.49
 
   zod@3.25.49: {}
 

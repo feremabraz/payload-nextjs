@@ -5,8 +5,8 @@ import React from "react";
 
 import BlogNewsSection from "@blog/blog-news-section";
 import BudgetRequestSection from "@budget/budget-request-section";
+import NewsletterSection from "@components/landing/newsletter-section";
 import HeroSection from "@landing/hero-section";
-import NewsletterSection from "@landing/newsletter-section";
 import WhoAreWeSection from "@landing/who-are-we-section";
 import ProjectsSection from "@projects/projects-section";
 import FooterSection from "@shared/footer-section";

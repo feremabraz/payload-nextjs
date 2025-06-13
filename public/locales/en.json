@@ -6,6 +6,7 @@
     "close": "Close",
     "open": "Open",
     "submit": "Submit",
+    "submitting": "Submitting...",
     "cancel": "Cancel",
     "save": "Save",
     "edit": "Edit",
@@ -405,7 +406,10 @@
     "namePlaceholder": "Your name",
     "companyPlaceholder": "Your company (optional)",
     "subjectPlaceholder": "Subject",
-    "messagePlaceholder": "Your message..."
+    "messagePlaceholder": "Your message...",
+    "budgetRequestSuccess": "Budget request submitted successfully! We'll contact you soon.",
+    "newsletterSuccess": "Successfully subscribed to newsletter!",
+    "jobApplicationSuccess": "Job application submitted successfully! We'll review your application."
   },
   "error": {
     "pageNotFound": "Page Not Found",

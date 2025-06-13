@@ -7,10 +7,13 @@ import { buildConfig } from "payload";
 
 import { Awards } from "./collections/Awards";
 import { Blog } from "./collections/Blog";
+import { BudgetRequests } from "./collections/BudgetRequests";
 import { CompanySettings } from "./collections/CompanySettings";
+import { JobApplications } from "./collections/JobApplications";
 import { Jobs } from "./collections/Jobs";
 import { LegalPages } from "./collections/LegalPages";
 import { Media } from "./collections/Media";
+import { Newsletter } from "./collections/Newsletter";
 import { Projects } from "./collections/Projects";
 import { Publications } from "./collections/Publications";
 import { StudioInfo } from "./collections/StudioInfo";
@@ -43,6 +46,9 @@ export default buildConfig({
     ValuesAndMission,
     LegalPages,
     Jobs,
+    JobApplications,
+    BudgetRequests,
+    Newsletter,
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",

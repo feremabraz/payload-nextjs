@@ -80,6 +80,9 @@ export interface Config {
     'values-and-mission': ValuesAndMission;
     'legal-pages': LegalPage;
     jobs: Job;
+    'job-applications': JobApplication;
+    'budget-requests': BudgetRequest;
+    newsletter: Newsletter;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -99,6 +102,9 @@ export interface Config {
     'values-and-mission': ValuesAndMissionSelect<false> | ValuesAndMissionSelect<true>;
     'legal-pages': LegalPagesSelect<false> | LegalPagesSelect<true>;
     jobs: JobsSelect<false> | JobsSelect<true>;
+    'job-applications': JobApplicationsSelect<false> | JobApplicationsSelect<true>;
+    'budget-requests': BudgetRequestsSelect<false> | BudgetRequestsSelect<true>;
+    newsletter: NewsletterSelect<false> | NewsletterSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -773,6 +779,146 @@ export interface Job {
   createdAt: string;
 }
 /**
+ * Job applications submitted through the website
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "job-applications".
+ */
+export interface JobApplication {
+  id: number;
+  /**
+   * Full name of the applicant
+   */
+  name: string;
+  /**
+   * Email address for contact
+   */
+  email: string;
+  /**
+   * Phone number for contact
+   */
+  phone: string;
+  /**
+   * Position applied for
+   */
+  position: string;
+  /**
+   * Related job listing
+   */
+  jobId?: (number | null) | Job;
+  /**
+   * Cover letter or message from applicant
+   */
+  coverLetter?: string | null;
+  /**
+   * CV/Resume file
+   */
+  cv: number | Media;
+  /**
+   * Portfolio file (optional)
+   */
+  portfolio?: (number | null) | Media;
+  /**
+   * Application status
+   */
+  status?:
+    | (
+        | 'received'
+        | 'under-review'
+        | 'interview-scheduled'
+        | 'interview-completed'
+        | 'offer-made'
+        | 'hired'
+        | 'declined'
+        | 'withdrawn'
+      )
+    | null;
+  /**
+   * Internal rating (1-5 stars)
+   */
+  rating?: number | null;
+  /**
+   * Scheduled interview date
+   */
+  interviewDate?: string | null;
+  /**
+   * Internal notes about the applicant
+   */
+  notes?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Budget requests submitted through the website
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "budget-requests".
+ */
+export interface BudgetRequest {
+  id: number;
+  /**
+   * Full name of the person requesting the budget
+   */
+  name: string;
+  /**
+   * Email address for contact
+   */
+  email: string;
+  /**
+   * Phone number for contact
+   */
+  phone: string;
+  /**
+   * Project description or additional information
+   */
+  message?: string | null;
+  /**
+   * Status of the budget request
+   */
+  status?: ('pending' | 'in-review' | 'contacted' | 'quoted' | 'closed') | null;
+  /**
+   * Priority level of the request
+   */
+  priority?: ('low' | 'normal' | 'high' | 'urgent') | null;
+  /**
+   * Internal notes (not visible to client)
+   */
+  notes?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Newsletter email subscriptions
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "newsletter".
+ */
+export interface Newsletter {
+  id: number;
+  /**
+   * Email address for newsletter subscription
+   */
+  email: string;
+  /**
+   * Subscription status
+   */
+  status?: ('active' | 'unsubscribed' | 'bounced') | null;
+  /**
+   * Date of subscription
+   */
+  subscribedAt?: string | null;
+  /**
+   * Date of unsubscription (if applicable)
+   */
+  unsubscribedAt?: string | null;
+  /**
+   * Source of subscription (website, form, etc.)
+   */
+  source?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
@@ -830,6 +976,18 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'jobs';
         value: number | Job;
+      } | null)
+    | ({
+        relationTo: 'job-applications';
+        value: number | JobApplication;
+      } | null)
+    | ({
+        relationTo: 'budget-requests';
+        value: number | BudgetRequest;
+      } | null)
+    | ({
+        relationTo: 'newsletter';
+        value: number | Newsletter;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -1173,6 +1331,54 @@ export interface JobsSelect<T extends boolean = true> {
   urgent?: T;
   published?: T;
   order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "job-applications_select".
+ */
+export interface JobApplicationsSelect<T extends boolean = true> {
+  name?: T;
+  email?: T;
+  phone?: T;
+  position?: T;
+  jobId?: T;
+  coverLetter?: T;
+  cv?: T;
+  portfolio?: T;
+  status?: T;
+  rating?: T;
+  interviewDate?: T;
+  notes?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "budget-requests_select".
+ */
+export interface BudgetRequestsSelect<T extends boolean = true> {
+  name?: T;
+  email?: T;
+  phone?: T;
+  message?: T;
+  status?: T;
+  priority?: T;
+  notes?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "newsletter_select".
+ */
+export interface NewsletterSelect<T extends boolean = true> {
+  email?: T;
+  status?: T;
+  subscribedAt?: T;
+  unsubscribedAt?: T;
+  source?: T;
   updatedAt?: T;
   createdAt?: T;
 }

@@ -1,11 +1,17 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Link } from "@i18n/navigation";
 import type { Job } from "@payload-types";
-import { SimpleFormContainer } from "@shared-layout/form-container";
-import { FileField, TextAreaField, TextField } from "@shared-layout/form-fields";
+import { useFormSubmission } from "@shared-hooks/use-form-submission";
+import {
+  FormFileField,
+  FormTextAreaField,
+  FormTextField,
+} from "@shared-layout/react-hook-form-fields";
 import { Badge } from "@shared-ui/badge";
 import { Button } from "@shared-ui/button";
+import { Form } from "@shared-ui/form";
 import {
   ArrowLeft,
   Briefcase,
@@ -17,13 +23,78 @@ import {
   Users,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
 
 interface JobDetailProps {
   job: Job;
 }
 
+const jobApplicationSchema = z.object({
+  name: z.string().min(1, "Full name is required"),
+  email: z.string().email("Invalid email address"),
+  phone: z.string().min(1, "Phone number is required"),
+  message: z.string().min(1, "Cover letter is required"),
+  cv: z
+    .instanceof(File, { message: "CV file is required" })
+    .refine((file) => file.size > 0, "CV file cannot be empty")
+    .refine(
+      (file) => file.type === "application/pdf" || file.type.startsWith("image/"),
+      "CV must be a PDF or image file",
+    ),
+  portfolio: z
+    .instanceof(File, { message: "Portfolio must be a file" })
+    .optional()
+    .refine(
+      (file) => file === undefined || file.size > 0,
+      "Portfolio file cannot be empty if provided",
+    )
+    .refine(
+      (file) =>
+        file === undefined || file.type === "application/pdf" || file.type.startsWith("image/"),
+      "Portfolio must be a PDF or image file",
+    ),
+});
+
+type JobApplicationFormData = z.infer<typeof jobApplicationSchema>;
+
 export default function JobDetail({ job }: JobDetailProps) {
   const t = useTranslations();
+
+  const form = useForm<JobApplicationFormData>({
+    resolver: zodResolver(jobApplicationSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    },
+  });
+
+  const { submitForm, isSubmitting } = useFormSubmission({
+    endpoint: "/api/job-application",
+    successMessage: t("forms.jobApplicationSuccess"),
+    onSuccess: () => {
+      form.reset();
+    },
+  });
+
+  const onSubmit = async (data: JobApplicationFormData) => {
+    const formData = new FormData();
+    formData.append("name", data.name);
+    formData.append("email", data.email);
+    formData.append("phone", data.phone);
+    formData.append("message", data.message);
+    formData.append("position", job.title);
+    formData.append("jobId", job.id.toString());
+    formData.append("cv", data.cv);
+    if (data.portfolio) {
+      formData.append("portfolio", data.portfolio);
+    }
+
+    await submitForm(formData);
+  };
+
   const formatSalary = (salary: Job["salaryRange"]) => {
     if (!salary?.showSalary || !salary.minSalary || !salary.maxSalary) return null;
     const currencySymbol = {
@@ -256,58 +327,57 @@ export default function JobDetail({ job }: JobDetailProps) {
               </h3>
               <p className="text-sm text-muted-foreground">{t("jobs.readyToJoin")} </p>
             </div>
-            <SimpleFormContainer>
-              <TextField
-                label={t("jobs.fullName")}
-                id="name"
-                name="name"
-                type="text"
-                placeholder={t("jobs.enterFullName")}
-                required
-              />
-              <TextField
-                label={t("jobs.emailAddress")}
-                id="email"
-                name="email"
-                type="email"
-                placeholder={t("jobs.enterEmail")}
-                required
-              />
-              <TextField
-                label={t("jobs.phoneNumber")}
-                id="phone"
-                name="phone"
-                type="tel"
-                placeholder={t("jobs.enterPhoneNumber")}
-                required
-              />
-              <TextAreaField
-                label={t("jobs.coverLetter")}
-                id="message"
-                name="message"
-                placeholder={t("jobs.coverLetterPlaceholder")}
-                rows={4}
-                required
-              />
-              <FileField
-                label={t("jobs.resumeCV")}
-                id="cv"
-                name="cv"
-                accept=".pdf,.doc,.docx"
-                required
-              />
-              <FileField
-                label={t("jobs.portfolioOptional")}
-                id="portfolio"
-                name="portfolio"
-                accept=".pdf,.zip"
-              />
-              <input type="hidden" name="position" value={job.title} />
-              <input type="hidden" name="jobId" value={job.id} />
-              <Button type="submit" className="w-full">
-                {t("jobs.submitApplication")}
-              </Button>
-            </SimpleFormContainer>
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 md:space-y-8">
+                <FormTextField
+                  control={form.control}
+                  name="name"
+                  label={t("jobs.fullName")}
+                  placeholder={t("jobs.enterFullName")}
+                  required
+                />
+                <FormTextField
+                  control={form.control}
+                  name="email"
+                  label={t("jobs.emailAddress")}
+                  type="email"
+                  placeholder={t("jobs.enterEmail")}
+                  required
+                />
+                <FormTextField
+                  control={form.control}
+                  name="phone"
+                  label={t("jobs.phoneNumber")}
+                  type="tel"
+                  placeholder={t("jobs.enterPhoneNumber")}
+                  required
+                />
+                <FormTextAreaField
+                  control={form.control}
+                  name="message"
+                  label={t("jobs.coverLetter")}
+                  placeholder={t("jobs.coverLetterPlaceholder")}
+                  rows={4}
+                  required
+                />
+                <FormFileField
+                  control={form.control}
+                  name="cv"
+                  label={t("jobs.resumeCV")}
+                  accept=".pdf,.doc,.docx"
+                  required
+                />
+                <FormFileField
+                  control={form.control}
+                  name="portfolio"
+                  label={t("jobs.portfolioOptional")}
+                  accept=".pdf,.zip"
+                />
+                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? t("common.submitting") : t("jobs.submitApplication")}
+                </Button>
+              </form>
+            </Form>
           </div>
         </div>
       </div>

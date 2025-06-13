@@ -6,6 +6,7 @@
     "close": "Fechar",
     "open": "Abrir",
     "submit": "Enviar",
+    "submitting": "Enviando...",
     "cancel": "Cancelar",
     "save": "Salvar",
     "edit": "Editar",
@@ -405,7 +406,10 @@
     "namePlaceholder": "Seu nome",
     "companyPlaceholder": "Sua empresa (opcional)",
     "subjectPlaceholder": "Assunto",
-    "messagePlaceholder": "Sua mensagem..."
+    "messagePlaceholder": "Sua mensagem...",
+    "budgetRequestSuccess": "Solicitação de orçamento enviada com sucesso! Entraremos em contato em breve.",
+    "newsletterSuccess": "Inscrito na newsletter com sucesso!",
+    "jobApplicationSuccess": "Candidatura enviada com sucesso! Analisaremos sua aplicação."
   },
   "error": {
     "pageNotFound": "Página Não Encontrada",
