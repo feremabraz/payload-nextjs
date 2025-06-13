@@ -1,7 +1,7 @@
 "use client";
 
-import { Link } from "@i18n/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export function FooterLogo() {
@@ -9,7 +9,7 @@ export function FooterLogo() {
   const isHomePage = pathname === "/";
 
   return (
-    <Link href="/" aria-label="Bruno Câmara Arquitectos Home">
+    <Link href="/admin" aria-label="Bruno Câmara Arquitectos Admin Page">
       {isHomePage ? (
         <Image
           src="/hero-text-image.png"
