@@ -1,4 +1,5 @@
 import { routing } from "@i18n/routing";
+import { Toaster } from "@shared-ui/sonner";
 import { ThemeProvider } from "@shared/theme-provider";
 import type { Metadata } from "next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
@@ -49,6 +50,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <NextIntlClientProvider messages={messages} locale={locale}>
             <main>{children}</main>
+            <Toaster />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
