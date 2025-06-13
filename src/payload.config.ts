@@ -1,6 +1,7 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { vercelPostgresAdapter } from "@payloadcms/db-vercel-postgres";
+import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import { buildConfig } from "payload";
@@ -68,4 +69,18 @@ export default buildConfig({
       token: process.env.BLOB_READ_WRITE_TOKEN || "",
     }),
   ],
+  email: nodemailerAdapter({
+    defaultFromAddress: process.env.EMAIL_FROM || "onboarding@resend.dev",
+    defaultFromName: "CVZ Portugal",
+    // Resend SMTP configuration
+    transportOptions: {
+      host: "smtp.resend.com",
+      port: 465,
+      secure: true,
+      auth: {
+        user: "resend",
+        pass: process.env.RESEND_API_KEY,
+      },
+    },
+  }),
 });

@@ -1,3 +1,5 @@
+import { emailService } from "@/lib/email";
+import { resendEmailService } from "@/lib/resend-email";
 import config from "@/payload.config";
 import { type NextRequest, NextResponse } from "next/server";
 import { getPayload } from "payload";
@@ -36,6 +38,19 @@ export async function POST(request: NextRequest) {
         priority: "normal",
       },
     });
+
+    // Send confirmation email to client
+    try {
+      // Try Resend service first, fallback to Payload email service
+      const result = await resendEmailService.sendBudgetRequestConfirmation(name, email);
+      if (!result.success) {
+        console.warn("Resend service failed, trying Payload email service:", result.error);
+        await emailService.sendBudgetRequestConfirmation(name, email);
+      }
+    } catch (emailError) {
+      console.error("Failed to send budget request confirmation email:", emailError);
+      // Don't fail the request creation if email fails
+    }
 
     return NextResponse.json(
       {

@@ -1,3 +1,5 @@
+import { emailService } from "@/lib/email";
+import { resendEmailService } from "@/lib/resend-email";
 import config from "@/payload.config";
 import { type NextRequest, NextResponse } from "next/server";
 import { getPayload } from "payload";
@@ -70,6 +72,19 @@ export async function POST(request: NextRequest) {
         status: "active",
       },
     });
+
+    // Send welcome email
+    try {
+      // Try Resend service first, fallback to Payload email service
+      const result = await resendEmailService.sendNewsletterWelcomeEmail(email);
+      if (!result.success) {
+        console.warn("Resend service failed, trying Payload email service:", result.error);
+        await emailService.sendNewsletterWelcomeEmail(email);
+      }
+    } catch (error) {
+      console.error("Failed to send welcome email:", error);
+      // Don't fail the subscription if email fails
+    }
 
     return NextResponse.json(
       {

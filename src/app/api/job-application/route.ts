@@ -1,3 +1,5 @@
+import { emailService } from "@/lib/email";
+import { resendEmailService } from "@/lib/resend-email";
 import type { Job, JobApplication, Media } from "@/payload-types";
 import configPromise from "@payload-config";
 import { NextResponse } from "next/server";
@@ -170,6 +172,23 @@ export async function POST(request: Request) {
       collection: "job-applications",
       data: applicationData,
     });
+
+    // Send confirmation email to applicant
+    try {
+      // Try Resend service first, fallback to Payload email service
+      const result = await resendEmailService.sendJobApplicationConfirmation(
+        name,
+        email,
+        applicationData.position,
+      );
+      if (!result.success) {
+        console.warn("Resend service failed, trying Payload email service:", result.error);
+        await emailService.sendJobApplicationConfirmation(name, email, applicationData.position);
+      }
+    } catch (emailError) {
+      console.error("Failed to send job application confirmation email:", emailError);
+      // Don't fail the application creation if email fails
+    }
 
     return NextResponse.json(newApplication, { status: 201 });
   } catch (error) {
