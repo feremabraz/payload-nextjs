@@ -70,11 +70,9 @@ export const Newsletter: CollectionConfig = {
           data.subscribedAt = new Date().toISOString();
           data.source = "website";
         }
-
         if (data.status === "unsubscribed" && !data.unsubscribedAt) {
           data.unsubscribedAt = new Date().toISOString();
         }
-
         return data;
       },
     ],

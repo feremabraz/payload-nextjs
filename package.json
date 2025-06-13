@@ -1,7 +1,7 @@
 {
   "name": "payload-nextjs",
   "version": "1.0.0",
-  "description": "CVZ Portugal - A Next.js application using Payload CMS.",
+  "description": "Bruno Câmara Arquitetos.",
   "license": "MIT",
   "type": "module",
   "scripts": {

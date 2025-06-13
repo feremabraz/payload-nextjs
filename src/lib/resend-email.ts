@@ -22,7 +22,6 @@ export class ResendEmailService {
   ): Promise<{ success: boolean; id?: string; error?: string }> {
     try {
       if (!process.env.RESEND_API_KEY) {
-        console.error("RESEND_API_KEY environment variable is not set");
         return { success: false, error: "Email service not configured" };
       }
 
@@ -35,11 +34,9 @@ export class ResendEmailService {
       });
 
       if (response.error) {
-        console.error("Resend API error:", response.error);
         return { success: false, error: response.error.message };
       }
 
-      console.log(`Email sent successfully with ID: ${response.data?.id}`);
       return { success: true, id: response.data?.id };
     } catch (error) {
       console.error("Failed to send email:", error);

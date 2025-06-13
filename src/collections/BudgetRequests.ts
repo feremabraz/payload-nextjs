@@ -88,7 +88,6 @@ export const BudgetRequests: CollectionConfig = {
   hooks: {
     beforeChange: [
       ({ data }) => {
-        // Add server timestamp
         if (!data.id) {
           data.submittedAt = new Date().toISOString();
         }

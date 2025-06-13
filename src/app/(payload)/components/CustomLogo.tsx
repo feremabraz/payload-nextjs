@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 
 export default function CustomLogo() {
@@ -17,7 +18,6 @@ export default function CustomLogo() {
     // Initial check
     checkTheme();
 
-    // Listen for theme changes
     const observer = new MutationObserver(checkTheme);
     observer.observe(document.documentElement, {
       attributes: true,

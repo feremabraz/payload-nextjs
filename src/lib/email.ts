@@ -2,7 +2,6 @@ import type { Payload } from "payload";
 import { getPayload } from "payload";
 import config from "../payload.config";
 
-// Email templates
 export interface EmailTemplate {
   to: string;
   subject: string;
@@ -10,7 +9,6 @@ export interface EmailTemplate {
   text?: string;
 }
 
-// Newsletter subscription confirmation email
 export const createNewsletterWelcomeEmail = (email: string): EmailTemplate => ({
   to: email,
   subject: "Welcome to CVZ Portugal Newsletter",
@@ -45,7 +43,6 @@ export const createNewsletterWelcomeEmail = (email: string): EmailTemplate => ({
   `,
 });
 
-// Job application received confirmation email
 export const createJobApplicationConfirmationEmail = (
   applicantName: string,
   applicantEmail: string,
@@ -94,7 +91,6 @@ export const createJobApplicationConfirmationEmail = (
   `,
 });
 
-// Budget request confirmation email
 export const createBudgetRequestConfirmationEmail = (
   clientName: string,
   clientEmail: string,
@@ -144,7 +140,6 @@ export const createBudgetRequestConfirmationEmail = (
   `,
 });
 
-// Email service class
 export class EmailService {
   private payload: Payload | null = null;
 
@@ -158,15 +153,12 @@ export class EmailService {
   async sendEmail(template: EmailTemplate): Promise<boolean> {
     try {
       const payload = await this.getPayloadInstance();
-
       await payload.sendEmail({
         to: template.to,
         subject: template.subject,
         html: template.html,
         text: template.text,
       });
-
-      console.log(`Email sent successfully to ${template.to}`);
       return true;
     } catch (error) {
       console.error("Failed to send email:", error);
@@ -194,5 +186,4 @@ export class EmailService {
   }
 }
 
-// Export a singleton instance
 export const emailService = new EmailService();

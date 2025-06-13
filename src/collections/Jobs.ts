@@ -275,7 +275,6 @@ export const Jobs: CollectionConfig = {
   hooks: {
     beforeChange: [
       ({ data }) => {
-        // Auto-generate slug from title if not provided
         if (!data.slug && data.title) {
           data.slug = data.title
             .toLowerCase()
