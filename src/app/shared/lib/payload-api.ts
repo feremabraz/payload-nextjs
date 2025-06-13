@@ -133,11 +133,6 @@ export async function getProjectBySlug(slug: string) {
 }
 
 function transformProject(project: Project) {
-  const gallery =
-    project.gallery?.map((item) =>
-      transformMediaUrl(typeof item.image === "object" ? item.image : null),
-    ) || [];
-
   return {
     id: project.id.toString(),
     imageUrl: transformMediaUrl(project.featuredImage),
@@ -153,6 +148,5 @@ function transformProject(project: Project) {
     projectSize: project.projectSize,
     category: project.category,
     slug: project.slug,
-    images: gallery,
   };
 }

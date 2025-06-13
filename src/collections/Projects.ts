@@ -32,20 +32,6 @@ export const Projects: CollectionConfig = {
       required: false, // Made optional for seeding without media
     },
     {
-      name: "gallery",
-      type: "array",
-      fields: [
-        {
-          name: "image",
-          type: "upload",
-          relationTo: "media",
-          required: true,
-        },
-      ],
-      minRows: 1,
-      maxRows: 20,
-    },
-    {
       name: "category",
       type: "select",
       options: [

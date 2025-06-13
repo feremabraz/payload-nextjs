@@ -4,9 +4,9 @@ import { notFound } from "next/navigation";
 import { getPayload } from "payload";
 
 import ProjectCustomNavigation from "@navigation/project-custom-navigation";
-import ProjectImagesSection from "@projects/project-images-section";
 import { getProjectBySlug } from "@shared-lib/payload-api";
 import FooterSection from "@shared/footer-section";
+import { RichTextRenderer } from "@shared/rich-text-renderer";
 import { SectionContainer } from "@shared/section-container";
 
 import config from "@/payload.config";
@@ -85,7 +85,14 @@ export default async function ProjectPage({ params }: PageProps) {
           </div>
         </div>
       </SectionContainer>
-      <ProjectImagesSection images={project.images} title={project.title} />
+
+      {/* Rich text content with inline images */}
+      <SectionContainer width="container" variant="default">
+        <div className="max-w-4xl mx-auto">
+          <RichTextRenderer content={project.content} />
+        </div>
+      </SectionContainer>
+
       <FooterSection locale={locale} />
     </>
   );

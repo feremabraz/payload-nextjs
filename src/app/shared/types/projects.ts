@@ -17,7 +17,6 @@ export interface ProjectItem {
   projectType: string;
   client: string;
   projectSize: string;
-  images: string[];
 }
 
 export interface Project {
@@ -34,5 +33,4 @@ export interface Project {
   projectSize: string;
   category: ProjectCategory;
   slug: string;
-  images: string[];
 }

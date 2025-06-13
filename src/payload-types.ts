@@ -232,12 +232,6 @@ export interface Project {
     [k: string]: unknown;
   };
   featuredImage?: (number | null) | Media;
-  gallery?:
-    | {
-        image: number | Media;
-        id?: string | null;
-      }[]
-    | null;
   category: 'houses' | 'interior-design' | 'buildings' | 'corporative';
   location: string;
   year: number;
@@ -1089,12 +1083,6 @@ export interface ProjectsSelect<T extends boolean = true> {
   description?: T;
   content?: T;
   featuredImage?: T;
-  gallery?:
-    | T
-    | {
-        image?: T;
-        id?: T;
-      };
   category?: T;
   location?: T;
   year?: T;
