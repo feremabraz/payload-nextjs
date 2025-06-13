@@ -1,3 +1,5 @@
+import type { Media } from "@/payload-types";
+import Image from "next/image";
 import type React from "react";
 
 interface RichTextNode {
@@ -15,6 +17,12 @@ interface RichTextNode {
   listType?: string;
   url?: string;
   newTab?: boolean;
+  value?:
+    | {
+        id: number | string;
+      }
+    | Media;
+  relationTo?: string;
 }
 
 interface RichTextRoot {
@@ -26,8 +34,35 @@ interface RichTextRendererProps {
   className?: string;
 }
 
+// Helper function to transform media URL
+function getMediaUrl(media: Media): string {
+  return media.url || "/placeholder-image.jpg";
+}
+
 function renderNode(node: RichTextNode, key: string | number): React.ReactNode {
   if (!node) return null;
+
+  // Handle upload/media nodes inline
+  if (node.type === "upload" && node.relationTo === "media" && node.value) {
+    if (typeof node.value === "object" && "url" in node.value) {
+      const media = node.value as Media;
+      return (
+        <div key={key} className="my-6">
+          <div className="relative w-full h-[60vh]">
+            <Image
+              src={getMediaUrl(media)}
+              alt={media.alt || "Blog image"}
+              fill
+              className="object-cover rounded-lg"
+              quality={90}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+            />
+          </div>
+        </div>
+      );
+    }
+    return null;
+  }
 
   // Text node
   if (node.type === "text" && node.text) {
