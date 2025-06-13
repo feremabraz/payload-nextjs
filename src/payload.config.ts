@@ -32,6 +32,33 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    meta: {
+      title: "Bruno Câmara Arquitetos",
+      description: "BCA Content Management System",
+      icons: [
+        {
+          rel: "icon",
+          type: "image/svg+xml",
+          url: "/favicon.svg",
+        },
+        {
+          rel: "icon",
+          type: "image/x-icon",
+          url: "/favicon.ico",
+        },
+        {
+          rel: "apple-touch-icon",
+          type: "image/png",
+          url: "/apple-touch-icon.png",
+        },
+      ],
+    },
+    components: {
+      graphics: {
+        Logo: "./app/(payload)/components/CustomLogo",
+        Icon: "./app/(payload)/components/CustomIcon",
+      },
+    },
   },
   collections: [
     Users,

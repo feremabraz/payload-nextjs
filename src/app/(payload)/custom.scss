@@ -1,0 +1,23 @@
+@import '~@payloadcms/ui/scss';
+
+/* Overriding Payload with brand colors */
+@layer payload-default {
+
+  .nav__brand img {
+    filter: brightness(0) invert(1); /* Makes dark logo white for dark sidebar */
+  }
+
+  /* Dark mode support */
+  [data-theme="dark"] {
+    .nav__brand img {
+      filter: none; /* Remove filter in dark mode if using white logo */
+    }
+  }
+
+  /* Responsive logo sizing */
+  @media (max-width: 768px) {
+    .nav__brand img {
+      height: 28px !important;
+    }
+  }
+}
