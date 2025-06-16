@@ -60,11 +60,13 @@ export function SectionContainer({
 export function SectionHeader({ title, linkHref, linkText }: SectionHeaderProps) {
   return (
     <header className="flex flex-col items-center gap-3 px-4 sm:px-0">
-      <h1 className="text-center text-8xl font-medium uppercase text-foreground">{title}</h1>
+      <h1 className="text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium uppercase text-foreground">
+        {title}
+      </h1>
       {linkHref && linkText && (
         <Link
           href={linkHref}
-          className="text-center text-xl font-normal uppercase hover:text-neutral-sub-title transition-colors duration-200 ease-in-out text-foreground"
+          className="text-center text-lg sm:text-xl font-normal uppercase hover:text-neutral-sub-title transition-colors duration-200 ease-in-out text-foreground"
         >
           {linkText}
         </Link>

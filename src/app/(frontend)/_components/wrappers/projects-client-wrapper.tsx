@@ -25,8 +25,12 @@ export default function ProjectsClientWrapper({ initialProjects }: ProjectsClien
     return (
       <SectionContainer width="container" variant="loose">
         <div className="mb-8 md:mb-10 text-center">
-          <h2 className="text-3xl text-foreground">BRUNO CÂMERA ARQUITETOS</h2>
-          <h1 className="font-semibold text-8xl text-foreground">PROJECTS</h1>
+          <h2 className="text-xl sm:text-2xl md:text-3xl text-foreground">
+            BRUNO CÂMERA ARQUITETOS
+          </h2>
+          <h1 className="font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground">
+            PROJECTS
+          </h1>
         </div>
         <EmptyState
           icon={<Building2 size={64} />}
@@ -47,8 +51,10 @@ export default function ProjectsClientWrapper({ initialProjects }: ProjectsClien
   return (
     <SectionContainer width="container" variant="loose">
       <div className="mb-8 md:mb-10 text-center">
-        <h2 className="text-3xl text-foreground">BRUNO CÂMERA ARQUITETOS</h2>
-        <h1 className="font-semibold text-8xl text-foreground">PROJECTS</h1>
+        <h2 className="text-xl sm:text-2xl md:text-3xl text-foreground">BRUNO CÂMERA ARQUITETOS</h2>
+        <h1 className="font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground">
+          PROJECTS
+        </h1>
       </div>
       <ProjectFilter selectedCategory={selectedCategory} onCategoryChange={setSelectedCategory} />
       {selectedProjects.length === 0 ? (

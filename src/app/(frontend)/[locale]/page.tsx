@@ -20,7 +20,6 @@ export default async function HomePage(props: { params: Promise<{ locale: string
   const params = await props.params;
   const { locale } = params;
 
-  // Enable static rendering
   setRequestLocale(locale);
 
   const headers = await getHeaders();

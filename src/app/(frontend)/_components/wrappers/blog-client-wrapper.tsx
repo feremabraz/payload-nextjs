@@ -27,8 +27,10 @@ export default function BlogClientWrapper({ initialPosts }: BlogClientWrapperPro
     return (
       <SectionContainer width="container" variant="loose">
         <div className="mb-8 md:mb-10 text-center">
-          <h2 className="text-3xl text-foreground">{t("company.name")}</h2>
-          <h1 className="font-semibold text-8xl text-foreground">{t("navigation.blog")}</h1>
+          <h2 className="text-xl sm:text-2xl md:text-3xl text-foreground">{t("company.name")}</h2>
+          <h1 className="font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground">
+            {t("navigation.blog")}
+          </h1>
         </div>
         <EmptyState
           icon={<PenTool size={64} />}
@@ -49,8 +51,10 @@ export default function BlogClientWrapper({ initialPosts }: BlogClientWrapperPro
   return (
     <SectionContainer width="container" variant="loose">
       <div className="mb-8 md:mb-10 text-center">
-        <h2 className="text-3xl text-foreground">{t("company.name")}</h2>
-        <h1 className="font-semibold text-8xl text-foreground">{t("navigation.blog")}</h1>
+        <h2 className="text-xl sm:text-2xl md:text-3xl text-foreground">{t("company.name")}</h2>
+        <h1 className="font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground">
+          {t("navigation.blog")}
+        </h1>
       </div>
       <BlogFilter selectedCategory={selectedCategory} onCategoryChange={setSelectedCategory} />
       {selectedPosts.length === 0 ? (

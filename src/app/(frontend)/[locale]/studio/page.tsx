@@ -33,8 +33,12 @@ export default async function StudioPage(props: { params: Promise<{ locale: stri
       <NavigationSection />
       <SectionContainer width="container" variant="loose">
         <div className="text-center">
-          <h2 className="text-3xl text-foreground">{t("studio.companyName")}</h2>
-          <h1 className="font-semibold text-8xl text-foreground">{t("studio.pageTitle")}</h1>
+          <h2 className="text-xl sm:text-2xl md:text-3xl text-foreground">
+            {t("studio.companyName")}
+          </h2>
+          <h1 className="font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground">
+            {t("studio.pageTitle")}
+          </h1>
         </div>
         <div id="values">
           <ValuesMissionSection locale={locale} />

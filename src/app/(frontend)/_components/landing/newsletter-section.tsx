@@ -49,7 +49,7 @@ export default function NewsletterSection({ locale }: NewsletterSectionProps) {
     <SectionContainer>
       <div className="w-full max-w-md mx-auto px-4 sm:px-0">
         <header className="mb-8 md:mb-10 text-center">
-          <h1 className="text-center font-medium uppercase text-8xl mb-4 md:mb-6 text-foreground">
+          <h1 className="text-center font-medium uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-4 md:mb-6 text-foreground">
             {t("newsletter.title")}
           </h1>
           <p className="text-sm md:text-base lg:text-lg max-w-prose mx-auto px-4 text-start text-foreground">
