@@ -8,7 +8,7 @@ import { cn } from "@shared-utilities/utils";
 import { useAtom } from "jotai";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 interface LanguageSwitcherProps {
   background?: "light" | "dark";
@@ -77,14 +77,14 @@ export function LanguageSwitcher({ background }: LanguageSwitcherProps) {
   const styles = getStyles();
 
   return (
-    <div className={cn("flex items-center", styles.container)}>
+    <div className={cn("flex items-center space-x-1", styles.container)}>
       {languages.map((lang, index) => (
-        <div key={lang.id}>
+        <React.Fragment key={lang.id}>
           <Button
             variant="ghost"
-            size="default"
+            size="sm"
             className={cn(
-              "px-3 py-2 text-lg sm:text-base font-medium",
+              "px-2 py-1 text-sm md:text-base font-medium min-h-0 h-8",
               styles.hoverBg,
               styles.hoverText,
               "transition-colors duration-200 ease-in-out",
@@ -98,9 +98,9 @@ export function LanguageSwitcher({ background }: LanguageSwitcherProps) {
             {lang.label}
           </Button>
           {index < languages.length - 1 && (
-            <span className={cn("text-lg sm:text-base mx-1", styles.separator)}>|</span>
+            <span className={cn("text-sm md:text-base", styles.separator)}>|</span>
           )}
-        </div>
+        </React.Fragment>
       ))}
     </div>
   );
