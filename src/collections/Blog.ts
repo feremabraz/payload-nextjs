@@ -14,16 +14,19 @@ export const Blog: CollectionConfig = {
       name: "title",
       type: "text",
       required: true,
+      localized: true,
     },
     {
       name: "description",
       type: "textarea",
       required: true,
+      localized: true,
     },
     {
       name: "content",
       type: "richText",
       required: true,
+      localized: true,
     },
     {
       name: "featuredImage",

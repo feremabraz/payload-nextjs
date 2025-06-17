@@ -1,3 +1,4 @@
+import type { Locale } from "@/types/locale";
 import { getPublications } from "@actions/publications";
 import { Link } from "@i18n/navigation";
 import type { Publication } from "@payload-types";
@@ -6,7 +7,7 @@ import { SectionContainer } from "@shared/section-container";
 import { getTranslations } from "next-intl/server";
 
 interface PublicationsSectionProps {
-  locale: string;
+  locale: Locale;
 }
 
 export default async function PublicationsSection({ locale }: PublicationsSectionProps) {

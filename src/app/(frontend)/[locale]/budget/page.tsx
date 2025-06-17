@@ -2,6 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import { headers as getHeaders } from "next/headers.js";
 import { getPayload } from "payload";
 
+import type { Locale } from "@/types/locale";
 import BudgetRequestWithImageSection from "@budget/budget-request-with-image-section";
 import NavigationSection from "@navigation/navigation-section";
 import FooterSection from "@shared/footer-section";
@@ -14,8 +15,11 @@ export default async function BudgetPage(props: { params: Promise<{ locale: stri
   const params = await props.params;
   const { locale } = params;
 
+  // Type guard to ensure locale is valid
+  const validLocale: Locale = locale === "en" || locale === "pt" ? (locale as Locale) : "en";
+
   // Enable static rendering
-  setRequestLocale(locale);
+  setRequestLocale(validLocale);
 
   const headers = await getHeaders();
   const payloadConfig = await config;
@@ -26,10 +30,10 @@ export default async function BudgetPage(props: { params: Promise<{ locale: stri
     <>
       <NavigationSection />
       <SectionContainer width="container" variant="loose">
-        <BudgetRequestWithImageSection locale={locale} />
-        <TestimonialsSection locale={locale} />
+        <BudgetRequestWithImageSection locale={validLocale} />
+        <TestimonialsSection locale={validLocale} />
       </SectionContainer>
-      <FooterSection locale={locale} />
+      <FooterSection locale={validLocale} />
     </>
   );
 }

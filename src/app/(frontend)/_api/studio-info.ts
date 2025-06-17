@@ -1,8 +1,9 @@
+import type { Locale } from "@/types/locale";
 import { getPayload } from "payload";
 import type { StudioInfo } from "../../../payload-types";
 import config from "../../../payload.config";
 
-export async function getStudioInfo(): Promise<StudioInfo[]> {
+export async function getStudioInfo(locale: Locale = "en"): Promise<StudioInfo[]> {
   const payload = await getPayload({ config });
 
   const studioSections = await payload.find({
@@ -13,6 +14,7 @@ export async function getStudioInfo(): Promise<StudioInfo[]> {
       },
     },
     sort: "order", // Order field for custom sorting
+    locale,
   });
 
   return studioSections.docs;

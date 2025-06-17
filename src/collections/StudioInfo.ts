@@ -17,6 +17,7 @@ export const StudioInfo: CollectionConfig = {
       name: "title",
       type: "text",
       required: true,
+      localized: true,
       admin: {
         description: "Section title (e.g., 'Values', 'Team', 'Studio')",
       },
@@ -25,6 +26,7 @@ export const StudioInfo: CollectionConfig = {
       name: "description",
       type: "textarea",
       required: true,
+      localized: true,
       admin: {
         description: "Detailed description of this studio aspect",
       },

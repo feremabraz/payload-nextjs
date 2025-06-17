@@ -13,6 +13,7 @@ export const ValuesAndMission: CollectionConfig = {
       name: "title",
       type: "text",
       required: true,
+      localized: true,
       admin: {
         description: "Title of the value or mission statement (e.g., 'Quality', 'Rigor')",
       },
@@ -36,6 +37,7 @@ export const ValuesAndMission: CollectionConfig = {
       name: "content",
       type: "textarea",
       required: true,
+      localized: true,
       admin: {
         description: "The main text content describing this value or mission",
         rows: 5,
@@ -44,6 +46,7 @@ export const ValuesAndMission: CollectionConfig = {
     {
       name: "summary",
       type: "text",
+      localized: true,
       admin: {
         description: "Optional short summary or tagline",
       },

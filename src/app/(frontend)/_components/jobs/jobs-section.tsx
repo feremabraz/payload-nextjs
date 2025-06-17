@@ -1,3 +1,4 @@
+import type { Locale } from "@/types/locale";
 import { getFeaturedJobs, getJobs } from "@actions/jobs";
 import { Link } from "@i18n/navigation";
 import { Button } from "@shared-ui/button";
@@ -7,7 +8,7 @@ import { getTranslations } from "next-intl/server";
 import JobCard from "./job-card";
 
 interface JobsSectionProps {
-  locale: string;
+  locale: Locale;
 }
 
 export default async function JobsSection({ locale }: JobsSectionProps) {

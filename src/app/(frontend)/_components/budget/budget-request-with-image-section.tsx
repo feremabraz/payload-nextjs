@@ -1,5 +1,6 @@
 "use client";
 
+import type { Locale } from "@/types/locale";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useFormSubmission } from "@shared-hooks/use-form-submission";
 import { FormTextAreaField, FormTextField } from "@shared-layout/react-hook-form-fields";
@@ -20,7 +21,7 @@ const budgetRequestSchema = z.object({
 type BudgetRequestFormData = z.infer<typeof budgetRequestSchema>;
 
 interface BudgetRequestWithImageSectionProps {
-  locale: string;
+  locale: Locale;
 }
 
 export default function BudgetRequestWithImageSection({

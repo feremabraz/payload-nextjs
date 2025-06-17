@@ -17,6 +17,7 @@ export const Awards: CollectionConfig = {
       name: "title",
       type: "text",
       required: true,
+      localized: true,
       admin: {
         description: "Award title or name",
       },
@@ -25,6 +26,7 @@ export const Awards: CollectionConfig = {
       name: "description",
       type: "text",
       required: true,
+      localized: true,
       admin: {
         description: "Brief description of the award",
       },
@@ -33,6 +35,7 @@ export const Awards: CollectionConfig = {
       name: "project",
       type: "text",
       required: true,
+      localized: true,
       admin: {
         description: "Project that received the award",
       },

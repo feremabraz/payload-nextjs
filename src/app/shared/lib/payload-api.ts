@@ -1,5 +1,14 @@
-import type { Blog, Media, Project } from "@/payload-types";
+import type {
+  Award,
+  Blog,
+  Media,
+  Project,
+  StudioInfo,
+  TeamMember,
+  ValuesAndMission,
+} from "@/payload-types";
 import config from "@/payload.config";
+import type { Locale } from "@/types/locale";
 import { type Payload, getPayload } from "payload";
 
 // Cache the payload instance
@@ -29,7 +38,7 @@ export function transformMediaUrl(media: string | number | Media | null | undefi
 }
 
 // Blog API functions
-export async function getBlogPosts(limit?: number, category?: string) {
+export async function getBlogPosts(limit?: number, category?: string, locale: Locale = "en") {
   const payload = await getPayloadInstance();
 
   const where: { published: { equals: boolean }; category?: { equals: string } } = {
@@ -46,12 +55,13 @@ export async function getBlogPosts(limit?: number, category?: string) {
     limit: limit || 50,
     sort: "-date",
     where,
+    locale,
   });
 
-  return result.docs.map(transformBlogPost);
+  return result.docs.map((post) => transformBlogPost(post));
 }
 
-export async function getBlogPostBySlug(slug: string) {
+export async function getBlogPostBySlug(slug: string, locale: Locale = "en") {
   const payload = await getPayloadInstance();
 
   const result = await payload.find({
@@ -62,6 +72,7 @@ export async function getBlogPostBySlug(slug: string) {
       slug: { equals: slug },
       published: { equals: true },
     },
+    locale,
   });
 
   if (result.docs.length === 0) {
@@ -90,7 +101,7 @@ function transformBlogPost(post: Blog) {
 }
 
 // Projects API functions
-export async function getProjects(limit?: number, category?: string) {
+export async function getProjects(limit?: number, category?: string, locale: Locale = "en") {
   const payload = await getPayloadInstance();
 
   const where: { published: { equals: boolean }; category?: { equals: string } } = {
@@ -107,12 +118,13 @@ export async function getProjects(limit?: number, category?: string) {
     limit: limit || 50,
     sort: "-year",
     where,
+    locale,
   });
 
   return result.docs.map(transformProject);
 }
 
-export async function getProjectBySlug(slug: string) {
+export async function getProjectBySlug(slug: string, locale: Locale = "en") {
   const payload = await getPayloadInstance();
 
   const result = await payload.find({
@@ -123,6 +135,7 @@ export async function getProjectBySlug(slug: string) {
       slug: { equals: slug },
       published: { equals: true },
     },
+    locale,
   });
 
   if (result.docs.length === 0) {
@@ -148,5 +161,143 @@ function transformProject(project: Project) {
     projectSize: project.projectSize,
     category: project.category,
     slug: project.slug,
+  };
+}
+
+// Awards API functions
+export async function getAwards(limit?: number, locale: Locale = "en") {
+  const payload = await getPayloadInstance();
+
+  const result = await payload.find({
+    collection: "awards",
+    depth: 1,
+    limit: limit || 50,
+    sort: "-year",
+    where: {
+      published: { equals: true },
+    },
+    locale,
+  });
+
+  return result.docs.map(transformAward);
+}
+
+function transformAward(award: Award) {
+  return {
+    id: award.id.toString(),
+    title: award.title,
+    description: award.description,
+    project: award.project,
+    location: award.location,
+    year: award.year,
+    imageUrl: transformMediaUrl(award.awardImage),
+    altText: (typeof award.awardImage === "object" && award.awardImage?.alt) || award.title,
+    featured: award.featured || false,
+  };
+}
+
+// Studio Info API functions
+export async function getStudioInfo(locale: Locale = "en") {
+  const payload = await getPayloadInstance();
+
+  const result = await payload.find({
+    collection: "studio-info",
+    depth: 1,
+    sort: "order",
+    where: {
+      published: { equals: true },
+    },
+    locale,
+  });
+
+  return result.docs.map(transformStudioInfo);
+}
+
+function transformStudioInfo(info: StudioInfo) {
+  return {
+    id: info.id.toString(),
+    title: info.title,
+    description: info.description,
+    imageUrl: transformMediaUrl(info.image),
+    altText: (typeof info.image === "object" && info.image?.alt) || info.title,
+    order: info.order || 0,
+  };
+}
+
+// Team Members API functions
+export async function getTeamMembers(locale: Locale = "en") {
+  const payload = await getPayloadInstance();
+
+  const result = await payload.find({
+    collection: "team-members",
+    depth: 1,
+    sort: "order",
+    where: {
+      published: { equals: true },
+    },
+    locale,
+  });
+
+  return result.docs.map(transformTeamMember);
+}
+
+function transformTeamMember(member: TeamMember) {
+  return {
+    id: member.id.toString(),
+    name: member.name,
+    role: member.role,
+    bio: member.bio,
+    interests: member.interests,
+    imageUrl: transformMediaUrl(member.profileImage),
+    altText: (typeof member.profileImage === "object" && member.profileImage?.alt) || member.name,
+    order: member.order || 0,
+  };
+}
+
+// Values and Mission API functions
+export async function getValuesAndMission(limit?: number, locale: Locale = "en") {
+  const payload = await getPayloadInstance();
+
+  const result = await payload.find({
+    collection: "values-and-mission",
+    depth: 1,
+    limit: limit || 50,
+    sort: "order",
+    where: {
+      published: { equals: true },
+    },
+    locale,
+  });
+
+  return result.docs.map(transformValuesAndMission);
+}
+
+export async function getFeaturedValuesAndMission(locale: Locale = "en") {
+  const payload = await getPayloadInstance();
+
+  const result = await payload.find({
+    collection: "values-and-mission",
+    depth: 1,
+    sort: "order",
+    where: {
+      published: { equals: true },
+      featuredOnHomepage: { equals: true },
+    },
+    locale,
+  });
+
+  return result.docs.map(transformValuesAndMission);
+}
+
+function transformValuesAndMission(item: ValuesAndMission) {
+  return {
+    id: item.id.toString(),
+    title: item.title,
+    type: item.type,
+    content: item.content,
+    summary: item.summary,
+    icon: item.icon,
+    order: item.order || 0,
+    featuredOnHomepage: item.featuredOnHomepage || false,
   };
 }

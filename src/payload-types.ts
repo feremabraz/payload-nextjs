@@ -114,7 +114,7 @@ export interface Config {
   };
   globals: {};
   globalsSelect: {};
-  locale: null;
+  locale: 'en' | 'pt';
   user: User & {
     collection: 'users';
   };

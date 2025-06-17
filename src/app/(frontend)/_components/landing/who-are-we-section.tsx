@@ -1,9 +1,10 @@
+import type { Locale } from "@/types/locale";
 import { Link } from "@i18n/navigation";
 import { SectionContainer } from "@shared/section-container";
 import { getTranslations } from "next-intl/server";
 
 interface WhoAreWeSectionProps {
-  locale: string;
+  locale: Locale;
 }
 
 export default async function WhoAreWeSection({ locale }: WhoAreWeSectionProps) {

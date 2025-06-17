@@ -1,3 +1,4 @@
+import type { Locale } from "@/types/locale";
 import { Link } from "@i18n/navigation";
 import { ProjectImageCard } from "@projects/project-image-card";
 import { getProjects } from "@shared-lib/payload-api";
@@ -10,12 +11,12 @@ import { Building2 } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 interface ProjectsSectionProps {
-  locale: string;
+  locale: Locale;
 }
 
 export default async function ProjectsSection({ locale }: ProjectsSectionProps) {
   const t = await getTranslations({ locale });
-  const projects = await getProjects(8);
+  const projects = await getProjects(8, undefined, locale);
 
   if (projects.length === 0) {
     return (

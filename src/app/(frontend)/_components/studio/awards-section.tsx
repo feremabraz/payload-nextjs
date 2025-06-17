@@ -1,3 +1,4 @@
+import type { Locale } from "@/types/locale";
 import { getAwards } from "@actions/awards";
 import { EmptyState } from "@shared/empty-state";
 import { SectionContainer } from "@shared/section-container";
@@ -6,12 +7,12 @@ import { Trophy } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 interface AwardsSectionProps {
-  locale: string;
+  locale: Locale;
 }
 
 export default async function AwardsSection({ locale }: AwardsSectionProps) {
   const t = await getTranslations({ locale });
-  const awards = await getAwards();
+  const awards = await getAwards(locale);
 
   if (awards.length === 0) {
     return (

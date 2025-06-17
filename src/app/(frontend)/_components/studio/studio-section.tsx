@@ -1,3 +1,4 @@
+import type { Locale } from "@/types/locale";
 import { getStudioInfo } from "@actions/studio-info";
 import NavigationSection from "@navigation/navigation-section";
 import type { Media, StudioInfo } from "@payload-types";
@@ -8,12 +9,12 @@ import { Building2 } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 interface StudioSectionProps {
-  locale: string;
+  locale: Locale;
 }
 
 export default async function StudioSection({ locale }: StudioSectionProps) {
   const t = await getTranslations({ locale });
-  const studioData = await getStudioInfo();
+  const studioData = await getStudioInfo(locale);
 
   if (studioData.length === 0) {
     return (

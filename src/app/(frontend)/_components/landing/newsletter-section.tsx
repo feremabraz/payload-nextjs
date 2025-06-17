@@ -1,5 +1,6 @@
 "use client";
 
+import type { Locale } from "@/types/locale";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useFormSubmission } from "@shared-hooks/use-form-submission";
 import { FormTextField } from "@shared-layout/react-hook-form-fields";
@@ -17,7 +18,7 @@ const newsletterSchema = z.object({
 type NewsletterFormData = z.infer<typeof newsletterSchema>;
 
 interface NewsletterSectionProps {
-  locale: string;
+  locale: Locale;
 }
 
 export default function NewsletterSection({ locale }: NewsletterSectionProps) {

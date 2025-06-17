@@ -1,3 +1,4 @@
+import type { Locale } from "@/types/locale";
 import { getCompanyValues } from "@actions/values-and-mission";
 import { EmptyState } from "@shared/empty-state";
 import { SectionContainer } from "@shared/section-container";
@@ -5,12 +6,12 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
 interface ValuesMissionSectionProps {
-  locale: string;
+  locale: Locale;
 }
 
 export default async function ValuesMissionSection({ locale }: ValuesMissionSectionProps) {
   const t = await getTranslations({ locale });
-  const values = await getCompanyValues();
+  const values = await getCompanyValues(locale);
   return (
     <SectionContainer variant="default" width="container">
       <section className="flex flex-col items-center gap-8 md:gap-12 w-full">

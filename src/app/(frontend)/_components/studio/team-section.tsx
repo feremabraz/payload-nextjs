@@ -1,3 +1,4 @@
+import type { Locale } from "@/types/locale";
 import { getTeamMembers } from "@actions/team-members";
 import { EmptyState } from "@shared/empty-state";
 import { SectionContainer } from "@shared/section-container";
@@ -7,12 +8,12 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
 interface TeamSectionProps {
-  locale: string;
+  locale: Locale;
 }
 
 export default async function TeamSection({ locale }: TeamSectionProps) {
   const t = await getTranslations({ locale });
-  const teamMembers = await getTeamMembers();
+  const teamMembers = await getTeamMembers(locale);
 
   if (teamMembers.length === 0) {
     return (

@@ -3,6 +3,7 @@ import { getPayload } from "payload";
 
 import { SectionContainer } from "@shared/section-container";
 
+import type { Locale } from "@/types/locale";
 import NavigationSection from "@navigation/navigation-section";
 import FooterSection from "@shared/footer-section";
 import TestimonialsSection from "@shared/testimonial-section";
@@ -19,14 +20,17 @@ export default async function StudioPage(props: { params: Promise<{ locale: stri
   const params = await props.params;
   const { locale } = params;
 
+  // Type guard to ensure locale is valid
+  const validLocale: Locale = locale === "en" || locale === "pt" ? (locale as Locale) : "en";
+
   // Enable static rendering
-  setRequestLocale(locale);
+  setRequestLocale(validLocale);
 
   const headers = await getHeaders();
   const payloadConfig = await config;
   const payload = await getPayload({ config: payloadConfig });
   const { user: _user } = await payload.auth({ headers });
-  const t = await getTranslations({ locale });
+  const t = await getTranslations({ locale: validLocale });
 
   return (
     <>
@@ -41,21 +45,21 @@ export default async function StudioPage(props: { params: Promise<{ locale: stri
           </h1>
         </div>
         <div id="values">
-          <ValuesMissionSection locale={locale} />
+          <ValuesMissionSection locale={validLocale} />
         </div>
         <div id="profile">
-          <GuaranteesSection locale={locale} />
+          <GuaranteesSection locale={validLocale} />
         </div>
         <div id="team">
-          <TeamSection locale={locale} />
+          <TeamSection locale={validLocale} />
         </div>
         <div id="studio">
-          <AwardsSection locale={locale} />
+          <AwardsSection locale={validLocale} />
         </div>
-        <PublicationsSection locale={locale} />
-        <TestimonialsSection locale={locale} />
+        <PublicationsSection locale={validLocale} />
+        <TestimonialsSection locale={validLocale} />
       </SectionContainer>
-      <FooterSection locale={locale} />
+      <FooterSection locale={validLocale} />
     </>
   );
 }

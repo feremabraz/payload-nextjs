@@ -25,6 +25,7 @@ export const TeamMembers: CollectionConfig = {
       name: "role",
       type: "text",
       required: true,
+      localized: true,
       admin: {
         description: "Job title or role in the company",
       },
@@ -33,6 +34,7 @@ export const TeamMembers: CollectionConfig = {
       name: "bio",
       type: "textarea",
       required: true,
+      localized: true,
       admin: {
         description: "Professional biography",
       },
@@ -40,6 +42,7 @@ export const TeamMembers: CollectionConfig = {
     {
       name: "interests",
       type: "text",
+      localized: true,
       admin: {
         description: "Personal interests or hobbies (optional)",
       },

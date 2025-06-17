@@ -1,10 +1,11 @@
+import type { Locale } from "@/types/locale";
 import config from "@payload-config";
 import type { ValuesAndMission } from "@payload-types";
 import { unstable_cache } from "next/cache";
 import { getPayload } from "payload";
 
 export const getValuesAndMissionByType = unstable_cache(
-  async (type: string): Promise<ValuesAndMission[]> => {
+  async (type: string, locale: Locale = "en"): Promise<ValuesAndMission[]> => {
     const payload = await getPayload({ config });
     const content = await payload.find({
       collection: "values-and-mission",
@@ -13,6 +14,7 @@ export const getValuesAndMissionByType = unstable_cache(
       },
       sort: "order",
       limit: 50,
+      locale,
     });
     return content.docs;
   },
@@ -24,13 +26,14 @@ export const getValuesAndMissionByType = unstable_cache(
 );
 
 export const getAllValuesAndMission = unstable_cache(
-  async (): Promise<ValuesAndMission[]> => {
+  async (locale: Locale = "en"): Promise<ValuesAndMission[]> => {
     const payload = await getPayload({ config });
     const content = await payload.find({
       collection: "values-and-mission",
       where: { published: { equals: true } },
       sort: "order",
       limit: 100,
+      locale,
     });
     return content.docs;
   },
@@ -42,7 +45,7 @@ export const getAllValuesAndMission = unstable_cache(
 );
 
 export const getFeaturedValuesAndMission = unstable_cache(
-  async (): Promise<ValuesAndMission[]> => {
+  async (locale: Locale = "en"): Promise<ValuesAndMission[]> => {
     const payload = await getPayload({ config });
     const content = await payload.find({
       collection: "values-and-mission",
@@ -51,6 +54,7 @@ export const getFeaturedValuesAndMission = unstable_cache(
       },
       sort: "order",
       limit: 10,
+      locale,
     });
     return content.docs;
   },
@@ -61,7 +65,11 @@ export const getFeaturedValuesAndMission = unstable_cache(
   },
 );
 
-export const getCompanyValues = () => getValuesAndMissionByType("value");
-export const getMissionStatements = () => getValuesAndMissionByType("mission");
-export const getVisionStatements = () => getValuesAndMissionByType("vision");
-export const getCompanyPrinciples = () => getValuesAndMissionByType("principle");
+export const getCompanyValues = (locale: Locale = "en") =>
+  getValuesAndMissionByType("value", locale);
+export const getMissionStatements = (locale: Locale = "en") =>
+  getValuesAndMissionByType("mission", locale);
+export const getVisionStatements = (locale: Locale = "en") =>
+  getValuesAndMissionByType("vision", locale);
+export const getCompanyPrinciples = (locale: Locale = "en") =>
+  getValuesAndMissionByType("principle", locale);

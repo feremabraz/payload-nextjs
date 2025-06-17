@@ -1,3 +1,4 @@
+import type { Locale } from "@/types/locale";
 import { getTestimonials } from "@actions/testimonials";
 import type { Testimonial } from "@payload-types";
 import { EmptyState } from "@shared/empty-state";
@@ -24,7 +25,7 @@ function getTestimonialColumns(testimonials: Testimonial[]) {
 }
 
 interface TestimonialsSectionProps {
-  locale: string;
+  locale: Locale;
 }
 
 export default async function TestimonialsSection({ locale }: TestimonialsSectionProps) {

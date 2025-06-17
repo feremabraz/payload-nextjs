@@ -14,16 +14,19 @@ export const Projects: CollectionConfig = {
       name: "title",
       type: "text",
       required: true,
+      localized: true,
     },
     {
       name: "description",
       type: "textarea",
       required: true,
+      localized: true,
     },
     {
       name: "content",
       type: "richText",
       required: true,
+      localized: true,
     },
     {
       name: "featuredImage",
@@ -68,11 +71,13 @@ export const Projects: CollectionConfig = {
       name: "projectType",
       type: "text",
       required: true,
+      localized: true,
     },
     {
       name: "client",
       type: "text",
       required: true,
+      localized: true,
     },
     {
       name: "projectSize",

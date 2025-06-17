@@ -1,3 +1,4 @@
+import type { Locale } from "@/types/locale";
 import { getStudioInfo } from "@actions/studio-info";
 import type { Media } from "@payload-types";
 import { EmptyState } from "@shared/empty-state";
@@ -5,8 +6,12 @@ import { SectionContainer } from "@shared/section-container";
 import { StudioCard } from "@studio/studio-card";
 import { Building2 } from "lucide-react";
 
-export default async function StudioInfoSection() {
-  const studioData = await getStudioInfo();
+interface StudioInfoSectionProps {
+  locale: Locale;
+}
+
+export default async function StudioInfoSection({ locale }: StudioInfoSectionProps) {
+  const studioData = await getStudioInfo(locale);
 
   if (studioData.length === 0) {
     return (

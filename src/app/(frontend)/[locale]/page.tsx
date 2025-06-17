@@ -3,6 +3,7 @@ import { headers as getHeaders } from "next/headers.js";
 import { getPayload } from "payload";
 import React from "react";
 
+import type { Locale } from "@/types/locale";
 import BlogNewsSection from "@blog/blog-news-section";
 import BudgetRequestSection from "@budget/budget-request-section";
 import NewsletterSection from "@components/landing/newsletter-section";
@@ -20,7 +21,10 @@ export default async function HomePage(props: { params: Promise<{ locale: string
   const params = await props.params;
   const { locale } = params;
 
-  setRequestLocale(locale);
+  // Type guard to ensure locale is valid
+  const validLocale: Locale = locale === "en" || locale === "pt" ? (locale as Locale) : "en";
+
+  setRequestLocale(validLocale);
 
   const headers = await getHeaders();
   const payloadConfig = await config;
@@ -29,16 +33,16 @@ export default async function HomePage(props: { params: Promise<{ locale: string
 
   return (
     <>
-      {/* <LocaleDebug pageLocale={locale} /> */}
+      {/* <LocaleDebug pageLocale={validLocale} /> */}
       <HeroSection />
-      <WhoAreWeSection locale={locale} />
-      <ProjectsSection locale={locale} />
-      <TestimonialsSection locale={locale} />
+      <WhoAreWeSection locale={validLocale} />
+      <ProjectsSection locale={validLocale} />
+      <TestimonialsSection locale={validLocale} />
       <BudgetRequestSection />
-      <StudioSection locale={locale} />
-      <BlogNewsSection locale={locale} />
-      <NewsletterSection locale={locale} />
-      <FooterSection locale={locale} />
+      <StudioSection locale={validLocale} />
+      <BlogNewsSection locale={validLocale} />
+      <NewsletterSection locale={validLocale} />
+      <FooterSection locale={validLocale} />
     </>
   );
 }

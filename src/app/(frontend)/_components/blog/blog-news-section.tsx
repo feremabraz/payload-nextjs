@@ -1,3 +1,4 @@
+import type { Locale } from "@/types/locale";
 import { BlogNewsPostCard } from "@blog/blog-news-card";
 import { Link } from "@i18n/navigation";
 import { getBlogPosts } from "@shared-lib/payload-api";
@@ -10,11 +11,11 @@ import { PenTool } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 interface BlogNewsSectionProps {
-  locale: string;
+  locale: Locale;
 }
 
 export default async function BlogNewsSection({ locale }: BlogNewsSectionProps) {
-  const blogPosts = await getBlogPosts(4);
+  const blogPosts = await getBlogPosts(4, undefined, locale);
   const t = await getTranslations({ locale });
 
   if (blogPosts.length === 0) {
